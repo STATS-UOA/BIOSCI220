@@ -1,0 +1,27 @@
+---
+title: "Visualising and analysing multivariate data"
+author: "BIOSCI220"
+date: "Semester 1 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learing Objectives
+
+By the end of this lab student should be able to
+
+   + Discuss the aims and motivations of Multidimensional Scaling (MDS) and its relevance in biology
+   + List and summarise the three main types of MDS:
+      + classical MDS
+      + metric MDS
+      + non-metric MDS
+   + Write R code to create an MDS plot appropriate to the given dataset
+   + Interpret an MDS plot
+   + Explain the aims and motivation behind Principal Component Analysis (PCA) and its relevance in biology
+   + Write R code to carry out PCA
+   + Interpret the effectively communicate the output of a PCA
+
+## Suggested reading

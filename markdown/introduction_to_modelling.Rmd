@@ -1,0 +1,30 @@
+---
+title: "Introduction to linear modelling"
+author: "BIOSCI220"
+date: "Semester 1 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learing Objectives
+
+By the end of this lab student should be able to
+
+   + Develop a biologically relevant question of interest from the dataset and identify the following types of variables in the dataset
+      + response variable
+      + explanatory variable
+   + Express their question of interest accurately and concisely
+   + Carry out an interpret tests for the existence of relationships between explanatory variables and the response in a linear model
+   + Write R code to fit a linear model with a single continuous explanatory variable
+   + Write R code to fit a linear model with a continuous explanatory variable and a factor explanatory variable
+   + Interpret estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of
+      + the intercept
+      + the effect of a factor
+      + the effect of a one-unit increase in a numeric variable
+      + the effect of an x-unit increase in a numeric variable
+   + Critique the fitted model
+
+## Suggested reading

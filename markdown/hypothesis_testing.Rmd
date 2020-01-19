@@ -1,0 +1,38 @@
+---
+title: "Hypothesis Testing"
+author: "BIOSCI220"
+date: "Semester 1 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learing Objectives
+
+By the end of this lab students should be able to
+
+   + List appropriate questions posed by the biological questions and outline an appropriate hypothesis test that would answer it
+   + Describe the aims of the following hypothesis tests
+      + one-sample t-test
+      + two-sample t-test
+      + randomization test
+  + List the aims of hypothesis testing and write out the appropriate null and alternative hypothesis using statistical notation
+  + Write R code to carry out an hypothesis test using the appropriate variables in their dataset. Specifically write R code to carry out
+     + one-sample t-test
+     + two-sample t-test
+     + randomization test
+  + Interpret and communicate the findings of an hypothesis test accurately and concisely
+  + List the limitations of the hypothesis in relation to the questions posed by the data
+
+## Suggested reading
+
+## Motivation
+
+
+## Differences between means
+
+## Randomization test
+
+## Application to the mussel dataset

@@ -1,0 +1,29 @@
+---
+title: "Experimental design"
+author: "BIOSCI220"
+date: "Semester 1 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learing Objectives
+
+By the end of this lab student should be able to
+
+   + Describe the setup of the following experimental designs
+       + independent measures
+       + repeated measures
+       + matched pairs
+   + Identify the type of design used in the given case studies
+   + Discuss the advantages and disadvantages of different design types
+   + Critique experimental designs used in the the given case studies
+   + Design an experiment that follows good experimental design principles
+
+
+## Suggested reading
+
+
+## Interactive experiment in lab
