@@ -10,9 +10,9 @@ Repo for the statistical material for BIOSCI220, semester 1 2020.
 
 **Labs**. Lecture material is provided online.  Lab attendance is not compulsory. Students must sign up for one lab (in which they are guaranteed a space), but may attend more than one lab per week, space permitting. Any student may attend any tutorial session (immediately after the lab).
 
- + Tuesday: Lab 2--4pm, Tutorial 4--5pm.
- + Wednesday: Lab 10am--12pm, Tutorial 12--1pm.
- + Thursday: Lab 2--4pm, Tutorial 4--5pm.
+ + **Tuesday**: Lab 2--4pm, Tutorial 4--5pm.
+ + **Wednesday**: Lab 10am--12pm, Tutorial 12--1pm.
+ + **Thursday**: Lab 2--4pm, Tutorial 4--5pm.
 
 
 **Week 7**: Experimental design.
