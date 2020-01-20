@@ -22,3 +22,6 @@ By the end of this lab student should be able to
    + Critique the fitted model
 
 ## Suggested reading
+
+
+

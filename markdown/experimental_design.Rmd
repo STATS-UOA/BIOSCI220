@@ -27,3 +27,73 @@ By the end of this lab student should be able to
 
 
 ## Interactive experiment in lab
+
+## Randomisation
+
+Evenly distributes any variability in outcome due to outside factors across
+treatment groups
+
+Example: double-blind medical trials, neither patient nor doctor knows which group has been assigned, group assignment is made randomly by 3rd party
+
+## Replication
+
+Must repeat an experiment to fully assess variability
+If we only conduct a drug efficacy experiment on one person, how can we
+properly generalize those results? 
+
+## Blocking
+
+Helps control variability by making treatment groups more alike
+Inside of groups, differences will be minimal. Across groups, differences will be
+larger.
+One example is blocking treatment groups by sex.
+
+
+## Power and Sample size
+
+  + Power: probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true.
+  + Effect size: standardized measure of the difference you're trying to detect.
+  + Sample Size: How many experimental units you need to survey to detect the
+desired difference at the desired power.
+
+
+## Tutorial
+
+
+
+[possible experiment](https://www.physiology.org/doi/full/10.1152/advan.00033.2006)
+
+['The Knowledge'](https://www.bbc.com/news/health-16086233)
+
+[Musicians' brains fire symmetrically when they listen to music](https://www.newscientist.com/article/dn28266-musicians-brains-fire-symmetrically-when-they-listen-to-music/)
+
+In groups discuss the following for each article above.
+
+Is there a problem with the following?
+
+  + Confounding/interacting variables
+  + Placebo effect
+  + Hawthorn effect
+  + Experimenter effect
+  + Ecological validity
+  + Generalisability
+  
+### CHECK
+
+The extent or size of any claimed effects or differences
+
+How large is the observed effect?
+
+How large are the samples in each group quoted?
+
+Uncertainty expressed?
+
+## Design your own experiment
+
+Question: Do medics have better reaction time than biologists? [Test your reaction times](https://www.justpark.com/creative/reaction-time-test/) or [green light test](https://faculty.washington.edu/chudler/java/redgreen.html)
+
+
+Null Hypothesis: There is no difference.
+
+Alternative hypothesis: Medics are better?
