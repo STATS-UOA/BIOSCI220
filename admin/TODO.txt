@@ -1,0 +1,6 @@
+short intro videos to statistical words & meanings:
+  - distribution (shape of data, link to histograms)
+  - random variable
+  - statistic (calculated metric)
+  - assumptions?
+  - DAG for hypothesis... hypothesis--assumptions--probability
