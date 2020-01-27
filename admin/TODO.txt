@@ -4,3 +4,6 @@ short intro videos to statistical words & meanings:
   - statistic (calculated metric)
   - assumptions?
   - DAG for hypothesis... hypothesis--assumptions--probability
+  + Bread example for PCA, french bread PC!, ignore PC2, 3 could be random, cobbler, flatbread.
+  + Bread and skewers exampe in class
+  + https://www.r-bloggers.com/principal-component-analysis-in-r/

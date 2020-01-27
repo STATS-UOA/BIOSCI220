@@ -2,7 +2,12 @@
 title: "Visualising and analysing multivariate data"
 author: "BIOSCI220"
 date: "Semester 1 2020"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    highlight: tango
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -25,3 +30,14 @@ By the end of this lab student should be able to
    + Interpret the effectively communicate the output of a PCA
 
 ## Suggested reading
+
+## MDS (minimizes dimensions, preserving distance between data points)
+
+## PCA (minimizes dimensions, preserving covariance of data).
+
+#### PCA is the same as MDS if the distances used in MDS are Euclidean
+
+![](../gifs/perp.gif)
+
+![](../gifs/bread_data.png)
+![](../gifs/pca.gif)
