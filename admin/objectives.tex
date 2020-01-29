@@ -1,20 +1,27 @@
 \documentclass{article}
 \usepackage{graphicx}
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage[margin=0.5in]{geometry}
 \begin{document}
 
-\title{Learning Objectives weeks 7--11, 27th April--29th May}
+\title{Course outline weeks 7--11\\ 27th April--29th May}
 \author{BIOSCI220}
 \date{}
 \maketitle
 
 
-\section*{What we assume the students are able to do}
+\section*{Students are expected to be able to}
 \begin{itemize}
 \item Identify the following types of variables in the dataset
   \begin{itemize}
   \item discrete
-a  \item continuous
+  \item continuous
   \end{itemize}
 \item Write their own R code to summarise each variable using an appropriate plot. Specifically be able to produce the following plots
   \begin{itemize}
@@ -23,28 +30,61 @@ a  \item continuous
   \item histogram
   \item barplot
   \end{itemize}
-\item Represent their data as a clean data frame in R and manipulate it accordingly (using tidyverse??)
+\item Represent their data as a clean data frame in R and manipulate it accordingly. Use of [ \& : etc.
 \item Communicate a summary of the dataset accurately and concisely
 \item Communicate any limitations relevant to the dataset
 \end{itemize}
 
+\begin{center}
+\href{https://docs.google.com/forms/d/e/1FAIpQLSfQgNKk9yBFPOwhL2zv7xttnYsuw1f-FiMaP7SSUYzM7LzTJw/viewform?usp=sf_link}{\textbf{\Large Short pre-lecture quiz}}
+\end{center}
 
 \section*{Week 7 (beginning 27th April):  Experimental design}
+\subsection*{Learning objectives}
 By the end of this lab student should be able to
 \begin{itemize}
+  \item Identify the independent and dependent variable in an experiment
 \item Describe the setup of the following experimental designs
   \begin{itemize}
   \item independent measures
   \item repeated measures
-    \item matched pairs
+  \item matched pairs
   \end{itemize}
 \item Identify the type of design used in the given case studies
-  \item Discuss the advantages and disadvantages of different design types
+\item Discuss the advantages and disadvantages of different design types
 \item Critique experimental designs used in the the given case studies
-\item Design an experiment that follows good experimental design principles (interactive experiment in lab?)
+\item Design an experiment that follows good experimental design principles
 \end{itemize}
 
-\section*{Week 8 (beginning 4th May): Visualising and analysing multivariate data}
+\subsection*{Mini lectures}
+
+\begin{itemize}
+\item What is experimental design?
+\item Variable types
+\item Experiment validity
+\item Types of experimental design
+\end{itemize}
+
+\subsection*{Lab}
+
+\begin{itemize}
+\item In groups discuss the experiments covered in these articles. Identify the following.
+  \begin{itemize}
+  \item explanatory variable
+  \item response veriable
+  \item treatment 
+  \end{itemize}
+\item Discuss the experimental design. For example, is randomisation, blinding, placebo, or matched pair design, used in the experiment?
+\item Discuss potential flaws of the experiments. For example are there any confounding or interacting vaiables?
+\item \textbf{Design and carry out your own experiment}
+  \begin{itemize}
+  \item Use this tool to test your reaction time.
+  \item Does size of the character affect your reaction time?
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Week 8 (beginning 4th May): Visualising and analysing multivariate data}
+\subsection*{Learning objectives}
 By the end of this lab student should be able to
 \begin{itemize}
 \item Discuss the aims and motivations of Multidimensional Scaling (MDS) and its relevance in biology
@@ -61,9 +101,13 @@ By the end of this lab student should be able to
   \item Interpret the effectively communicate the output of a PCA 
 \end{itemize}
 
+\subsection*{Mini lectures}
 
 
-\section*{Week 9 (beginning 11th May): Hypothesis testing}
+\subsection*{Lab}
+
+\subsection*{Week 9 (beginning 11th May): Hypothesis testing}
+\subsection*{Learning objectives}
 By the end of this lab student should be able to
 \begin{itemize}
 \item List appropriate questions posed by the biological questions and  outline an appropriate hypothesis test that would answer it
@@ -84,8 +128,14 @@ By the end of this lab student should be able to
 \item List the limitations of the hypothesis in relation to the questions posed by the data
 \end{itemize}
 
+\subsection*{Mini lectures}
+
+
+\subsection*{Lab}
+
 
 \section*{Week 10 (beginning 18th May): Introduction to linear modelling}
+\subsection*{Learning objectives}
 By the end of this lab student should be able to
 \begin{itemize}
 \item Develop a biologically relevant question of interest  from the dataset and identify the following types of variables in the dataset
@@ -107,7 +157,14 @@ By the end of this lab student should be able to
 \item Critique the fitted model
 \end{itemize}
 
-\section*{Week 11 (beginning 25th May): Modelling II}
+\subsection*{Mini lectures}
+
+
+\subsection*{Lab}
+
+
+\subsection*{Week 11 (beginning 25th May): Modelling II}
+\subsection*{Learning objectives}
 By the end of this lab student should be able to
 \begin{itemize}
 \item Write R code to fit a linear model with interaction terms in the explanatory variables
@@ -121,6 +178,9 @@ By the end of this lab student should be able to
 \item Critique the fitted model
 \end{itemize}
 
+\subsection*{Mini lectures}
 
+
+\subsection*{Lab}
 
 \end{document}
