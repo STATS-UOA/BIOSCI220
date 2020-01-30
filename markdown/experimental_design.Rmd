@@ -3,26 +3,27 @@ title: "Experimental design"
 author: "BIOSCI220"
 date: "Semester 1 2020"
 output:
-  rmdformats::readthedown:
-    self_contained: true
-    thumbnails: true
-    lightbox: true
-    gallery: false
-    highlight: tango
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+    toc_depth: 3
+    highlight: espresso
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE,fig.align = "center")
 library(animation)
 library(emoGG)
 library(ggplot2)
 ```
 
-## Learing Objectives
+# Learing Objectives
 
 By the end of this lab student should be able to
 
-   + Identify the following variables
+   + Identify the following experimental variables
       + independent variable
       + dependent variable
    + Describe the setup of the following experimental designs
@@ -33,31 +34,34 @@ By the end of this lab student should be able to
    + Discuss the advantages and disadvantages of different design types
    + Critique experimental designs used in the the given case studies
    + Design an experiment that follows good experimental design principles
+   + State in terms of probability statements the meaning of the power and significance level of an hypothesis test
 
 
-### Suggested reading
+## Suggested reading
 
-[Experimental design for biologists](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+[Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
 
-[Statistical methods in biology : design and analysis of experiments and regression](https://www.library.auckland.ac.nz/search/experimental%20design%20biology)
+[Welham, S. J. Statistical Methods in Biology : Design and Analysis of Experiments and Regression. 2015. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737830002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
 
-[An introduction to experimental design and statistics for biology](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21133208810002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+[Heath, David. An Introduction to Experimental Design and Statistics for Biology. London: UCL, 1995. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21133208810002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+
+[Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0)
 
 
-## Dependent and independent variables
+# Dependent and independent variables
 
-```{r ivdv, fig.height = 5,fig.width = 5}
+```{r ivdv}
 d <- data.frame(y = rep(3:1,times = c(6,1,3)),x = c(-1,-0.1,0.1, 0.9,1,1.1,0,-1,0,1))
 ggplot(d,aes(x = x, y = y)) + geom_emoji(data = d[1:6,],emoji = "1f4a7",size = 0.05) + geom_emoji(data = d[7,],emoji = "1f4cf",size = 0.1) +
   geom_emoji(data = d[8,],emoji = "1f331",size = 0.1) + geom_emoji(data = d[9,],emoji = "1f33f",size = 0.1) +
-  geom_emoji(data = d[10,],emoji = "1f333",size = 0.1) +
+  geom_emoji(data = d[10,],emoji = "1f333",size = 0.1) + 
   theme_void() + xlim(c(-2,2)) + ylim(c(-1,4)) +  
   annotate("text", x = 0, y = 2.5, label = " The independent variable represents a \n quantity that is being manipulated (e.g., amount of water)") +  
   annotate("text", x = 0, y = 1.5, label = " The dependent variable represents a quantity \n that depends on the intependent variable (e.g., height of plant)")
 
 ```
 
-## Independent measures (between subjects)
+# A simple design: Independent measures (between subjects)
 
 Separate groups are created for each treatment (i.e., each participant is assigned to only one treatment group); participants can only be a member of **one** of the groups
 
@@ -67,21 +71,29 @@ legend("topleft",bty = "n",pch = 20, col = 1:3, legend = c("Group 1","Group 2", 
 
 ```
 
-  + Advantages
-    + simple design setup
-    + multiple treatments can be tested at the same time
-    + quick
-  + Disadvantages
-    + each participant is only being tested once
-    + complex if more than a few treatments are being tested. Other disadvantages include:
-    + differences in individuals may skew results
-    + bias can be an issue 
-      + control for this by using experimental blinds?
-        + single blind, the participant doesn’t know if they are getting a treatment or placebo
-        + double blind, where neither the participant nor the researcher know
+**Advantages**
+
+ + simple design setup
+ + multiple treatments can be tested at the same time
+ + quick
+    
+**Disadvantages**
+
+  + each participant is only being tested once
+  + complex if more than a few treatments are being tested. Other disadvantages include:
+  + differences in individuals may skew results
+  + bias can be an issue 
+    + control for this by using experimental blinds?
+      + single blind, the participant doesn’t know if they are getting a treatment or placebo
+      + double blind, where neither the participant nor the researcher know
 
 
-## Repeated measures (within groups)
+# Fisher's principles of experimental design
+
+
+## Replication (repeated measures  or within groups)
+
+**An experiment should be repeated more than once**
 
 We should repeat an experiment to fully assess variability and enable us to (with caution) generalise results. Here, each group member is tested **multiple** times or under **different** conditions.
 
@@ -94,25 +106,28 @@ legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
 
 ```
 
+**Types** 
 
-rdinary repeated measures is where patients are assigned a single treatment, and the results are measured over time (e.g. at 1, 4 and 8 weeks).
-A crossover design is where patients are assigned all treatments, and the results are measured over time.
-The most common crossover design is “two-period, two-treatment.” Participants are randomly assigned to receive either A and then B, or B and then A.
-
-One important fact that sets crossover designs apart from the “usual” type of experiment is that the same patients are in the control group and all of the treatment groups. A patient is measured by how well they respond to treatments against themselves; the “control” is the original status of the patient. For example, a patient undergoing nutritional counseling is measured before treatment (the control part) and after treatment (the experimental part).
+ + Assigned a single treatment and the results are measured over time 
+ + Crossover design: paricipants assigned all treatments, and the results are measured over time 
 
 
-  + Advantages 
-    + fewer patients are needed overall
-    + variability between subjects already controled for
+  **Advantages** 
+  
+  + fewer patients are needed overall
+  + variability between subjects already controled for
     
-  + Disadvantages
-     + possibility that the position of the treatment in the order of treatments matters
-       + randomization or counterbalancing can correct for this.
-     + carryover fffects (i.e., one part of the experiment can have trickle down effects to subsequent parts)
-     + death or dropout of subjects 
+  **Disadvantages**
+  
+  + possibility that the position of the treatment in the order of treatments matters
+    + randomization or counterbalancing can correct for this.
+  + carryover fffects (i.e., one part of the experiment can have trickle down effects to subsequent parts)
+  + death or dropout of subjects 
 
-## Randomisation
+
+## Randomization
+
+Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of “chance.
 
 
 ```{r flip,message=FALSE,cache=TRUE,results='hide'}
@@ -137,6 +152,10 @@ Evenly distributes any variability in outcome due to outside factors across trea
 
 Example: double-blind medical trials, neither patient nor doctor knows which group has been assigned, group assignment is made randomly by 3rd party
 
+
+## Local Control
+
+Balancing, blocking and grouping of the experimental units
 
 ### Randomised block design 
 
@@ -167,7 +186,7 @@ For example, an experiment to test a new drug may have blocks of 200 males and 2
 A randomized controlled trial is an experiment where the participants are randomly allocated to two or more groups to test a specific treatment or drug. Participants are assigned to either an experimental group or a comparison group. Random allocation means that all participants have the same chance of being placed in either group. 
 
 
-```{r random_controlled,message=FALSE,cache=TRUE,results='hide'}
+```{r random_controlled,message=FALSE,results='hide'}
 ani.options(interval = 1)
 dir <- getwd()
 setwd("../gifs")
@@ -175,9 +194,11 @@ saveGIF(
 for(i in 1:10){
   plot(1:10, rep(1,10),col = 1,pch = 20,axes = FALSE, xlab = "",ylab = "",cex = 4)
   legend("topleft",bty = "n",pch = 20, col = 1, legend = "Patients")
+  legend("topright",bty = "n",pch = 20, col = 1:2, legend = c("Experimental group", "Comparison group"))
   treatment <- sample(1:2,replace = TRUE, size = 10)
   plot(1:10, rep(1,10),col = treatment,pch = 20,axes = FALSE, xlab = "",ylab = "",cex = 4);
-  legend("topleft",bty = "n",pch = 20, col = 1:2, legend = c("Experimental group", "Comparison group"))
+  legend("topleft",bty = "n",pch = 20, col = 1, legend = "Patients")
+  legend("topright",bty = "n",pch = 20, col = 1:2, legend = c("Experimental group", "Comparison group"))
 },movie.name = "rcontrolled.gif")
 setwd(dir)
 ```
@@ -185,44 +206,46 @@ setwd(dir)
 ![](../gifs/rcontrolled.gif)
 
 
-### Advantages and Disadvantages of Randomized Controlled Trials
-#### Advantages
+**Advantages**
 
-Random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups.
+  + Random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups.
 
-Blinding is easy to include in this type of experiment.
+  + Blinding is easy to include in this type of experiment.
 
-Results from the experiment can be analyzed with statistical tests and used to infer other possibilities, like the likelihood of the method working for all populations.
+  + Results from the experiment can be analyzed with statistical tests and used to infer other possibilities, like the likelihood of the method working for all populations.
 
-Participants are readily identifiable as members of a specific population.
+  + Participants are readily identifiable as members of a specific population.
 
-#### Disadvantages
+**Disadvantages**
 
-Generally more expensive and more time consuming than other methods.
+  + Generally more expensive and more time consuming than other methods.
 
-Very large sample sizes (over 5,000 participants) are often needed.
+  + Very large sample sizes often needed.
 
-Random controlled trials cannot uncover causation/risk factors. For example, ethical concerns would prevent a randomized controlled trial investigating the risk factors for smoking.
+  + Random controlled trials cannot uncover causation/risk factors. For example, ethical concerns would prevent a randomized controlled trial investigating the risk factors for smoking.
 
-This type of experimental design is unsuitable for outcomes which take a long time to develop. Cohort studies may be a more suitable alternative.
+  + This type of experimental design is unsuitable for outcomes which take a long time to develop. Cohort studies may be a more suitable alternative.
 
-Some programs, for example cancer screening, are unsuited for random allocation of participants (again, due to ethical concerns).
+  + Some programs, for example cancer screening, are unsuited for random allocation of participants (again, due to ethical concerns).
 
-Volunteer bias can be an issue.
+  + Volunteer bias can be an issue.
 
 
-## Other 
 
-## Power and Sample size
+# Power and significance level
 
   + Power: probability that the test correctly rejects the null hypothesis when the
-alternative hypothesis is true.
-  + Effect size: standardized measure of the difference you're trying to detect.
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a Type II error (False negative)
+  + Effect size: standardized measure of the difference you're trying to detect 
   + Sample Size: How many experimental units you need to survey to detect the
-desired difference at the desired power.
+desired difference at the desired power 
+  + Significance level = probability of a Type I error = probability of finding an effect that is not there (False positive)
 
+```{r power}
 
-## Tutorial
+```
+
+# Lab work
 
 
 
@@ -241,16 +264,10 @@ Is there a problem with the following?
   + Experimenter effect
   + Ecological validity
   + Generalisability
-  
-### CHECK
-
-The extent or size of any claimed effects or differences
-
-How large is the observed effect?
-
-How large are the samples in each group quoted?
-
-Uncertainty expressed?
+  + The extent or size of any claimed effects or differences
+  + How large is the observed effect?
+  + How large are the samples in each group quoted?
+  + The uncertainty expressed?
 
 ## Design your own experiment
 
