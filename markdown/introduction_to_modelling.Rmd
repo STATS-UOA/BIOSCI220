@@ -2,7 +2,13 @@
 title: "Introduction to linear modelling"
 author: "BIOSCI220"
 date: "Semester 1 2020"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+    toc_depth: 3
+    highlight: espresso
 ---
 
 ```{r setup, include=FALSE}
@@ -31,19 +37,24 @@ By the end of this lab student should be able to
       + the effect of an x-unit increase in a numeric variable
    + Critique the fitted model
 
-## Suggested reading
+## Some great `r icon::fa_twitter(colour = "#1DA1F2")` threads
 
+ <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I thought it could be helpful to have a thread on ANOVA in R. As a statistical consultant, this is the most frequent FAQ I get from clients - how to run a linear model on their data, conduct hypothesis tests, extract predicted means and perform contrasts.</p>&mdash; We are R-Ladies (@WeAreRLadies) <a href="https://twitter.com/WeAreRLadies/status/1223790298024726528?ref_src=twsrc%5Etfw">February 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-## Linear Regression
+ 
+ <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;ve made this cheat sheet and I think it&#39;s important. Most stats 101 tests are simple linear models - including &quot;non-parametric&quot; tests. It&#39;s so simple we should only teach regression. Avoid confusing students with a zoo of named tests. <a href="https://t.co/9PFR1ly3lW">https://t.co/9PFR1ly3lW</a> 1/n</p>&mdash; Jonas K. Lindeløv (@jonaslindeloev) <a href="https://twitter.com/jonaslindeloev/status/1110907133833502721?ref_src=twsrc%5Etfw">March 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ 
+ <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The aov() function in <a href="https://twitter.com/hashtag/Rstats?src=hash&amp;ref_src=twsrc%5Etfw">#Rstats</a> is actually a wrapper around the lm() function <a href="https://t.co/FbvxQdtD4c">pic.twitter.com/FbvxQdtD4c</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1189536788790042625?ref_src=twsrc%5Etfw">October 30, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-```{r regression gif, fig.cap= "Source [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
+## (Most) Hypothesis tests are just linear regression
+
+```{r regression gif, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
 d <- mtcars
 fit <- lm(mpg ~ hp, data = d)
-d$predicted <- predict(fit)   # Save the predicted values
-d$residuals <- residuals(fit) # Save the residual values
+d$predicted <- predict(fit)   ## predicted values
+d$residuals <- residuals(fit) ## residuals
 
 coefs<-coef(lm(mpg ~ hp, data = mtcars))
-
 
 x<-d$hp
 move_line<-c(seq(-6,6,.5),seq(6,-6,-.5))
@@ -66,15 +77,14 @@ d<-cbind(d,sims,move_line_sims,total_error_sims)
 
 
 anim<-ggplot(d, aes(x = hp, y = mpg, frame=sims)) +
-  geom_smooth(method = "lm", se = FALSE, color = "lightblue") +  
+  geom_smooth(method = "lm", se = FALSE, color = "darkgrey",lty = 2) +  
   geom_abline(intercept = 30.09886+move_line_sims, slope = -0.06822828)+
   lims(x = c(0,400), y = c(-10,40))+
   geom_segment(aes(xend = hp, yend = predicted+move_line_sims, color="red"), alpha = .5) + 
   geom_point() +
-  geom_ribbon(aes(ymin = predicted+move_line_sims - total_error_sims, ymax = predicted+move_line_sims + total_error_sims), fill = "lightgrey", alpha=.2)+ 
   theme_classic()+
   theme(legend.position="none")+
-  xlab("X")+ylab("Y")+
+  xlab("Explanatory variable")+ylab("Response variable")+
   transition_manual(frames=sims)+
   enter_fade() + 
   exit_fade()+
