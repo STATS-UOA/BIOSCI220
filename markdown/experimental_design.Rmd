@@ -47,6 +47,7 @@ By the end of this lab student should be able to
 
 [Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0)
 
+[Gelman, A. T., \& Loken, E.The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time.](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
 
 # Dependent and independent variables
 
@@ -245,35 +246,22 @@ desired difference at the desired power
 
 ```
 
-# Lab work
+# Quizzes
+
+### Practise quiz (not examinable)
+
+
+### Pre lab quiz available here (worth 1\% of final grade)
+
+
+# Lab work 
+
+### Get into groups of 4--6 and...
+
+...discuss [this article on p-hacking](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf). Talk about the flaws in the statistical analysis and/or experimental design in each of the critiqued papers. Use this form to record your answers/thoughts.
 
 
 
-[possible experiment](https://www.physiology.org/doi/full/10.1152/advan.00033.2006)
+## Design your own experiment (worth 6\% of your final grade)
 
-['The Knowledge'](https://www.bbc.com/news/health-16086233)
-
-[Musicians' brains fire symmetrically when they listen to music](https://www.newscientist.com/article/dn28266-musicians-brains-fire-symmetrically-when-they-listen-to-music/)
-
-In groups discuss the following for each article above.
-
-Is there a problem with the following?
-
-  + Confounding/interacting variables
-  + Placebo effect
-  + Experimenter effect
-  + Ecological validity
-  + Generalisability
-  + The extent or size of any claimed effects or differences
-  + How large is the observed effect?
-  + How large are the samples in each group quoted?
-  + The uncertainty expressed?
-
-## Design your own experiment
-
-Use this tool to test your reaction time. **Does size of the character affect your reaction time?** [Test your reaction times](https://www.justpark.com/creative/reaction-time-test/) or [green light test](https://faculty.washington.edu/chudler/java/redgreen.html)
-
-
-Null Hypothesis: There is no difference.
-
-Alternative hypothesis: Bigger dots makes it easier.
+In groups you give yourselves half an hour to design and carry out your own experiment. Then each group should pair up with another group and present their design, results, and flaws **as a group** for 5mins. In this excersise you will be peer reviewed so in your pairs of groups you **must** fill out this form.
