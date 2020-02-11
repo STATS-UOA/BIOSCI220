@@ -19,7 +19,7 @@ library(emoGG)
 library(ggplot2)
 ```
 
-# Learing Objectives
+# Learning Objectives
 
 By the end of this lab student should be able to
 
@@ -47,7 +47,13 @@ By the end of this lab student should be able to
 
 [Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0)
 
+[Goldacre, Ben. "Bad Science: Quacks, Hacks, and Big Pharma Flacks." (2010).](https://lib.hpu.edu.vn/handle/123456789/29333)
+
 [Gelman, A. T., \& Loken, E.The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time.](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
+
+## Pre lab reading
+
+Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](A Four-Year Field Program Investigating Long-Term Effects of Repeated Exposure of Honey Bee Colonies to Flowering Crops Treated with Thiamethoxam)
 
 # Dependent and independent variables
 
@@ -58,7 +64,7 @@ ggplot(d,aes(x = x, y = y)) + geom_emoji(data = d[1:6,],emoji = "1f4a7",size = 0
   geom_emoji(data = d[10,],emoji = "1f333",size = 0.1) + 
   theme_void() + xlim(c(-2,2)) + ylim(c(-1,4)) +  
   annotate("text", x = 0, y = 2.5, label = " The independent variable represents a \n quantity that is being manipulated (e.g., amount of water)") +  
-  annotate("text", x = 0, y = 1.5, label = " The dependent variable represents a quantity \n that depends on the intependent variable (e.g., height of plant)")
+  annotate("text", x = 0, y = 1.5, label = " The dependent variable represents a quantity \n that depends on the independent variable (e.g., height of plant)")
 
 ```
 
@@ -81,7 +87,7 @@ legend("topleft",bty = "n",pch = 20, col = 1:3, legend = c("Group 1","Group 2", 
 **Disadvantages**
 
   + each participant is only being tested once
-  + complex if more than a few treatments are being tested. Other disadvantages include:
+  + complex if more than a few treatments are being tested
   + differences in individuals may skew results
   + bias can be an issue 
     + control for this by using experimental blinds?
@@ -110,19 +116,19 @@ legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
 **Types** 
 
  + Assigned a single treatment and the results are measured over time 
- + Crossover design: paricipants assigned all treatments, and the results are measured over time 
+ + Crossover design: participants assigned all treatments, and the results are measured over time 
 
 
   **Advantages** 
   
   + fewer patients are needed overall
-  + variability between subjects already controled for
+  + variability between subjects already controlled for
     
   **Disadvantages**
   
   + possibility that the position of the treatment in the order of treatments matters
     + randomization or counterbalancing can correct for this.
-  + carryover fffects (i.e., one part of the experiment can have trickle down effects to subsequent parts)
+  + carryover effects (i.e., one part of the experiment can have trickle down effects to subsequent parts)
   + death or dropout of subjects 
 
 
@@ -256,12 +262,25 @@ desired difference at the desired power
 
 # Lab work 
 
-### Get into groups of 4--6 and...
+### Get into groups of 4--6 and
 
-...discuss [this article on p-hacking](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf). Talk about the flaws in the statistical analysis and/or experimental design in each of the critiqued papers. Use this form to record your answers/thoughts.
+   1. Discuss the [pre lab reading]. Talk about the flaws in the statistical analysis and/or experimental design. Use [this form]() to record your answers/thoughts.
+   
+   2. Design your own experiment (worth 6\% of your final grade)
+
+In groups you give yourselves half an hour to design and carry out your own experiment using an online game. Here are links to some possible games you could use and some research questions you might want to answer (in this lab)!
+
+  + [Google Quick Draw](https://quickdraw.withgoogle.com/)
+      + Does AI recognise the drawing quicker than a real person?
+      + Are people who play musical instruments better at drawing for the AI?
+      + Does the complexity of the object affect how quickly it is recognised by the AI?
+  + [Reaction Time Test](https://www.humanbenchmark.com/tests/reactiontime)
+      + Are people who play sports regularly faster to react?
+      + Are people without a car license slower to react?
 
 
 
-## Design your own experiment (worth 6\% of your final grade)
 
-In groups you give yourselves half an hour to design and carry out your own experiment. Then each group should pair up with another group and present their design, results, and flaws **as a group** for 5mins. In this excersise you will be peer reviewed so in your pairs of groups you **must** fill out this form.
+Then each group should pair up with another group and present their design, results, and flaws **as a group** for 5 minutes. In this exercise you will be peer reviewed so in your pairs of groups you **must** [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?usp=sf_link)]
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
