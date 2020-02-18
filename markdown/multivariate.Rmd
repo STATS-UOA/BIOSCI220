@@ -41,3 +41,12 @@ By the end of this lab student should be able to
 
 ![](../gifs/bread_data.png)
 ![](../gifs/pca.gif)
+
+
+# Example and `R` code
+
+```{r read in data}
+data <- read.csv(url("https://raw.githubusercontent.com/datacarpentry/wrangling-genomics/gh-pages/files/Ecoli_metadata_composite.csv"))
+## data structure
+str(data)
+```

@@ -32,20 +32,19 @@ By the end of this lab student should be able to
        + randomisation
    + Identify the type of design used in the given case studies
    + Discuss the advantages and disadvantages of different design types
-   + Critique experimental designs used in the the given case studies
-   + Design an experiment that follows good experimental design principles
-   + State in terms of probability statements the meaning of the power and significance level of an hypothesis test
+   + Critique experimental designs
+   
 
 
 ## Suggested reading
 
-[Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+<!-- [Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L) -->
 
-[Welham, S. J. Statistical Methods in Biology : Design and Analysis of Experiments and Regression. 2015. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737830002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+<!-- [Welham, S. J. Statistical Methods in Biology : Design and Analysis of Experiments and Regression. 2015. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737830002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L) -->
 
 [Heath, David. An Introduction to Experimental Design and Statistics for Biology. London: UCL, 1995. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21133208810002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
 
-[Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0)
+<!-- [Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0) -->
 
 [Goldacre, Ben. "Bad Science: Quacks, Hacks, and Big Pharma Flacks." (2010).](https://lib.hpu.edu.vn/handle/123456789/29333)
 
@@ -260,27 +259,27 @@ desired difference at the desired power
 ### Pre lab quiz available here (worth 1\% of final grade)
 
 
-# Lab work 
+# Lab work (worth 6\% of your final grade)
 
-### Get into groups of 4--6 and
+### In groups of 4--6
 
-   1. Discuss the [pre lab reading]. Talk about the flaws in the statistical analysis and/or experimental design. Use [this form]() to record your answers/thoughts.
+Discuss the [pre lab reading]. Talk about the flaws in the statistical analysis and/or experimental design. Use [this form]() to record your answers/thoughts.
    
-   2. Design your own experiment (worth 6\% of your final grade)
+   <!-- 2. Design your own experiment  -->
 
-In groups you give yourselves half an hour to design and carry out your own experiment using an online game. Here are links to some possible games you could use and some research questions you might want to answer (in this lab)!
+<!-- In groups you give yourselves half an hour to design and carry out your own experiment using an online game. Here are links to some possible games you could use and some research questions you might want to answer (in this lab)! -->
 
-  + [Google Quick Draw](https://quickdraw.withgoogle.com/)
-      + Does AI recognise the drawing quicker than a real person?
-      + Are people who play musical instruments better at drawing for the AI?
-      + Does the complexity of the object affect how quickly it is recognised by the AI?
-  + [Reaction Time Test](https://www.humanbenchmark.com/tests/reactiontime)
-      + Are people who play sports regularly faster to react?
-      + Are people without a car license slower to react?
-
-
+<!--   + [Google Quick Draw](https://quickdraw.withgoogle.com/) -->
+<!--       + Does AI recognise the drawing quicker than a real person? -->
+<!--       + Are people who play musical instruments better at drawing for the AI? -->
+<!--       + Does the complexity of the object affect how quickly it is recognised by the AI? -->
+<!--   + [Reaction Time Test](https://www.humanbenchmark.com/tests/reactiontime) -->
+<!--       + Are people who play sports regularly faster to react? -->
+<!--       + Are people without a car license slower to react? -->
 
 
-Then each group should pair up with another group and present their design, results, and flaws **as a group** for 5 minutes. In this exercise you will be peer reviewed so in your pairs of groups you **must** [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?usp=sf_link)]
+
+
+Then each group should pair up with another group and present the design, results, and flaws of the study. This should be done **as a group** and the presentation should last no more than 5 minutes. In this exercise you will be peer reviewed so in your pairs of groups you **must** [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?usp=sf_link).
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
