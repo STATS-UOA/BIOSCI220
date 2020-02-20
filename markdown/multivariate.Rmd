@@ -19,11 +19,11 @@ knitr::opts_chunk$set(echo = TRUE)
 By the end of this lab student should be able to
 
    + Discuss the aims and motivations of Multidimensional Scaling (MDS) and its relevance in biology
-   + List and summarise the three main types of MDS:
+   + List and summarize the three main types of MDS:
       + classical MDS
       + metric MDS
       + non-metric MDS
-   + Write R code to create an MDS plot appropriate to the given dataset
+   + Write R code to create an MDS plot appropriate to the given 
    + Interpret an MDS plot
    + Explain the aims and motivation behind Principal Component Analysis (PCA) and its relevance in biology
    + Write R code to carry out PCA
@@ -43,7 +43,7 @@ By the end of this lab student should be able to
 ![](../gifs/pca.gif)
 
 
-# Example and `R` code
+## Example and `R` code
 
 ```{r read in data}
 data <- read.csv(url("https://raw.githubusercontent.com/datacarpentry/wrangling-genomics/gh-pages/files/Ecoli_metadata_composite.csv"))

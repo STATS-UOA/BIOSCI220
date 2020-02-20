@@ -18,10 +18,10 @@ By the end of this lab student should be able to
       + main effects in a model with an interaction
       + the effect of one variable when others are included in the model
    + Explain why you may want to include interaction effects in a linear model
-   + Describe the differences between the operators : and * in R model-fitting formulae
+   + Describe the differences between the operators : and * in R model-fitting formula
    + Critique the fitted model
 
-## Suggested reading
+### Suggested reading
 
 
-
+[Mueller, R. C., Scudder, C. M., Porter, M. E., Talbot Trotter III, R., Gehring, C. A., & Whitham, T. G. (2005). Differential tree mortality in response to severe drought: evidence for long‐term vegetation shifts. Journal of Ecology, 93(6), 1085-1093.](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.1365-2745.2005.01042.x)

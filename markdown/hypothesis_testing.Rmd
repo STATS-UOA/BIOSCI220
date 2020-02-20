@@ -21,7 +21,7 @@ library(gganimate)
 
 
 
-# Learing Objectives
+## Learing Objectives
 
 By the end of this lab students should be able to
 
@@ -41,20 +41,22 @@ By the end of this lab students should be able to
   + List the limitations of the hypothesis in relation to the questions posed by the data
   + State in terms of probability statements the meaning of the power and significance level of an hypothesis test
   
-## Suggested reading
+
+
+### Pre lab reading
+
+[Sadler EA, Pitts JP, Wilson JS. 2018. Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? PeerJ 6:e4743 https://doi.org/10.7717/peerj.4743](https://peerj.com/articles/4743/)
+
+### Suggested reading
 
 
 <iframe src="https://tinystats.github.io/teacups-giraffes-and-statistics/" width="800" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-## Pre lab reading
-
-[Sadler EA, Pitts JP, Wilson JS. 2018. Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? PeerJ 6:e4743 https://doi.org/10.7717/peerj.4743](https://peerj.com/articles/4743/)
-
-# Motivation
+## Motivation
 
 <img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/gifs/binomial_cat.gif" />
 
-# Plausible range for a parameter---confidence intervals
+## Plausible range for a parameter---confidence intervals
 
 A confidence interval can be thought of as a plausible range within which we might expect the true value of some unknown population parameter to lie. The level of “confidence” associated with this interval typically reflects the proportion of time we would expect an interval to contain the true value of the parameter. For example, if we took 100 samples, calculating the 95% confidence interval for the mean each time, we would expect the intervals to contain the “true” (population) mean 95 times.
 
@@ -93,12 +95,12 @@ gif
 ```
 
 
-# Inference about a mean
+## Inference about a mean
 
 
 
 
-## Calculating a 95\% confidence interval using the t-distribution
+### Calculating a 95\% confidence interval using the t-distribution
 
 Using the standard error of an estimate we can calculate a 95% confidence interval (CI). For the population mean a 95% confidence interval can is calculated as $$\hat{\mu} \pm t_{97.5}se_\mu$$
 where $\hat{\mu}$ is the sample mean, seμ is the standard error of the mean, and $t_{97.5}$ is the $t$-multiplier (the 97.5% quantile of the $t$-distribution). This multiplier is based on the confidence level desired and depends on the sample size. A standard error of some estimated parameter is a measure of accuracy of the estimate. The standard error of a mean, $se_\mu$ can be written as
@@ -106,7 +108,7 @@ $$se_\mu =\frac{\text{sd}}{\sqrt{n}}$$
 where sd is the standard deviation of the sample and $n$ is the sample size.
 
 
-## Am I being ripped off by the dog food company?
+### Am I being ripped off by the dog food company?
 
 Hypothesis: On average each bag contains 5kg of dog food.
 
@@ -188,9 +190,9 @@ new_gif
 
 
 
-# Inference about two means
+## Inference about two means
 
-## Independennt samples
+### Independennt samples
 
 ```{r independent t-test, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
 ## independant t-test
@@ -293,7 +295,7 @@ All the tests in the t-test family compare differences in mean scores of continu
 
 NOTE: The difference between two dependant samples can be treated in the same way as a single sample where the null hypothesis is that the difference between the two samples is on average zero (i.e., $H_0: (\mu_1 - \mu_2) = 0$), see the [Inference about a mean] section.
 
-# How do I get to work the quickest? One way ANOVA
+## How do I get to work the quickest? One way ANOVA
 
 ```{r anova gif,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
 A <- rnorm(100,45,10)
@@ -379,7 +381,7 @@ new_gif
 ```
 
 
-# Randomization test. 
+## Randomization test. 
 
 Can extend to inference about any sample statistic
 
@@ -443,8 +445,20 @@ animate(a,nframes=100,fps=5)
 
 ```
 
+### Power and significance level
 
-## Example and `R` code
+  + Power: probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a Type II error (False negative)
+  + Effect size: standardized measure of the difference you're trying to detect 
+  + Sample Size: How many experimental units you need to survey to detect the
+desired difference at the desired power 
+  + Significance level = probability of a Type I error = probability of finding an effect that is not there (False positive)
+
+```{r power}
+
+```
+
+### Example and `R` code
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? <a href="https://t.co/VOXqqrgV3w">https://t.co/VOXqqrgV3w</a> <a href="https://t.co/IZP7IIVZQP">pic.twitter.com/IZP7IIVZQP</a></p>&mdash; PeerJ — Life and Environment Journal (@thePeerJ) <a href="https://twitter.com/thePeerJ/status/992737177489608704?ref_src=twsrc%5Etfw">May 5, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -461,7 +475,7 @@ table(stings$sociality)
 table(stings$Prey)
 ```
 
-### Coding errors
+#### Coding errors
 
 ```{r errors, echo = TRUE}
 ## we have to turn it into a character
@@ -477,7 +491,7 @@ table(stings$Prey)
 ```
 
 
-### Recreating the plots in the paper
+#### Recreating the plots in the paper
 
 ```{r recreating plots, echo = TRUE}
 ## boxplot
@@ -486,7 +500,7 @@ boxplot(stings$sting_ratio~stings$Prey, xlab = "", ylab = "Relative Sting Length
 plot(stings$mesosoma,stings$sting, xlab = "Mesosomal Length (mm)", ylab = "Sting Length (mm)", col = factor(stings$Prey),pch = 20)
 ```
 
-# Lab work
+## Lab work
 
 Begin work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. If should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings.
 

@@ -1,0 +1,39 @@
+---
+title: 'Lab notes BIOSCI220'
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+    toc_depth: 3
+    highlight: espresso
+---
+
+```{r setup_total, include=FALSE}
+options(knitr.duplicate.label = "allow")
+```
+
+# Week 7: Experimental Design
+
+```{r child = 'experimental_design.Rmd'}
+```
+
+# Week 8: Visualising and analysing multivariate data
+
+```{r child = 'multivariate.Rmd'}
+```
+
+# Week 9: Hypothesis Testing
+
+```{r child = 'hypothesis_testing.Rmd'}
+```
+
+# Week 10: Introduction to Linear Modelling
+
+```{r child = 'introduction_to_modelling.Rmd'}
+```
+
+# Week 11: Modelling II
+
+```{r child = 'modelling_II.Rmd'}
+```
