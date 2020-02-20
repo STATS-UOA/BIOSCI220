@@ -14,7 +14,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Learing Objectives
+## Learning Objectives
 
 By the end of this lab student should be able to
 
@@ -50,3 +50,7 @@ data <- read.csv(url("https://raw.githubusercontent.com/datacarpentry/wrangling-
 ## data structure
 str(data)
 ```
+
+## Lab work (worth 6\% of your final grade)
+
+You can work in groups or alone; however your work should be independent. Using the dataset above you should make a poster illustrating the concepts of PCA and the steps required in the analysis. You can include `R` code and any plots you feel necessary. The text should be minimal but easy to follow by your peers. This assignment will be marked by your peers based on the following guidelines.... Upload your poster to canvas with 1/2 and hour to go and then wait to receive the a poster to grade. The process will be anonymous. Please follow the guidelines mentioned above. You should also provide a "complement sandwich" style of feedback on the assignment you graded: one complement followed by some constructive criticism followed by another complement. Please be respectful of your peers during this exercise and at al other times. 
