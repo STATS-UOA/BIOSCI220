@@ -40,7 +40,7 @@ By the end of this lab student should be able to
 
 ### Pre lab reading
 
-Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](A Four-Year Field Program Investigating Long-Term Effects of Repeated Exposure of Honey Bee Colonies to Flowering Crops Treated with Thiamethoxam)
+Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](https://enveurope.springeropen.com/articles/10.1186/s12302-016-0103-8)
 
 #### Suggested reading
 
@@ -273,4 +273,4 @@ Then each group should pair up with another group and present the design, result
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-Note if you are not able to attend one of the labs this week then please record (video or audio only) your 5 minute summary of the experimental design used in [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193). You should consider answering [these questions]() in your recording. You should then email your recording to [c.jonestodd@gmail.com](c.jonestodd@gmail.com) clearly stating your student ID number.
+Note if you are not able to attend one of the labs this week then please record (video or audio only) your 5 minute summary of the experimental design used in [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193). You should consider answering [these questions]() in your recording. You should then email your recording to [c.jonestodd@auckland.ac.nz](c.jonestodd@auckland.ac.nz) clearly stating your student ID number.
