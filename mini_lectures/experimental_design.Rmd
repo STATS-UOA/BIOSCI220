@@ -221,9 +221,9 @@ legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
 
 ## 
 
-<p style="font-family: bookman, bookman; font-size:30pt; top:30%;position: absolute;">
-    https://b.socrative.com/login/student/
-</p>
-<p style="font-family: bookman, bookman; font-size:40pt; top:60%;position: absolute;">
-    Room Name: BIOSCI220
-</p>
+
+<ul style="font-family: bookman, bookman; font-size:30pt; top:40%;position: absolute;">
+  https://b.socrative.com/login/student/
+  Room Name: BIOSCI220
+ </ul>
+

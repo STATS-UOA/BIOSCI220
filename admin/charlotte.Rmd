@@ -23,15 +23,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## 
 
-<p style="font-family: bookman, bookman; font-size:40pt; top:40%;position: absolute;">
-    c.jonestodd@auckland.ac.nz
-</p>
+
+<ul style="font-family: bookman, bookman; font-size:30pt; top:40%;position: absolute;">
+  c.jonestodd@auckland.ac.nz
+ </ul>
 
 ## 
 
-<p style="font-family: bookman, bookman; font-size:70pt; top:40%;position: absolute;">
-    bit.ly/statbiscuits
-</p>
+
+<ul style="font-family: bookman, bookman; font-size:50pt; top:40%;position: absolute;">
+  bit.ly/statbiscuits
+ </ul>
+
 
 
 ##
@@ -41,10 +44,10 @@ knitr::opts_chunk$set(echo = FALSE)
   <li> Hypothesis testing</li>
   <li> Introduction to linear modelling</li>
   <li> Modelling II</li>
- </p>
+ </ul>
 
 ## 
 
-<p style="font-family: bookman, bookman; font-size:70pt; top:40%;position: absolute;">
-    bit.ly/statbiscuits
-</p>
+<ul style="font-family: bookman, bookman; font-size:50pt; top:40%;position: absolute;">
+  bit.ly/statbiscuits
+ </ul>
