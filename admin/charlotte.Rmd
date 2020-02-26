@@ -1,0 +1,50 @@
+---
+title: "Croeso i BIOSCI220"
+author: ""
+date: ""
+output: ioslides_presentation
+header-includes:
+ - \usepackage[hidelinks]{hyperref}
+---
+
+<style type="text/css">
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 
+
+<img src="./intro_cmjt.png" alt="animals">
+
+## 
+
+<p style="font-family: bookman, bookman; font-size:40pt; top:40%;position: absolute;">
+    c.jonestodd@auckland.ac.nz
+</p>
+
+## 
+
+<p style="font-family: bookman, bookman; font-size:70pt; top:40%;position: absolute;">
+    bit.ly/statbiscuits
+</p>
+
+
+##
+<ul style="font-family: bookman, bookman; font-size:30pt; top:25%;position: absolute;">
+  <li> Experimental design</li>
+  <li> Multivariate analysis</li>
+  <li> Hypothesis testing</li>
+  <li> Introduction to linear modelling</li>
+  <li> Modelling II</li>
+ </p>
+
+## 
+
+<p style="font-family: bookman, bookman; font-size:70pt; top:40%;position: absolute;">
+    bit.ly/statbiscuits
+</p>

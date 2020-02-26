@@ -40,7 +40,7 @@ By the end of this lab student should be able to
 
 ### Pre lab reading
 
-Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](https://enveurope.springeropen.com/articles/10.1186/s12302-016-0103-8)
+Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7)
 
 #### Suggested reading
 
@@ -48,11 +48,13 @@ Read these two papers: one reporting the findings of a study [of honey bee expos
 
 <!-- [Welham, S. J. Statistical Methods in Biology : Design and Analysis of Experiments and Regression. 2015. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737830002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L) -->
 
-[Heath, David. An Introduction to Experimental Design and Statistics for Biology. London: UCL, 1995. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21133208810002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+<!-- [Heath, David. An Introduction to Experimental Design and Statistics for Biology. London: UCL, 1995. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21133208810002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L) -->
 
 <!-- [Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0) -->
 
-[Goldacre, Ben. "Bad Science: Quacks, Hacks, and Big Pharma Flacks." (2010).](https://lib.hpu.edu.vn/handle/123456789/29333)
+<!-- [Goldacre, Ben. "Bad Science: Quacks, Hacks, and Big Pharma Flacks." (2010).](https://lib.hpu.edu.vn/handle/123456789/29333) -->
+
+[Suresh K P. An overview of randomization techniques: An unbiased assessment of outcome in clinical research. Journal of Human Reproductive Science 2011;4:8-11](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136079/)
 
 [Gelman, A. T., \& Loken, E.The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time.](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
 
@@ -253,6 +255,15 @@ setwd(dir)
 #### In groups of 4--6
 
 Discuss the [pre lab reading]. Talk about the flaws in the statistical analysis and/or experimental design. If you are in the lab then can use [this form]() to record your answers/thoughts.
+
+```{r url}
+knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3806756/",height = "200px")
+```
+
+```{r url2}
+knitr::include_url("https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7",height = "200px")
+```
+
    
    <!-- 2. Design your own experiment  -->
 
