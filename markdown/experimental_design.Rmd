@@ -29,18 +29,22 @@ By the end of this lab student should be able to
    + List and describe Fisher's three principals of experimental designs
        + Randomization
        + Replication
-       + Local Control
-   + Identify the type of design used in given case studies
-   + Discuss the advantages and disadvantages of different design types
+       + Blocking
+   + Identify the design concepts used in given case studies
+   + Discuss the advantages and disadvantages of different designs
    + Critique experimental designs
    
-
-
-
-
 ### Pre lab reading
 
 Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7)
+
+```{r urlp}
+knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3806756/",height = "200px")
+```
+
+```{r urlp2}
+knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5045128/",height = "200px")
+```
 
 #### Suggested reading
 
@@ -59,6 +63,9 @@ Read these two papers: one reporting the findings of a study [of honey bee expos
 [Gelman, A. T., \& Loken, E.The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time.](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
 
 ## Dependent and independent variables
+
+
+How do controllable inputs (treatment factors/independent variable) impact outcomes of interest (responses/dependent variable)?
 
 ```{r ivdv, fig.height=10,fig.width=10}
 d <- data.frame(y = rep(3:1,times = c(6,1,3)),x = c(-1,-0.1,0.1, 0.9,1,1.1,0,-1,0,1))
@@ -92,52 +99,15 @@ legend("topleft",bty = "n",pch = 20, col = 1:3, legend = c("Group 1","Group 2", 
   + each participant is only being tested once
   + complex if more than a few treatments are being tested
   + differences in individuals may skew results
-  + bias can be an issue 
-    + control for this by using experimental blinds?
-      + single blind, the participant doesn’t know if they are getting a treatment or placebo
-      + double blind, where neither the participant nor the researcher know
-
+  + bias (selection or accidental) can be an issue 
+    
 
 ## Fisher's principles of experimental design
 
 
-### Replication (repeated measures  or within groups)
-
-**An experiment should be repeated more than once**
-
-We should repeat an experiment to fully assess variability and enable us to (with caution) generalize results. Here, each group member is tested **multiple** times or under **different** conditions.
-
-```{r repeated,message=FALSE,cache=TRUE,results='hide'}
-plot(1:15, rep(1.5,15),col = rep(1:3,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
-points(1:15,rep(1,15),col = rep(1:3,each = 5),pch = 18,cex = 3)
-points(1:15,rep(0.5,15),col = rep(1:3,each = 5),pch = 19, cex = 3)
-legend("topleft",bty = "n",pch = 17:19, col = "grey", legend = paste("Treatment", 1:3))
-legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
-
-```
-
-**Types** 
-
- + Assigned a single treatment and the results are measured over time 
- + Crossover design: participants assigned all treatments, and the results are measured over time 
-
-
-  **Advantages** 
-  
-  + fewer patients are needed overall
-  + variability between subjects already controlled for
-    
-  **Disadvantages**
-  
-  + possibility that the position of the treatment in the order of treatments matters
-    + randomization or counterbalancing can correct for this.
-  + carryover effects (i.e., one part of the experiment can have trickle down effects to subsequent parts)
-  + death or dropout of subjects 
-
-
 ### Randomization
 
-Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of “chance.
+Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of "chance".
 
 
 ```{r flip,message=FALSE,cache=TRUE,results='hide'}
@@ -157,22 +127,63 @@ setwd(dir)
 
 ![](../gifs/flip.gif)
 
+**Advantages** 
+  
+  + ensures that each treatment has the same
+probability of getting good (or bad) units and thus
+avoids systematic bias
+    + random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups
+    + typically statistical analysis assumes that observations are
+independent. This is almost never strictly true in practice
+but randomisation means that our estimates will behave
+as if they were based on independent observations
 
-Evenly distributes any variability in outcome due to outside factors across treatment groups. 
 
-Example: double-blind medical trials, neither patient nor doctor knows which group has been assigned, group assignment is made randomly by 3rd party
+### Replication (repeated measures  or within groups)
+
+**An experiment should be repeated more than once**
+
+We should repeat an experiment to fully assess variability and enable us to (with caution) generalize results. For true replication the entire process must be repeated separately each time.
+
+```{r repeated,message=FALSE,cache=TRUE,results='hide'}
+plot(1:15, rep(1.5,15),col = rep(1:3,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
+points(1:15,rep(1,15),col = rep(1:3,each = 5),pch = 18,cex = 3)
+points(1:15,rep(0.5,15),col = rep(1:3,each = 5),pch = 19, cex = 3)
+legend("topleft",bty = "n",pch = 17:19, col = "grey", legend = paste("Treatment", 1:3))
+legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
+
+```
 
 
-### Local Control
+  **Advantages** 
+  
+  + variability between subjects already controlled for
+    + we can estimate the inherent variability in the data from the replicate observations
+    + allows us to judge whether an observed difference could be due to chance
+variation
+    
+  **Disadvantages**
+  
+  + possibility that the position of the treatment in the order of treatments matters
+    + randomization can correct for this.
+  + carryover effects (i.e., one part of the experiment can have trickle down effects to subsequent parts)
+  + death or dropout of subjects 
 
-Balancing, blocking and grouping of the experimental units
+
+
+
+
+
+
+### Blocking
 
 #### Randomised block design 
 
 
-Blocking helps control variability by making treatment groups more alike
-Inside of groups, differences will be minimal. Across groups, differences will be
-larger. In randomized block design, the researcher divides experimental subjects into homogeneous blocks. Treatments are then randomly assigned to the blocks. The variability within blocks should be greater than the variability between blocks. In other words, you need to make sure that the blocks contain subjects that are very similar. For example, you could put males in one block and females in a second block. 
+Blocking helps control variability by making treatment groups more alike. Experimental units are divided into subsets (called
+blocks) so that units within the same block are more similar than units from different subsets or blocks. 
+
+In a randomized block design, the researcher divides experimental subjects into homogeneous blocks. Treatments are then randomly assigned to the blocks. The variability within blocks should be greater than the variability between blocks. In other words, you need to make sure that the blocks contain subjects that are very similar. 
 
 
 ```{r random block,echo = FALSE}
@@ -185,69 +196,24 @@ legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
 
 ```
 
-##### Matched pairs design
-
-Matched pairs design is a special case of randomized block design. In this design, two treatments are assigned to homogeneous groups (blocks) of subjects. The goal is to maximize homogeneity in each pair. In other words, you want the pairs to be as similar as possible. The blocks are composed of matched pairs which are randomly assigned a treatment (commonly the drug or a placebo).
-
-For example, an experiment to test a new drug may have blocks of 200 males and 200 females. Each block contains 100 pairs, who are matched according to some criteria other than sex (like age, other medications, or health conditions). Each pair is then treated like a block, with each randomly assigned to receive the drug or a placebo. 
-
-#### Randomised controlled design 
-
-A randomized controlled trial is an experiment where the participants are randomly allocated to two or more groups to test a specific treatment or drug. Participants are assigned to either an experimental group or a comparison group. Random allocation means that all participants have the same chance of being placed in either group. 
-
-
-```{r random_controlled,message=FALSE,results='hide'}
-ani.options(interval = 1)
-dir <- getwd()
-setwd("../gifs")
-saveGIF(
-for(i in 1:10){
-  plot(1:10, rep(1,10),col = 1,pch = 20,axes = FALSE, xlab = "",ylab = "",cex = 4)
-  legend("topleft",bty = "n",pch = 20, col = 1, legend = "Patients")
-  legend("topright",bty = "n",pch = 20, col = 1:2, legend = c("Experimental group", "Comparison group"))
-  treatment <- sample(1:2,replace = TRUE, size = 10)
-  plot(1:10, rep(1,10),col = treatment,pch = 20,axes = FALSE, xlab = "",ylab = "",cex = 4);
-  legend("topleft",bty = "n",pch = 20, col = 1, legend = "Patients")
-  legend("topright",bty = "n",pch = 20, col = 1:2, legend = c("Experimental group", "Comparison group"))
-},movie.name = "rcontrolled.gif")
-setwd(dir)
-```
-
-![](../gifs/rcontrolled.gif)
-
 
 **Advantages**
 
-  + Random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups.
-
-  + Blinding is easy to include in this type of experiment.
-
-  + Results from the experiment can be analyzed with statistical tests and used to infer other possibilities, like the likelihood of the method working for all populations.
-
-  + Participants are readily identifiable as members of a specific population.
-
-**Disadvantages**
-
-  + Generally more expensive and more time consuming than other methods.
-
-  + Very large sample sizes often needed.
-
-  + Random controlled trials cannot uncover causation/risk factors. For example, ethical concerns would prevent a randomized controlled trial investigating the risk factors for smoking.
-
-  + This type of experimental design is unsuitable for outcomes which take a long time to develop. Cohort studies may be a more suitable alternative.
-
-  + Some programs, for example cancer screening, are unsuited for random allocation of participants (again, due to ethical concerns).
-
-  + Volunteer bias can be an issue.
+  + if two units in the same block get different treatments
+the treatments can be compared more precisely than if
+the treatments were assigned to units in different blocks
+  + blocking allows us to increase our ability to detect
+differences without increasing the size of the
+experiment
 
 
 
 ## Quizzes
 
-#### Practise quiz (not examinable)
+#### Practise quiz (not examinable) will be put up on [https://b.socrative.com/login/student/](https://b.socrative.com/login/student/) (Room Name: BIOSCI220) a week before the lab
 
 
-#### Pre lab quiz available here (worth 1\% of final grade)
+#### Pre lab quiz on CANVAS (worth 1\% of final grade)
 
 
 ## Lab work (worth 6\% of your final grade)
@@ -261,7 +227,7 @@ knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3806756/",heigh
 ```
 
 ```{r url2}
-knitr::include_url("https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7",height = "200px")
+knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5045128/",height = "200px")
 ```
 
    
@@ -280,7 +246,7 @@ knitr::include_url("https://enveurope.springeropen.com/articles/10.1186/s12302-0
 
 
 
-Then each group should pair up with another group and present the design, results, and flaws of [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193). This should be done **as a group** and the presentation should last no more than 5 minutes. In this exercise you will be peer reviewed so in your pairs of groups you **must** [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?usp=sf_link).
+Each group should then pair up with another group and present the design, results, and flaws of [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193). This should be done **as a group** and the presentation should last no more than 5 minutes. In this exercise you will be peer reviewed so in your pairs of groups you **must** [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?usp=sf_link).
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 

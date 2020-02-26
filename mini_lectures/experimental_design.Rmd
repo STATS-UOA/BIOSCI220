@@ -15,6 +15,45 @@ slides > slide:not(.nobackground):after {
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Experimental Design
+
+<p style="font-family: bookman, bookman; font-size:20pt"> An experiment is a set of observations made under
+conditions controlled by the observer.</p>
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+
+<li> If the conditions are controlled we can reliably draw
+conclusions about cause and effect.</li>
+<li>Observational data (surveys) can be used to identify
+associations but not causal relationships.</li>
+</ul>
+
+## Experimental Design
+
+
+<p style="font-family: bookman, bookman; font-size:20pt"> Experiments are used to answer questions about a
+processes.</p>
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+<li> How do controllable inputs (treatment factors/independent variable)
+impact outcomes of interest (responses/dependent variable)?</li>
+<li> Experiments involve varying the inputs and
+assessing the effect on the outputs.</li>
+<li> The way the experiment is designed determines
+which questions can be answered.</li>
+</ul>
+
+## Experimental Design
+
+<p style="font-family: bookman, bookman; font-size:20pt"> [R. A. Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) identified three important principles that
+should be considered when designing an experiment.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Youngronaldfisher2.JPG/220px-Youngronaldfisher2.JPG" style="float:right">
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+<li> Randomisation </li>
+<li> Relpication</li>
+<li> Blocking </li>
+
+</ul>
+
+
 ## Randomization
 <center>
 ![](../gifs/rcontrolled.gif)
@@ -25,6 +64,20 @@ knitr::opts_chunk$set(echo = FALSE)
 <img src="random.png" alt="drawing" width="750"/>
 Image from [Wild About Statistics](https://youtu.be/bi-LNLrFYcQ)
 </center>
+
+## Randomization
+<center>
+![](../gifs/flip.gif)
+</center>
+## Randomization
+
+<p style="font-family: bookman, bookman; font-size:20pt">Allocation of experimental units to combinations of
+treatment factor levels should be determined by a
+random process.</p>
+<center>
+![](../gifs/flip.gif)
+</center>
+
 ## Randomization
 
 <ul style="font-family: bookman, bookman; font-size:30pt; top:25%;position: absolute;">
@@ -39,57 +92,23 @@ Image from [Wild About Statistics](https://youtu.be/bi-LNLrFYcQ)
 
 ## Randomization
 
-
-<ul style="font-family: bookman, bookman; font-size:30pt; top:25%;position: absolute;">
-  <li> Simple randomization</li>
-</ul>
-
-![](../gifs/flip.gif)
-
-
-## Randomization
-
-
-<ul style="font-family: bookman, bookman; font-size:20pt; top:15%;position: absolute;">
-  <li> Block randomization (will talk more about blocking later)</li>
+<ul style="font-family: bookman, bookman; font-size:20pt; top:25%;position: absolute;">
+  <li> Ensures that each treatment has the same
+probability of getting good (or bad) units and thus
+avoids systematic bias.</li>
+  <li> Independence</li>
   <ul>
-  <li> each block has a specified number of randomly ordered treatment assignments </li>
-  </ul>
-```{r random block,echo = FALSE}
-block <- rep(1:4, each = 4)
-set.seed(4321)
-treatment <- c(replicate(4,sample(1:4,size = 4)))
-plot(1:16,rep(1,length(block)),col = block,pch = treatment + 14,axes = FALSE,xlab = "",ylab = "",cex = 3)
-legend("topright",bty = "n", pch = 15:18, legend = paste("Treatment",1:4), col = "grey")
-legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
-
-```
+  <li> Typically statistical analysis assumes that observations are
+independent. This is almost never strictly true in practice
+but randomisation means that our estimates will behave
+as if they were based on independent observations.</li>
+ </ul>
 </ul>
-## Randomization
 
 
-<ul style="font-family: bookman, bookman; font-size:20pt; top:15%;position: absolute;">
-  <li> Stratified randomization</li>
-  <ul>
-  <li> participants are already in strata (blocks), and you evenly sample from those strata (blocks) </li>
-  </ul>
-
-```{r random strata,echo = FALSE}
-strata <- c(rep(1,4),rep(2,3))
-set.seed(1234)
-treatment <- c(sample(1:4,size = 4),sample(1:3,size = 3))
-plot(1:7,rep(1,length(strata)),col = strata,pch = treatment + 14,axes = FALSE,xlab = "",ylab = "",cex = 3)
-legend("topright",bty = "n", pch = 15:18, legend = paste("Treatment",1:4), col = "grey")
-legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Strata",1:2))
-
-```
-</ul>
 
 ## Replication
 
-<ul style="font-family: bookman, bookman; font-size:20pt; top:15%;position: absolute;">
-  <li> Accounts for  variation among individuals and treatments
-   </ul>
 ```{r repeated,message=FALSE,cache=TRUE,results='hide'}
 plot(1:15, rep(1.5,15),col = rep(1:3,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
 points(1:15,rep(1,15),col = rep(1:3,each = 5),pch = 18,cex = 3)
@@ -99,16 +118,45 @@ legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
 
 ```
 
-## Local Control 
+## Replication
 
-<ul style="font-family: bookman, bookman; font-size:20pt; top:15%;position: absolute;">
-  <li> Blocking \& Balancing (ideally) </li>
-  <ul>
-  <li> control sources of variation </li>
-  <li> severe imbalance may induce factor confounding </li>
-  </ul>
-  
-  ```{r random block2,echo = FALSE}
+<p style="font-family: bookman, bookman; font-size:20pt">Replication means that each treatment is used more than
+once in the experiment.</p>
+
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+  <li> For true replication the entire process must be
+repeated separately each time.
+```{r repeatedii,message=FALSE,cache=TRUE,results='hide'}
+plot(1:15, rep(1.5,15),col = rep(1:3,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
+points(1:15,rep(1,15),col = rep(1:3,each = 5),pch = 18,cex = 3)
+points(1:15,rep(0.5,15),col = rep(1:3,each = 5),pch = 19, cex = 3)
+legend("topleft",bty = "n",pch = 17:19, col = "grey", legend = paste("Treatment", 1:3))
+legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
+
+```
+</ul>
+
+## Replication
+
+
+<p style="font-family: bookman, bookman; font-size:20pt">We can estimate the inherent variability in the data from
+the replicate observations. This allows us to judge
+whether an observed difference could be due to chance
+variation.</p>
+
+```{r repeatediii,message=FALSE,cache=TRUE,results='hide'}
+plot(1:15, rep(1.5,15),col = rep(1:3,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
+points(1:15,rep(1,15),col = rep(1:3,each = 5),pch = 18,cex = 3)
+points(1:15,rep(0.5,15),col = rep(1:3,each = 5),pch = 19, cex = 3)
+legend("topleft",bty = "n",pch = 17:19, col = "grey", legend = paste("Treatment", 1:3))
+legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
+
+```
+
+## Blocking
+
+
+```{r random block2,echo = FALSE}
 block <- rep(1:4, each = 4)
 set.seed(4321)
 treatment <- c(replicate(4,sample(1:4,size = 4)))
@@ -117,7 +165,44 @@ legend("topright",bty = "n", pch = 15:18, legend = paste("Treatment",1:4), col =
 legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
 
 ```
-  </ul>
+  
+## Blocking
+
+<p style="font-family: bookman, bookman; font-size:20pt">Experimental units are divided into subsets (called
+blocks) so that units within the same block are more
+similar than units from different subsets or blocks.</p>
+
+
+```{r random block1,echo = FALSE}
+block <- rep(1:4, each = 4)
+set.seed(4321)
+treatment <- c(replicate(4,sample(1:4,size = 4)))
+plot(1:16,rep(1,length(block)),col = block,pch = treatment + 14,axes = FALSE,xlab = "",ylab = "",cex = 3)
+legend("topright",bty = "n", pch = 15:18, legend = paste("Treatment",1:4), col = "grey")
+legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
+
+```
+
+## Blocking
+
+<p style="font-family: bookman, bookman; font-size:20pt">If two units in the same block get different treatments
+the treatments can be compared more precisely than if
+the treatments were assigned to units in different blocks.</p>
+<ul style="font-family: bookman, bookman; font-size:20pt; top:40%;position: absolute;">
+  <li> Blocking allows us to increase our ability to detect
+differences without increasing the size of the
+experiment.
+
+```{r random block3,echo = FALSE}
+block <- rep(1:4, each = 4)
+set.seed(4321)
+treatment <- c(replicate(4,sample(1:4,size = 4)))
+plot(1:16,rep(1,length(block)),col = block,pch = treatment + 14,axes = FALSE,xlab = "",ylab = "",cex = 3)
+legend("topright",bty = "n", pch = 15:18, legend = paste("Treatment",1:4), col = "grey")
+legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
+
+```
+</ul>
 
 ## Assessed lab work
 
@@ -133,3 +218,12 @@ legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
   <li> Be sure that your comments are clear and specific </li>
   <li> Be careful not to let your own opinions bias your review </li>
   </ul>
+
+## 
+
+<p style="font-family: bookman, bookman; font-size:30pt; top:30%;position: absolute;">
+    https://b.socrative.com/login/student/
+</p>
+<p style="font-family: bookman, bookman; font-size:40pt; top:60%;position: absolute;">
+    Room Name: BIOSCI220
+</p>
