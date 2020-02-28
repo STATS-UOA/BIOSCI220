@@ -26,7 +26,7 @@ By the end of this lab student should be able to
    + Identify the following experimental variables
       + independent variable
       + dependent variable
-   + List and describe Fisher's three principals of experimental designs
+   + List and describe Fisher's three principals of experimental design
        + Randomization
        + Replication
        + Blocking
@@ -36,7 +36,7 @@ By the end of this lab student should be able to
    
 ### Pre lab reading
 
-Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing in](https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7)
+Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing it](https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7)
 
 ```{r urlp}
 knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3806756/",height = "200px")
@@ -139,7 +139,7 @@ but randomisation means that our estimates will behave
 as if they were based on independent observations
 
 
-### Replication (repeated measures  or within groups)
+### Replication 
 
 **An experiment should be repeated more than once**
 
