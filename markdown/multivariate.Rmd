@@ -5,13 +5,14 @@ date: "Semester 1 2020"
 output:
   html_document:
     toc: true
-    toc_depth: 2
-    highlight: tango
     toc_float: true
+    theme: yeti
+    toc_depth: 3
+    highlight: espresso
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE,fig.align = "center")
 ```
 
 ## Learning Objectives
@@ -19,38 +20,81 @@ knitr::opts_chunk$set(echo = TRUE)
 By the end of this lab student should be able to
 
    + Discuss the aims and motivations of Multidimensional Scaling (MDS) and its relevance in biology
-   + List and summarize the three main types of MDS:
-      + classical MDS
-      + metric MDS
-      + non-metric MDS
-   + Write R code to create an MDS plot appropriate to the given 
-   + Interpret an MDS plot
    + Explain the aims and motivation behind Principal Component Analysis (PCA) and its relevance in biology
    + Write R code to carry out PCA
-   + Interpret the effectively communicate the output of a PCA
+   + Interpret the effectively communicate the output of PCA
 
 ## Suggested reading
 
 ## MDS (minimizes dimensions, preserving distance between data points)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/htEQsa4by2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## PCA (minimizes dimensions, preserving covariance of data).
 
 #### PCA is the same as MDS if the distances used in MDS are Euclidean
 
-![](../gifs/perp.gif)
+
 
 ![](../gifs/bread_data.png)
 ![](../gifs/pca.gif)
 
+![](../gifs/perp.gif)
 
 ## Example and `R` code
 
-```{r read in data}
-data <- read.csv(url("https://raw.githubusercontent.com/datacarpentry/wrangling-genomics/gh-pages/files/Ecoli_metadata_composite.csv"))
-## data structure
-str(data)
+We will use some breast cancer gene expression data with recurrence free survival (RFS) from [Gene Expression Profiling in Breast Cancer: Understanding the Molecular Basis of Histologic Grade To Improve Prognosis.](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE2990)
+
+```{r read in data, echo = TRUE}
+## read in genomics data from URL
+data <- read.csv("../data/genomics.csv")
+## dimension of data
+dim(data)
 ```
+
+the subset of data we have here has `r nrow(data)` rows and `r ncol(data)` columns.
+
+```{r read in metadata, echo = TRUE}
+## read in genomics metadata from URL
+metadata <- read.csv("../data/metadata.csv")
+rownames(metadata) <- colnames(data) ## making sure names match for analysis
+## structure of metadata
+str(metadata)
+```
+
+```{r pca}
+## Carry out PCA analysis using PCAtools
+## may need to install some packages first
+## if (!requireNamespace('BiocManager', quietly = TRUE))
+## install.packages('BiocManager')
+## BiocManager::install('PCAtools')
+library(PCAtools)
+pca <- pca(data, metadata = metadata)
+## How much variation is explained by each principal component (have a look at the "screeplot")
+screeplot(pca)
+```
+
+### Plotting PCA (using ggplot)
+
+```{r ggplot}
+## https://bioconductor.org/packages/release/bioc/vignettes/PCAtools/inst/doc/PCAtools.html#quick-start
+
+```
+
 
 ## Lab work (worth 6\% of your final grade)
 
-You can work in groups or alone; however your work should be independent. Using the dataset above you should make a poster illustrating the concepts of PCA and the steps required in the analysis. You can include `R` code and any plots you feel necessary. The text should be minimal but easy to follow by your peers. This assignment will be marked by your peers based on the following guidelines.... Upload your poster to canvas with 1/2 and hour to go and then wait to receive the a poster to grade. The process will be anonymous. Please follow the guidelines mentioned above. You should also provide a "complement sandwich" style of feedback on the assignment you graded: one complement followed by some constructive criticism followed by another complement. Please be respectful of your peers during this exercise and at al other times. 
+You can work in groups or alone; however your work should be independent. Using the dataset above you should make a cheatsheet illustrating the concepts of PCA and the steps required in the analysis. You can find some [RStudio cheatsheet examples here](https://rstudio.com/resources/cheatsheets/). You may include `R` code and any plots you feel necessary. The text should be minimal, but easy to follow by your peers. Your cheatsheet should also contain inference  This assignment will be marked by your peers based and should 1) help users find essential information quickly, and 2) be easy to follow! 
+
+
+ + Be very concise; rely on diagrams where possible.
+
+ + Pay attention to the details! 
+
+ + Code comments inform, but fail to draw the readers attention. It is better to use arrows, speech bubbles, etc. for important information. If it is not important information, leave it out.
+
+ + Simple working examples are more helpful than documentation details. 
+
+ + Add some concise text to help the user make sense of your sections and diagrams and inferences. 
+ 
+You may use whatever software you want to create your cheatsheet. However, [here is a basic PowerPoint template](https://rstudio.com/resources/cheatsheets/how-to-contribute-a-cheatsheet/) you may wish to modify.

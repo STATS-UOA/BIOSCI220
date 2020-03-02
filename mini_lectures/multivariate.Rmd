@@ -1,0 +1,60 @@
+---
+title: "Multivariate Analysis"
+author: ""
+date: ""
+output: ioslides_presentation
+---
+
+<style type="text/css">
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## PCA
+
+<center>
+![](../gifs/bread_data.png)
+</center>
+
+## PCA 
+
+<center>
+![](../gifs/pca.gif)
+</center>
+
+## PCA 
+
+<center>
+![](../gifs/perp.gif)
+</center>
+
+
+
+
+## Assessed lab work (make a PCA cheatsheet)
+
+<img src="https://d33wubrfki0l68.cloudfront.net/65dffd1bdcaa0025006262164d98e8068e8b4387/c3895/wp-content/uploads/2018/08/rmarkdown-2.0.png" alt="cheatsheet" width="600" height="400"/>
+
+## Assessed lab work
+
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+  <li> Be kind </li>
+  <li> Point out strengths as well as weaknesses </li>
+  <li> Be sure that your comments are clear and specific </li>
+  <li> Follow the rubric carefully  </li>
+  <li> You will be expected to mark 3, randomly selected, cheatsheets </li>
+  </ul>
+
+## 
+
+
+<ul style="font-family: bookman, bookman; font-size:30pt; top:40%;position: absolute;">
+  https://b.socrative.com/login/student/
+  Room Name: BIOSCI220
+ </ul>
+
