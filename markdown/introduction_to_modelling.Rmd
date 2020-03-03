@@ -35,7 +35,7 @@ By the end of this lab student should be able to
       + the effect of a factor
       + the effect of a one-unit increase in a numeric variable
       + the effect of an x-unit increase in a numeric variable
-   + Critique the fitted model
+   + MAke a point prediction of the response for a new observation
 
 ### Some great `r icon::fa_twitter(colour = "#1DA1F2")` threads
 
