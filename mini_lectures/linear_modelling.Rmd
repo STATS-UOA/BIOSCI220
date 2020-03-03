@@ -12,7 +12,11 @@ slides > slide:not(.nobackground):after {
 </style>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE)
+library(dplyr)
+library(ggplot2)
+library(magick)
+library(gganimate)
 ```
 
 ## Learning objectives (linear modelling)
@@ -78,7 +82,7 @@ animate(anim,fps=5)
 
 <p style="font-family: bookman, bookman; font-size:20pt"> The P$\overline{\text{a}}$ua dataset contains the following variables</p>
 <ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
-<li> Age of  P$\overline{\text{a}}$uaa in years (calculated from counting rings in the
+<li> Age of  P$\overline{\text{a}}$ua in years (calculated from counting rings in the
 cone) </li>
 <li> Length of  P$\overline{\text{a}}$ua shell in centimeters</li>
 <li> Species of  P$\overline{\text{a}}$ua: *Haliotis iris* (typically found in NZ) and
@@ -89,16 +93,16 @@ cone) </li>
 
 ## How old am I?
 <div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Haliotis_australis_001.jpg" style="float:center" width="220" height="220">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Haliotis_australis_001.jpg" style="float:center" width="440" height="220">
 *Haliotis australis* </div>
 <div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Haliotis_iris_01.JPG" style="float:center" width="220" height="220">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Haliotis_iris_01.JPG" style="float:center" width="440" height="220">
 *Haliotis iris* </div>
 
 ## How old am I?
-
+<center>
 <img src="sb.png"  width="420" height="420" style="float:center">
-
+</center>
 ## How old am I?
 
 ```{r head,echo = 2}
@@ -113,7 +117,7 @@ $$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
 Here for observation $i$
 
   + $Y_i$ is the value of the response (in our case Age of P$\overline{\text{a}}$ua)
-  + $x_i$ is the value of the explanatory variable (e.g., Length of P$\overline{\text{a}}$ua shell)
+  + $x_i$ is the value of the explanatory variable (Length of P$\overline{\text{a}}$ua shell)
   + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
 
 ## Simple linear regression
@@ -209,7 +213,8 @@ Where
  
 ## Estimated coefficients
 
-```{r summary, echo = TRUE}
+
+```{r summary, echo = TRUE,tidy=TRUE,tidy.opts=list(width=10)}
 summary(multiple.mod)
 ```
 
