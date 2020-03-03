@@ -1,0 +1,146 @@
+---
+title: "Introduction to linear modelling"
+author: ""
+date: ""
+output: ioslides_presentation
+---
+
+<style type="text/css">
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Learning objectives (linear modelling)
+
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+<li> Fit a linear model with multiple explanatory variables in `R`</li>
+<li> Interpret coefficients of a linear model with multiple
+explanatory variables</li>
+<li> Make a point prediction of the response for a new observation</li>
+</ul>
+
+## The P$\overline{\text{a}$ua dataset
+
+<p style="font-family: bookman, bookman; font-size:20pt"> The P$\overline{\text{a}$ua dataset contains the following variables</p>
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+<li> Age of  P$\overline{\text{a}$uaa in years (calculated from counting rings in the
+cone) </li>
+<li> Length of  P$\overline{\text{a}$ua shell in centimeters</li>
+<li> Species of  P$\overline{\text{a}$ua: *Haliotis iris* (typically found in NZ) and
+*Haliotis australis* (less commonly found in NZ) </li>
+
+</ul>
+
+
+## How old am I?
+<div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Haliotis_australis_001.jpg" style="float:center" width="220" height="220">
+*Haliotis australis* </div>
+<div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Haliotis_iris_01.JPG" style="float:center" width="220" height="220">
+*Haliotis iris* </div>
+
+## How old am I?
+
+<img src="sb.png"  width="420" height="420" style="float:center">
+
+## How old am I?
+
+```{r head,echo = 2}
+paua <- read.csv("../data/paua.csv")
+head(paua)
+```
+
+## Simple linear regression
+
+```{r sl,message=FALSE}
+library(emoGG)
+ggplot(data = paua,aes(x = Length, y = Age)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)")
+
+```
+
+## Simple linear regression
+
+```{r sll,message=FALSE}
+ggplot(data = paua,aes(x = Length, y = Age)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") +
+  geom_smooth(method = "lm",se = FALSE)
+
+```
+
+## But we have more information
+
+```{r slli,message=FALSE}
+ggplot(data = paua,aes(x = Length, y = Age)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") + geom_emoji(data = paua[paua$Species =="Haliotis iris",],emoji="1f9aa") +
+  geom_emoji(data=data.frame(x = 2,y = 12.5),aes(x = x, y = y),emoji="1f41a") +
+  geom_emoji(data=data.frame(x = 2,y = 11.5),aes(x = x, y = y),emoji="1f9aa") +
+  annotate("text",x = 2.75,y = 12.5,label = "Haliotis australis") +
+  annotate("text",x = 2.75,y = 11.5,label = "Haliotis iris")
+
+```
+
+## Fitted model
+
+```{r sllfi,message=FALSE}
+fitlm = lm(Age ~ Species + Length, data = paua)
+paua$predlm = predict(fitlm)
+ggplot(data = paua,aes(x = Length, y = Age,color = Species)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") + geom_emoji(data = paua[paua$Species =="Haliotis iris",],emoji="1f9aa") +
+  geom_emoji(data=data.frame(x = 2,y = 12.5,Species = "1"),aes(x = x, y = y),emoji="1f41a") +
+  geom_emoji(data=data.frame(x = 2,y = 11.5,Species = "2"),aes(x = x, y = y),emoji="1f9aa") +
+  annotate("text",x = 2.75,y = 12.5,label = "Haliotis australis",color = "red") +
+  annotate("text",x = 2.75,y = 11.5,label = "Haliotis iris",color = "blue") + geom_line(aes(y = predlm), size = 1) + theme(legend.position = "none") +
+  scale_colour_manual(values=c("Haliotis australis" = "red","Haliotis iris" = "blue","1" = "black","2" = "green"))
+
+```
+
+## Fitted model
+
+```{r sllfip,message=FALSE}
+ggplot(data = paua,aes(x = Length, y = Age,color = Species)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") + geom_emoji(data = paua[paua$Species =="Haliotis iris",],emoji="1f9aa") +
+  geom_emoji(data=data.frame(x = 2,y = 12.5,Species = "1"),aes(x = x, y = y),emoji="1f41a") +
+  geom_emoji(data=data.frame(x = 2,y = 11.5,Species = "2"),aes(x = x, y = y),emoji="1f9aa") +
+  annotate("text",x = 2.75,y = 12.5,label = "Haliotis australis",color = "red") +
+  annotate("text",x = 2.75,y = 11.5,label = "Haliotis iris",color = "blue") + geom_line(aes(y = predlm), size = 1) + theme(legend.position = "none") +
+  scale_colour_manual(values=c("Haliotis australis" = "red","Haliotis iris" = "blue","1" = "black","2" = "green"))
+
+```
+
+But, what if the lines aren't parallel?
+
+## Next Time INTERACTIONS
+
+```{r sllfipi,message=FALSE}
+ggplot(data = paua,aes(x = Length, y = Age,color = Species)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") + geom_emoji(data = paua[paua$Species =="Haliotis iris",],emoji="1f9aa") +
+  geom_emoji(data=data.frame(x = 2,y = 12.5,Species = "1"),aes(x = x, y = y),emoji="1f41a") +
+  geom_emoji(data=data.frame(x = 2,y = 11.5,Species = "2"),aes(x = x, y = y),emoji="1f9aa") +
+  annotate("text",x = 2.75,y = 12.5,label = "Haliotis australis",color = "red") +
+  annotate("text",x = 2.75,y = 11.5,label = "Haliotis iris",color = "blue") + geom_smooth(method = "lm", se = FALSE) + theme(legend.position = "none") +
+  scale_colour_manual(values=c("Haliotis australis" = "red","Haliotis iris" = "blue","1" = "black","2" = "green"))
+
+```
+
+
+## 
+
+
+<ul style="font-family: bookman, bookman; font-size:30pt; top:40%;position: absolute;">
+  https://b.socrative.com/login/student/
+  Room Name: BIOSCI220
+ </ul>
+
