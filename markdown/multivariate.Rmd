@@ -26,65 +26,94 @@ By the end of this lab student should be able to
 
 ## Suggested reading
 
+
+```{r url}
+knitr::include_url("https://little-book-of-r-for-multivariate-analysis.readthedocs.io/en/latest/index.html",height = "200px")
+```
+
+```{r urlp2}
+knitr::include_url("https://juba.github.io/explor/",height = "200px")
+```
+
+```{r urlp3}
+knitr::include_url("https://bioconductor.org/packages/release/bioc/vignettes/PCAtools/inst/doc/PCAtools.html#quick-start",height = "200px")
+```
+
 ## MDS (minimizes dimensions, preserving distance between data points)
+
+**We want to find the best low-dimensional representation of the variation in a multivariate (lots and lots of variables) data set**, but how do we do this? 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/htEQsa4by2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## PCA (minimizes dimensions, preserving covariance of data).
+### PCA (minimizes dimensions, preserving covariance of data).
 
-#### PCA is the same as MDS if the distances used in MDS are Euclidean
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oRvgq966yZg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+**PCA is a special case of MDS if the distances used in MDS are Euclidean**
 
+Thinking in 2D is enough for me so let's imagine your data (black dots) is the shape of this baguette. 
 
 ![](../gifs/bread_data.png)
+
+If we were to "plot" this baguette (the data) on a "normal" axis the spread would not align in either the x- or y-direction. Our aim is to find a smaller number of variables (fewer than we started with) that capture most of the variation (sperad). Where do you think most of the variation lies with the baguette? 
+
+To find these new variables (principal components) we essentially rotate the "normal" axes until we find a suitable set of principal components. Remember the idea is to **reduce** the number of variables so we want to find the set of principal components where the fewest number explain the most amount of variance. Each of these new variables (principal components) is a linear combination of all or some of the original variables. 
+
+
 ![](../gifs/pca.gif)
+
+It looks like we can explain a lot of the variation in the baguette (data) by the first principal component (PC1) alone. How do we "find" these principal components? Simply be minimising the distance between each datapoint and the rotating axes (well okay the computer does this bit). Essentially we've rotated the axes around until we've found the position where the perpendicular distances (blue lines below) between the data (black dots below) and the rotating axes (grey lines, sloid (PC1) and dashed (PC2), below) are smallest (black lines, sloid (PC1) and dashed (PC2), below). Makes more sense when we think back to the baguette? How would you skewer it to cover most of its length?
 
 ![](../gifs/perp.gif)
 
-## Example and `R` code
 
-We will use some breast cancer gene expression data with recurrence free survival (RFS) from [Gene Expression Profiling in Breast Cancer: Understanding the Molecular Basis of Histologic Grade To Improve Prognosis.](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE2990)
+Three basic types of information we obtain from a PCA:
 
-```{r read in data, echo = TRUE}
-## read in genomics data from URL
-data <- read.csv("../data/genomics.csv")
-## dimension of data
+  + PC scores: the coordinates of our samples on the new PC axis
+  + Eigenvalues: represent the variance explained by each PC; we can use these to calculate the proportion of variance in the original data that each axis explains
+  + Variable loadings (eigenvectors): these reflect the weight that each variable has on a particular PC (can be thought of as the correlation between the PC and the original variable)
+
+
+## Example and `R` code using RNAseq data
+
+
+```{r,echo = TRUE}
+## https://tavareshugo.github.io/data-carpentry-rnaseq/03_rnaseq_pca.html
+## read in rna sequencing data from URL
+data <- read.csv(url("https://raw.githubusercontent.com/tavareshugo/data-carpentry-rnaseq/master/data/counts_transformed.csv"))
+## let's have a look at the structure
+str(data)
+## dimensions
 dim(data)
+## class
+class(data)
+## Transform the data.frame (excluding the gene column) into a matrix and transpose the matrix so that rows = samples and columns = variables (this is the format prcomp() expects)
+data <- t(as.matrix(data[,-1]))
+## You could also use tidyverse syntax e.g.,library(plyr) pca_matrix <- trans_cts %>% 
+  ## # exclude the gene column
+  ## select(-gene) %>% 
+  ##  # coerce to a matrix
+  ## as.matrix()
+## structure?
+str(data)
+## rownames
+rownames(data)
 ```
 
-the subset of data we have here has `r nrow(data)` rows and `r ncol(data)` columns.
+Now the data is in the correct shape let's perform the PCA
 
-```{r read in metadata, echo = TRUE}
-## read in genomics metadata from URL
-metadata <- read.csv("../data/metadata.csv")
-rownames(metadata) <- colnames(data) ## making sure names match for analysis
-## structure of metadata
-str(metadata)
-```
-
-```{r pca}
-## Carry out PCA analysis using PCAtools
-## may need to install some packages first
-## if (!requireNamespace('BiocManager', quietly = TRUE))
-## install.packages('BiocManager')
-## BiocManager::install('PCAtools')
-library(PCAtools)
-pca <- pca(data, metadata = metadata)
-## How much variation is explained by each principal component (have a look at the "screeplot")
-screeplot(pca)
-```
-
-### Plotting PCA (using ggplot)
-
-```{r ggplot}
-## https://bioconductor.org/packages/release/bioc/vignettes/PCAtools/inst/doc/PCAtools.html#quick-start
-
+```{r pca rna,echo = TRUE}
+pca <- prcomp(data)
+## Summary of PCA
+summary(pca)
+## scree plot (proportion of variance explained)
+screeplot(pca,type = "lines")
 ```
 
 
 ## Lab work (worth 6\% of your final grade)
 
-You can work in groups or alone; however your work should be independent. Using the dataset above you should make a cheatsheet illustrating the concepts of PCA and the steps required in the analysis. You can find some [RStudio cheatsheet examples here](https://rstudio.com/resources/cheatsheets/). You may include `R` code and any plots you feel necessary. The text should be minimal, but easy to follow by your peers. Your cheatsheet should also contain inference  This assignment will be marked by your peers based and should 1) help users find essential information quickly, and 2) be easy to follow! 
+You can work in groups or alone; however your work should be independent. Using a dataset of your choice (e.g., that above, or the wine dataset used in the lecture slides...) you should make a cheatsheet illustrating the concepts of PCA and the steps required in the analysis. You can find some [RStudio cheatsheet examples here](https://rstudio.com/resources/cheatsheets/). You may include `R` code and any plots you feel necessary. The text should be minimal, but easy to follow by your peers. This assignment will be marked by your peers based and should 1) help users find essential information quickly, and 2) be easy to follow! 
 
 
  + Be very concise; rely on diagrams where possible.
