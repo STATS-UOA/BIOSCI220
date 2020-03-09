@@ -60,11 +60,11 @@ By the end of this lab students should be able to
 
 A confidence interval can be thought of as a plausible range within which we might expect the true value of some unknown population parameter to lie. The level of “confidence” associated with this interval typically reflects the proportion of time we would expect an interval to contain the true value of the parameter. For example, if we took 100 samples, calculating the 95% confidence interval for the mean each time, we would expect the intervals to contain the “true” (population) mean 95 times.
 
-```{r confidence}
+```{r confidence,eval = FALSE}
 set.seed(2020)
 y <- rnorm(500,10,3)
-N <- 1000 ## number of times to resample
-nanim <- 100 ## number of times for animation
+N <- 100 ## number of times to resample
+nanim <- 10 ## number of times for animation
 Y <- data.frame(m = numeric(N*nanim), nani = rep(1:N, each = nanim))
 for(i in 1:(N*nanim)){
   Y$m[i] <- mean(sample(y,length(y), replace = TRUE))
@@ -91,14 +91,13 @@ plt <- ggplot(Y, aes(m)) + geom_histogram() + theme_void() +
   
 gif <- animate(plt, width = 420, height = 240)
 
-gif
+anim_save("../gifs/ci.gif",gif)
 ```
+
+![](../gifs/ci.gif)
 
 
 ## Inference about a mean
-
-
-
 
 ### Calculating a 95\% confidence interval using the t-distribution
 
@@ -112,7 +111,7 @@ where sd is the standard deviation of the sample and $n$ is the sample size.
 
 Hypothesis: On average each bag contains 5kg of dog food.
 
-```{r one-sample,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
+```{r one-sample,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 ## simulate data
 dog <- data.frame(type = "Food",weight = rnorm(100,5,1), reps = rep(1:10,each = 10))
 
@@ -183,10 +182,11 @@ for(i in 2:100){
   new_gif <- c(new_gif, combined)
 }
 
-new_gif
+anim_save("../gifs/os_ttest.gif",new_gif)
 
 
 ```
+![](../gifs/os_ttest.gif)
 
 
 
@@ -194,7 +194,7 @@ new_gif
 
 ### Independennt samples
 
-```{r independent t-test, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
+```{r independent t-test, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval=FALSE}
 ## independant t-test
 ## simulate data
 A <-rnorm(100,50,10)
@@ -284,10 +284,12 @@ for(i in 2:100){
   new_gif<-c(new_gif,combined)
 }
 
-new_gif
+anim_save("../gifs/ts_ttest.gif",new_gif)
 
 
 ```
+
+![](../gifs/ts_ttest.gif)
 
 
 
@@ -297,7 +299,7 @@ NOTE: The difference between two dependant samples can be treated in the same wa
 
 ## How do I get to work the quickest? One way ANOVA
 
-```{r anova gif,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
+```{r anova gif,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 A <- rnorm(100,45,10)
 B <- rnorm(100,50,10)
 C <- rnorm(100,40,10)
@@ -375,18 +377,19 @@ for(i in 2:100){
   new_gif<-c(new_gif,combined)
 }
 
-new_gif
+anim_save("../gifs/anova.gif",new_gif)
 
 
 ```
 
+![](../gifs/anova.gif)
 
 ## Randomization test. 
 
 Can extend to inference about any sample statistic
 
 
-```{r randomisation gif, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)"}
+```{r randomisation gif, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 study <- round(runif(10,80,100))
 no_study <- round(runif(10,40,90))
 
@@ -440,10 +443,12 @@ a <- ggplot(data = raw_df,aes(x=IV,y=values,color=rand_order), color = c("red","
     exit_shrink() +
     ease_aes('sine-in-out')
 
-animate(a,nframes=100,fps=5)
+anim_save("../gifs/random.gif",animate(a,nframes=100,fps=5))
 
 
 ```
+
+![](../gifs/random.gif)
 
 ### Power and significance level
 

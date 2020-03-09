@@ -1,0 +1,60 @@
+---
+title: "Hypothesis testing"
+author: ""
+date: ""
+output: ioslides_presentation
+---
+
+<style type="text/css">
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE)
+library(dplyr)
+library(ggplot2)
+library(magick)
+library(gganimate)
+```
+
+## Hypothesis testing
+
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+<li> Hypothesis</li>
+<li> Test statistic</li>
+<li> What is the probability of observing that test statistic? (p-value)</li>
+</ul>
+
+## Inference about a mean
+
+![](../gifs/os_ttest.gif)
+
+## Inference about two means
+
+![](../gifs/ts_ttest.gif)
+
+## One way ANOVA
+
+![](../gifs/anova.gif)
+
+## Randomization test. 
+
+![](../gifs/random.gif)
+
+
+## Next Time Linear Modelling
+
+![](../gifs/lm.gif)
+
+
+
+## 
+
+
+<ul style="font-family: bookman, bookman; font-size:30pt; top:40%;position: absolute;">
+  https://b.socrative.com/login/student/
+  Room Name: BIOSCI220
+ </ul>
+
