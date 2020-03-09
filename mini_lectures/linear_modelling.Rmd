@@ -236,7 +236,7 @@ summary(multiple.mod)
 confint(multiple.mod)
 ```
 
-## In terpreting confidence intervals
+## Interpreting confidence intervals
 
 + For every 1cm increase in Length we estimate the expected Age increases between `r round(confint(multiple.mod)[2,1],1)` and `r round(confint(multiple.mod)[2,2],1)` years
 

@@ -458,7 +458,7 @@ desired difference at the desired power
 
 ```
 
-### Example and `R` code
+## Examples and `R` code
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? <a href="https://t.co/VOXqqrgV3w">https://t.co/VOXqqrgV3w</a> <a href="https://t.co/IZP7IIVZQP">pic.twitter.com/IZP7IIVZQP</a></p>&mdash; PeerJ — Life and Environment Journal (@thePeerJ) <a href="https://twitter.com/thePeerJ/status/992737177489608704?ref_src=twsrc%5Etfw">May 5, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -475,7 +475,7 @@ table(stings$sociality)
 table(stings$Prey)
 ```
 
-#### Coding errors
+### Coding errors
 
 ```{r errors, echo = TRUE}
 ## we have to turn it into a character
@@ -491,7 +491,7 @@ table(stings$Prey)
 ```
 
 
-#### Recreating the plots in the paper
+### Recreating the plots in the paper
 
 ```{r recreating plots, echo = TRUE}
 ## boxplot
@@ -500,19 +500,39 @@ boxplot(stings$sting_ratio~stings$Prey, xlab = "", ylab = "Relative Sting Length
 plot(stings$mesosoma,stings$sting, xlab = "Mesosomal Length (mm)", ylab = "Sting Length (mm)", col = factor(stings$Prey),pch = 20)
 ```
 
+### t-test
+
+```{r t-test,echo = TRUE}
+boxplot(sting~sociality,data = stings)
+t.test(sting~sociality, data = stings)
+## have a look at the 95% confidene interval of the difference
+## does this contain zero?
+## do we believe there is a difference in sting length between sociality groups?
+## do we have enough data to draw a reliable conclusion?
+```
+
+### One-way ANOVA
+
+```{r anova, echo = TRUE}
+aov <- aov(sting ~ Prey, data = stings)
+summary(aov)
+## What does this tell us? Is the F-statistic in line with what we would expect given the data?
+## Or is it unlikely given our data?
+## Does the AONVA back up your thoughts given the boxplots above?
+```
+
+#### But which group is different? Post Hoc analysis.
+
+```{r tukey}
+## What do you think is goin on here?
+## Do any of the confidence intervals contain zero?
+TukeyHSD(aov)
+
+```
+
 ## Lab work
 
 Begin work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. If should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings.
-
-## Some popential data sets
-
-[Carbon footprint data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-18/readme.md)
-
-[San Fransisco trees](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-28/readme.md)
-
-[NZ bird of the year](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-11-19)
-
-[Global PLastic waste](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-21)
 
 
 

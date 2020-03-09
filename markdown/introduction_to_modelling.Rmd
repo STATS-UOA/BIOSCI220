@@ -35,7 +35,7 @@ By the end of this lab student should be able to
       + the effect of a factor
       + the effect of a one-unit increase in a numeric variable
       + the effect of an x-unit increase in a numeric variable
-   + MAke a point prediction of the response for a new observation
+   + Make a point prediction of the response for a new observation
 
 ### Some great `r icon::fa_twitter(colour = "#1DA1F2")` threads
 
@@ -100,12 +100,152 @@ animate(anim,fps=5)
 ```
 
 
+
+
 ## Example and `R` code
 
-[Carbon footprint data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-18/readme.md)
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? <a href="https://t.co/VOXqqrgV3w">https://t.co/VOXqqrgV3w</a> <a href="https://t.co/IZP7IIVZQP">pic.twitter.com/IZP7IIVZQP</a></p>&mdash; PeerJ — Life and Environment Journal (@thePeerJ) <a href="https://twitter.com/thePeerJ/status/992737177489608704?ref_src=twsrc%5Etfw">May 5, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-[San Fransisco trees](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-28/readme.md)
+Data from [Sadler EA, Pitts JP, Wilson JS. 2018. Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? PeerJ 6:e4743 https://doi.org/10.7717/peerj.4743](https://peerj.com/articles/4743/)
 
-[NZ bird of the year](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-11-19)
+```{r read in data,echo = TRUE}
+## read in the data from online
+stings <-read.delim(url("https://dfzljdn9uc3pi.cloudfront.net/2018/4743/1/sting_data.txt"))
+## print out the first 6 rows of data
+head(stings)
+## Plotting the data
+plot(stings$mesosoma,stings$sting, xlab = "Mesosomal Length (mm)", ylab = "Sting Length (mm)", col = factor(stings$Prey),pch = 20)
+## try the same using ggplot2
+library(ggplot2)
+ggplot(data = stings,aes(x = mesosoma,y = sting, color = prey_graph)) +
+  geom_point() + ylab("Sting Length (mm)") + xlab("Mesosomal Length (mm)") +
+  scale_fill_discrete(name = "Prey")
+```
 
-[Global PLastic waste](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-21)
+### Simple linear model
+
+$$Y_i = \beta_0 + \beta_1x_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+Here for observation $i$
+
+  + $Y_i$ is the value of the response (sting length in mm)
+  + $x_i$ is the value of the explanatory variable (mesosomal length in mm)
+  + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
+  
+```{r lm,echo = TRUE}
+simple.mod <- lm(sting ~ mesosoma, data = stings)
+summary(simple.mod)
+```
+
+So for every 1mm increase in mesosomal length we'd expect a `r round(coef(simple.mod)[2],2)` mm increase in sting length.
+
+### Think in terms of an ANOVA
+
+$$Y_i = \beta_0 + \beta_1z_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+Here for observation $i$
+
+  + $Y_i$ is the value of the response (sting length in mm)
+  + $z_i$ is the prey species
+  + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
+  
+However, prey is not a numeric variable. So the equation becomes
+
+$$Y_i = \beta_0 + \beta_1 \text{Diptera?}_i + \beta_2 \text{Generalist Predator?}_i + \beta_3 \text{Hemimetabolous insects?}_i + \beta_4 \text{Herbivore?}_i + \beta_5 \text{Immature Hymenoptera?}_i + \beta_6 \text{Spiders?}_i + \beta_7 \text{Unknown?}_i  + \epsilon_i$$
+where $\text{prey}_i$ is a dummy variable and $=1$ if the $i^{\text{th}}$ observation corresponded to that prey and $=0$ otherwise.
+
+```{r anova, echo = TRUE}
+anova.mod <- lm(sting~prey_graph,data = stings)
+## Have a look back at the previous lab's notes. Do you see any similarities between the outputs?
+summary(anova.mod)
+```
+
+### Multiple linear regression
+
+$$Y_i = \beta_0 + \beta_1z_i + \beta_2x_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+Here for observation $i$
+
+  + $Y_i$ is the value of the response (sting length in mm)
+  + $z_i$ is the prey species
+  $x_i$ is the value of the explanatory variable (mesosomal length in mm)
+  + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
+  
+However, as above prey is not a numeric variable. So the equation becomes
+
+$$Y_i = \beta_0 + \beta_1 \text{Diptera?}_i + \beta_2 \text{Generalist Predator?}_i + \beta_3 \text{Hemimetabolous insects?}_i + \beta_4 \text{Herbivore?}_i + \beta_5 \text{Immature Hymenoptera?}_i + \beta_6 \text{Spiders?}_i + \beta_7 \text{Unknown?}_i + \beta_8\text{Mesosomal Length (mm)}_i + \epsilon_i$$
+where $\text{prey}_i$ is a dummy variable and $=1$ if the $i^{\text{th}}$ observation corresponded to that prey and $=0$ otherwise.
+
+```{r multiple, echo = TRUE}
+multiple.mod <- lm(sting~prey_graph + mesosoma,data = stings)
+## Do you notice any similarities in the estimated coefficients to the models above?
+summary(multiple.mod)
+```
+
+So for a observation with Coleoptera as prey (included in the baseline/intercept by default) we expect for every 1mm increase in mesosomal length a `r round(coef(multiple.mod)[9],2)` mm increase in sting length.
+
+
+### Confidence intervals
+
+```{r confint, echo = TRUE}
+confint(multiple.mod)
+```
+
+## Interpreting confidence intervals
+
++ For every 1mm increase in mesosoma length we estimate the expected sting length to increases between `r round(confint(multiple.mod)[9,1],1)` and `r round(confint(multiple.mod)[9,2],1)` mm
+
++ We estimate that the expected sting length of a species predated by Immature Hymenoptera is between
+`r round(confint(multiple.mod)[6,2],1)` and `r round(confint(multiple.mod)[6,2],1)` mm longer than that predated by Coleoptera with the same sting length
+
+### Point prediction
+
+For species predated by Immature Hymenoptera with mesosomal length 5mm
+
+
+$$\hat{\text{Age}} = \hat{\beta_0} + \hat{\beta_5}*1 + \hat{\beta_8}*5$$
+$$\downarrow$$
+
+$$\hat{\text{Age}} = -0.99 + 4.25*1 + 0.87*5$$
+$$\downarrow$$
+
+$$7.61$$
+
+
+#### In `R`
+
+```{r pred,echo = TRUE}
+## create new data frame with data we want to predict to
+newdata <- data.frame(prey_graph = "Immature Hymenoptera",mesosoma = 5)
+## use predict() function
+predict(multiple.mod, newdata = newdata)
+## round to 2 d.p
+round(predict(multiple.mod, newdata = newdata),2)
+```
+
+### Plot the fitted model
+
+
+```{r plot mod, echo = TRUE}
+library(ggplot2)
+ggplot(data = stings,aes(x = mesosoma,y = sting, color = prey_graph)) +
+  geom_point() + ylab("Sting Length (mm)") + xlab("Mesosomal Length (mm)") +  
+  geom_line(aes(y = predict(multiple.mod)), size = 1)
+
+```
+
+Does this graph back up what the estimated coefficients and their respective p-values suggested? 
+
+### Newxt time INTERACTIONS
+
+```{r interactions}
+ggplot(data = stings,aes(x = mesosoma,y = sting, color = prey_graph)) +
+  geom_point() + ylab("Sting Length (mm)") + xlab("Mesosomal Length (mm)") +
+  geom_smooth(method = "lm", se = FALSE)
+
+```
+
+
+## Lab work
+
+Continue work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. It should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings.
