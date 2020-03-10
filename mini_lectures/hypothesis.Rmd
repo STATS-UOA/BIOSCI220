@@ -22,7 +22,7 @@ library(gganimate)
 ## Hypothesis testing
 
 <ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
-<li> Hypothesis</li>
+<li> Hypothesis \& assumptions</li>
 <li> Test statistic</li>
 <li> What is the probability of observing that test statistic? (p-value)</li>
 </ul>

@@ -17,6 +17,8 @@ library(dplyr)
 library(ggplot2)
 library(magick)
 library(gganimate)
+## devtools::install_github("thomasp85/transformr")
+library(transformr)
 ```
 
 
@@ -101,15 +103,32 @@ anim_save("../gifs/ci.gif",gif)
 
 ### Calculating a 95\% confidence interval using the t-distribution
 
-Using the standard error of an estimate we can calculate a 95% confidence interval (CI). For the population mean a 95% confidence interval can is calculated as $$\hat{\mu} \pm t_{97.5}se_\mu$$
-where $\hat{\mu}$ is the sample mean, seμ is the standard error of the mean, and $t_{97.5}$ is the $t$-multiplier (the 97.5% quantile of the $t$-distribution). This multiplier is based on the confidence level desired and depends on the sample size. A standard error of some estimated parameter is a measure of accuracy of the estimate. The standard error of a mean, $se_\mu$ can be written as
+Using the standard error of an estimate we can calculate a 95% confidence interval (CI). For the population mean a 95% confidence interval can be calculated as $$\hat{\mu} \pm t_{97.5}se_\mu$$
+where $\hat{\mu}$ is the sample mean, se_\mu is the standard error of the mean, and $t_{97.5}$ is the $t$-multiplier (the 97.5% quantile of the $t$-distribution). This multiplier is based on the confidence level desired and depends on the sample size. A standard error of some estimated parameter is a measure of accuracy of the estimate. The standard error of a mean, $se_\mu$ can be written as
 $$se_\mu =\frac{\text{sd}}{\sqrt{n}}$$
 where sd is the standard deviation of the sample and $n$ is the sample size.
 
 
 ### Am I being ripped off by the dog food company?
 
-Hypothesis: On average each bag contains 5kg of dog food.
+Claim: The company that supplies my dog food claim that each bag I buy is on average 5kg. To test this claim, over 6 months I weigh each bag of dog food I buy from that company.
+
+Hypothesis: We test the Null hypothesis, $H_0$, that on average each bag contains 5kg of dog food versus the alternative hypothesis, $H_1$, that the average weight is **not equal** to 5kg
+
++ $H_0: \mu = 5$kg vs $H_1: \mu \neq 5$kg
+
+Assumptions: 
+
+  + Each bag is independent from the other 
+  + Each datapoint (weight) come from the same distribution
+  + The weights are Normally distributed
+  
+Test Statistic: t-statistic = $\frac{\bar{Y} - \mu}{se_\mu}$ = $\frac{\bar{Y} - 5}{se_\mu}$ =  $\frac{\bar{Y} - 5}{\sqrt{s^2/n}}$
+
+ + Where $\bar{Y}$ is the sample mean, $s$ is the sample standard deviation, and $n$ is the number of observations
+
+
+Propability of getting a t-statistic at least as extreme as the one we observe (think of the area under the tails of the curve  below).
 
 ```{r one-sample,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 ## simulate data
@@ -117,7 +136,7 @@ dog <- data.frame(type = "Food",weight = rnorm(100,5,1), reps = rep(1:10,each = 
 
 means_df <- dog %>%
     group_by(reps,type) %>%
-    summarize(means = mean(weight),
+    summarize(means = mean(weight),f
               sem = sd(weight)/sqrt(length(weight)))
 
 stats_df <- dog %>%
@@ -186,13 +205,35 @@ anim_save("../gifs/os_ttest.gif",new_gif)
 
 
 ```
+
+
 ![](../gifs/os_ttest.gif)
 
 
 
 ## Inference about two means
 
-### Independennt samples
+### Independent samples
+
+Claim: Biologists and Medics study different numbers of hours to each other. To test this we could ask a sample of biology and medicine students
+
+Hypothesis: We test the Null hypothesis, $H_0$, that on average Biology students study for the same number of hours (i.e., the difference, d, is zero) as medicine students verses the alternative hypothesis, $H_1$, that they don't!
+
++ $H_0: \mu_{\text{Biologists}} - \mu_{\text{Medics}} = d \rightarrow \mu_{\text{Biologists}} - \mu_{\text{Medics}} = 0 \rightarrow \mu_{\text{Biologists}} = \mu_{\text{Medics}}  $ vs $H_1: \mu_{\text{Biologists}} \neq \mu_{\text{Medics}}$
+
+Assumptions: 
+
+  + Each student is independent of the other
+  + Each datapoint (number of hours studied) come from the same distribution
+  + The number of hours studied are Normally distributed
+  
+Test Statistic: t-statistic = $\frac{(\bar{Y}_{\text{Biologists}} - \bar{Y}_{\text{Medics}}) - d}{\sqrt{(s_{\text{Biologists}}^2/n_{\text{Biologists}}) + (s_{\text{Medics}}^2/n_{\text{Medics}})}}$ 
+
+  + Where $\bar{Y}_{\cdots}$ is the sample mean of either the Biologists or Medics, $s^2_{\cdots}$ is the sample standard deviation of either the Biologists or Medics, and $n_{\cdots}$ is the number of observations of either the Biologists or Medics
+
+
+Propability of getting a t-statistic at least as extreme as the one we observe (think of the area under the tails of the curve below).
+
 
 ```{r independent t-test, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval=FALSE}
 ## independant t-test
@@ -268,6 +309,7 @@ b <- ggplot(stats_df,aes(x=ts))+
 b_gif<-animate(b, width = 420, height = 420)
 
 
+
 d<-image_blank(420*2,420)
 
 the_frame<-d
@@ -293,11 +335,28 @@ anim_save("../gifs/ts_ttest.gif",new_gif)
 
 
 
-All the tests in the t-test family compare differences in mean scores of continuous, normally distributed, data
 
-NOTE: The difference between two dependant samples can be treated in the same way as a single sample where the null hypothesis is that the difference between the two samples is on average zero (i.e., $H_0: (\mu_1 - \mu_2) = 0$), see the [Inference about a mean] section.
+**NOTE: The difference between two dependant samples can be treated in the same way as a single sample where the null hypothesis is that the difference between the two samples is on average zero (i.e., $H_0: (\mu_1 - \mu_2) = 0$), see the [Inference about a mean] section.**
 
-## How do I get to work the quickest? One way ANOVA
+## How do I get to work the quickest? More than two samples!
+
+### One way ANOVA (ANalysis Of VAriance)
+
+Claim: The Train is the quickest way to commute to work over commuting by car or bus. To test this claim we collect data on three different modes of commuting transport. 
+
+Hypothesis: We test the Null hypothesis, $H_0$, all modes of transport take the same length of time to commute on average (i.e., the difference, d, is zero) verses the alternative hypothesis, $H_1$, that they don't!
+
++ $H_0: \mu_{\text{Train}} = \mu_{\text{Bus}} - \mu_{\text{car}} \rightarrow \mu_{\text{train}} - \mu_{\text{Bus}} - \mu_{\text{Car}} = 0  $ vs $H_1: \mu_{\text{train}} - \mu_{\text{Bus}} - \mu_{\text{Car}} \neq 0$
+
+Assumptions: 
+
+  + Each observation is independent of the other
+  + Each datapoint (number of mins to work) come from the same distribution
+  + The number of minutes to commute are Normally distributed
+  
+Test Statistic: F-statistic = ${\frac  {{\text{explained variance}}}{{\text{unexplained variance}}}} = {\frac  {{\text{between-group variability}}}{{\text{within-group variability}}}}$ (see [Examples and `R` code] below for details)
+
+Propability of getting an  F-statistic at least as extreme as the one we observe (think of the area under the tails of the curve below).
 
 ```{r anova gif,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 A <- rnorm(100,45,10)
@@ -343,18 +402,31 @@ a <- ggplot(means_df, aes(x=Transport,y=means, fill=Transport)) +
     exit_shrink() +
     ease_aes('sine-in-out')
 
+critical_df <- stats_df$Fs
+
 b <- ggplot(stats_df,aes(x=Fs))+
     geom_vline(aes(xintercept=Fs))+
     ## geom_vline(xintercept=qf(.95, df1=2,df2=27),color="green")+
-    geom_line(data=data.frame(x=seq(0,6,.1),
-                              y=df(seq(0,6,.1),df1=2,df2=27)),
+    geom_line(data=data.frame(x = seq(0,6,.1),
+                              y  = df(seq(0,6,.1),df1=2,df2=27)),
               aes(x=x,y=y)) +
     theme(panel.background = element_blank(),
           panel.grid.minor = element_blank(),
           panel.grid.major = element_blank(),
           panel.border = element_rect(colour='black', fill=NA)) +
     ylab("density")+
-    xlab("F-statistic")+
+    xlab("F-statistic") +
+   # stat_function(fun = "df",
+   #              geom = "area",
+   #              fill = "grey",
+   #              alpha = 0.3,
+   #              xlim = c(stats_df$Fs, 6),
+   #              args = list(
+   #                df1 = 2,df2 = 27
+   #              )) + 
+  # geom_area(data=data.frame(x = seq(stats_df$Fs,6,.1),
+  #                           y  = df(seq(stats_df$Fs,6,.1),df1=2,df2=27)),
+  #             aes(x=x,y=y), position = "identity") +
     transition_states(
         states=sims,
         transition_length = 2,
@@ -363,7 +435,7 @@ b <- ggplot(stats_df,aes(x=Fs))+
     geom_text(aes(4, 1,label = paste("F-statistic:", format(round(Fs, 2), nsmall = 2))),
               size = 4, hjust = 0, color = "black") +
     exit_shrink() +
-    ease_aes('sine-in-out')
+    ease_aes('sine-in-out') 
 
 a_gif<-animate(a,width=420,height=420)
 b_gif<-animate(b,width=420,height=420)
@@ -386,7 +458,9 @@ anim_save("../gifs/anova.gif",new_gif)
 
 ## Randomization test. 
 
-Can extend to inference about any sample statistic
+One possible explanation for an observed difference between groups, say in the [Inference about two means] section, is chance alone (i.e., it is by chance that we observe this differece)  
+
+
 
 
 ```{r randomisation gif, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
@@ -450,7 +524,24 @@ anim_save("../gifs/random.gif",animate(a,nframes=100,fps=5))
 
 ![](../gifs/random.gif)
 
-### Power and significance level
+### Interpreting p-values
+
+   + In experimental situations a large p-value (large tail proportion) means that the luck of the randomisation quite often produces group differences as large or even larger than what we’ve got in our data.
+   + A small p-value means that the luck of the randomisation draw hardly ever produces group differences as large as we’ve got in our data.
+   + **Statistical significance does not imply practical significance.**
+   + **Statistical significance says nothing about the size of treatment differences.** To estimate the sizes of differences you need confidence
+intervals.
+
+**NOTE: We can extend the randomization test to make inference about any sample statistic (not just the mean)**
+
+
+## Power and significance level
+
+```{r url}
+knitr::include_url("https://xkcd.com/882/",height = "200px")
+```
+
+
 
   + Power: probability that the test correctly rejects the null hypothesis when the
 alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a Type II error (False negative)
