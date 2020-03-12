@@ -136,7 +136,7 @@ dog <- data.frame(type = "Food",weight = rnorm(100,5,1), reps = rep(1:10,each = 
 
 means_df <- dog %>%
     group_by(reps,type) %>%
-    summarize(means = mean(weight),f
+    summarize(means = mean(weight),
               sem = sd(weight)/sqrt(length(weight)))
 
 stats_df <- dog %>%
@@ -145,7 +145,7 @@ stats_df <- dog %>%
 
 
 a <- ggplot(means_df, aes(x = type, y = means)) +
-    geom_bar(stat = "identity") +
+    geom_bar(stat = "identity") + scale_fill_brewer(palette = "Dark2") +
     geom_point(aes(x = type, y = weight), data = dog, alpha = .25) +
     geom_errorbar(aes(ymin = means - sem, ymax = means + sem), width = .2) +
     theme(axis.title.x=element_blank(),
@@ -168,8 +168,14 @@ a <- ggplot(means_df, aes(x = type, y = means)) +
   
 a_gif <- animate(a, width = 420, height = 420)
 
+
+
+crit_df <- as.data.frame(apply(stats_df,2,rep,each = 100))
+crit_df$ts <- c(sapply(abs(stats_df$ts), function(x) seq(x,5, length.out = 100))) ## xvect of sequences
+crit_df$y <- dt(crit_df$ts,df = 18,) ## corresponding t vals
+
 b <- ggplot(stats_df, aes(x = ts))+
-  geom_vline(aes(xintercept = ts, frame = reps))+
+  geom_vline(aes(xintercept = ts))+
   geom_line(aes(x=x,y=y),
             data = data.frame(x = seq(-5,5, .1),
                               y = dt(seq(-5,5, .1), df = 18))) +
@@ -179,13 +185,14 @@ b <- ggplot(stats_df, aes(x = ts))+
           panel.border = element_rect(colour='black', fill=NA)) +
   ylab("density") +
   xlab("t-statistic") +
-  transition_states(
-    states = reps,
-    transition_length = 2,
-    state_length = 1
-  ) +
+  geom_area(data = crit_df,mapping = aes(x = ts,y = y),fill = "grey",alpha = 0.3) +
+    geom_area(data = crit_df,mapping = aes(x = -ts,y = y),fill = "grey",alpha = 0.3) +
+    transition_states(reps,transition_length = 0,
+        state_length = 1) +
     geom_text(aes(-4, 0.5,label = paste("t-statistic:", format(round(ts, 3), nsmall = 2))),
               size = 4, hjust = 0, color = "black") +
+  geom_text(aes(-4, 0.475,label = paste("p-value:", format(round(2*pt(abs(ts),df = 18,lower.tail = FALSE), 2), nsmall = 2))),
+              size = 4, hjust = 0, color = "grey") +
   enter_fade() + 
   exit_shrink() +
   ease_aes('sine-in-out')
@@ -219,7 +226,7 @@ Claim: Biologists and Medics study different numbers of hours to each other. To 
 
 Hypothesis: We test the Null hypothesis, $H_0$, that on average Biology students study for the same number of hours (i.e., the difference, d, is zero) as medicine students verses the alternative hypothesis, $H_1$, that they don't!
 
-+ $H_0: \mu_{\text{Biologists}} - \mu_{\text{Medics}} = d \rightarrow \mu_{\text{Biologists}} - \mu_{\text{Medics}} = 0 \rightarrow \mu_{\text{Biologists}} = \mu_{\text{Medics}}  $ vs $H_1: \mu_{\text{Biologists}} \neq \mu_{\text{Medics}}$
++ $H_0: \mu_{\text{Biologists}} - \mu_{\text{Medics}} = \text{d} \rightarrow \mu_{\text{Biologists}} - \mu_{\text{Medics}} = 0 \rightarrow \mu_{\text{Biologists}} = \mu_{\text{Medics}}$ vs $H_1: \mu_{\text{Biologists}} \neq \mu_{\text{Medics}}$
 
 Assumptions: 
 
@@ -238,8 +245,8 @@ Propability of getting a t-statistic at least as extreme as the one we observe (
 ```{r independent t-test, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval=FALSE}
 ## independant t-test
 ## simulate data
-A <-rnorm(100,50,10)
-B <-rnorm(100,45,10)
+A <-rnorm(100,60,10)
+B <-rnorm(100,70,10)
 DV <- c(A,B)
 Student <- rep(c("Medics","Biologists"),each=100)
 sims <- rep(rep(1:10,each=10),2)
@@ -256,7 +263,7 @@ stats_df <- df %>%
               summarize(ts = t.test(DV~Student,var.equal=TRUE)$statistic)
 
 a <- ggplot(means_df, aes(x=Student,y=means, fill=Student))+
-    geom_bar(stat="identity")+
+    geom_bar(stat="identity") + scale_fill_brewer(palette = "Dark2") +
     geom_point(data=df,aes(x=Student, y=DV), alpha=.25)+
     geom_errorbar(aes(ymin=means-sem, ymax=means+sem),width=.2) +
     ylab("Number of hours studied") +
@@ -270,12 +277,12 @@ a <- ggplot(means_df, aes(x=Student,y=means, fill=Student))+
         transition_length = 2,
         state_length = 1
     ) +
-    geom_text(aes(0.5, 80,label = paste("Sample mean Biologists:",
+    geom_text(aes(0.5, 90,label = paste("Sample mean Biologists:",
                                         format(round(means[c(sims[c(TRUE,TRUE,FALSE,FALSE)],
                                                              means_df$sims[c(TRUE,TRUE,FALSE,FALSE)] + 10)], 3),
                                                nsmall = 2))),
               size = 4, hjust = 0, color = "black") +
-    geom_text(aes(0.5, 76,label = paste("Sample mean Medics:", format(round(means[sims*2], 3),
+    geom_text(aes(0.5, 86,label = paste("Sample mean Medics:", format(round(means[sims*2], 3),
                                                                       nsmall = 2))),
               size = 4, hjust = 0, color = "black") +
     enter_fade() + 
@@ -284,8 +291,13 @@ a <- ggplot(means_df, aes(x=Student,y=means, fill=Student))+
 
 a_gif <- animate(a, width = 420, height = 420)
 
+## for p-value shading
+crit_df <- as.data.frame(apply(stats_df,2,rep,each = 100))
+crit_df$ts <- c(sapply(abs(stats_df$ts), function(x) seq(x,5, length.out = 100))) ## xvect of sequences
+crit_df$y <- dt(crit_df$ts,df = 18,) ## corresponding t vals
+
 b <- ggplot(stats_df,aes(x=ts))+
-    geom_vline(aes(xintercept=ts, frame=sims))+
+    geom_vline(aes(xintercept=ts))+
     geom_line(data=data.frame(x=seq(-5,5,.1),
                               y=dt(seq(-5,5,.1),df=18)),
               aes(x=x,y=y)) +
@@ -295,13 +307,14 @@ b <- ggplot(stats_df,aes(x=ts))+
           panel.border = element_rect(colour='black', fill=NA)) +
     ylab("density")+
     xlab("t-statistic")+
-    transition_states(
-        states=sims,
-        transition_length = 2,
-        state_length = 1
-    ) +
+    geom_area(data = crit_df,mapping = aes(x = ts,y = y),fill = "grey",alpha = 0.3) +
+    geom_area(data = crit_df,mapping = aes(x = -ts,y = y),fill = "grey",alpha = 0.3) +
+    transition_states(sims,transition_length = 0,
+        state_length = 1) +
     geom_text(aes(-4, 0.5,label = paste("t-statistic:", format(round(ts, 2), nsmall = 2))),
               size = 4, hjust = 0, color = "black") +
+    geom_text(aes(-4, 0.475,label = paste("p-value:", format(round(2*pt(abs(ts),df = 18,lower.tail = FALSE), 2), nsmall = 2))),
+              size = 4, hjust = 0, color = "grey") +
     enter_fade() + 
     exit_shrink() +
     ease_aes('sine-in-out')
@@ -377,7 +390,7 @@ stats_df <- df %>%
   summarize(Fs = summary(aov(DV~Transport))[[1]][[4]][1])
 
 a <- ggplot(means_df, aes(x=Transport,y=means, fill=Transport)) +
-    geom_bar(stat="identity") +
+    geom_bar(stat="identity") +  scale_fill_brewer(palette = "Dark2") +
     geom_point(data=df,aes(x=Transport, y=DV), alpha=.25) +
     geom_errorbar(aes(ymin=means-sem, ymax=means+sem),width=.2)  +
     theme(axis.title.x=element_blank(),
@@ -388,8 +401,7 @@ a <- ggplot(means_df, aes(x=Transport,y=means, fill=Transport)) +
     transition_states(
         states=sims,
         transition_length = 2,
-        state_length = 1
-    ) +
+        state_length = 1) +
     geom_text(aes(0.5, 78,label = paste("Sample mean Bus:", format(round(means[rep(seq(1,30,3),each = 3)], 3),
                                                                       nsmall = 2))),
               size = 4, hjust = 0, color = "black") +
@@ -402,32 +414,30 @@ a <- ggplot(means_df, aes(x=Transport,y=means, fill=Transport)) +
     exit_shrink() +
     ease_aes('sine-in-out')
 
-fs_df <- data.frame(start = stats_df$Fs, end = rep(6,nrow(stats_df)),sims = stats_df$sims)
+## for p-value shading
+crit_df <- as.data.frame(apply(stats_df,2,rep,each = 100))
+crit_df$Fs <- c(sapply(stats_df$Fs, function(x) seq(x,6, length.out = 100))) ## xvect of sequences
+crit_df$y <- df(crit_df$Fs,df1 = 2,df2 = 27) ## corresponding F vals
 
-b <- ggplot(stats_df,aes(x=Fs))+
-    geom_vline(aes(xintercept=Fs))+
-    ## geom_vline(xintercept=qf(.95, df1=2,df2=27),color="green")+
+b <- ggplot(stats_df,aes(x = Fs,y = y)) +
+  geom_vline(aes(xintercept = Fs)) +
     geom_line(data=data.frame(x = seq(0,6,.1),
                               y  = df(seq(0,6,.1),df1=2,df2=27)),
               aes(x=x,y=y)) +
     theme(panel.background = element_blank(),
           panel.grid.minor = element_blank(),
           panel.grid.major = element_blank(),
-          panel.border = element_rect(colour='black', fill=NA)) +
-    ylab("density")+
+          panel.border = element_rect(colour='black', fill=NA),
+          legend.position = "none") +
+    ylab("density") +
     xlab("F-statistic") +
-   stat_function(data = fs_df,fun = "df",
-                mapping = aes(x = start,y = df(start,df1 = 2,df2 = 27)),
-                geom = "area",
-                fill = "grey",
-                alpha = 0.3,
-                args = list(
-                  df1 = 2,df2 = 27
-                )) +
-   ##geom_area(data = fs_df,aes(x = start,y = df(start,df1 = 2,df2 = 27)), position = "identity",color = "red",size = 2) +
-    transition_states(states=sims,transition_length = 2,state_length = 1) + enter_fade() +
+    geom_area(data = crit_df,mapping = aes(x = Fs,y = y),fill = "grey",alpha = 0.3) +
+    transition_states(sims,transition_length = 0,
+        state_length = 1) + enter_fade() +
     geom_text(aes(4, 1,label = paste("F-statistic:", format(round(Fs, 2), nsmall = 2))),
-              size = 4, hjust = 0, color = "black") +
+              size = 4, hjust = 0, color = "black")  +
+  geom_text(aes(4, 0.95,label = paste("p-value:", format(round(pf(Fs,2,27,lower.tail = FALSE), 2), nsmall = 2))),
+              size = 4, hjust = 0, color = "grey")  +
     exit_shrink() +
     ease_aes('sine-in-out') 
 
