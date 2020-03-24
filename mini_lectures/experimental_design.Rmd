@@ -205,19 +205,26 @@ legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
 </ul>
 
 ## Assessed lab work
+<ul style="font-family: bookman, bookman; font-size:20pt; top:25%;position: absolute;">
+<li>Choose a topic of interest and identify a question of interest you have related to that topic. Write a few sentences outlining the scientific question you with to answer and any hypotheses you may have.</li>
 
-<img src="bee.png" alt="drawing" width="350"/>
-<img src="critique.png" alt="drawing" width="350"/>
+<li>Note the independent and dependent variables in your scenario.</li>
+
+<li>Design an experiment that could help you test the hypothesis/answer the question your question of interest. Write a few short paragraphs outlining the experimental design outlining how Fisher’s three principles of experimental design have played a part.</li>
+</ul>
 
 ## Assessed lab work
 
-<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+
+<ul style="font-family: bookman, bookman; font-size:15pt; top:25%;position: absolute;">
+As part of this lab you are also expected to peer review 4 of your classmate’s worksheets. Although this will be an anonymous process, from the view of the lab, be aware that your feedback will be returned to your peers. When carrying out your peer review please follow the rubric given fairly and carefully (the review rubric will be circulated after the assignment’s due date)
+<ul>
   <li>  Be kind </li>
   <li> Ask for clarification if something is unclear on the feedback form </li>
   <li> Point out strengths as well as weaknesses </li>
   <li> Be sure that your comments are clear and specific </li>
   <li> Be careful not to let your own opinions bias your review </li>
-  </ul>
+  </ul></ul>
 
 ## 
 

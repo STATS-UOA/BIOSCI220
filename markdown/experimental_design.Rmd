@@ -34,17 +34,6 @@ By the end of this lab student should be able to
    + Discuss the advantages and disadvantages of different designs
    + Critique experimental designs
    
-### Pre lab reading
-
-Read these two papers: one reporting the findings of a study [of honey bee exposure to Thiamethoxam](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193) and the other [critiquing it](https://enveurope.springeropen.com/articles/10.1186/s12302-015-0060-7)
-
-```{r urlp}
-knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3806756/",height = "200px")
-```
-
-```{r urlp2}
-knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5045128/",height = "200px")
-```
 
 #### Suggested reading
 
@@ -215,39 +204,16 @@ experiment
 
 #### Pre lab quiz on CANVAS (worth 1\% of final grade)
 
-
 ## Lab work (worth 6\% of your final grade)
 
-#### In groups of 4--6
+#### Design your own experiment  
 
-Discuss the [pre lab reading]. Talk about the flaws in the statistical analysis and/or experimental design. If you are in the lab then can use [this form]() to record your answers/thoughts.
+As part of your assessed lab work this week you are to design your own experiment. Please upload a .pdf of your answers to the following to CANVAS before the deadline.
 
-```{r url}
-knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3806756/",height = "200px")
-```
-
-```{r url2}
-knitr::include_url("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5045128/",height = "200px")
-```
-
-   
-   <!-- 2. Design your own experiment  -->
-
-<!-- In groups you give yourselves half an hour to design and carry out your own experiment using an online game. Here are links to some possible games you could use and some research questions you might want to answer (in this lab)! -->
-
-<!--   + [Google Quick Draw](https://quickdraw.withgoogle.com/) -->
-<!--       + Does AI recognise the drawing quicker than a real person? -->
-<!--       + Are people who play musical instruments better at drawing for the AI? -->
-<!--       + Does the complexity of the object affect how quickly it is recognised by the AI? -->
-<!--   + [Reaction Time Test](https://www.humanbenchmark.com/tests/reactiontime) -->
-<!--       + Are people who play sports regularly faster to react? -->
-<!--       + Are people without a car license slower to react? -->
-
-
-
-
-Each group should then pair up with another group and present the design, results, and flaws of [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193). This should be done **as a group** and the presentation should last no more than 5 minutes. In this exercise you will be peer reviewed so in your pairs of groups you **must** [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?usp=sf_link).
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeMZDLBiDVTNzoKR7vAZmHLflN0qcIfFeowIuNclvgDLfDBjg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
-Note if you are not able to attend one of the labs this week then please record (video or audio only) your 5 minute summary of the experimental design used in [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0077193). You should consider answering [these questions]() in your recording. You should then email your recording to [c.jonestodd@auckland.ac.nz](c.jonestodd@auckland.ac.nz) clearly stating your student ID number.
+ + Choose a topic of interest and identify a question of interest you have related to that topic. Write a few sentences outlining the scientific question you with to answer and any hypotheses you may have.
+ 
+ + Note the independent and dependent variables in your scenario.
+ 
+ + Design an experiment that could help you test the hypothesis/answer the question your question of interest. Write a few short paragraphs outlining the experimental design outlining how Fisher's three principles of experimental design have played a part.
+ 
+ + As part of this lab you are also expected to peer review 4 of your classmate's worksheets. Although this will be an anonymous process, from the view of the lab, be aware that your feedback will be returned to your peers. When carrying out your peer review please follow the rubric given fairly and carefully (the review rubric will be circulated after the assignment's due date). 
