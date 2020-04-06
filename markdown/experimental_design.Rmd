@@ -35,7 +35,7 @@ By the end of this lab student should be able to
    + Critique experimental designs
    
 
-#### Suggested reading
+### Suggested reading
 
 <!-- [Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L) -->
 
@@ -47,11 +47,52 @@ By the end of this lab student should be able to
 
 <!-- [Goldacre, Ben. "Bad Science: Quacks, Hacks, and Big Pharma Flacks." (2010).](https://lib.hpu.edu.vn/handle/123456789/29333) -->
 
+```{r url}
+knitr::include_url("https://www.youtube.com/embed/3IA0lKf-xJI",height = "400px")
+```
+
 [Suresh K P. An overview of randomization techniques: An unbiased assessment of outcome in clinical research. Journal of Human Reproductive Science 2011;4:8-11](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136079/)
 
 [Gelman, A. T., \& Loken, E.The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time.](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
 
-## Dependent and independent variables
+
+
+
+
+## Key phrases
+
+ + Biological question (**AVOID BEING VAGUE**)
+    + Should include details such as what is being *compared*, what is being *measured* and *how*, and under what *experimental conditions* etc.
+ + Treatment:
+    + the experimental condition independently applied to the **experimental unit**
+ + Experimental unit:
+    + the physical entity which can be assigned to a **treatment**
+ + Observational unit:
+    + the smallest unit on which a response is measured
+ + Replication.
+    + Each treatment is *independently* applied to each of several **experimental units** $\rightarrow$ to generalise results to the population.
+    + Multiple samples from the same **experimental unit** are taken and processed $\rightarrow$ increases precision, accounts for variation.
+    + Multiple measurements are taken per sample $\rightarrow$ good for noisy measuring instruments.
+ + Randomisation:
+    + protects against bias
+ + Blocking:
+    + two units in the same block get different treatments the treatments can be compared more precisely than if the treatments were assigned to units in different blocks
+
+### Example: herbicide
+
+*Biological question* How much herbicide residue is left in a plot of sprayed soil 2 weeks post spraying? We compare 2 herbicides: Weedz and B180. We randomly spray each of 5 plots of weeds with Weedz and the other 5 with B180.
+
+*Treatment*: 2 herbicides: Weedz and B180.
+
+*Experimental unit*: Plots
+
+*Observational unit*: changes depending on the scenario.
+
+   + A single core taken from each plot and one measurement per core taken $\rightarrow$ plot
+   + A single core taken from each plot and 6 subsamples are then taken from each core, measurements per subsample are taken $\rightarrow$ subsample
+   + 4 cores are taken from each plot and from each core a measurement is taken $\rightarrow$ core
+   
+### Dependent and independent variables
 
 
 How do controllable inputs (treatment factors/independent variable) impact outcomes of interest (responses/dependent variable)?
@@ -66,7 +107,8 @@ ggplot(d,aes(x = x, y = y)) + geom_emoji(data = d[1:6,],emoji = "1f4a7",size = 0
   annotate("text", x = 0, y = 1.5, label = " The dependent variable represents a quantity \n that depends on the independent variable (e.g., height of plant)")
 
 ```
-
+   
+   
 ## A simple design: Independent measures (between subjects)
 
 Separate groups are created for each treatment (i.e., each participant is assigned to only one treatment group); participants can only be a member of **one** of the groups
@@ -199,8 +241,7 @@ experiment
 
 ## Quizzes
 
-#### Practise quiz (not examinable) will be put up on [https://b.socrative.com/login/student/](https://b.socrative.com/login/student/) (Room Name: BIOSCI220) a week before the lab
-
+#### Practise quiz will be available on CANVAS a week before the lab (do not count towards your final grade)
 
 #### Pre lab quiz on CANVAS (worth 1\% of final grade)
 
@@ -212,7 +253,7 @@ As part of your assessed lab work this week you are to design your own experimen
 
  + Choose a topic of interest and identify a question of interest you have related to that topic. Write a few sentences outlining the scientific question you with to answer and any hypotheses you may have.
  
- + Note the independent and dependent variables in your scenario.
+ + Note the variables and units in your scenario.
  
  + Design an experiment that could help you test the hypothesis/answer the question your question of interest. Write a few short paragraphs outlining the experimental design outlining how Fisher's three principles of experimental design have played a part.
  
