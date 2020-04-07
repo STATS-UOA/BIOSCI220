@@ -18,7 +18,7 @@ By the end of this lab student should be able to
       + main effects in a model with an interaction
       + the effect of one variable when others are included in the model
    + Explain why you may want to include interaction effects in a linear model
-   + Describe the differences between the operators : and * in R model-fitting formula
+   + Describe the differences between the operators : and * in an R model-fitting formula
    + Critique the fitted model
 
 ### Suggested reading

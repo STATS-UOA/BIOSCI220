@@ -51,10 +51,9 @@ By the end of this lab students should be able to
 
 ### Suggested reading
 
+[Teacups, giraffes, and statistics: free online introductory level R and statistics modules](https://tinystats.github.io/teacups-giraffes-and-statistics/)
 
-<iframe src="https://tinystats.github.io/teacups-giraffes-and-statistics/" width="800" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
-## Motivation
+### Motivation
 
 <img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/gifs/binomial_cat.gif" />
 
@@ -104,7 +103,7 @@ anim_save("../gifs/ci.gif",gif)
 ### Calculating a 95\% confidence interval using the t-distribution
 
 Using the standard error of an estimate we can calculate a 95% confidence interval (CI). For the population mean a 95% confidence interval can be calculated as $$\hat{\mu} \pm t_{97.5}se_\mu$$
-where $\hat{\mu}$ is the sample mean, se_\mu is the standard error of the mean, and $t_{97.5}$ is the $t$-multiplier (the 97.5% quantile of the $t$-distribution). This multiplier is based on the confidence level desired and depends on the sample size. A standard error of some estimated parameter is a measure of accuracy of the estimate. The standard error of a mean, $se_\mu$ can be written as
+where $\hat{\mu}$ is the sample mean, $se_\mu$ is the standard error of the mean, and $t_{97.5}$ is the $t$-multiplier (the 97.5% quantile of the $t$-distribution). This multiplier is based on the confidence level desired and depends on the sample size. A standard error of some estimated parameter is a measure of accuracy of the estimate. The standard error of a mean, $se_\mu$ can be written as
 $$se_\mu =\frac{\text{sd}}{\sqrt{n}}$$
 where sd is the standard deviation of the sample and $n$ is the sample size.
 
@@ -128,7 +127,7 @@ Test Statistic: t-statistic = $\frac{\bar{Y} - \mu}{se_\mu}$ = $\frac{\bar{Y} - 
  + Where $\bar{Y}$ is the sample mean, $s$ is the sample standard deviation, and $n$ is the number of observations
 
 
-Propability of getting a t-statistic at least as extreme as the one we observe (think of the area under the tails of the curve  below).
+Probability of getting a t-statistic at least as extreme as the one we observe (think of the area under the tails of the curve  below).
 
 ```{r one-sample,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 ## simulate data
@@ -226,7 +225,7 @@ Claim: Biologists and Medics study different numbers of hours to each other. To 
 
 Hypothesis: We test the Null hypothesis, $H_0$, that on average Biology students study for the same number of hours (i.e., the difference, d, is zero) as medicine students verses the alternative hypothesis, $H_1$, that they don't!
 
-+ $H_0: \mu_{\text{Biologists}} - \mu_{\text{Medics}} = \text{d} \rightarrow \mu_{\text{Biologists}} - \mu_{\text{Medics}} = 0 \rightarrow \mu_{\text{Biologists}} = \mu_{\text{Medics}}$ vs $H_1: \mu_{\text{Biologists}} \neq \mu_{\text{Medics}}$
+$H_0: \mu_{\text{Biologists}} - \mu_{\text{Medics}} = \text{d} \rightarrow \mu_{\text{Biologists}} - \mu_{\text{Medics}} = 0 \rightarrow \mu_{\text{Biologists}} = \mu_{\text{Medics}}$ vs $H_1: \mu_{\text{Biologists}} \neq \mu_{\text{Medics}}$
 
 Assumptions: 
 
@@ -239,7 +238,7 @@ Test Statistic: t-statistic = $\frac{(\bar{Y}_{\text{Biologists}} - \bar{Y}_{\te
   + Where $\bar{Y}_{\cdots}$ is the sample mean of either the Biologists or Medics, $s^2_{\cdots}$ is the sample standard deviation of either the Biologists or Medics, and $n_{\cdots}$ is the number of observations of either the Biologists or Medics
 
 
-Propability of getting a t-statistic at least as extreme as the one we observe (think of the area under the tails of the curve below).
+Probability of getting a t-statistic at least as extreme as the one we observe (think of the area under the tails of the curve below).
 
 
 ```{r independent t-test, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval=FALSE}
@@ -351,7 +350,7 @@ anim_save("../gifs/ts_ttest.gif",new_gif)
 
 **NOTE: The difference between two dependant samples can be treated in the same way as a single sample where the null hypothesis is that the difference between the two samples is on average zero (i.e., $H_0: (\mu_1 - \mu_2) = 0$), see the [Inference about a mean] section.**
 
-## How do I get to work the quickest? More than two samples!
+## More than two samples
 
 ### One way ANOVA (ANalysis Of VAriance)
 
@@ -359,7 +358,7 @@ Claim: The Train is the quickest way to commute to work over commuting by car or
 
 Hypothesis: We test the Null hypothesis, $H_0$, all modes of transport take the same length of time to commute on average (i.e., the difference, d, is zero) verses the alternative hypothesis, $H_1$, that they don't!
 
-+ $H_0: \mu_{\text{Train}} = \mu_{\text{Bus}} - \mu_{\text{car}} \rightarrow \mu_{\text{train}} - \mu_{\text{Bus}} - \mu_{\text{Car}} = 0  $ vs $H_1: \mu_{\text{train}} - \mu_{\text{Bus}} - \mu_{\text{Car}} \neq 0$
+$H_0: \mu_{\text{Train}} = \mu_{\text{Bus}} - \mu_{\text{car}} \rightarrow \mu_{\text{train}} - \mu_{\text{Bus}} - \mu_{\text{Car}} = 0$ vs $H_1: \mu_{\text{train}} - \mu_{\text{Bus}} - \mu_{\text{Car}} \neq 0$
 
 Assumptions: 
 
@@ -369,7 +368,7 @@ Assumptions:
   
 Test Statistic: F-statistic = ${\frac  {{\text{explained variance}}}{{\text{unexplained variance}}}} = {\frac  {{\text{between-group variability}}}{{\text{within-group variability}}}}$ (see [Examples and `R` code] below for details)
 
-Propability of getting an  F-statistic at least as extreme as the one we observe (think of the area under the tails of the curve below).
+Probability of getting an  F-statistic at least as extreme as the one we observe (think of the area under the tails of the curve below).
 
 ```{r anova gif,fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 A <- rnorm(100,45,10)
@@ -462,7 +461,7 @@ anim_save("../gifs/anova.gif",new_gif)
 
 ## Randomization test. 
 
-One possible explanation for an observed difference between groups, say in the [Inference about two means] section, is chance alone (i.e., it is by chance that we observe this differece)  
+One possible explanation for an observed difference between groups, say in the [Inference about two means] section, is chance alone (i.e., it is by chance that we observe this difference)  
 
 
 
@@ -528,13 +527,18 @@ anim_save("../gifs/random.gif",animate(a,nframes=100,fps=5))
 
 ![](../gifs/random.gif)
 
-### Interpreting p-values
+
+```{r random}
+knitr::include_url("https://www.youtube.com/embed/zecArldpptY",height = "400")
+```
+
+
+### Interpreting p-values for a randomisation test
 
    + In experimental situations a large p-value (large tail proportion) means that the luck of the randomisation quite often produces group differences as large or even larger than what we’ve got in our data.
    + A small p-value means that the luck of the randomisation draw hardly ever produces group differences as large as we’ve got in our data.
    + **Statistical significance does not imply practical significance.**
-   + **Statistical significance says nothing about the size of treatment differences.** To estimate the sizes of differences you need confidence
-intervals.
+   + **Statistical significance says nothing about the size of treatment differences.** To estimate the sizes of differences you need confidence intervals.
 
 **NOTE: We can extend the randomization test to make inference about any sample statistic (not just the mean)**
 
@@ -544,19 +548,36 @@ intervals.
 ```{r url}
 knitr::include_url("https://xkcd.com/882/",height = "200px")
 ```
+ 
+Recall, we have two competing hypotheses (claims) relating to the **true** vale of some population characteristic (e.g., the population mean, denoted $\mu$):
 
 
+**Null** hypothesis, $H_0$ (no difference) v. **Alternative** hypotheses, $H_1$ (there is a difference).
 
-  + Power: probability that the test correctly rejects the null hypothesis when the
-alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a Type II error (False negative)
-  + Effect size: standardized measure of the difference you're trying to detect 
-  + Sample Size: How many experimental units you need to survey to detect the
-desired difference at the desired power 
-  + Significance level = probability of a Type I error = probability of finding an effect that is not there (False positive)
+### Terminology
 
-```{r power}
+**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
 
-```
+**Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
+
+**Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
+
+**Power**: the probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a **Type II** error (false negative).
+
+Reducing the chance of a **Type I** error increases the chance of a **Type II** error. They are inversely related. **Type II** error rate is determined by a combination of the following.
+
+  + **Effect size** (size of difference, of biological significance) between the true population parameters
+  + Experimental error variance 
+  + **Sample size**
+  + Choice of **Type I** error rate ($\alpha$)
+  
+
+Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose).
+
+When we have **multiple comparisons** to make we should then control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is $\alpha$.
+
+
 
 ## Examples and `R` code
 

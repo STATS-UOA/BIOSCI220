@@ -1,0 +1,115 @@
+---
+title: "Modelling II"
+author: ""
+date: ""
+output: ioslides_presentation
+---
+
+<style type="text/css">
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE)
+library(dplyr)
+library(ggplot2)
+library(magick)
+library(gganimate)
+library(emoGG)
+paua <- read.csv("../data/paua.csv")
+```
+
+## Learning objectives
+
+<ul style="font-family: bookman, bookman; font-size:20pt; top:20%;position: absolute;">
+<li> Write `R` code to fit a linear model with interaction terms in the explanatory variables</li>
+<li>  Interpret estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of 1) main effects in a model with an interaction and 2) the effect of one variable when others are included in the model
+<li> Explain why you may want to include interaction effects in a linear model</li>
+<li>Describe the differences between the operators : and * in an `R` model-fitting formula</li>
+  <li>Critique the fitted model</li>
+</ul>
+
+
+
+## The P$\overline{\text{a}}$ua dataset
+
+<p style="font-family: bookman, bookman; font-size:20pt"> The P$\overline{\text{a}}$ua dataset contains the following variables</p>
+<ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
+<li> Age of  P$\overline{\text{a}}$ua in years (calculated from counting rings in the
+cone) </li>
+<li> Length of  P$\overline{\text{a}}$ua shell in centimeters</li>
+<li> Species of  P$\overline{\text{a}}$ua: *Haliotis iris* (typically found in NZ) and
+*Haliotis australis* (less commonly found in NZ) </li>
+
+</ul>
+
+
+
+
+## Simple linear regression
+
+$$Y_i = \beta_0 + \beta_1x_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+Here for observation $i$
+
+  + $Y_i$ is the value of the response (in our case Age of P$\overline{\text{a}}$ua)
+  + $x_i$ is the value of the explanatory variable (Length of P$\overline{\text{a}}$ua shell)
+  + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
+
+
+
+## Multiple linear regression
+
+$$Y_i = \beta_0 + \beta_1x_i + \beta_2 z_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+Here for observation $i$
+
+  + $Y_i$ is the value of the response (Age of P$\overline{\text{a}}$ua)
+  + $x_i$ is the value of one explanatory variable (e.g., Length of P$\overline{\text{a}}$ua shell)
+  + $z_i$ is the value of another explanatory variable (e.g., Species of P$\overline{\text{a}}$ua)
+  + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
+
+
+## Fitted model
+
+```{r sllfip,message=FALSE}
+fitlm = lm(Age ~ Species + Length, data = paua)
+paua$predlm = predict(fitlm)
+ggplot(data = paua,aes(x = Length, y = Age,color = Species)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") + geom_emoji(data = paua[paua$Species =="Haliotis iris",],emoji="1f9aa") +
+  geom_emoji(data=data.frame(x = 2,y = 12.5,Species = "1"),aes(x = x, y = y),emoji="1f41a") +
+  geom_emoji(data=data.frame(x = 2,y = 11.5,Species = "2"),aes(x = x, y = y),emoji="1f9aa") +
+  annotate("text",x = 2.75,y = 12.5,label = "Haliotis australis",color = "red") +
+  annotate("text",x = 2.75,y = 11.5,label = "Haliotis iris",color = "blue") + geom_line(aes(y = predlm), size = 1) + theme(legend.position = "none") +
+  scale_colour_manual(values=c("Haliotis australis" = "red","Haliotis iris" = "blue","1" = "black","2" = "green"))
+
+```
+
+But, what if the lines aren't parallel?
+
+## Interactions
+
+```{r sllfipi,message=FALSE}
+ggplot(data = paua,aes(x = Length, y = Age,color = Species)) +
+  geom_emoji(emoji="1f41a") + xlab("Length of shell (cm)") +
+  ylab("Age (years)") + geom_emoji(data = paua[paua$Species =="Haliotis iris",],emoji="1f9aa") +
+  geom_emoji(data=data.frame(x = 2,y = 12.5,Species = "1"),aes(x = x, y = y),emoji="1f41a") +
+  geom_emoji(data=data.frame(x = 2,y = 11.5,Species = "2"),aes(x = x, y = y),emoji="1f9aa") +
+  annotate("text",x = 2.75,y = 12.5,label = "Haliotis australis",color = "red") +
+  annotate("text",x = 2.75,y = 11.5,label = "Haliotis iris",color = "blue") + geom_smooth(method = "lm", se = FALSE) + theme(legend.position = "none") +
+  scale_colour_manual(values=c("Haliotis australis" = "red","Haliotis iris" = "blue","1" = "black","2" = "green"))
+
+```
+
+
+## 
+
+
+<ul style="font-family: bookman, bookman; font-size:30pt; top:40%;position: absolute;">
+  https://b.socrative.com/login/student/
+  Room Name: BIOSCI220
+ </ul>
+
