@@ -27,6 +27,7 @@ By the end of this lab student should be able to
       + response variable
       + explanatory variable
    + Express their question of interest accurately and concisely
+   + List the key assumptions of a linear model
    + Carry out and interpret tests for the existence of relationships between explanatory variables and the response in a linear model
    + Write R code to fit a linear model with a single continuous explanatory variable
    + Write R code to fit a linear model with a continuous explanatory variable and a factor explanatory variable
@@ -37,7 +38,7 @@ By the end of this lab student should be able to
       + the effect of an x-unit increase in a numeric variable
    + Make a point prediction of the response for a new observation
 
-### Some great `r icon::fa_twitter(colour = "#1DA1F2")` threads
+## Some great `r icon::fa_twitter(colour = "#1DA1F2")` threads
 
  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I thought it could be helpful to have a thread on ANOVA in R. As a statistical consultant, this is the most frequent FAQ I get from clients - how to run a linear model on their data, conduct hypothesis tests, extract predicted means and perform contrasts.</p>&mdash; We are R-Ladies (@WeAreRLadies) <a href="https://twitter.com/WeAreRLadies/status/1223790298024726528?ref_src=twsrc%5Etfw">February 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -47,11 +48,8 @@ By the end of this lab student should be able to
  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The aov() function in <a href="https://twitter.com/hashtag/Rstats?src=hash&amp;ref_src=twsrc%5Etfw">#Rstats</a> is actually a wrapper around the lm() function <a href="https://t.co/FbvxQdtD4c">pic.twitter.com/FbvxQdtD4c</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1189536788790042625?ref_src=twsrc%5Etfw">October 30, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
  
  
-## Line of best fit
-
-<iframe src="https://script.google.com/macros/s/AKfycbw2qx1b8iTZZXY5-aaaaGp76XiutxS1iuCFmL24IyBz6GACuSML/exec"width="600" height="350"/>
-
 ## (Most) Hypothesis tests are just linear regression
+
 
 ```{r regression gif, fig.cap= "Gif inspired by [https://crumplab.github.io/statistics/gifs.html](https://crumplab.github.io/statistics/gifs.html)",eval = FALSE}
 d <- mtcars
@@ -102,7 +100,75 @@ anim_save("../gifs/lm.gif",animate(anim,fps=5))
 ![](../gifs/lm.gif)
 
 
+### [Have a go at drawing your line of best fit](https://script.google.com/macros/s/AKfycbw2qx1b8iTZZXY5-aaaaGp76XiutxS1iuCFmL24IyBz6GACuSML/exec)
 
+<figure>
+<img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/gifs/lm_demo.gif" />
+<figcaption>Subset of results</figcaption>
+</figure>
+
+
+### Simple linear regression
+
+
+  \begin{equation*}    
+    Y_i = \beta_0 + \beta_1 x_i + \epsilon_i
+  \end{equation*}
+  \begin{equation*}
+    \epsilon_i \overset{iid}{\sim} \text{Normal}(0, \sigma^2)
+  \end{equation*}
+  
+
+Where, for the $i$th observation,
+
++ $Y_i$ is the value of the response variable
++ $x_i$ is the value of an explanatory variable
++ $\epsilon_i$ is the error; the difference between $Y_i$ and its expectation
+
+In the above equation we want to estimate 
+
++ $\beta_0$ and $\beta_1$, which define the straight-line
+    relationship between the explanatory variable and the expectation
+    of the response
++ $\sigma^2$, the variance of $\epsilon_i$
+
+### Key assumptions
+
++ The residuals are normally distributed
++ There is a linear relationship between the response and the   explanatory variables
++ The residuals have constant variance $\sigma^2$
++ Each observation is independent of the others
+  
+
+### An alternative, equivalent way of specifying the linear regression model
+  
+  \begin{equation*}
+    \mu_i = \beta_0 + \beta_1 x_i
+  \end{equation*}
+  \begin{equation*}
+    Y_i \sim \text{Normal}(\mu_i, \sigma^2)
+  \end{equation*}
+  
+Instead of specifying the model as random error, $\epsilon_i$, about
+some relationship, $\beta_0 + \beta_1 x_i$, we attribute the
+randomness directly to the response variable.
+  
+
+We assume the $i$th observation's response, $Y_i$, comes from a
+normal distribution with mean $\beta_0 + \beta_1 x_i$ and variance
+$\sigma^2$.
+  
+  
+### Key assumptions
+
++ The $i$th observation's response, $Y_i$, comes from a normal distribution
++ Its mean, $\mu_i$, is a linear combination of the explanatory terms
++ Its variance, $\sigma^2$, is the same for all observations
++ Each observation's response is independent of all others
+  
+  
+  
+ 
 ## Example and `R` code
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? <a href="https://t.co/VOXqqrgV3w">https://t.co/VOXqqrgV3w</a> <a href="https://t.co/IZP7IIVZQP">pic.twitter.com/IZP7IIVZQP</a></p>&mdash; PeerJ — Life and Environment Journal (@thePeerJ) <a href="https://twitter.com/thePeerJ/status/992737177489608704?ref_src=twsrc%5Etfw">May 5, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -192,7 +258,7 @@ So for a observation with Coleoptera as prey (included in the baseline/intercept
 confint(multiple.mod)
 ```
 
-## Interpreting confidence intervals
+### Interpreting confidence intervals
 
 + For every 1mm increase in mesosoma length we estimate the expected sting length to increases between `r round(confint(multiple.mod)[9,1],1)` and `r round(confint(multiple.mod)[9,2],1)` mm
 
@@ -237,7 +303,7 @@ ggplot(data = stings,aes(x = mesosoma,y = sting, color = prey_graph)) +
 
 Does this graph back up what the estimated coefficients and their respective p-values suggested? 
 
-### Newxt time INTERACTIONS
+### Next time INTERACTIONS
 
 ```{r interactions}
 ggplot(data = stings,aes(x = mesosoma,y = sting, color = prey_graph)) +

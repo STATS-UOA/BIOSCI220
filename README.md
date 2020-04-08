@@ -33,18 +33,10 @@ Students are expected to have basic statistical literacy for this course (e.g., 
 
 **Week 8**: Visualising and analysing multivariate data.
 
-![](gifs/perp.gif)
-
 **Week 9**: Hypothesis testing.
 
 **Week 10**: Introduction to linear modelling.
 
 **Week 11**: Modelling II.
 
-**Dates**: 28th April--29th May (weeks 7--11)
 
-**Labs**. Lecture material is provided online.  Lab attendance is not compulsory. Students must sign up for one lab (in which they are guaranteed a space), but may attend more than one lab per week, space permitting. Any student may attend any tutorial session (immediately after the lab).
-
- + **Tuesday**: Lab 2--4pm, Tutorial 4--5pm.
- + **Wednesday**: Lab 10am--12pm, Tutorial 12--1pm.
- + **Thursday**: Lab 2--4pm, Tutorial 4--5pm.
