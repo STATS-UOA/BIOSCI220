@@ -27,29 +27,26 @@ By the end of this lab student should be able to
 ## Suggested reading
 
 
-```{r url}
-knitr::include_url("https://little-book-of-r-for-multivariate-analysis.readthedocs.io/en/latest/index.html",height = "200px")
-```
 
-```{r urlp2}
-knitr::include_url("https://juba.github.io/explor/",height = "200px")
-```
+[Little book for Multivariate Analysis](https://little-book-of-r-for-multivariate-analysis.readthedocs.io/en/latest/index.html)
 
-```{r urlp3}
-knitr::include_url("https://bioconductor.org/packages/release/bioc/vignettes/PCAtools/inst/doc/PCAtools.html#quick-start",height = "200px")
-```
+[Gene Expression Profiling in Breast Cancer](https://bioconductor.org/packages/release/bioc/vignettes/PCAtools/inst/doc/PCAtools.html#quick-start)
+
+['explor' is an R package to allow interactive exploration of multivariate analysis results](https://juba.github.io/explor/)
+
 
 ## MDS (minimizes dimensions, preserving distance between data points)
 
 **We want to find the best low-dimensional representation of the variation in a multivariate (lots and lots of variables) data set**, but how do we do this? 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/htEQsa4by2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### PCA (minimizes dimensions, preserving covariance of data).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oRvgq966yZg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **PCA is a special case of MDS if the distances used in MDS are Euclidean**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GEn-_dAyYME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 Thinking in 2D is enough for me so let's imagine your data (black dots) is the shape of this baguette. 
 
@@ -107,6 +104,7 @@ pca <- prcomp(data)
 ## Summary of PCA
 summary(pca)
 ## scree plot (proportion of variance explained)
+## Looks like the first two PCs alone explain the majority of the variation in the data
 screeplot(pca,type = "lines")
 ```
 
@@ -127,3 +125,5 @@ You can work in groups or alone; however your work should be independent. Using 
  + Add some concise text to help the user make sense of your sections and diagrams and inferences. 
  
 You may use whatever software you want to create your cheatsheet. However, [here is a basic PowerPoint template](https://rstudio.com/resources/cheatsheets/how-to-contribute-a-cheatsheet/) you may wish to modify.
+
+You will be expected to peer review 3 other cheatsheets; this also means that your work will be peer marked by 3 of your classmates. The cheatsheets you will review will be automatically assigned to you after the assignment due date. When carrying out this peer review please follow the rubric carefully and be mindful that your comments, although anonymous, will be passed on to your peer. Note that student peer reviews will be considered complete when students have commented at least once on the page and filled out the rubric form for each assignment.

@@ -51,6 +51,8 @@ By the end of this lab student should be able to
 knitr::include_url("https://www.youtube.com/embed/3IA0lKf-xJI",height = "400px")
 ```
 
+Visit [Wild About Statistics](https://www.stat.auckland.ac.nz/~wild/wildaboutstatistics/) for some more related content 
+
 [Suresh K P. An overview of randomization techniques: An unbiased assessment of outcome in clinical research. Journal of Human Reproductive Science 2011;4:8-11](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136079/)
 
 [Gelman, A. T., \& Loken, E.The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time.](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
@@ -251,10 +253,19 @@ experiment
 
 As part of your assessed lab work this week you are to design your own experiment. Please upload a .pdf of your answers to the following to CANVAS before the deadline.
 
- + Choose a topic of interest and identify a question of interest you have related to that topic. Write a few sentences outlining the scientific question you with to answer and any hypotheses you may have.
+```{r url2}
+knitr::include_url("https://www.youtube.com/embed/FnyrV-zxwis",height = "400px")
+```
+
+ + Choose a topic of interest and identify a question you have related to that topic. Write a few sentences outlining the scientific question you have and any related hypotheses. Clearly identify the goals and objectives of your experiment.
+
  
- + Note the variables and units in your scenario.
+ + Note the variables (independent and dependent) and units in your scenario, mentioning the ranges and potential relationship between them.
  
- + Design an experiment that could help you test the hypothesis/answer the question your question of interest. Write a few short paragraphs outlining the experimental design outlining how Fisher's three principles of experimental design have played a part.
+ + Design an experiment that could help you test the hypothesis/answer the question your question of interest. Write a few short paragraphs outlining the experimental design describing how Fisher's three principles of experimental design have played a part.
  
- + As part of this lab you are also expected to peer review 4 of your classmate's worksheets. Although this will be an anonymous process, from the view of the lab, be aware that your feedback will be returned to your peers. When carrying out your peer review please follow the rubric given fairly and carefully (the review rubric will be circulated after the assignment's due date). 
+ + List and justify the methods and instruments required for your experiment.
+
+ + Critique your experimental design and suggest ways to improve it and discuss any limitations you foresee. 
+
+ + As part of this lab you are also expected to peer review 3 of your classmate's worksheets. Although this will be an anonymous process, from the view of the lab, be aware that your feedback will be returned to your peers. When carrying out your peer review please follow the rubric given fairly and carefully. Note that student peer reviews will be considered complete when students have commented at least once on the page and filled out the rubric form for each assignment.
