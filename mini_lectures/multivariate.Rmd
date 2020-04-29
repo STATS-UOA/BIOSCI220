@@ -130,7 +130,7 @@ loadings[,1]
 
 <p style="font-family: bookman, bookman; font-size:20pt">This means that the principal component is a linear combination of our (statndardised) variables as follows.</p>
 
-`r  paste("(",round(loadings[,1],2),")","*Z",1:13,sep = "",collapse = "+")`
+`r  paste("(",round(loadings[,1],2),")","Z",1:13,sep = "",collapse = "+")`
 
 where Z1...Z13 are the variables in the `wine_scaled` dataset
 

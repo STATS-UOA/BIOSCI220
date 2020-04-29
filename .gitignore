@@ -7,3 +7,5 @@ mini_lectures/experimental_design_files/figure-html/*
 mini_lectures/experimental_design_cache/html/*
 mini_lectures/linear_modelling_files/*
 mini_lectures/linear_modelling_cache/*
+reading/
+mini_lectures/*.html

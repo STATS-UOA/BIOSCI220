@@ -30,7 +30,7 @@ associations but not causal relationships.</li>
 ## Experimental Design
 
 
-<p style="font-family: bookman, bookman; font-size:20pt"> Experiments are used to answer questions about a
+<p style="font-family: bookman, bookman; font-size:20pt"> Experiments are used to answer questions about
 processes.</p>
 <ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
 <li> How do controllable inputs (treatment factors/independent variable)
@@ -48,7 +48,7 @@ should be considered when designing an experiment.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Youngronaldfisher2.JPG/220px-Youngronaldfisher2.JPG" style="float:right">
 <ul style="font-family: bookman, bookman; font-size:20pt; top:35%;position: absolute;">
 <li> Randomisation </li>
-<li> Relpication</li>
+<li> Replication</li>
 <li> Blocking </li>
 
 </ul>
@@ -206,7 +206,7 @@ legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
 
 ## Assessed lab work
 <ul style="font-family: bookman, bookman; font-size:20pt; top:25%;position: absolute;">
-<li>Choose a topic of interest and identify a question of interest you have related to that topic. Write a few sentences outlining the scientific question you with to answer and any hypotheses you may have.</li>
+<li>Choose a topic of interest and identify a question of interest you have related to that topic. Write a few sentences outlining the scientific question you want to answer and any hypotheses you may have.</li>
 
 <li>Note the independent and dependent variables in your scenario.</li>
 
