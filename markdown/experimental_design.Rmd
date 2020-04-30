@@ -116,8 +116,9 @@ ggplot(d,aes(x = x, y = y)) + geom_emoji(data = d[1:6,],emoji = "1f4a7",size = 0
 Separate groups are created for each treatment (i.e., each participant is assigned to only one treatment group); participants can only be a member of **one** of the groups
 
 ```{r independent,message=FALSE,cache=TRUE,results='hide'}
-plot(1:15, rep(1,15),col = rep(1:3,each = 5),pch = 20,axes = FALSE, xlab = "",ylab = "",cex = 4);
-legend("topleft",bty = "n",pch = 20, col = 1:3, legend = c("Group 1","Group 2", "Control"))
+col <- RColorBrewer::brewer.pal(3,"Set2")
+plot(1:15, rep(1,15),col = rep(col,each = 5),pch = 20,axes = FALSE, xlab = "",ylab = "",cex = 4);
+legend("topleft",bty = "n",pch = 20, col = col, legend = c("Group 1","Group 2", "Control"))
 
 ```
 
@@ -179,11 +180,12 @@ as if they were based on independent observations
 We should repeat an experiment to fully assess variability and enable us to (with caution) generalize results. For true replication the entire process must be repeated separately each time.
 
 ```{r repeated,message=FALSE,cache=TRUE,results='hide'}
-plot(1:15, rep(1.5,15),col = rep(1:3,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
-points(1:15,rep(1,15),col = rep(1:3,each = 5),pch = 18,cex = 3)
-points(1:15,rep(0.5,15),col = rep(1:3,each = 5),pch = 19, cex = 3)
+col <- RColorBrewer::brewer.pal(3,"Set2")
+plot(1:15, rep(1.5,15),col = rep(col,each = 5),pch = 17,axes = FALSE, xlab = "",ylab = "",cex = 3,ylim = c(0,2.5))
+points(1:15,rep(1,15),col = rep(col,each = 5),pch = 18,cex = 3)
+points(1:15,rep(0.5,15),col = rep(col,each = 5),pch = 19, cex = 3)
 legend("topleft",bty = "n",pch = 17:19, col = "grey", legend = paste("Treatment", 1:3))
-legend("topright",bty = "n",pch = 20, col = 1:3, legend = paste("Patient", 1:3))
+legend("topright",bty = "n",pch = 20, col = col, legend = paste("Patient", 1:3))
 
 ```
 
@@ -221,11 +223,12 @@ In a randomized block design, the researcher divides experimental subjects into 
 
 ```{r random block,echo = FALSE}
 block <- rep(1:4, each = 4)
+col <- RColorBrewer::brewer.pal(4,"Set2")
 set.seed(4321)
 treatment <- c(replicate(4,sample(1:4,size = 4)))
-plot(1:16,rep(1,length(block)),col = block,pch = treatment + 14,axes = FALSE,xlab = "",ylab = "",cex = 3)
+plot(1:16,rep(1,length(block)),col = rep(col,each = 4),pch = treatment + 14,axes = FALSE,xlab = "",ylab = "",cex = 3)
 legend("topright",bty = "n", pch = 15:18, legend = paste("Treatment",1:4), col = "grey")
-legend("topleft",bty = "n", pch = 20, col = 1:4, legend = paste("Block",1:4))
+legend("topleft",bty = "n", pch = 20, col = col, legend = paste("Block",1:4))
 
 ```
 
@@ -266,6 +269,6 @@ knitr::include_url("https://www.youtube.com/embed/FnyrV-zxwis",height = "400px")
  
  + List and justify the methods and instruments required for your experiment.
 
- + Critique your experimental design and suggest ways to improve it and discuss any limitations you foresee. 
+ + Critique your experimental design and suggest ways to improve it and discuss any limitations you foresee.
 
  + As part of this lab you are also expected to peer review 3 of your classmate's worksheets. Although this will be an anonymous process, from the view of the lab, be aware that your feedback will be returned to your peers. When carrying out your peer review please follow the rubric given fairly and carefully. Note that student peer reviews will be considered complete when students have commented at least once on the page and filled out the rubric form for each assignment.

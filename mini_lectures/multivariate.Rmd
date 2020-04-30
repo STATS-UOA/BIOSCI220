@@ -84,13 +84,13 @@ ggpairs(wine_scaled[,1:6])
 ![](../gifs/bread_data.png)
 </center>
 
-## PCA 
+## PCA
 
 <center>
 ![](../gifs/pca.gif)
 </center>
 
-## PCA 
+## PCA
 
 <center>
 ![](../gifs/perp.gif)
