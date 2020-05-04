@@ -156,7 +156,7 @@ a + b
 
 ## Power and significance
 
-**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the *level of significance* (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
+**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the *level of significance* (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
 
 **Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
 

@@ -24,7 +24,7 @@ By the end of this lab student should be able to
    + Write R code to carry out PCA
    + Interpret the effectively communicate the output of PCA
 
-## Suggested reading
+### Suggested reading (optional material expanding on the concepts taught)
 
 
 
@@ -230,7 +230,9 @@ screeplot(pca,type = "lines")
 
 ## Lab work (worth 6\% of your final grade)
 
-You can work in groups or alone; however your work should be independent. Using a dataset of your choice (e.g., that above, or the wine dataset used in the lecture slides...) you should make a cheatsheet illustrating the concepts of PCA and the steps required in the analysis. You can find some [RStudio cheatsheet examples here](https://rstudio.com/resources/cheatsheets/). You may include `R` code and any plots you feel necessary. The text should be minimal, but easy to follow by your peers. This assignment will be marked by your peers based and should 1) help users find essential information quickly, and 2) be easy to follow! 
+You can work in groups or alone; however your work should be independent. Using a dataset of your choice (e.g., that above, or the wine dataset used in the lecture slides...) you should make a cheatsheet illustrating the concepts of PCA and the steps required in the analysis. Please head over to the Assignments page of CANVAS for more details.
+
+You can find some [RStudio cheatsheet examples here](https://rstudio.com/resources/cheatsheets/). You may include `R` code and any plots you feel necessary. The text should be minimal, but easy to follow by your peers. This assignment will be marked by your peers based and should 1) help users find essential information quickly, and 2) be easy to follow! 
 
 
  + Be very concise; rely on diagrams where possible.

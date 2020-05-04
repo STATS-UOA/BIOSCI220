@@ -44,14 +44,11 @@ By the end of this lab students should be able to
   + State in terms of probability statements the meaning of the power and significance level of an hypothesis test
   
 
-
-### Pre lab reading
-
-[Sadler EA, Pitts JP, Wilson JS. 2018. Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? PeerJ 6:e4743 https://doi.org/10.7717/peerj.4743](https://peerj.com/articles/4743/)
-
-### Suggested reading
+### Suggested reading (optional material expanding on the concepts taught)
 
 [Teacups, giraffes, and statistics: free online introductory level R and statistics modules](https://tinystats.github.io/teacups-giraffes-and-statistics/)
+
+[Sadler EA, Pitts JP, Wilson JS. 2018. Stinging wasps (Hymenoptera: Aculeata), which species have the longest sting? PeerJ 6:e4743 https://doi.org/10.7717/peerj.4743](https://peerj.com/articles/4743/)
 
 ### Motivation
 
@@ -545,6 +542,7 @@ knitr::include_url("https://www.youtube.com/embed/zecArldpptY",height = "400")
 
 ## Power and significance level
 
+
 ```{r url}
 knitr::include_url("https://xkcd.com/882/",height = "200px")
 ```
@@ -558,7 +556,11 @@ Recall, we have two competing hypotheses (claims) relating to the **true** vale 
 
 **Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
 
+![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_1_errors.png?raw=true)
+
 **Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
+
+![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_2_errors.png?raw=true)
 
 **Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
 
@@ -653,7 +655,7 @@ TukeyHSD(aov)
 
 ## Lab work
 
-Begin work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. If should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings.
+Begin work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. If should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings. Please head over to the Assignments page of CANVAS for more details.
 
 
 

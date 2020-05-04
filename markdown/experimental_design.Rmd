@@ -35,7 +35,7 @@ By the end of this lab student should be able to
    + Critique experimental designs
    
 
-### Suggested reading
+### Suggested reading (optional material expanding on the concepts taught)
 
 <!-- [Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L) -->
 
@@ -254,7 +254,7 @@ experiment
 
 #### Design your own experiment  
 
-As part of your assessed lab work this week you are to design your own experiment. Please upload a .pdf of your answers to the following to CANVAS before the deadline.
+As part of your assessed lab work this week you are to design your own experiment. Please upload a .pdf of your answers to the following to CANVAS before the deadline. Please head over to the Assignment page of CANVAS for more details.
 
 ```{r url2}
 knitr::include_url("https://www.youtube.com/embed/FnyrV-zxwis",height = "400px")
@@ -265,7 +265,7 @@ knitr::include_url("https://www.youtube.com/embed/FnyrV-zxwis",height = "400px")
  
  + Note the variables (independent and dependent) and units in your scenario, mentioning the ranges and potential relationship between them.
  
- + Design an experiment that could help you test the hypothesis/answer the question your question of interest. Write a few short paragraphs outlining the experimental design describing how Fisher's three principles of experimental design have played a part.
+ + Design an experiment that could help you test the hypothesis/answer your question of interest. Write a few short paragraphs outlining the experimental design describing how Fisher's three principles of experimental design have played a part.
  
  + List and justify the methods and instruments required for your experiment.
 
