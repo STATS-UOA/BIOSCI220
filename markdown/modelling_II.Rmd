@@ -2,7 +2,13 @@
 title: "Modelling II"
 author: "BIOSCI220"
 date: "Semester 1 2020"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+    toc_depth: 3
+    highlight: espresso
 ---
 
 ```{r setup, include=FALSE}

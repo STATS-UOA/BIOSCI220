@@ -35,6 +35,8 @@ By the end of this lab student should be able to
 
 ['explor' is an R package to allow interactive exploration of multivariate analysis results](https://juba.github.io/explor/)
 
+[The Mathematics Behind Principal Component Analysis (6 min read)](https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643)
+
 
 ## MDS (minimizes dimensions, preserving distance between data points)
 
@@ -69,8 +71,6 @@ It looks like we can explain a lot of the variation in the baguette (data) by th
 ### Formally...
 
 Principal component analysis is a technique that combines our input variables in a specific way so that we can drop the least important while still retaining the most valuable parts of all of the variables (i.e., those that explain the most variation of the data). PCA results in developing new features that are independent of one another (think of the rotating axes above). The principal components (PC) refer to the new variables constructed as a linear combination of initial variables, such that these new variables are uncorrelated. Since the principal components are independent of one another, they are perpendicular to each other in the Cartesian space.
-
-[The Mathematics Behind Principal Component Analysis (6 min read)](https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643)
 
 ## TL;DR
  
