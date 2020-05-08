@@ -10,3 +10,8 @@ mini_lectures/linear_modelling_cache/*
 reading/
 mini_lectures/*.html
 mini_lectures/*.pdf
+r/*.png
+r/coxcomb.r
+r/class_ans.csv
+r/intro_quiz.r
+
