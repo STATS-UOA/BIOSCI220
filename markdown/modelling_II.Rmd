@@ -6,8 +6,11 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE)
+library(ggplot2)
 ```
+
+<p style="color:red;font-size:18px;">It is strongly suggested that you watch all the related videos on the CANVAS page before attempting to run through the examples below</p>
 
 ## Learing Objectives
 
@@ -18,21 +21,205 @@ By the end of this lab student should be able to
       + main effects in a model with an interaction
       + the effect of one variable when others are included in the model
    + Explain why you may want to include interaction effects in a linear model
-   + Describe the differences between the operators : and * in an R model-fitting formula
+   + Describe the differences between the operators `:` and `*` in an `R` model-fitting formula
    + Critique the fitted model
 
-### Suggested reading
+### Suggested reading (optional material expanding on the concepts taught)
 
 
-[Mueller, R. C., Scudder, C. M., Porter, M. E., Talbot Trotter III, R., Gehring, C. A., & Whitham, T. G. (2005). Differential tree mortality in response to severe drought: evidence for long‐term vegetation shifts. Journal of Ecology, 93(6), 1085-1093.](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.1365-2745.2005.01042.x)
+[Exploring interactions with continuous predictors in regression models](https://interactions.jacob-long.com/articles/interactions.html)
 
 ## Interactions
 
-## Model formulae
+Remember last week when we talked about insects and multiple linear regression:
 
-## Model checking
+$$Y_i = \beta_0 + \beta_1z_i + \beta_2x_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+Here for observation $i$
 
-## Model comparison and selection
+  + $Y_i$ is the value of the response
+  + $z_i$ is one explanatory variable
+  + $x_i$ is another explanatory variable
+  + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
+  
+**But**  what about interactions? For example, 
+
+$$Y_i = \beta_0 + \beta_1z_i + \beta_2x_i + \beta_3z_ix_i + \epsilon_i$$
+$$\epsilon_i \sim \text{Normal}(0,\sigma^2)$$
+
+**Note:** to include interaction effects in our model by using either the `*` or `:` syntax in our model formula. See [Model formula syntax] for further details.
+
+### Motivation
+
+To illustrate this we're going to use a data set based on [Food Consumption and CO2 Emissions](https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018)
+
+```{r, echo = FALSE, eval = TRUE}
+food <- read.csv("../data/food_consumption.csv")
+```
+
+```{r read in data,echo = TRUE, eval = FALSE}
+## let's read in the data
+## remember you'll first have to download the .csv into your working 
+## directory from CANVAS
+food <- read.csv("food_consumption.csv")
+```
+
+```{r looksies}
+## Have a look at the data structure
+str(food)
+head(food)
+```
+
+```{r plot,echo = TRUE}
+library(ggplot2)
+ggplot(data = food,aes(x = consumption, y = co2_emmission, colour = food_category)) + geom_point() + xlab("Consumption (kg/person/year)") +
+  ylab("C02 emissions (kg CO2/person/year)") + 
+  labs(colour = "Food Category")
+
+```
+
+<p style="font-size:16px;">Some pretty obvious interactions going on! The relationship between consumption and CO2 emissions is clearly dependent on food group.</p> We'll have a look at different [Regression models] below
+
+
+
+## Model formula syntax
+
+In `R` to specify the model you want to fit you typically create a model formula object; this is usually then passed as the first argument to the model fitting function (e.g., `lm()`).
+
+Some notes on syntax:
+
+Consider the model formula example `y ~ x + z + x:z`. There is a lot going on here:
+
+ + The variable to the left of `~` specifies the response, everything to the right specify the explanatory variables
+ + `+` indicated to include the variable to the left of it and to the right of it (it does **not** mean they should be summed)
+ + `:` denotes the interaction of the variables to its left and right
+ 
+Additional, some other symbols have special meanings in model formula:
+
+ + `*` means to include all main effects and interactions, so `a*b` is the same as `a + b + a:b`
+ 
+ + `^` is used to include main effects and interactions up to a specified level. For example, `(a + b + c)^2` is equivalent to `a + b + c + a:b + a:c + b:c` (note `(a + b + c)^3` would also add `a:b:c`)
+ + `-` excludes terms that might otherwise be included. For example, `-1` excludes the intercept otherwise included by default, and `a*b - b` would produce `a + a:b`
+ 
+Mathematical functions can also be directly used in the model formula to transform a variable directly (e.g., `y ~ exp(x) + log(z) + x:z`). One thing that may seem counter intuitive is in creating polynomial expressions (e.g., $x^2$). Here the expression `y ~ x^2` does **not** relate to squaring the explanatory variable $x$ (this is to do with the syntax `^` you see above. To include $x^2$ as a term in our model we have to use the `I()` (the "as-is" operator). For example, `y ~ I(x^2) `). 
+
+### Regression models
+
+```{r mult, echo = TRUE}
+## additive model
+mod.add <- lm(co2_emmission ~ consumption + food_category, data = food)
+```
+
+But wait here and intercept term doesn't make sense. We want to force it to be zero0: zero consumption means zero emission!
+
+```{r multno intercept, echo = TRUE}
+## additive model w/o an intercept
+mod.no.c <- lm(co2_emmission ~ -1 + consumption + food_category, data = food)
+```
+
+And what about those non parallel slopes? Remember there are a few equivalent ways of specifying this.
+
+```{r interaction, echo = TRUE}
+## interaction model w/o an intercept
+mod.interaction <- lm(co2_emmission ~ -1 + consumption*food_category, 
+                      data = food)
+## same model using different syntax
+mod.interaction <- lm(co2_emmission ~ -1 + consumption + food_category +
+                        consumption:food_category, data = food)
+## same model using different syntax (although this way 
+## only useful really if you have mre than two explanatory variables!)
+mod.interaction.3 <- lm(co2_emmission ~ -1 + (consumption + food_category)^2, data = food)
+``` 
+
+Use the `summary()` function to have a look at the parameter estimates etc.
+
+```{r summary, echo = TRUE}
+summary(mod.add)
+summary(mod.no.c)
+summary(mod.interaction)
+```
+
+
+## Model checking, comparison, and selection
+
+### Model checking
+
+Remember that it is always is imperative that we **check the underlying assumptions** of our model! If our assumptions are not met then basically the maths falls over and we can't reliably draw inference from the model (e.g., can't trust the parameter estimates etc.). Two of the most important assumption are:
+
+  + equal variances (homogeneity of variance), and 
+  
+  + normality of residuals. 
+  
+Recall that to check for equal variances we can construct a graph of residuals versus fitted values; this is simple to do by first extracting the residuals and fitted values from our model object using the `resid()` and `fitted()` functions.
+
+```{r resid, echo = TRUE}
+resids <- resid(mod.interaction)
+fitted <- fitted(mod.interaction)
+## then plot
+ggplot(mapping = aes(x = fitted, y = resids)) +
+    geom_point() +
+    geom_hline(yintercept = 0, colour = "red", linetype = "dashed")
+```
+
+Does this look patternless to you? You could argue that there is the look of an "inverted trumpet", that is, more variance abound the smaller values? Or is this just due to the fact that there are fewer larger observations so we make up the pattern.
+
+To check for normality of residuals we use a Q-Q plot (Quantile-Quantile plot) using the residuals stored in the `resids` object created above.
+
+```{r qq,echo = TRUE}
+ggplot(mapping = aes(sample = resids)) +
+    stat_qq() + 
+    stat_qq_line()
+```
+
+
+
+### Model comparision and selection
+
+You may recall the Akaike information criterion (AIC) from Module 2 of the course. AICs an estimator of out-of-sample prediction error and can be used as a metric to choose between competing models. `R` already has an `AIC()` function that can be used directly on your `lm()` model object(s). For example,
+
+```{r aic, echo = TRUE}
+AIC(mod.add,mod.interaction)
+```
+
+We can also compare nested linear models by hypothesis testing. Luckily the `R` function `anova()` automates this. Yes the same idea as we've previously learnt about ANOVA! We essentially perform an F-ratio test between the nested models! 
+
+By nested we mean that one model is a subset of the other (i.e., where some coefficients have been fixed at zero). For example,
+
+$$Y_i = \beta_0 + \beta_1z_i + \epsilon_i$$
+
+is a nested version of
+
+$$Y_i = \beta_0 + \beta_1z_i + \beta_2x_i + \epsilon_i$$ where $\beta_2$ has been fixed to zero.
+
+As an example consider testing the null model `mod.no.c` against the full model wit interactions `mod.interaction`. To carry out the appropriate hypothesis test in `R` we can run
+
+```{r anova, echo = TRUE}
+anova(mod.no.c,mod.interaction)
+
+```
+
+This backs up what our AIC values indicated. The p-value tells us that we have really strong evidence (p-value is exceptionally low) against the null model (`mod.no.c`) in favor of the model that includes interactions!
+
+As always it's important to do a sanity check! Does this make sense? Based on what we know about C02 emissions and food types I'd say YES!
+
+Let's have a look at our data again
+
+```{r datagain}
+ggplot(data = food,aes(x = consumption, y = co2_emmission, colour = food_category)) + geom_point() + xlab("Consumption (kg/person/year)") +
+  ylab("C02 emissions (kg CO2/person/year)") + 
+  labs(colour = "Food Category")
+```
+
+and again with the fitted model (including interaction terms)
+
+
+```{r fitted, echo = TRUE}
+ggplot(data = food,aes(x = consumption, y = co2_emmission, colour = food_category)) + geom_point() + xlab("Consumption (kg/person/year)") +
+  ylab("C02 emissions (kg CO2/person/year)") + 
+  labs(colour = "Food Category") +  geom_smooth(method = "lm", se = TRUE)
+```
+
+What do you think?
 
 ## Beyond Linear Models to Generalised Linear Models (GLMs)
 
@@ -77,9 +264,22 @@ becomes
   
 The Poisson distribution is commonly used as a general-purpose distribution for counts. A key feature of this distribution is $\text{Var}(Y_i) = \mu_i$, so we expect the variance to increase with the mean.
 
+## Other modelling approaches (for interest only)
+
+| `R` function    | Use                    | 
+| --------------- |------------------------|
+| `glm()`         | Fit a generalised linear model with a specific error structure specified using the `family =` argument (Poisson, binomial, gamma)|
+| `gam()`         | Fit a generalised additive model. The R package `mgcv` must be loaded |
+|`lme()` and `nlme()`| Fit linear and non-linear mixed effects models. The R package `nlme` must be loaded |
+| `lmer()`        | Fit linear and generalised linear and non-linear mixed effects models. The package `lme4` must be installed and loaded |
+| `gls()`         | Fit generalised least squares models. The R package `nlme` must be loaded |
+
+
 Want to learn more then consider taking more [stats](https://www.calendar.auckland.ac.nz/en/courses/faculty-of-science/statistics.html?_ga=2.188381802.397158218.1586127105-552858658.1546562925) courses :)
   
 
 ## Lab work
 
-Continue work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. It should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings.
+Continue work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. It should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings. Head over to the Assignments page for more information.
+
+Potentially of interest [Reproducible reports with R markdown](https://alexd106.github.io/Rbook/rmarkdown-r.html)

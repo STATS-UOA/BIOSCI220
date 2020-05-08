@@ -15,6 +15,8 @@ output:
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE,message = FALSE, warning = FALSE,fig.align = "center")
 ```
 
+<p style="color:red;font-size:18px;">It is strongly suggested that you watch all the related videos on the CANVAS page before attempting to run through the examples below</p> 
+
 ## Learning Objectives
 
 By the end of this lab student should be able to
@@ -25,7 +27,6 @@ By the end of this lab student should be able to
    + Interpret the effectively communicate the output of PCA
 
 ### Suggested reading (optional material expanding on the concepts taught)
-
 
 
 [Little book for Multivariate Analysis](https://little-book-of-r-for-multivariate-analysis.readthedocs.io/en/latest/index.html)

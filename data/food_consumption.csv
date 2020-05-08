@@ -1,0 +1,1431 @@
+"country","food_category","consumption","co2_emmission"
+"Argentina","Pork",10.51,67.7100693928152
+"Argentina","Poultry",38.66,46.9993377186255
+"Argentina","Beef",55.48,1710.36197531823
+"Argentina","Lamb & Goat",1.56,73.4061564140744
+"Argentina","Fish",4.36,19.6758075875357
+"Argentina","Eggs",11.39,15.6869928885081
+"Argentina","Milk - inc. cheese",195.08,276.042138993224
+"Argentina","Wheat and Wheat Products",103.11,56.2343069765705
+"Argentina","Rice",8.77,46.7532692345717
+"Argentina","Soybeans",0,27.649925761347
+"Argentina","Nuts inc. Peanut Butter",0.49,5.01468439854395
+"Australia","Pork",24.14,101.153143775747
+"Australia","Poultry",46.12,25.3327844515513
+"Australia","Beef",33.86,1074.59916784142
+"Australia","Lamb & Goat",9.87,296.545060975941
+"Australia","Fish",17.69,50.791741916811
+"Australia","Eggs",8.51,41.698678348192
+"Australia","Milk - inc. cheese",234.49,417.246802290234
+"Australia","Wheat and Wheat Products",70.46,85.4379786928183
+"Australia","Rice",11.03,89.3510257031658
+"Australia","Soybeans",0.19,6.39036185021887
+"Australia","Nuts inc. Peanut Butter",8.73,24.9177849949812
+"Albania","Pork",10.88,19.9670341686613
+"Albania","Poultry",13.23,39.5455164148732
+"Albania","Beef",22.5,756.850945726096
+"Albania","Lamb & Goat",15.32,568.292906349757
+"Albania","Fish",3.85,66.8810856719656
+"Albania","Eggs",12.45,95.0245248672918
+"Albania","Milk - inc. cheese",303.72,294.250503178248
+"Albania","Wheat and Wheat Products",138.64,94.1256598444724
+"Albania","Rice",7.78,9.60115446819001
+"Albania","Soybeans",0,16.0564950156257
+"Albania","Nuts inc. Peanut Butter",4.36,11.644997167334
+"Iceland","Pork",21.69,77.4886505857419
+"Iceland","Poultry",26.87,27.6347747822724
+"Iceland","Beef",13.36,438.138685061841
+"Iceland","Lamb & Goat",21.12,735.432334071798
+"Iceland","Fish",74.41,59.3768666616062
+"Iceland","Eggs",8.24,18.0729123477572
+"Iceland","Milk - inc. cheese",225.82,323.522709488533
+"Iceland","Wheat and Wheat Products",72.92,35.2100668712828
+"Iceland","Rice",3.89,10.7982084996976
+"Iceland","Soybeans",0.11,2.96023822031453
+"Iceland","Nuts inc. Peanut Butter",3.88,21.4970706755101
+"New Zealand","Pork",22.29,132.643763487071
+"New Zealand","Poultry",34.98,42.6745758322415
+"New Zealand","Beef",22.49,606.298730434231
+"New Zealand","Lamb & Goat",18.91,717.011270897755
+"New Zealand","Fish",20.36,70.4272720488879
+"New Zealand","Eggs",9.91,23.5289820783738
+"New Zealand","Milk - inc. cheese",137.25,99.3863959519767
+"New Zealand","Wheat and Wheat Products",76.91,68.0496383597214
+"New Zealand","Rice",9.16,23.2218747676144
+"New Zealand","Soybeans",0.44,33.6462224694908
+"New Zealand","Nuts inc. Peanut Butter",8.22,118.61952489356
+"USA","Pork",27.64,170.260883178719
+"USA","Poultry",50.01,104.903078571298
+"USA","Beef",36.24,1127.09490944454
+"USA","Lamb & Goat",0.43,6.16246423333697
+"USA","Fish",12.35,99.7331872445861
+"USA","Eggs",14.58,5.02475745498745
+"USA","Milk - inc. cheese",254.69,412.801701716317
+"USA","Wheat and Wheat Products",80.43,6.23165796835643
+"USA","Rice",6.88,9.39569239595429
+"USA","Soybeans",0.04,22.028862477293
+"USA","Nuts inc. Peanut Butter",7.86,104.644808671852
+"Uruguay","Pork",16.84,24.2483012003339
+"Uruguay","Poultry",27.45,62.1157440386118
+"Uruguay","Beef",29.1,835.480560907054
+"Uruguay","Lamb & Goat",8.23,231.489666496913
+"Uruguay","Fish",6.53,22.8597814263166
+"Uruguay","Eggs",13.14,53.5714325935605
+"Uruguay","Milk - inc. cheese",210.54,310.388185230061
+"Uruguay","Wheat and Wheat Products",109.31,66.4704178476303
+"Uruguay","Rice",11.5,60.2160305309043
+"Uruguay","Soybeans",0.01,39.7157485308479
+"Uruguay","Nuts inc. Peanut Butter",0.95,20.089497789261
+"Luxembourg","Pork",43.58,183.965152075171
+"Luxembourg","Poultry",21.37,65.864330449109
+"Luxembourg","Beef",29.88,929.504506171187
+"Luxembourg","Lamb & Goat",1.67,129.759923294236
+"Luxembourg","Fish",23.09,65.3912697588253
+"Luxembourg","Eggs",14.64,29.0464853421876
+"Luxembourg","Milk - inc. cheese",255.3,390.777262104457
+"Luxembourg","Wheat and Wheat Products",103.2,15.8718589042829
+"Luxembourg","Rice",4.2,35.8862271629455
+"Luxembourg","Soybeans",0.04,27.0413947106169
+"Luxembourg","Nuts inc. Peanut Butter",0.93,56.2115604903107
+"Brazil","Pork",12.6,0.204576130257671
+"Brazil","Poultry",45,5.09098412912819
+"Brazil","Beef",39.25,1229.11296508476
+"Brazil","Lamb & Goat",0.62,45.353169178527
+"Brazil","Fish",10.01,23.6479214164335
+"Brazil","Eggs",8.98,11.0975444353285
+"Brazil","Milk - inc. cheese",149.28,214.18263327643
+"Brazil","Wheat and Wheat Products",53,11.4923012148642
+"Brazil","Rice",32.13,10.5396632518826
+"Brazil","Soybeans",3.62,63.541669669564
+"Brazil","Nuts inc. Peanut Butter",0.67,8.74038926067373
+"Kazakhstan","Pork",10.36,145.010787944692
+"Kazakhstan","Poultry",18.38,9.41408519526929
+"Kazakhstan","Beef",23.38,802.844802308523
+"Kazakhstan","Lamb & Goat",9.56,370.583662149085
+"Kazakhstan","Fish",5.21,41.3684191466841
+"Kazakhstan","Eggs",8.29,70.5149039995201
+"Kazakhstan","Milk - inc. cheese",288.12,411.334698863472
+"Kazakhstan","Wheat and Wheat Products",92.31,99.2635738099831
+"Kazakhstan","Rice",7.32,21.8219163227624
+"Kazakhstan","Soybeans",0.03,58.9479262855785
+"Kazakhstan","Nuts inc. Peanut Butter",5.14,28.4206199776526
+"Sweden","Pork",37,162.859492853478
+"Sweden","Poultry",16.64,4.17814153351034
+"Sweden","Beef",24.58,757.227426010792
+"Sweden","Lamb & Goat",1.41,142.016357152471
+"Sweden","Fish",23.86,105.818668796698
+"Sweden","Eggs",13.37,44.7581503730081
+"Sweden","Milk - inc. cheese",341.23,546.272080530277
+"Sweden","Wheat and Wheat Products",79.59,37.2446996366261
+"Sweden","Rice",5.96,32.28993669746
+"Sweden","Soybeans",0.13,51.6348783034843
+"Sweden","Nuts inc. Peanut Butter",6.23,51.615170792803
+"Bermuda","Pork",28.24,77.5422705578075
+"Bermuda","Poultry",32.62,58.0905625507053
+"Bermuda","Beef",33.15,909.826396776726
+"Bermuda","Lamb & Goat",2.71,114.631732469792
+"Bermuda","Fish",33.22,3.76587217096277
+"Bermuda","Eggs",14.92,58.7278241163809
+"Bermuda","Milk - inc. cheese",95.56,34.0917557466114
+"Bermuda","Wheat and Wheat Products",54.88,55.3002230779758
+"Bermuda","Rice",5.38,49.1313127478446
+"Bermuda","Soybeans",0.22,23.7426177190393
+"Bermuda","Nuts inc. Peanut Butter",5.72,113.78646916311
+"Denmark","Pork",24.87,118.96558033911
+"Denmark","Poultry",26.75,84.7530559729012
+"Denmark","Beef",28.46,975.383326768155
+"Denmark","Lamb & Goat",0.92,42.4415828498489
+"Denmark","Fish",16.49,19.4937895260026
+"Denmark","Eggs",15.35,24.1070960630619
+"Denmark","Milk - inc. cheese",277.3,446.835191261578
+"Denmark","Wheat and Wheat Products",98,14.031082993331
+"Denmark","Rice",4.96,22.7211416208396
+"Denmark","Soybeans",0.03,30.5226040642788
+"Denmark","Nuts inc. Peanut Butter",5.94,11.4573269597734
+"Finland","Pork",36.14,132.126088486065
+"Finland","Poultry",19.87,22.1082704232774
+"Finland","Beef",19.22,579.974856046636
+"Finland","Lamb & Goat",0.53,43.3435179794359
+"Finland","Fish",33.8,82.2813445787154
+"Finland","Eggs",9.55,9.11186763593634
+"Finland","Milk - inc. cheese",430.76,599.570519572076
+"Finland","Wheat and Wheat Products",81.99,8.62960537250778
+"Finland","Rice",4.42,17.9673306948542
+"Finland","Soybeans",0.08,26.4744483630717
+"Finland","Nuts inc. Peanut Butter",3.43,102.985230997475
+"Ireland","Pork",32.4,63.0596342415133
+"Ireland","Poultry",26.26,23.3870314951313
+"Ireland","Beef",22.35,676.368524344146
+"Ireland","Lamb & Goat",4.1,81.2653874915946
+"Ireland","Fish",17.39,54.1353606577496
+"Ireland","Eggs",8.96,34.0591566100206
+"Ireland","Milk - inc. cheese",291.86,408.480526072211
+"Ireland","Wheat and Wheat Products",107.98,110.593077649286
+"Ireland","Rice",3,43.2357982911314
+"Ireland","Soybeans",0.25,12.222169233824
+"Ireland","Nuts inc. Peanut Butter",4.1,22.6979981061629
+"Greece","Pork",28.31,124.551760458792
+"Greece","Poultry",15.74,15.3464230463315
+"Greece","Beef",16.1,512.568777256822
+"Greece","Lamb & Goat",12.47,409.798448597058
+"Greece","Fish",14.42,112.625033964726
+"Greece","Eggs",10.13,42.364004580379
+"Greece","Milk - inc. cheese",255.26,345.266771729834
+"Greece","Wheat and Wheat Products",124.04,4.09119122571099
+"Greece","Rice",6.64,9.1428319052563
+"Greece","Soybeans",0.02,68.2474823772932
+"Greece","Nuts inc. Peanut Butter",10.5,2.6127194829516
+"France","Pork",33.05,184.214741240012
+"France","Poultry",22.93,69.2525008931072
+"France","Beef",23.81,746.899226179654
+"France","Lamb & Goat",3.28,46.5571469929117
+"France","Fish",22.91,200.761125764316
+"France","Eggs",13.13,10.9695696973525
+"France","Milk - inc. cheese",241.31,383.200920831101
+"France","Wheat and Wheat Products",108.43,26.7968142456841
+"France","Rice",4.88,56.08187149294
+"France","Soybeans",0.05,41.6501722822038
+"France","Nuts inc. Peanut Butter",5.39,10.7734276797499
+"Canada","Pork",22.81,102.667117943554
+"Canada","Poultry",36.68,92.6957663536303
+"Canada","Beef",30.25,913.766886423474
+"Canada","Lamb & Goat",0.97,57.0614945317313
+"Canada","Fish",14.56,34.0931500817675
+"Canada","Eggs",12.95,24.9388969492012
+"Canada","Milk - inc. cheese",187.77,279.983773718288
+"Canada","Wheat and Wheat Products",84.96,13.8600819918856
+"Canada","Rice",12.65,39.2746898474791
+"Canada","Soybeans",0.94,60.2984010128135
+"Canada","Nuts inc. Peanut Butter",8.01,4.1641524103435
+"Norway","Pork",23.51,11.6986078984581
+"Norway","Poultry",21.01,45.4662618878173
+"Norway","Beef",19.83,640.894993634984
+"Norway","Lamb & Goat",5.34,210.10221437334
+"Norway","Fish",38.18,76.4434319194798
+"Norway","Eggs",11.41,71.9212217351581
+"Norway","Milk - inc. cheese",261.34,334.756727382449
+"Norway","Wheat and Wheat Products",97.12,22.0125658662147
+"Norway","Rice",4.36,33.6409441238446
+"Norway","Soybeans",0.11,67.6828616408646
+"Norway","Nuts inc. Peanut Butter",5.28,32.5290542492231
+"Hong Kong SAR. China","Pork",67.11,162.585923425554
+"Hong Kong SAR. China","Poultry",54.86,60.5391188733251
+"Hong Kong SAR. China","Beef",25.82,834.675425051333
+"Hong Kong SAR. China","Lamb & Goat",2.22,74.9951325036769
+"Hong Kong SAR. China","Fish",42.44,123.999514468989
+"Hong Kong SAR. China","Eggs",14.5,27.3013612969408
+"Hong Kong SAR. China","Milk - inc. cheese",105.85,185.19242078207
+"Hong Kong SAR. China","Wheat and Wheat Products",53.14,58.8396283412306
+"Hong Kong SAR. China","Rice",43.48,16.7063012435239
+"Hong Kong SAR. China","Soybeans",2.79,44.1864998469546
+"Hong Kong SAR. China","Nuts inc. Peanut Butter",13.81,26.1873984900622
+"French Polynesia","Pork",14.75,53.2480964459909
+"French Polynesia","Poultry",49.55,32.0200989281466
+"French Polynesia","Beef",30.9,1000.56979723939
+"French Polynesia","Lamb & Goat",2.83,92.337766629527
+"French Polynesia","Fish",38.95,23.1121051092267
+"French Polynesia","Eggs",8.75,10.7930938931406
+"French Polynesia","Milk - inc. cheese",93.56,165.150414740512
+"French Polynesia","Wheat and Wheat Products",68.67,30.9964662031897
+"French Polynesia","Rice",35.59,85.0417545375105
+"French Polynesia","Soybeans",0.77,122.008982313305
+"French Polynesia","Nuts inc. Peanut Butter",2.34,96.6392223060784
+"Israel","Pork",1.99,38.6301850597013
+"Israel","Poultry",62.5,22.7009331196274
+"Israel","Beef",28.78,847.70754659522
+"Israel","Lamb & Goat",1.87,5.37334190171207
+"Israel","Fish",22.18,1.32285203597618
+"Israel","Eggs",11.35,34.2160524733549
+"Israel","Milk - inc. cheese",193.6,256.993110259735
+"Israel","Wheat and Wheat Products",110.86,21.7510202189783
+"Israel","Rice",16.81,33.1785094242337
+"Israel","Soybeans",0.1,53.4815101145658
+"Israel","Nuts inc. Peanut Butter",7.71,33.7871643985383
+"Switzerland","Pork",31.49,92.3749428801186
+"Switzerland","Poultry",16.38,11.3252862111147
+"Switzerland","Beef",21.26,709.318132675737
+"Switzerland","Lamb & Goat",1.42,29.7791025118346
+"Switzerland","Fish",13.48,62.365606701018
+"Switzerland","Eggs",10.53,109.59415468637
+"Switzerland","Milk - inc. cheese",318.69,500.079030041346
+"Switzerland","Wheat and Wheat Products",89.51,10.046870446824
+"Switzerland","Rice",2.43,80.5544423578714
+"Switzerland","Soybeans",0.44,72.5241584648351
+"Switzerland","Nuts inc. Peanut Butter",9.27,2.20355773274523
+"Netherlands","Pork",36.36,60.5888380179026
+"Netherlands","Poultry",23.9,15.600304185244
+"Netherlands","Beef",17.67,487.229536864322
+"Netherlands","Lamb & Goat",0.94,22.3595258938177
+"Netherlands","Fish",18.64,47.9616286442638
+"Netherlands","Eggs",14.03,2.61963855925845
+"Netherlands","Milk - inc. cheese",341.47,481.256844970547
+"Netherlands","Wheat and Wheat Products",70.17,29.6671734319632
+"Netherlands","Rice",2.93,16.2146091227923
+"Netherlands","Soybeans",0.12,59.863496333307
+"Netherlands","Nuts inc. Peanut Butter",7.94,69.7731218001686
+"Kuwait","Pork",0,62.6527968799294
+"Kuwait","Poultry",53.61,2.50277413189605
+"Kuwait","Beef",13.03,492.454752733054
+"Kuwait","Lamb & Goat",15.61,590.742696071089
+"Kuwait","Fish",11.99,27.02354188415
+"Kuwait","Eggs",12.6,31.1833599044083
+"Kuwait","Milk - inc. cheese",157.66,229.542616407726
+"Kuwait","Wheat and Wheat Products",96.76,7.0595062737887
+"Kuwait","Rice",43.83,76.8555661291589
+"Kuwait","Soybeans",0.06,30.6733644341317
+"Kuwait","Nuts inc. Peanut Butter",5.23,0.531107759876303
+"United Kingdom","Pork",25.79,191.301315232342
+"United Kingdom","Poultry",31.55,189.313753302607
+"United Kingdom","Beef",18.12,602.505118736679
+"United Kingdom","Lamb & Goat",4.49,144.909562484005
+"United Kingdom","Fish",15.49,35.4198983195338
+"United Kingdom","Eggs",11.08,25.9108849345517
+"United Kingdom","Milk - inc. cheese",232.2,300.128850677443
+"United Kingdom","Wheat and Wheat Products",98.63,4.72537162846734
+"United Kingdom","Rice",6.39,7.13037230733793
+"United Kingdom","Soybeans",0.05,11.668209054768
+"United Kingdom","Nuts inc. Peanut Butter",4.18,38.5672729308354
+"Austria","Pork",52.56,80.1868234174499
+"Austria","Poultry",18.61,42.5742107090116
+"Austria","Beef",17.14,534.142462426183
+"Austria","Lamb & Goat",1.16,48.0627663776942
+"Austria","Fish",12.16,13.8297525881223
+"Austria","Eggs",14.68,11.2887468123004
+"Austria","Milk - inc. cheese",258.09,286.043068671674
+"Austria","Wheat and Wheat Products",81.1,4.54604892834775
+"Austria","Rice",3.7,56.3085556243972
+"Austria","Soybeans",2.06,33.9091636327913
+"Austria","Nuts inc. Peanut Butter",7.88,51.2545662421547
+"Oman","Pork",0.01,54.3761391756562
+"Oman","Poultry",31.51,18.6200674109592
+"Oman","Beef",15.1,480.658244985802
+"Oman","Lamb & Goat",12.87,412.191341437533
+"Oman","Fish",21.56,64.4451439913763
+"Oman","Eggs",7.8,18.1256609288112
+"Oman","Milk - inc. cheese",152.28,187.536336618735
+"Oman","Wheat and Wheat Products",64.1,105.015370914226
+"Oman","Rice",56.55,65.7596553204412
+"Oman","Soybeans",0.21,22.1427001864456
+"Oman","Nuts inc. Peanut Butter",1.68,5.16039346044812
+"Italy","Pork",40.28,149.63767805448
+"Italy","Poultry",18.61,47.0139472587582
+"Italy","Beef",18.6,520.288111302715
+"Italy","Lamb & Goat",0.92,44.8018786176619
+"Italy","Fish",15.6,49.3755397037291
+"Italy","Eggs",13.34,48.8582593443261
+"Italy","Milk - inc. cheese",246.88,390.817115935393
+"Italy","Wheat and Wheat Products",146.37,40.9380315437218
+"Italy","Rice",5.74,31.7233544252298
+"Italy","Soybeans",0.01,8.76337691209818
+"Italy","Nuts inc. Peanut Butter",7.63,46.2271955076856
+"Bahamas","Pork",32.74,174.267813329418
+"Bahamas","Poultry",45.74,40.6345458099699
+"Bahamas","Beef",19.92,596.777922148654
+"Bahamas","Lamb & Goat",5.22,133.605075104642
+"Bahamas","Fish",18.8,1.60224812993689
+"Bahamas","Eggs",6.2,33.7099113287952
+"Bahamas","Milk - inc. cheese",104.76,247.76915726861
+"Bahamas","Wheat and Wheat Products",39.98,17.0780901081275
+"Bahamas","Rice",23.97,18.915064040465
+"Bahamas","Soybeans",0.09,85.0464021809611
+"Bahamas","Nuts inc. Peanut Butter",4.03,14.2715088827351
+"Portugal","Pork",37.91,148.568792864776
+"Portugal","Poultry",30.14,8.11251214732378
+"Portugal","Beef",16.45,484.176848684342
+"Portugal","Lamb & Goat",2.38,102.366205457807
+"Portugal","Fish",45.39,136.096216381774
+"Portugal","Eggs",9.05,82.5520517679375
+"Portugal","Milk - inc. cheese",205.04,291.342833086371
+"Portugal","Wheat and Wheat Products",94.3,94.9011690558291
+"Portugal","Rice",14.86,86.3295774934814
+"Portugal","Soybeans",0.01,54.5339457752558
+"Portugal","Nuts inc. Peanut Butter",3.91,20.1369461137878
+"Malta","Pork",34.24,109.653004537447
+"Malta","Poultry",26.4,122.800635298248
+"Malta","Beef",19.22,554.291415992089
+"Malta","Lamb & Goat",1.19,47.3959294600135
+"Malta","Fish",24.58,154.088404743709
+"Malta","Eggs",11.64,54.4191408835228
+"Malta","Milk - inc. cheese",190.06,234.481788247766
+"Malta","Wheat and Wheat Products",139.58,0.169824090324969
+"Malta","Rice",4.96,11.8967948378592
+"Malta","Soybeans",0.05,28.8410276861251
+"Malta","Nuts inc. Peanut Butter",5.62,9.48559628041263
+"Armenia","Pork",9.67,59.3214963544634
+"Armenia","Poultry",13.35,36.6619888460652
+"Armenia","Beef",19.66,541.461322422702
+"Armenia","Lamb & Goat",3.02,113.343647520079
+"Armenia","Fish",4.36,67.4273666683892
+"Armenia","Eggs",11.69,27.2473029806519
+"Armenia","Milk - inc. cheese",209.03,334.892740575419
+"Armenia","Wheat and Wheat Products",130.6,22.5686342761265
+"Armenia","Rice",3.18,34.957153454262
+"Armenia","Soybeans",0,24.5530268457055
+"Armenia","Nuts inc. Peanut Butter",2.55,110.401742481974
+"Slovenia","Pork",28.19,97.2269293513139
+"Slovenia","Poultry",23.46,17.716158902522
+"Slovenia","Beef",18.43,587.409578916479
+"Slovenia","Lamb & Goat",0.79,59.3513712390264
+"Slovenia","Fish",7.76,37.9581950760201
+"Slovenia","Eggs",9.36,3.35412646006914
+"Slovenia","Milk - inc. cheese",235.01,354.509212637865
+"Slovenia","Wheat and Wheat Products",103.43,0.500173340633129
+"Slovenia","Rice",3.95,68.3406449342663
+"Slovenia","Soybeans",0.75,124.064256551286
+"Slovenia","Nuts inc. Peanut Butter",5.28,37.7975525457035
+"Chile","Pork",24.68,134.89834715611
+"Chile","Poultry",36.52,1.05863872795923
+"Chile","Beef",23.86,738.610441512517
+"Chile","Lamb & Goat",0.42,9.66548494832693
+"Chile","Fish",7.65,17.8099165824535
+"Chile","Eggs",9.97,22.0959203488858
+"Chile","Milk - inc. cheese",116.11,122.811233964241
+"Chile","Wheat and Wheat Products",104.74,9.27939640152587
+"Chile","Rice",8.85,18.1049378677424
+"Chile","Soybeans",0.04,33.0935829882232
+"Chile","Nuts inc. Peanut Butter",2.22,84.7863652043779
+"Venezuela","Pork",7.23,36.9338611316105
+"Venezuela","Poultry",39.28,47.5831157529837
+"Venezuela","Beef",25.89,709.48376050509
+"Venezuela","Lamb & Goat",0.32,8.71088933440994
+"Venezuela","Fish",8.34,61.3761808868455
+"Venezuela","Eggs",5.63,6.17633026364746
+"Venezuela","Milk - inc. cheese",117.79,212.476662149797
+"Venezuela","Wheat and Wheat Products",49.17,25.6061602687081
+"Venezuela","Rice",23.39,24.8520756602557
+"Venezuela","Soybeans",0,54.9527833481094
+"Venezuela","Nuts inc. Peanut Butter",0.35,13.6417456847015
+"Belgium","Pork",38.65,84.7093405684199
+"Belgium","Poultry",12.2,128.066350236177
+"Belgium","Beef",15.63,439.230042201156
+"Belgium","Lamb & Goat",1.32,44.6672596456962
+"Belgium","Fish",18.97,110.928661700918
+"Belgium","Eggs",12.59,6.3535018809235
+"Belgium","Milk - inc. cheese",236.19,378.594319344957
+"Belgium","Wheat and Wheat Products",111.91,34.8551033131604
+"Belgium","Rice",8.61,37.750569925708
+"Belgium","Soybeans",0.07,19.7261688114475
+"Belgium","Nuts inc. Peanut Butter",7.32,15.8967417383566
+"Germany","Pork",51.81,211.228642662083
+"Germany","Poultry",17.75,31.9555987016718
+"Germany","Beef",13.16,491.713561648853
+"Germany","Lamb & Goat",0.73,12.8125797236264
+"Germany","Fish",11.16,0.746206933928121
+"Germany","Eggs",12.2,13.7624649377792
+"Germany","Milk - inc. cheese",258.7,414.180468559053
+"Germany","Wheat and Wheat Products",83.41,1.10035071038768
+"Germany","Rice",3.34,11.5649632243878
+"Germany","Soybeans",0.88,26.9138014398432
+"Germany","Nuts inc. Peanut Butter",7.96,25.2548797633266
+"Russia","Pork",25.66,94.9131735555305
+"Russia","Poultry",27.5,1.24636547870273
+"Russia","Beef",16.98,558.400755468341
+"Russia","Lamb & Goat",1.4,91.3436244894593
+"Russia","Fish",20.82,8.20793213974777
+"Russia","Eggs",15.43,85.1307437615717
+"Russia","Milk - inc. cheese",163.57,211.263121036716
+"Russia","Wheat and Wheat Products",130.99,25.4818773330937
+"Russia","Rice",4.71,47.1689988767204
+"Russia","Soybeans",0.05,48.8621043688528
+"Russia","Nuts inc. Peanut Butter",1.62,70.1126339416252
+"Croatia","Pork",42.79,159.063647754606
+"Croatia","Poultry",8.52,22.3501676509379
+"Croatia","Beef",12.41,299.601275980566
+"Croatia","Lamb & Goat",1.71,31.7779543419461
+"Croatia","Fish",15.83,58.9737842234454
+"Croatia","Eggs",8.48,53.7131979515081
+"Croatia","Milk - inc. cheese",231.02,254.738814146673
+"Croatia","Wheat and Wheat Products",106.59,71.6712423814408
+"Croatia","Rice",2.64,4.20819598441438
+"Croatia","Soybeans",0,66.8106762806652
+"Croatia","Nuts inc. Peanut Butter",3.88,29.5243640099469
+"Belarus","Pork",40.37,155.801813443373
+"Belarus","Poultry",31.29,43.3703006741657
+"Belarus","Beef",17.11,531.492806491934
+"Belarus","Lamb & Goat",0.11,54.1430662625501
+"Belarus","Fish",15.75,57.8206790312296
+"Belarus","Eggs",15.86,97.8230056257982
+"Belarus","Milk - inc. cheese",133.73,251.635388904498
+"Belarus","Wheat and Wheat Products",60.48,109.150404101152
+"Belarus","Rice",3.17,116.561773574882
+"Belarus","Soybeans",0.3,11.069864105832
+"Belarus","Nuts inc. Peanut Butter",3.36,73.9807184461902
+"Spain","Pork",48.92,200.32016162258
+"Spain","Poultry",28.63,1.03363600552619
+"Spain","Beef",12.15,347.802284175316
+"Spain","Lamb & Goat",2.16,86.0767412301978
+"Spain","Fish",28.83,22.4672283530261
+"Spain","Eggs",13.32,9.11375510749674
+"Spain","Milk - inc. cheese",164.29,184.61307064943
+"Spain","Wheat and Wheat Products",93.88,11.6366767640841
+"Spain","Rice",8.32,39.4426679540426
+"Spain","Soybeans",0.02,1.03437309112513
+"Spain","Nuts inc. Peanut Butter",7.44,45.2506029829924
+"Paraguay","Pork",26.24,81.5876025941778
+"Paraguay","Poultry",6.39,17.4799388131881
+"Paraguay","Beef",19.81,576.093321528835
+"Paraguay","Lamb & Goat",0.56,92.800618476199
+"Paraguay","Fish",3.6,68.4394397549949
+"Paraguay","Eggs",18.83,23.1348960119384
+"Paraguay","Milk - inc. cheese",75.72,83.732270169914
+"Paraguay","Wheat and Wheat Products",31.51,168.286056971933
+"Paraguay","Rice",4.91,45.4208670351407
+"Paraguay","Soybeans",0,10.680560981197
+"Paraguay","Nuts inc. Peanut Butter",1.6,60.5028828772724
+"New Caledonia","Pork",19.9,73.9772086123975
+"New Caledonia","Poultry",44.36,41.8799509413726
+"New Caledonia","Beef",16.07,451.814796676331
+"New Caledonia","Lamb & Goat",1.95,56.3592626154135
+"New Caledonia","Fish",19.38,27.9248594681048
+"New Caledonia","Eggs",8.85,60.0010394578319
+"New Caledonia","Milk - inc. cheese",108,149.364543336119
+"New Caledonia","Wheat and Wheat Products",81.75,69.0919640182213
+"New Caledonia","Rice",17.47,58.1018705352364
+"New Caledonia","Soybeans",0.55,24.2405439920062
+"New Caledonia","Nuts inc. Peanut Butter",2.96,43.9685170852732
+"South Africa","Pork",4.16,25.847424569736
+"South Africa","Poultry",37.57,30.7444340648789
+"South Africa","Beef",18.03,532.931261716705
+"South Africa","Lamb & Goat",4.28,107.9453303148
+"South Africa","Fish",5.56,66.8620612420388
+"South Africa","Eggs",7.21,18.1783335934643
+"South Africa","Milk - inc. cheese",55.75,114.093440346071
+"South Africa","Wheat and Wheat Products",60.13,45.175700354661
+"South Africa","Rice",17.41,50.144522994058
+"South Africa","Soybeans",1.27,83.2006999079488
+"South Africa","Nuts inc. Peanut Butter",1.04,39.2377303989465
+"Barbados","Pork",8.3,37.2181231218319
+"Barbados","Poultry",42.62,25.7643187647212
+"Barbados","Beef",13.13,420.892732819218
+"Barbados","Lamb & Goat",4.08,131.294386117439
+"Barbados","Fish",37.41,59.5238624859903
+"Barbados","Eggs",9.61,15.0425067503278
+"Barbados","Milk - inc. cheese",110.48,129.886796497173
+"Barbados","Wheat and Wheat Products",65.71,54.4856771782528
+"Barbados","Rice",15.66,5.21714276369922
+"Barbados","Soybeans",0.1,61.9666638191986
+"Barbados","Nuts inc. Peanut Butter",4.16,85.4114788402148
+"Lithuania","Pork",45.67,146.976522916183
+"Lithuania","Poultry",26.84,54.0816213146098
+"Lithuania","Beef",4.49,236.049189313076
+"Lithuania","Lamb & Goat",0.24,14.5146551548446
+"Lithuania","Fish",42.39,9.12614496743318
+"Lithuania","Eggs",13.11,16.6144660364951
+"Lithuania","Milk - inc. cheese",295.46,344.386483573579
+"Lithuania","Wheat and Wheat Products",121.59,29.8110865161466
+"Lithuania","Rice",3.07,11.8030362605048
+"Lithuania","Soybeans",0.02,72.6939090956697
+"Lithuania","Nuts inc. Peanut Butter",2.13,7.83030116412145
+"Turkey","Pork",0.01,108.070677272026
+"Turkey","Poultry",18.78,59.3875318417077
+"Turkey","Beef",11.64,304.426267938645
+"Turkey","Lamb & Goat",4.68,216.709049148385
+"Turkey","Fish",5.58,67.7620125335291
+"Turkey","Eggs",8.2,80.9148298951513
+"Turkey","Milk - inc. cheese",193.94,326.244404558935
+"Turkey","Wheat and Wheat Products",169.96,33.4128629053848
+"Turkey","Rice",10.74,86.7514535111564
+"Turkey","Soybeans",1.71,16.4300136764389
+"Turkey","Nuts inc. Peanut Butter",7.97,67.7510806332699
+"Estonia","Pork",29.68,130.733175707723
+"Estonia","Poultry",21.11,21.8590479253747
+"Estonia","Beef",7.19,251.427176463784
+"Estonia","Lamb & Goat",0.44,6.3905323160066
+"Estonia","Fish",12.78,2.32578991945979
+"Estonia","Eggs",12.66,0.188386374153586
+"Estonia","Milk - inc. cheese",284.85,328.082404821733
+"Estonia","Wheat and Wheat Products",89.36,29.4298250480314
+"Estonia","Rice",2.56,96.8411232148484
+"Estonia","Soybeans",0.04,42.6881550650958
+"Estonia","Nuts inc. Peanut Butter",4.29,43.66065945506
+"Mexico","Pork",15.23,20.5300930401493
+"Mexico","Poultry",30.12,10.857633945652
+"Mexico","Beef",15.33,526.398199542918
+"Mexico","Lamb & Goat",0.89,10.4544822455019
+"Mexico","Fish",7.56,36.2261358802799
+"Mexico","Eggs",18.34,136.749784600023
+"Mexico","Milk - inc. cheese",111.87,178.175544566439
+"Mexico","Wheat and Wheat Products",35.21,28.663205019691
+"Mexico","Rice",5.64,6.61101827002787
+"Mexico","Soybeans",0.02,1.83415896081934
+"Mexico","Nuts inc. Peanut Butter",2.51,58.6656302512033
+"Costa Rica","Pork",10.28,35.3601129538507
+"Costa Rica","Poultry",24.47,51.7471502252161
+"Costa Rica","Beef",15.23,522.62887282316
+"Costa Rica","Lamb & Goat",0.02,44.57428238764
+"Costa Rica","Fish",11.32,57.1503114940965
+"Costa Rica","Eggs",10.55,79.9789142602633
+"Costa Rica","Milk - inc. cheese",183.28,263.805203550485
+"Costa Rica","Wheat and Wheat Products",39.31,9.4867640238641
+"Costa Rica","Rice",45.69,130.199105402217
+"Costa Rica","Soybeans",1.54,2.01150915784876
+"Costa Rica","Nuts inc. Peanut Butter",1.38,62.2177712573452
+"Bolivia","Pork",8.89,45.8348335137677
+"Bolivia","Poultry",34.31,15.3717764952844
+"Bolivia","Beef",19.78,614.048896086804
+"Bolivia","Lamb & Goat",1.72,85.1300459253421
+"Bolivia","Fish",2.18,11.8807730711181
+"Bolivia","Eggs",5.18,3.23045410185262
+"Bolivia","Milk - inc. cheese",46.04,18.263578911122
+"Bolivia","Wheat and Wheat Products",49.99,13.0735985675526
+"Bolivia","Rice",26.99,39.3596585386974
+"Bolivia","Soybeans",0.01,24.8672658286866
+"Bolivia","Nuts inc. Peanut Butter",9.16,6.37524870078787
+"Ecuador","Pork",14.44,101.440525893404
+"Ecuador","Poultry",21.85,22.589139254282
+"Ecuador","Beef",16.61,477.281040572186
+"Ecuador","Lamb & Goat",0.44,76.521114645985
+"Ecuador","Fish",5.17,6.39347897210561
+"Ecuador","Eggs",8.01,120.916568086596
+"Ecuador","Milk - inc. cheese",139.6,250.894885625922
+"Ecuador","Wheat and Wheat Products",39.19,35.2155706105772
+"Ecuador","Rice",45.07,116.754391407357
+"Ecuador","Soybeans",0,11.0983383417163
+"Ecuador","Nuts inc. Peanut Butter",0.98,16.3315670699341
+"Panama","Pork",13.48,95.8849136870083
+"Panama","Poultry",30.81,14.202664741741
+"Panama","Beef",20.4,599.592519077865
+"Panama","Lamb & Goat",0.01,37.9602909199789
+"Panama","Fish",11.05,90.7012714101241
+"Panama","Eggs",4.53,8.21329085706582
+"Panama","Milk - inc. cheese",70.29,136.00370527103
+"Panama","Wheat and Wheat Products",38.96,54.2725373863242
+"Panama","Rice",66.42,141.428594583451
+"Panama","Soybeans",3.53,87.4769626991512
+"Panama","Nuts inc. Peanut Butter",1.05,53.6218335241771
+"Czech Republic","Pork",41.17,160.812300685516
+"Czech Republic","Poultry",19.09,26.5876514577207
+"Czech Republic","Beef",8.15,222.991113223571
+"Czech Republic","Lamb & Goat",0.34,77.7046425863984
+"Czech Republic","Fish",8.25,32.8057366530217
+"Czech Republic","Eggs",11.66,0.159120293979004
+"Czech Republic","Milk - inc. cheese",195.2,301.088148433913
+"Czech Republic","Wheat and Wheat Products",92.67,13.8104308002091
+"Czech Republic","Rice",4.79,13.8147461269349
+"Czech Republic","Soybeans",0.82,18.0725912849857
+"Czech Republic","Nuts inc. Peanut Butter",2.47,1.39308595437703
+"Romania","Pork",25.31,65.7860135671927
+"Romania","Poultry",15.38,29.1662129513165
+"Romania","Beef",4.78,129.642504411692
+"Romania","Lamb & Goat",3.41,63.7506338683071
+"Romania","Fish",6.07,33.8969661928091
+"Romania","Eggs",12.94,45.4208479892619
+"Romania","Milk - inc. cheese",238.33,274.313255207254
+"Romania","Wheat and Wheat Products",134.87,40.0268532166833
+"Romania","Rice",2.59,60.9719255967138
+"Romania","Soybeans",0.01,48.0383152637653
+"Romania","Nuts inc. Peanut Butter",1.8,21.9530082228775
+"Colombia","Pork",6.51,17.6303853205223
+"Colombia","Poultry",27.57,47.9096867521177
+"Colombia","Beef",16.36,536.241456483973
+"Colombia","Lamb & Goat",0.21,63.1560813779419
+"Colombia","Fish",6.01,6.83261579584567
+"Colombia","Eggs",10.78,28.5710592579657
+"Colombia","Milk - inc. cheese",108.47,90.1136899889474
+"Colombia","Wheat and Wheat Products",29.79,36.4456065186641
+"Colombia","Rice",28.02,159.778653809526
+"Colombia","Soybeans",0.89,70.5011126154802
+"Colombia","Nuts inc. Peanut Butter",0.42,34.7064192941493
+"Maldives","Pork",1.22,57.5496589627808
+"Maldives","Poultry",18.47,45.7520479970933
+"Maldives","Beef",9.44,242.290824137967
+"Maldives","Lamb & Goat",0.7,58.1667206590363
+"Maldives","Fish",179.71,302.320167681683
+"Maldives","Eggs",10.79,25.2828168876456
+"Maldives","Milk - inc. cheese",111.47,150.158482347242
+"Maldives","Wheat and Wheat Products",77.77,31.4565560887078
+"Maldives","Rice",50.73,55.7812347828544
+"Maldives","Soybeans",0.2,37.0060622227678
+"Maldives","Nuts inc. Peanut Butter",15.83,8.2214899771703
+"Cyprus","Pork",38.38,156.81322186952
+"Cyprus","Poultry",24.45,34.080421949059
+"Cyprus","Beef",5.79,108.787608329772
+"Cyprus","Lamb & Goat",5.05,126.37754682788
+"Cyprus","Fish",14.86,18.186178365572
+"Cyprus","Eggs",8.98,75.669631232314
+"Cyprus","Milk - inc. cheese",113.31,115.012773028926
+"Cyprus","Wheat and Wheat Products",83.25,40.0327669498962
+"Cyprus","Rice",4.94,75.6084201966984
+"Cyprus","Soybeans",0.04,29.2201334907534
+"Cyprus","Nuts inc. Peanut Butter",4.6,10.5285440248646
+"Serbia","Pork",32.04,136.136677941851
+"Serbia","Poultry",10.64,56.3456226623694
+"Serbia","Beef",7.05,276.369944776021
+"Serbia","Lamb & Goat",3.56,45.8193206308117
+"Serbia","Fish",5.59,120.357263116836
+"Serbia","Eggs",8.89,66.0996408360988
+"Serbia","Milk - inc. cheese",148.53,206.221587657598
+"Serbia","Wheat and Wheat Products",105.88,4.96758630869199
+"Serbia","Rice",1.22,57.3063277462977
+"Serbia","Soybeans",0,7.45070253110787
+"Serbia","Nuts inc. Peanut Butter",3.31,21.7048712074003
+"United Arab Emirates","Pork",0,135.175605211085
+"United Arab Emirates","Poultry",41.04,7.27843704600168
+"United Arab Emirates","Beef",5.64,220.189463338898
+"United Arab Emirates","Lamb & Goat",9.08,323.904038776055
+"United Arab Emirates","Fish",20.41,30.4926997623373
+"United Arab Emirates","Eggs",8.23,22.8724381775875
+"United Arab Emirates","Milk - inc. cheese",132.66,266.727682889913
+"United Arab Emirates","Wheat and Wheat Products",101.29,112.273326352232
+"United Arab Emirates","Rice",56.25,64.8186566560544
+"United Arab Emirates","Soybeans",0.08,55.6567714031967
+"United Arab Emirates","Nuts inc. Peanut Butter",23.03,38.391814684849
+"Algeria","Pork",0,81.5725846297185
+"Algeria","Poultry",7.42,31.0727801556247
+"Algeria","Beef",5.6,196.95316666088
+"Algeria","Lamb & Goat",7.69,276.335621359632
+"Algeria","Fish",3.74,49.8236436298495
+"Algeria","Eggs",8.06,106.681167654443
+"Algeria","Milk - inc. cheese",141.53,215.051027588034
+"Algeria","Wheat and Wheat Products",185.42,16.4054819404933
+"Algeria","Rice",2.97,54.7551117158404
+"Algeria","Soybeans",0,89.0710195625055
+"Algeria","Nuts inc. Peanut Butter",2.08,32.2318090905193
+"Ukraine","Pork",20.56,119.93934567764
+"Ukraine","Poultry",24.23,49.406821435533
+"Ukraine","Beef",8.96,271.844936165483
+"Ukraine","Lamb & Goat",0.41,69.8979048471949
+"Ukraine","Fish",15.23,39.6357448229351
+"Ukraine","Eggs",18.01,72.3593538631339
+"Ukraine","Milk - inc. cheese",145.03,280.450549228337
+"Ukraine","Wheat and Wheat Products",105.15,55.6545247863754
+"Ukraine","Rice",3,44.2598599860643
+"Ukraine","Soybeans",0.02,116.839244299926
+"Ukraine","Nuts inc. Peanut Butter",2.68,2.75972325728155
+"Pakistan","Pork",0,6.17693939834348
+"Pakistan","Poultry",5.01,9.87624155232944
+"Pakistan","Beef",8.82,268.278332783661
+"Pakistan","Lamb & Goat",2.46,122.389803877469
+"Pakistan","Fish",1.87,30.4911953375915
+"Pakistan","Eggs",2.95,136.616704277798
+"Pakistan","Milk - inc. cheese",183.13,360.235862825048
+"Pakistan","Wheat and Wheat Products",113.63,131.084444173481
+"Pakistan","Rice",12.25,30.6767424149582
+"Pakistan","Soybeans",0,35.6970867569396
+"Pakistan","Nuts inc. Peanut Butter",0.83,15.3479455730957
+"Swaziland","Pork",2.43,11.7811354149672
+"Swaziland","Poultry",6.18,34.2932066051696
+"Swaziland","Beef",15.1,470.401672244326
+"Swaziland","Lamb & Goat",1.94,93.1187274320032
+"Swaziland","Fish",1.26,3.37508705674283
+"Swaziland","Eggs",1.5,16.7383504238475
+"Swaziland","Milk - inc. cheese",56.6,201.132360846656
+"Swaziland","Wheat and Wheat Products",37.15,26.6394334969062
+"Swaziland","Rice",21.15,56.3601376965577
+"Swaziland","Soybeans",0.55,58.1341356558206
+"Swaziland","Nuts inc. Peanut Butter",6.44,29.6458847176955
+"Latvia","Pork",34.96,89.8288372181088
+"Latvia","Poultry",20.53,12.7088298902363
+"Latvia","Beef",5.11,140.258012466084
+"Latvia","Lamb & Goat",0.34,49.5292688973476
+"Latvia","Fish",21.3,136.476640969002
+"Latvia","Eggs",14.03,17.1638984658383
+"Latvia","Milk - inc. cheese",174.11,232.761635792323
+"Latvia","Wheat and Wheat Products",72.13,7.38362492564378
+"Latvia","Rice",2.21,81.9081993173179
+"Latvia","Soybeans",0.04,43.6045466516581
+"Latvia","Nuts inc. Peanut Butter",3.78,11.1651717967164
+"Bosnia and Herzegovina","Pork",9.38,33.6154303773611
+"Bosnia and Herzegovina","Poultry",13.17,4.60997610399068
+"Bosnia and Herzegovina","Beef",9.12,375.871735617721
+"Bosnia and Herzegovina","Lamb & Goat",0.47,10.1309460295782
+"Bosnia and Herzegovina","Fish",4.06,22.229296727182
+"Bosnia and Herzegovina","Eggs",4.49,25.7033544220828
+"Bosnia and Herzegovina","Milk - inc. cheese",174.03,165.968178203996
+"Bosnia and Herzegovina","Wheat and Wheat Products",93.56,3.34997075477015
+"Bosnia and Herzegovina","Rice",1.88,34.3271052617612
+"Bosnia and Herzegovina","Soybeans",1.48,24.9995135045264
+"Bosnia and Herzegovina","Nuts inc. Peanut Butter",2,82.4683738610029
+"Fiji","Pork",4.31,55.1258408597968
+"Fiji","Poultry",20.26,131.324540570402
+"Fiji","Beef",8.96,236.89228992682
+"Fiji","Lamb & Goat",5.9,183.880727228925
+"Fiji","Fish",35.01,114.932376450217
+"Fiji","Eggs",6.44,23.9359221854
+"Fiji","Milk - inc. cheese",40.2,89.865239689361
+"Fiji","Wheat and Wheat Products",84.22,110.519978447763
+"Fiji","Rice",45.62,109.269752111063
+"Fiji","Soybeans",0.3,45.5661704182297
+"Fiji","Nuts inc. Peanut Butter",1.3,47.2135427746535
+"South Korea","Pork",32.76,103.431478980302
+"South Korea","Poultry",16,13.4008979250498
+"South Korea","Beef",14.53,538.919605420763
+"South Korea","Lamb & Goat",0.14,24.8266940593449
+"South Korea","Fish",33.09,53.2515020331484
+"South Korea","Eggs",11.24,29.7471941648965
+"South Korea","Milk - inc. cheese",29.05,6.44504725899962
+"South Korea","Wheat and Wheat Products",50.84,31.8819331042821
+"South Korea","Rice",85.18,9.46192888713946
+"South Korea","Soybeans",8.35,14.1170848996318
+"South Korea","Nuts inc. Peanut Butter",4.88,37.1633881169051
+"Poland","Pork",46.19,159.285231043984
+"Poland","Poultry",27.41,106.146098536022
+"Poland","Beef",2.32,67.1677854616856
+"Poland","Lamb & Goat",0.02,44.5730376606243
+"Poland","Fish",10.49,4.19000794834542
+"Poland","Eggs",7.53,95.1074425693376
+"Poland","Milk - inc. cheese",205.39,315.216401412066
+"Poland","Wheat and Wheat Products",108.83,48.2998414852116
+"Poland","Rice",0.95,85.1375034430993
+"Poland","Soybeans",0.06,24.8409718633235
+"Poland","Nuts inc. Peanut Butter",2.23,29.3101141153744
+"Saudi Arabia","Pork",0,19.1327849755629
+"Saudi Arabia","Poultry",49.05,169.482032705379
+"Saudi Arabia","Beef",6.45,238.32564566899
+"Saudi Arabia","Lamb & Goat",6.54,172.008693396164
+"Saudi Arabia","Fish",11.99,111.877184940391
+"Saudi Arabia","Eggs",5.37,82.8015834767387
+"Saudi Arabia","Milk - inc. cheese",83.65,100.342088072304
+"Saudi Arabia","Wheat and Wheat Products",89.47,29.0910846870475
+"Saudi Arabia","Rice",36.02,26.5603380309949
+"Saudi Arabia","Soybeans",0.05,3.76502289559433
+"Saudi Arabia","Nuts inc. Peanut Butter",3.23,9.82203107519648
+"Botswana","Pork",0.74,52.6914774624549
+"Botswana","Poultry",5.33,53.905669635058
+"Botswana","Beef",7.85,186.234061727302
+"Botswana","Lamb & Goat",3.76,25.0700430808233
+"Botswana","Fish",3.98,42.8681849740785
+"Botswana","Eggs",1.95,44.1438462479149
+"Botswana","Milk - inc. cheese",117.74,93.9893221972752
+"Botswana","Wheat and Wheat Products",38.2,48.2593277330814
+"Botswana","Rice",7.06,116.743198833008
+"Botswana","Soybeans",1.16,51.6973264350849
+"Botswana","Nuts inc. Peanut Butter",1.08,32.1979991383482
+"Macedonia","Pork",10.35,79.4167954339658
+"Macedonia","Poultry",18.77,105.459931575662
+"Macedonia","Beef",7.69,223.077230098454
+"Macedonia","Lamb & Goat",0.94,18.8787153539243
+"Macedonia","Fish",5.47,87.5461018064786
+"Macedonia","Eggs",6.38,105.193216252481
+"Macedonia","Milk - inc. cheese",157.93,199.957072291904
+"Macedonia","Wheat and Wheat Products",104.8,82.1889938079611
+"Macedonia","Rice",2.81,94.2008675165482
+"Macedonia","Soybeans",0.46,89.4379304007224
+"Macedonia","Nuts inc. Peanut Butter",5.87,37.8523156539259
+"Hungary","Pork",34.93,202.524100208354
+"Hungary","Poultry",23.78,48.6620666776221
+"Hungary","Beef",4.96,190.275196628166
+"Hungary","Lamb & Goat",0.11,50.7706685282658
+"Hungary","Fish",4.93,106.485140377396
+"Hungary","Eggs",12.45,7.96871699586558
+"Hungary","Milk - inc. cheese",159.05,257.588982920492
+"Hungary","Wheat and Wheat Products",109.98,5.42478049849455
+"Hungary","Rice",2.15,32.9526961534965
+"Hungary","Soybeans",0.01,1.22233746801827
+"Hungary","Nuts inc. Peanut Butter",0.64,7.08038873986921
+"Trinidad and Tobago","Pork",8.92,129.979737571043
+"Trinidad and Tobago","Poultry",58.27,7.88647924931551
+"Trinidad and Tobago","Beef",6.13,157.599355668716
+"Trinidad and Tobago","Lamb & Goat",2.79,4.40450737416094
+"Trinidad and Tobago","Fish",20.54,65.6915773312432
+"Trinidad and Tobago","Eggs",4.2,41.1303999349533
+"Trinidad and Tobago","Milk - inc. cheese",103.8,200.832728751132
+"Trinidad and Tobago","Wheat and Wheat Products",90.17,44.0560535544459
+"Trinidad and Tobago","Rice",16.38,100.484545124629
+"Trinidad and Tobago","Soybeans",0.04,33.8015263962943
+"Trinidad and Tobago","Nuts inc. Peanut Butter",3.78,0.562654686585912
+"Tunisia","Pork",0,40.1938758584082
+"Tunisia","Poultry",18.5,74.8268130810443
+"Tunisia","Beef",5.53,110.967385914402
+"Tunisia","Lamb & Goat",5.34,258.982432837552
+"Tunisia","Fish",12.63,12.313941886089
+"Tunisia","Eggs",7.67,33.3349326405434
+"Tunisia","Milk - inc. cheese",114.47,129.650018449752
+"Tunisia","Wheat and Wheat Products",197.5,48.0900910678088
+"Tunisia","Rice",1.07,59.6908575245576
+"Tunisia","Soybeans",1.88,11.5777067687705
+"Tunisia","Nuts inc. Peanut Butter",6.34,104.132319263609
+"Egypt","Pork",0.02,34.1508453724678
+"Egypt","Poultry",14.43,92.627223577369
+"Egypt","Beef",12.88,445.344001690522
+"Egypt","Lamb & Goat",1.58,123.374304602531
+"Egypt","Fish",21.46,56.8815491492323
+"Egypt","Eggs",4.59,40.3096992493231
+"Egypt","Milk - inc. cheese",59.46,117.48837600973
+"Egypt","Wheat and Wheat Products",146.83,40.6948539006105
+"Egypt","Rice",39.77,44.1683108046466
+"Egypt","Soybeans",0.64,29.8385598083466
+"Egypt","Nuts inc. Peanut Butter",1.82,4.27800735974868
+"Mauritius","Pork",4.08,29.5489081834801
+"Mauritius","Poultry",38.51,100.764353536978
+"Mauritius","Beef",5.99,208.142657298618
+"Mauritius","Lamb & Goat",4.08,194.847936501292
+"Mauritius","Fish",19.66,50.1792047588477
+"Mauritius","Eggs",6.32,66.2313678240912
+"Mauritius","Milk - inc. cheese",117.27,93.8937504263394
+"Mauritius","Wheat and Wheat Products",114.02,26.8859063534697
+"Mauritius","Rice",45.56,36.1475939315864
+"Mauritius","Soybeans",0.3,50.811688011086
+"Mauritius","Nuts inc. Peanut Butter",2.33,16.1256015365174
+"Bulgaria","Pork",26.26,72.5841145097065
+"Bulgaria","Poultry",20.68,19.5471799322527
+"Bulgaria","Beef",3.84,167.986682271883
+"Bulgaria","Lamb & Goat",1.63,42.3903487171299
+"Bulgaria","Fish",6.24,10.0060310307275
+"Bulgaria","Eggs",8.36,17.9508163065602
+"Bulgaria","Milk - inc. cheese",155.71,265.787501547553
+"Bulgaria","Wheat and Wheat Products",121.17,83.8330381278324
+"Bulgaria","Rice",2.24,30.8574991610747
+"Bulgaria","Soybeans",0.04,21.6168141783498
+"Bulgaria","Nuts inc. Peanut Butter",2.26,39.9399005229744
+"Morocco","Pork",0.01,41.067404137971
+"Morocco","Poultry",20.77,64.2576841637482
+"Morocco","Beef",8.04,207.250746407273
+"Morocco","Lamb & Goat",4.36,247.490655976587
+"Morocco","Fish",17.44,102.097414160549
+"Morocco","Eggs",6.68,58.4560967157322
+"Morocco","Milk - inc. cheese",54.68,125.713306518833
+"Morocco","Wheat and Wheat Products",179.7,9.80163111069935
+"Morocco","Rice",1.1,67.1335216126007
+"Morocco","Soybeans",0,12.3162910018124
+"Morocco","Nuts inc. Peanut Butter",3.23,99.6919256900132
+"Slovakia","Pork",31.78,159.510287453934
+"Slovakia","Poultry",15.13,33.8626119600658
+"Slovakia","Beef",5.19,115.77099617583
+"Slovakia","Lamb & Goat",0.16,23.2605792942856
+"Slovakia","Fish",8.39,48.2467468946239
+"Slovakia","Eggs",16.05,156.31306003333
+"Slovakia","Milk - inc. cheese",143.14,185.84771261867
+"Slovakia","Wheat and Wheat Products",123.62,24.6874423168183
+"Slovakia","Rice",2.88,87.8869079128358
+"Slovakia","Soybeans",0.02,98.2071193375689
+"Slovakia","Nuts inc. Peanut Butter",3.7,4.56812216736263
+"Niger","Pork",0.09,20.9572136212536
+"Niger","Poultry",1.08,20.071790174596
+"Niger","Beef",8.97,182.398941339852
+"Niger","Lamb & Goat",4.17,202.018583786526
+"Niger","Fish",2.7,16.742064283304
+"Niger","Eggs",0.3,14.5786638808807
+"Niger","Milk - inc. cheese",58.92,93.9149739009146
+"Niger","Wheat and Wheat Products",4.79,6.65914610326522
+"Niger","Rice",13.17,47.7917381987718
+"Niger","Soybeans",0,83.1712206131242
+"Niger","Nuts inc. Peanut Butter",6.95,82.2644907910523
+"Kenya","Pork",0.29,70.1486239574396
+"Kenya","Poultry",0.47,0.921686479892513
+"Kenya","Beef",9.54,281.050875521965
+"Kenya","Lamb & Goat",1.86,135.917091264331
+"Kenya","Fish",4.27,55.1249403031301
+"Kenya","Eggs",1.84,33.8555256978978
+"Kenya","Milk - inc. cheese",94.86,86.7613181677061
+"Kenya","Wheat and Wheat Products",34.65,8.6309135956548
+"Kenya","Rice",12.94,20.3872345808446
+"Kenya","Soybeans",0.2,0.420498802359383
+"Kenya","Nuts inc. Peanut Butter",1.64,12.80660702655
+"Jordan","Pork",0.02,24.1695027028881
+"Jordan","Poultry",33.39,54.0558357577622
+"Jordan","Beef",5.61,247.344608533643
+"Jordan","Lamb & Goat",5.68,257.918718091702
+"Jordan","Fish",5.13,68.8787530940972
+"Jordan","Eggs",3.92,5.01409225724963
+"Jordan","Milk - inc. cheese",77.68,59.7550465638854
+"Jordan","Wheat and Wheat Products",136.74,0.199378458730784
+"Jordan","Rice",19.67,98.4187557113163
+"Jordan","Soybeans",0.02,12.5660482243587
+"Jordan","Nuts inc. Peanut Butter",3.56,36.7348309720529
+"Japan","Pork",20.62,47.9330276831302
+"Japan","Poultry",19.42,10.2112839015243
+"Japan","Beef",9.15,333.085218537421
+"Japan","Lamb & Goat",0.14,57.4750800346208
+"Japan","Fish",31.1,14.5183918565168
+"Japan","Eggs",19.15,28.0756194140946
+"Japan","Milk - inc. cheese",72.06,150.813138000383
+"Japan","Wheat and Wheat Products",45.04,28.0289707832266
+"Japan","Rice",59.85,158.265848750146
+"Japan","Soybeans",7.34,74.2333834453703
+"Japan","Nuts inc. Peanut Butter",2.59,38.9001768626345
+"Georgia","Pork",8.93,21.8184951315862
+"Georgia","Poultry",12.28,93.1934877787199
+"Georgia","Beef",6.04,185.801664952751
+"Georgia","Lamb & Goat",0.63,92.6684126672233
+"Georgia","Fish",10.42,106.189955450184
+"Georgia","Eggs",6.12,81.1630605800583
+"Georgia","Milk - inc. cheese",149.26,177.955108265704
+"Georgia","Wheat and Wheat Products",163.43,12.707782089378
+"Georgia","Rice",2.64,23.6330032164313
+"Georgia","Soybeans",0,45.0044528300107
+"Georgia","Nuts inc. Peanut Butter",2.47,44.9606760077174
+"Grenada","Pork",11.52,12.3052284177219
+"Grenada","Poultry",43.51,80.087580860428
+"Grenada","Beef",3.46,70.9376144509959
+"Grenada","Lamb & Goat",1.25,26.6945794281632
+"Grenada","Fish",27.95,8.79194966187007
+"Grenada","Eggs",10.34,77.7022890340333
+"Grenada","Milk - inc. cheese",86.88,127.815141788453
+"Grenada","Wheat and Wheat Products",59.59,22.3141847078075
+"Grenada","Rice",9.56,17.4146405221701
+"Grenada","Soybeans",0.01,83.4199664006897
+"Grenada","Nuts inc. Peanut Butter",0.18,30.3767018422078
+"El Salvador","Pork",3.23,26.4195629747859
+"El Salvador","Poultry",19.84,23.4146679944208
+"El Salvador","Beef",5.95,210.682251883608
+"El Salvador","Lamb & Goat",0.02,20.2763113328507
+"El Salvador","Fish",6.25,45.108097636468
+"El Salvador","Eggs",9.51,49.9724989935299
+"El Salvador","Milk - inc. cheese",124.34,201.22621298774
+"El Salvador","Wheat and Wheat Products",28.19,6.21581638894241
+"El Salvador","Rice",10.53,43.9942103068531
+"El Salvador","Soybeans",0.8,17.1569511454313
+"El Salvador","Nuts inc. Peanut Butter",1.1,41.6940093215749
+"Cuba","Pork",19.82,75.2351661370847
+"Cuba","Poultry",20.15,28.6383826756302
+"Cuba","Beef",6.39,192.053567766564
+"Cuba","Lamb & Goat",1.24,19.6754729799382
+"Cuba","Fish",4.76,95.5069143610872
+"Cuba","Eggs",9.82,54.059567663091
+"Cuba","Milk - inc. cheese",99.94,59.2873579367421
+"Cuba","Wheat and Wheat Products",54.62,72.6823859618193
+"Cuba","Rice",67.7,64.7917121269322
+"Cuba","Soybeans",6.34,19.3667929699897
+"Cuba","Nuts inc. Peanut Butter",0.23,66.5970785424716
+"China","Pork",38.43,138.79912584335
+"China","Poultry",13.2,50.3570187498224
+"China","Beef",5.12,161.196514962492
+"China","Lamb & Goat",3.13,100.263205758709
+"China","Fish",21.01,14.3234931758767
+"China","Eggs",18.76,30.1183313564343
+"China","Milk - inc. cheese",32.66,26.077276488049
+"China","Wheat and Wheat Products",63.36,43.4030466350478
+"China","Rice",78.18,59.442614993574
+"China","Soybeans",3.66,13.7366116081693
+"China","Nuts inc. Peanut Butter",6.39,49.5559806640072
+"Honduras","Pork",6.48,51.2720334048096
+"Honduras","Poultry",20.29,39.6638417078759
+"Honduras","Beef",7.19,170.019663538956
+"Honduras","Lamb & Goat",0.04,69.52485704304
+"Honduras","Fish",2.7,44.2802853670535
+"Honduras","Eggs",5.19,30.117693333924
+"Honduras","Milk - inc. cheese",91.33,55.0397652476136
+"Honduras","Wheat and Wheat Products",37.36,38.4234041346305
+"Honduras","Rice",14.42,105.987908565379
+"Honduras","Soybeans",0.01,17.5653273890714
+"Honduras","Nuts inc. Peanut Butter",0.75,3.04193588534176
+"Taiwan. ROC","Pork",39.37,182.810138247919
+"Taiwan. ROC","Poultry",32.13,3.91385197971439
+"Taiwan. ROC","Beef",5.21,161.191427186403
+"Taiwan. ROC","Lamb & Goat",0.92,52.4322471661915
+"Taiwan. ROC","Fish",18.29,20.1518800561256
+"Taiwan. ROC","Eggs",13.08,31.2030759463364
+"Taiwan. ROC","Milk - inc. cheese",41.72,39.4527122596342
+"Taiwan. ROC","Wheat and Wheat Products",50.92,64.2391845255077
+"Taiwan. ROC","Rice",45.85,46.7113549091209
+"Taiwan. ROC","Soybeans",16.95,26.6346981665375
+"Taiwan. ROC","Nuts inc. Peanut Butter",9.06,68.62927095987
+"Angola","Pork",8.89,32.5411723521681
+"Angola","Poultry",17.33,19.5137604424659
+"Angola","Beef",8.42,247.173048675033
+"Angola","Lamb & Goat",1.08,35.6778260141853
+"Angola","Fish",15.24,14.5674061773163
+"Angola","Eggs",1.11,49.9831973774433
+"Angola","Milk - inc. cheese",12.3,47.5004101830058
+"Angola","Wheat and Wheat Products",40.72,46.896766582458
+"Angola","Rice",8.12,26.1947158514675
+"Angola","Soybeans",0.52,30.9072549265279
+"Angola","Nuts inc. Peanut Butter",2.26,1.68142946780218
+"Jamaica","Pork",3.99,74.8145578733553
+"Jamaica","Poultry",52.51,53.4704330359123
+"Jamaica","Beef",3.97,183.921667622097
+"Jamaica","Lamb & Goat",1.26,60.1582824426574
+"Jamaica","Fish",21.95,9.15289350582492
+"Jamaica","Eggs",2.27,7.42184163898298
+"Jamaica","Milk - inc. cheese",91.13,105.342462389836
+"Jamaica","Wheat and Wheat Products",70.67,18.7007662536285
+"Jamaica","Rice",23.45,23.1818432218199
+"Jamaica","Soybeans",0,21.8713781011569
+"Jamaica","Nuts inc. Peanut Butter",1.82,37.4753226158768
+"Namibia","Pork",4.21,104.34462967183
+"Namibia","Poultry",12.19,28.8891681348378
+"Namibia","Beef",3.75,90.1830633514661
+"Namibia","Lamb & Goat",2.27,116.412756909716
+"Namibia","Fish",10.7,63.4576712226898
+"Namibia","Eggs",1.63,9.89317839829128
+"Namibia","Milk - inc. cheese",73.05,174.789900823988
+"Namibia","Wheat and Wheat Products",36.26,7.36598304647821
+"Namibia","Rice",6.31,35.4006040345562
+"Namibia","Soybeans",0.07,59.2697774233578
+"Namibia","Nuts inc. Peanut Butter",0.71,35.3294070018381
+"Belize","Pork",16.8,87.4184507164459
+"Belize","Poultry",28.31,16.369694689092
+"Belize","Beef",4.86,94.1160290389835
+"Belize","Lamb & Goat",0.14,10.1392623191465
+"Belize","Fish",7.57,124.988289861764
+"Belize","Eggs",4.85,2.26610962137607
+"Belize","Milk - inc. cheese",80.3,188.660429057386
+"Belize","Wheat and Wheat Products",54.06,86.3022464960196
+"Belize","Rice",28.42,24.3528977760475
+"Belize","Soybeans",1.88,21.1011843036951
+"Belize","Nuts inc. Peanut Butter",5.58,47.2222623060673
+"Malaysia","Pork",7.76,130.899527461545
+"Malaysia","Poultry",41.01,61.3697721082843
+"Malaysia","Beef",6.52,289.304887801417
+"Malaysia","Lamb & Goat",0.94,128.883270635423
+"Malaysia","Fish",49.43,29.7532215738925
+"Malaysia","Eggs",16.57,14.5100066638777
+"Malaysia","Milk - inc. cheese",25.28,29.7348259922278
+"Malaysia","Wheat and Wheat Products",51.04,48.9348913264469
+"Malaysia","Rice",81.25,187.532130264002
+"Malaysia","Soybeans",0.04,7.61653814922102
+"Malaysia","Nuts inc. Peanut Butter",2.9,36.3209471881778
+"Zimbabwe","Pork",2.65,51.1037316845544
+"Zimbabwe","Poultry",4.97,41.4659800034612
+"Zimbabwe","Beef",7.37,167.856828984726
+"Zimbabwe","Lamb & Goat",0.96,81.4269480726005
+"Zimbabwe","Fish",2.8,24.7408588040794
+"Zimbabwe","Eggs",1.75,108.44360825459
+"Zimbabwe","Milk - inc. cheese",31.9,194.351999638538
+"Zimbabwe","Wheat and Wheat Products",31.31,41.4520010448817
+"Zimbabwe","Rice",10.09,3.21707558973652
+"Zimbabwe","Soybeans",0.54,51.5347713408858
+"Zimbabwe","Nuts inc. Peanut Butter",2.22,29.9372897942335
+"Guatemala","Pork",4.85,80.1841584108816
+"Guatemala","Poultry",16.45,14.3630457040169
+"Guatemala","Beef",5.6,122.106952201184
+"Guatemala","Lamb & Goat",0.23,31.2672646422667
+"Guatemala","Fish",1.08,72.7357372413246
+"Guatemala","Eggs",14.61,78.5105496821981
+"Guatemala","Milk - inc. cheese",46.6,44.776721985908
+"Guatemala","Wheat and Wheat Products",35.9,43.6163362075493
+"Guatemala","Rice",5.66,24.3566392725131
+"Guatemala","Soybeans",0.32,6.76564049082001
+"Guatemala","Nuts inc. Peanut Butter",2,4.18720020521444
+"Uganda","Pork",3.37,55.7958365606942
+"Uganda","Poultry",1.51,32.7400549082655
+"Uganda","Beef",5.15,117.469028470412
+"Uganda","Lamb & Goat",1.25,23.044248337338
+"Uganda","Fish",12.5,96.4569609147871
+"Uganda","Eggs",0.97,21.4919737686603
+"Uganda","Milk - inc. cheese",37.27,85.718965954387
+"Uganda","Wheat and Wheat Products",10.14,39.2015166065368
+"Uganda","Rice",4.64,25.8261563026999
+"Uganda","Soybeans",0.01,1.53234629584308
+"Uganda","Nuts inc. Peanut Butter",3.77,14.5933722629123
+"Nepal","Pork",0.67,35.6248695030239
+"Nepal","Poultry",1.56,48.414197986186
+"Nepal","Beef",7.89,131.581294294617
+"Nepal","Lamb & Goat",2.1,62.780808205033
+"Nepal","Fish",2.17,8.46934435436988
+"Nepal","Eggs",1.42,102.197400979325
+"Nepal","Milk - inc. cheese",52.1,142.973950530069
+"Nepal","Wheat and Wheat Products",50.46,0.203811595454114
+"Nepal","Rice",87.75,94.3272659466913
+"Nepal","Soybeans",0.01,7.11601118877327
+"Nepal","Nuts inc. Peanut Butter",2.42,27.2312857083497
+"Iran","Pork",0,20.6811447028701
+"Iran","Poultry",25.38,57.6795350765866
+"Iran","Beef",3.58,128.254641068291
+"Iran","Lamb & Goat",3.69,120.545249536449
+"Iran","Fish",9.8,25.9777152415152
+"Iran","Eggs",7.7,78.9555982060837
+"Iran","Milk - inc. cheese",46.69,59.0556058270669
+"Iran","Wheat and Wheat Products",153.31,86.2598381225637
+"Iran","Rice",29.95,11.0722680671409
+"Iran","Soybeans",0,17.5583577480707
+"Iran","Nuts inc. Peanut Butter",12.16,83.7646151231438
+"Tanzania","Pork",0.32,35.838667860454
+"Tanzania","Poultry",1.84,120.615422765008
+"Tanzania","Beef",6.09,182.672131191017
+"Tanzania","Lamb & Goat",1.28,56.5903578608133
+"Tanzania","Fish",5.5,50.9925174858656
+"Tanzania","Eggs",0.58,41.8352968179409
+"Tanzania","Milk - inc. cheese",40.29,28.3007238504686
+"Tanzania","Wheat and Wheat Products",15.94,84.8107521265129
+"Tanzania","Rice",21.01,1.37288073372735
+"Tanzania","Soybeans",0.04,41.0910749443934
+"Tanzania","Nuts inc. Peanut Butter",5.94,109.54755053943
+"Senegal","Pork",0.94,37.0291081170617
+"Senegal","Poultry",4.62,26.6087997882147
+"Senegal","Beef",5.85,235.394236179388
+"Senegal","Lamb & Goat",3.19,81.2360907676414
+"Senegal","Fish",22.94,47.7869806773251
+"Senegal","Eggs",1.63,16.4326067979567
+"Senegal","Milk - inc. cheese",16.86,28.6311348869502
+"Senegal","Wheat and Wheat Products",37.32,32.5587745236811
+"Senegal","Rice",72.29,103.50008439002
+"Senegal","Soybeans",0,40.0594779163728
+"Senegal","Nuts inc. Peanut Butter",4.03,11.8018616137286
+"Peru","Pork",3.85,5.91949128769552
+"Peru","Poultry",11.72,39.2997903838648
+"Peru","Beef",4.69,124.096282795182
+"Peru","Lamb & Goat",1,39.0060938236399
+"Peru","Fish",15.74,3.75253466799781
+"Peru","Eggs",8.76,26.5150589380921
+"Peru","Milk - inc. cheese",62.15,111.963175903428
+"Peru","Wheat and Wheat Products",56.12,12.5399106433407
+"Peru","Rice",48.92,87.0447866708305
+"Peru","Soybeans",1.59,112.578677128558
+"Peru","Nuts inc. Peanut Butter",0.65,13.3902110259277
+"Nicaragua","Pork",3.38,32.1849599908938
+"Nicaragua","Poultry",21.31,49.5529267705804
+"Nicaragua","Beef",4.73,141.974431520937
+"Nicaragua","Lamb & Goat",0.01,1.02278790058941
+"Nicaragua","Fish",3.59,76.7680088260027
+"Nicaragua","Eggs",4.9,25.148287919418
+"Nicaragua","Milk - inc. cheese",85.16,12.0488068915558
+"Nicaragua","Wheat and Wheat Products",28.17,61.2905072865059
+"Nicaragua","Rice",43.33,52.23015652881
+"Nicaragua","Soybeans",0.01,52.6360270956956
+"Nicaragua","Nuts inc. Peanut Butter",2.36,27.7126816712593
+"Vietnam","Pork",35,230.410200795868
+"Vietnam","Poultry",12.36,73.0350947378803
+"Vietnam","Beef",7.44,166.807909363182
+"Vietnam","Lamb & Goat",0.14,73.6765120873494
+"Vietnam","Fish",26.52,78.1360624667765
+"Vietnam","Eggs",3.84,8.24828117656121
+"Vietnam","Milk - inc. cheese",16.36,38.1730702797472
+"Vietnam","Wheat and Wheat Products",10.49,23.4586782791372
+"Vietnam","Rice",144.56,262.133789381163
+"Vietnam","Soybeans",5.75,26.1886643941321
+"Vietnam","Nuts inc. Peanut Butter",6.28,6.30998577796532
+"Ethiopia","Pork",0.02,9.97962530661044
+"Ethiopia","Poultry",0.66,38.254989719554
+"Ethiopia","Beef",3.61,168.262612864756
+"Ethiopia","Lamb & Goat",1.57,99.6044857271014
+"Ethiopia","Fish",0.24,114.272902742577
+"Ethiopia","Eggs",0.36,10.3851238966664
+"Ethiopia","Milk - inc. cheese",44.14,136.222710673727
+"Ethiopia","Wheat and Wheat Products",31.26,30.6950585059995
+"Ethiopia","Rice",2.25,40.7470631383328
+"Ethiopia","Soybeans",0.45,29.8119898511871
+"Ethiopia","Nuts inc. Peanut Butter",1.21,72.3271279533401
+"Myanmar","Pork",11.31,5.6458685400556
+"Myanmar","Poultry",21.87,1.07840390636891
+"Myanmar","Beef",4.94,224.336382513222
+"Myanmar","Lamb & Goat",0.89,92.6507205673661
+"Myanmar","Fish",54.26,112.582766930702
+"Myanmar","Eggs",6.45,0.761311408299502
+"Myanmar","Milk - inc. cheese",31.48,28.7220016972358
+"Myanmar","Wheat and Wheat Products",6.22,71.7138600024084
+"Myanmar","Rice",132.8,191.907019766237
+"Myanmar","Soybeans",0.38,24.5923632649793
+"Myanmar","Nuts inc. Peanut Butter",4.5,59.3116775739752
+"Congo","Pork",2.39,44.9823938206638
+"Congo","Poultry",13.02,42.0984075705646
+"Congo","Beef",4.35,119.459473921735
+"Congo","Lamb & Goat",0.4,26.5747953144882
+"Congo","Fish",26.22,60.2311637733172
+"Congo","Eggs",0.6,34.1613008296324
+"Congo","Milk - inc. cheese",10.69,107.159073374441
+"Congo","Wheat and Wheat Products",40.07,15.3973905229982
+"Congo","Rice",16.51,27.9024558142242
+"Congo","Soybeans",0,10.8028231086085
+"Congo","Nuts inc. Peanut Butter",3.08,82.6884622386543
+"Zambia","Pork",1.66,36.7220494025532
+"Zambia","Poultry",3.29,57.813280615513
+"Zambia","Beef",4.76,156.685925401431
+"Zambia","Lamb & Goat",0.68,3.60880706383436
+"Zambia","Fish",6.2,80.650091638269
+"Zambia","Eggs",3.32,18.0027255516908
+"Zambia","Milk - inc. cheese",9.71,54.1223640543151
+"Zambia","Wheat and Wheat Products",12.1,48.4227370945326
+"Zambia","Rice",3.05,6.31169654252507
+"Zambia","Soybeans",7.3,52.1467674132036
+"Zambia","Nuts inc. Peanut Butter",5.04,54.2551050054118
+"Cameroon","Pork",1.47,50.8490740449455
+"Cameroon","Poultry",3.29,5.76697604426412
+"Cameroon","Beef",4.17,142.361778403876
+"Cameroon","Lamb & Goat",1.4,38.8082721044234
+"Cameroon","Fish",14.71,33.6728542047588
+"Cameroon","Eggs",0.4,40.3051639203238
+"Cameroon","Milk - inc. cheese",15.27,52.7760560956045
+"Cameroon","Wheat and Wheat Products",22.6,17.9500819194399
+"Cameroon","Rice",23.85,55.9164492850361
+"Cameroon","Soybeans",0.64,16.3196123141181
+"Cameroon","Nuts inc. Peanut Butter",9.29,25.8840121336913
+"Madagascar","Pork",2.56,42.1266640524227
+"Madagascar","Poultry",3.14,33.4635164743107
+"Madagascar","Beef",7.51,184.224754617889
+"Madagascar","Lamb & Goat",0.57,38.2755273626692
+"Madagascar","Fish",4.41,23.5701092371295
+"Madagascar","Eggs",0.71,18.8165982574585
+"Madagascar","Milk - inc. cheese",24.84,69.5712864335079
+"Madagascar","Wheat and Wheat Products",9.01,18.1172766668069
+"Madagascar","Rice",102.53,127.392173614784
+"Madagascar","Soybeans",0,7.99194052673366
+"Madagascar","Nuts inc. Peanut Butter",0.35,63.5057505556878
+"Malawi","Pork",5.45,2.1062659061533
+"Malawi","Poultry",1.38,25.0213931339347
+"Malawi","Beef",2.35,61.9277343530476
+"Malawi","Lamb & Goat",2.07,84.6681867039681
+"Malawi","Fish",7.33,83.02618967898
+"Malawi","Eggs",1.08,41.2167082553029
+"Malawi","Milk - inc. cheese",7.98,80.2737747311963
+"Malawi","Wheat and Wheat Products",11.77,0.114477477311946
+"Malawi","Rice",4.75,11.2852031737459
+"Malawi","Soybeans",1.76,5.36468059058185
+"Malawi","Nuts inc. Peanut Butter",5.08,33.1003985440536
+"Guinea","Pork",0.16,13.4661493930368
+"Guinea","Poultry",1.83,65.8314916568422
+"Guinea","Beef",6.26,238.073526785995
+"Guinea","Lamb & Goat",1.6,20.8000257006448
+"Guinea","Fish",9.18,17.25406349286
+"Guinea","Eggs",1.95,43.5204624961761
+"Guinea","Milk - inc. cheese",20.62,18.8473649362399
+"Guinea","Wheat and Wheat Products",18.55,57.4792296889561
+"Guinea","Rice",97.12,128.45500884098
+"Guinea","Soybeans",0,28.6386095660578
+"Guinea","Nuts inc. Peanut Butter",4.14,45.1419617797418
+"Nigeria","Pork",1.47,9.96905978537346
+"Nigeria","Poultry",1.73,47.5117286853878
+"Nigeria","Beef",2.33,12.0410509672806
+"Nigeria","Lamb & Goat",2.72,107.505328723522
+"Nigeria","Fish",16.03,31.1820204213934
+"Nigeria","Eggs",3.46,20.8026952090962
+"Nigeria","Milk - inc. cheese",7.91,36.13753535311
+"Nigeria","Wheat and Wheat Products",20.82,97.8078751965696
+"Nigeria","Rice",28.23,69.8437701359447
+"Nigeria","Soybeans",2.6,92.0755114356879
+"Nigeria","Nuts inc. Peanut Butter",6.93,9.15377872627323
+"Rwanda","Pork",0.76,77.5423448666163
+"Rwanda","Poultry",1.34,2.51226759931954
+"Rwanda","Beef",2.53,93.2094204528582
+"Rwanda","Lamb & Goat",1.93,60.9026497725642
+"Rwanda","Fish",3.88,28.8865748186281
+"Rwanda","Eggs",0.16,11.6312024525812
+"Rwanda","Milk - inc. cheese",7.23,22.46357070977
+"Rwanda","Wheat and Wheat Products",11.34,51.2957623163062
+"Rwanda","Rice",8.7,94.1369076148849
+"Rwanda","Soybeans",1.93,11.3546172508364
+"Rwanda","Nuts inc. Peanut Butter",0.58,16.8487643010834
+"Philippines","Pork",18.4,189.27004369759
+"Philippines","Poultry",11.91,101.569773934245
+"Philippines","Beef",4.06,127.144961591096
+"Philippines","Lamb & Goat",0.56,22.2218267957618
+"Philippines","Fish",28.51,104.344941044753
+"Philippines","Eggs",4.02,4.59462469650602
+"Philippines","Milk - inc. cheese",15.66,44.1545425068694
+"Philippines","Wheat and Wheat Products",23.12,62.102590819186
+"Philippines","Rice",119.44,131.708811544039
+"Philippines","Soybeans",0.03,54.8520729468681
+"Philippines","Nuts inc. Peanut Butter",2.08,42.9545462817663
+"Ghana","Pork",1.36,141.457366772997
+"Ghana","Poultry",8.63,56.8082172733481
+"Ghana","Beef",1.09,58.7679643205631
+"Ghana","Lamb & Goat",1.74,30.2965671478924
+"Ghana","Fish",26.05,63.9618491924668
+"Ghana","Eggs",1.21,40.8269918267543
+"Ghana","Milk - inc. cheese",9.08,72.7615301865425
+"Ghana","Wheat and Wheat Products",14.45,62.8390578008554
+"Ghana","Rice",32.03,11.0251083431626
+"Ghana","Soybeans",0.01,0.968731288133055
+"Ghana","Nuts inc. Peanut Butter",5.56,3.8027231512447
+"Togo","Pork",1.57,33.000480139327
+"Togo","Poultry",6.63,12.2693003651907
+"Togo","Beef",1.53,10.3342375261451
+"Togo","Lamb & Goat",1.58,28.662010658797
+"Togo","Fish",11.69,5.42225106512984
+"Togo","Eggs",0.86,10.9291959325146
+"Togo","Milk - inc. cheese",7.96,25.5396453922328
+"Togo","Wheat and Wheat Products",12.91,71.4594435952162
+"Togo","Rice",25.99,142.655580408245
+"Togo","Soybeans",0.01,46.8069298194553
+"Togo","Nuts inc. Peanut Butter",3.59,8.23020856115093
+"Gambia","Pork",0.18,5.63901319856663
+"Gambia","Poultry",2.66,71.4974305113134
+"Gambia","Beef",2.16,129.13630392786
+"Gambia","Lamb & Goat",0.71,23.061217667336
+"Gambia","Fish",23.13,23.49009591348
+"Gambia","Eggs",0.99,40.4589587423115
+"Gambia","Milk - inc. cheese",45.71,51.2022581138849
+"Gambia","Wheat and Wheat Products",37.91,40.470275767155
+"Gambia","Rice",61.84,181.263625986687
+"Gambia","Soybeans",0,32.3558901704877
+"Gambia","Nuts inc. Peanut Butter",5.27,31.8533000340613
+"India","Pork",0.28,54.5559090780658
+"India","Poultry",1.88,25.4846112783427
+"India","Beef",0.81,11.3042004912669
+"India","Lamb & Goat",0.58,7.17180844767672
+"India","Fish",4.71,11.1463386333967
+"India","Eggs",2.58,51.2243803100978
+"India","Milk - inc. cheese",84.5,176.877223713983
+"India","Wheat and Wheat Products",60.56,34.5736095678689
+"India","Rice",69.49,32.9814039131217
+"India","Soybeans",0.39,37.2122467974817
+"India","Nuts inc. Peanut Butter",1.92,5.54266475553402
+"Thailand","Pork",13,144.390136418781
+"Thailand","Poultry",13.69,38.3000817239051
+"Thailand","Beef",2.56,133.080814735911
+"Thailand","Lamb & Goat",0.05,15.3652628682773
+"Thailand","Fish",19.45,46.5542021830081
+"Thailand","Eggs",12.35,37.4487594270027
+"Thailand","Milk - inc. cheese",29.35,5.52377841969356
+"Thailand","Wheat and Wheat Products",10.93,14.1331730870875
+"Thailand","Rice",114.57,170.176508954361
+"Thailand","Soybeans",2.13,23.7096481666652
+"Thailand","Nuts inc. Peanut Butter",1.5,15.7364563503386
+"Mozambique","Pork",5.13,184.171469884254
+"Mozambique","Poultry",1.41,6.23849217903182
+"Mozambique","Beef",1.04,1.18753558408631
+"Mozambique","Lamb & Goat",0.9,11.6194286292096
+"Mozambique","Fish",7.74,55.3390578873588
+"Mozambique","Eggs",1.7,35.5751447094371
+"Mozambique","Milk - inc. cheese",4.79,8.63666647115843
+"Mozambique","Wheat and Wheat Products",14.65,60.6270495279645
+"Mozambique","Rice",23.41,48.7274776163967
+"Mozambique","Soybeans",0.03,5.03331502096905
+"Mozambique","Nuts inc. Peanut Butter",2.61,49.789076606871
+"Cambodia","Pork",6.52,42.5432498113737
+"Cambodia","Poultry",1.84,68.5789244065916
+"Cambodia","Beef",4.85,197.218912223092
+"Cambodia","Lamb & Goat",0,62.2126257100436
+"Cambodia","Fish",39.59,57.3328897768614
+"Cambodia","Eggs",1.37,49.8206650403338
+"Cambodia","Milk - inc. cheese",3.47,28.0637298023513
+"Cambodia","Wheat and Wheat Products",2.74,75.0348863982371
+"Cambodia","Rice",159.1,223.409030312538
+"Cambodia","Soybeans",4.33,2.85874447162597
+"Cambodia","Nuts inc. Peanut Butter",1.25,14.7063485443993
+"Sierra Leone","Pork",1.22,17.8379589947069
+"Sierra Leone","Poultry",4.97,74.7346329391362
+"Sierra Leone","Beef",1.99,94.3334697068397
+"Sierra Leone","Lamb & Goat",0.65,17.1699489233073
+"Sierra Leone","Fish",32.03,103.259213453753
+"Sierra Leone","Eggs",1.92,27.2332853449224
+"Sierra Leone","Milk - inc. cheese",7,77.781182780908
+"Sierra Leone","Wheat and Wheat Products",8.72,94.9000323900565
+"Sierra Leone","Rice",103.3,162.210096649848
+"Sierra Leone","Soybeans",0,25.5093563316355
+"Sierra Leone","Nuts inc. Peanut Butter",5.57,2.89868692669396
+"Sri Lanka","Pork",0.05,76.1509717599442
+"Sri Lanka","Poultry",4.96,18.2703498318746
+"Sri Lanka","Beef",1.38,4.32913315087451
+"Sri Lanka","Lamb & Goat",0.09,47.0203647756135
+"Sri Lanka","Fish",24.92,70.0144021042483
+"Sri Lanka","Eggs",4.57,96.8046909000711
+"Sri Lanka","Milk - inc. cheese",34.98,8.15262976756519
+"Sri Lanka","Wheat and Wheat Products",37.01,55.7827131272879
+"Sri Lanka","Rice",109.72,244.11879409489
+"Sri Lanka","Soybeans",0,19.7485783146695
+"Sri Lanka","Nuts inc. Peanut Butter",1.09,40.6660401981118
+"Indonesia","Pork",2.98,49.9842400608894
+"Indonesia","Poultry",7.5,99.4122320366038
+"Indonesia","Beef",2.59,69.7667405451262
+"Indonesia","Lamb & Goat",0.46,28.5116999587987
+"Indonesia","Fish",25.65,101.076428918048
+"Indonesia","Eggs",4.88,81.9322584747348
+"Indonesia","Milk - inc. cheese",14.82,2.09097255496301
+"Indonesia","Wheat and Wheat Products",25.45,24.5755089841363
+"Indonesia","Rice",134.62,181.709965020278
+"Indonesia","Soybeans",1.12,15.2538775483827
+"Indonesia","Nuts inc. Peanut Butter",4.92,81.8740276990272
+"Liberia","Pork",4.01,48.9205925918259
+"Liberia","Poultry",8.91,30.7654698864026
+"Liberia","Beef",0.78,28.013444506274
+"Liberia","Lamb & Goat",0.48,12.4832403565751
+"Liberia","Fish",4.13,14.839179260929
+"Liberia","Eggs",2.05,0.0190317616377542
+"Liberia","Milk - inc. cheese",3.04,6.77143526976786
+"Liberia","Wheat and Wheat Products",10.95,30.5905126352146
+"Liberia","Rice",94.75,274.195770381957
+"Liberia","Soybeans",0.63,6.61215482857306
+"Liberia","Nuts inc. Peanut Butter",1.31,0.686828863276463
+"Bangladesh","Pork",0,3.20974444743109
+"Bangladesh","Poultry",1.4,54.0840208600981
+"Bangladesh","Beef",1.28,4.16789625349281
+"Bangladesh","Lamb & Goat",1.33,10.8174956836547
+"Bangladesh","Fish",18.07,32.2234384600942
+"Bangladesh","Eggs",2.08,56.9464581704188
+"Bangladesh","Milk - inc. cheese",21.91,75.7006116507845
+"Bangladesh","Wheat and Wheat Products",17.47,3.89130303718995
+"Bangladesh","Rice",171.73,231.169190735333
+"Bangladesh","Soybeans",0.61,13.2659931320114
+"Bangladesh","Nuts inc. Peanut Butter",0.72,92.0416706441911

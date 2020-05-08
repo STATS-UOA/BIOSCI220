@@ -21,7 +21,7 @@ library(gganimate)
 library(transformr)
 ```
 
-
+<p style="color:red;font-size:18px;">It is strongly suggested that you watch all the related videos on the CANVAS page before attempting to run through the examples below</p>
 
 ## Learing Objectives
 
@@ -554,7 +554,7 @@ Recall, we have two competing hypotheses (claims) relating to the **true** vale 
 
 ### Terminology
 
-**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
+**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
 
 ![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_1_errors.png?raw=true)
 
@@ -572,7 +572,7 @@ Reducing the chance of a **Type I** error increases the chance of a **Type II** 
   + **Effect size** (size of difference, of biological significance) between the true population parameters
   + Experimental error variance 
   + **Sample size**
-  + Choice of **Type I** error rate ($\alpha$)
+  + Choice of **Type I** error rate ($\alpha$)
   
 
 Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose).
@@ -647,7 +647,7 @@ summary(aov)
 #### But which group is different? Post Hoc analysis.
 
 ```{r tukey}
-## What do you think is goin on here?
+## What do you think is going on here?
 ## Do any of the confidence intervals contain zero?
 TukeyHSD(aov)
 
@@ -656,6 +656,8 @@ TukeyHSD(aov)
 ## Lab work
 
 Begin work on your Executive Summary (worth  18\% of your final grade). You are free to work through the material provided and your final report. You may work in groups, however, the final report must be your **own** work. Your Executive Summary should be no more than one A4 page. If should concisely effectively communicate your hypothesis, the statistical analysis undertaken, and your findings. Please head over to the Assignments page of CANVAS for more details.
+
+Potentially of interest [Reproducible reports with R markdown](https://alexd106.github.io/Rbook/rmarkdown-r.html)
 
 
 
