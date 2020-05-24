@@ -262,7 +262,7 @@ summary(anova.mod)
 
 Again `summary()` shows you everything you need to know about the parameter estimates (intercept and slopes), their standard errors and associated $t$ statistics and p-values. 
 
-Remember we are now dealing with a categorical variable so we use dummy variables (think back to the lecture video). Remember that the slopes associated with each prey value are in comparison to having `Coleoptera` as prey (this is included in the baseline). So we may conclude that given everything else in the model insects preyed on by `Diptera` have on average `r -1*round(coef(simple.mod)[2],2)` shorter stings than insects preyed on by `Coleoptera`.
+Remember we are now dealing with a categorical variable so we use dummy variables (think back to the lecture video). Remember that the slopes associated with each prey value are in comparison to having `Coleoptera` as prey (this is included in the baseline). So we may conclude that given everything else in the model insects preyed on by `Diptera` have on average `r -1*round(coef(anova.mod)[2],2)` shorter stings than insects preyed on by `Coleoptera`.
 
 However the p-value associated with the `Diptera` parameter suggests that we have no evidence to reject the null hypothesis that this slope is different from zero.
 
@@ -302,7 +302,7 @@ confint(multiple.mod)
 + For every 1mm increase in mesosoma length we estimate the expected sting length to increases between `r round(confint(multiple.mod)[9,1],1)` and `r round(confint(multiple.mod)[9,2],1)` mm
 
 + We estimate that the expected sting length of a species predated by Immature Hymenoptera is between
-`r round(confint(multiple.mod)[6,2],1)` and `r round(confint(multiple.mod)[6,2],1)` mm longer than that predated by Coleoptera with the same sting length
+`r round(confint(multiple.mod)[6,1],1)` and `r round(confint(multiple.mod)[6,2],1)` mm longer than that predated by Coleoptera with the same sting length
 
 ### Point prediction
 
