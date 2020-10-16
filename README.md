@@ -14,8 +14,8 @@
 
 | Week  | Lecturer  | Lecture Topic  | Lab(s)  |
 |---    |---        |---             |---      |  
-|  1 | All  | ourse intro/lecturers/goals (Charlotte remainder)  | (optional) R & Rstudio installation / terminology  |
-|  2 | Charlotte  | Data visualization (incl. multivariate) and wrangling  | mporting data into R. Introduction to what a “package” is. Data viz and data wrangling (minimal)  |
+|  1 | All  | Course intro/lecturers/goals (Charlotte remainder)  | (optional) R & Rstudio installation / terminology  |
+|  2 | Charlotte  | Data visualization (incl. multivariate) and wrangling  | importing data into R. Introduction to what a “package” is. Data viz and data wrangling (minimal)  |
 |  3 | Charlotte  | Experimental design and introduction to linear models (the idea of a single response)	  |  	Experimental design and single response (traditionally referred to as a t-test etc) |
 |  4 | Charlotte | Linear models continued (multiple variables and interpretation)	lms continued.  | Multi factor designs (what you’d traditionally call ANOVA)  |
 |  5 | Charlotte  | Interpret a p-value! (model interpretation and comparison)	  |  P-value week! Model critique and comparison |
