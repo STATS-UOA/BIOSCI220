@@ -30,8 +30,8 @@
 
 ## Timetable
 
-+ **Lecture** Monday 9–10am
-+ **Labs** 
++ **Lecture** in 405-460 Monday 9–10am
++ **Labs** in 106-014
   - Monday 2–5pm
   - Tuesday 10am–1pm
   - Thursday 10am–1pm
