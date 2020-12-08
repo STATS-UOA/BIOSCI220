@@ -99,10 +99,10 @@ AIC). Fitting SIR models to real-world SARS-CoV-2 data.
 + Use an appropriate visualization or other summary to motivate and communicate your hypothesis
 + Explain and discuss the limitations of different hypothesis testing techniques (e.g., single and two-sample t-tests, ANOVA, randomisation test)
 + Explain and discuss the limitations of statistical linear regression
- - with a single continuous explanatory variable
- - with a multiple continuous explanatory variables
- - with a single factor explanatory variable
- - with a multiple explanatory variables, both continuous and factor
+  - with a single continuous explanatory variable
+  - with a multiple continuous explanatory variables
+  - with a single factor explanatory variable
+  - with a multiple explanatory variables, both continuous and factor
 + In each of the situations above interpret and communicate the estimated coefficients to both a statistical and non-statistical audience 
 
 #### Week 4
