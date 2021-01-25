@@ -1,0 +1,43 @@
+# Introdution to `R` and `RStudio`.
+
+The purpose of this chapter is to get you started learning a new language! Throughout BIOSCI220 you will be introduced to tools  required to critically analyse and interpret biological data, and processing into biological information.
+
+Following each step of this chapter carefully you are expected to install `R` and `RStudio` onto your computers as each week you will be expected to carry out a little programming! 
+
+## Learning Objectives
+
++ Define the difference between `R` and `RStudio`
++ Distinguish between different data types (e.g., integers, characters, binary, numerical)
++ Explain what an `R` function is; describe what an argument to an `R` function is
++ Explain what an `R` package is; distinguish between the functions `install.packages()` and `library()`
++ Use the appropriate `R` function to read in a `.csv` data; carry out basic exploratory data analysis using in-built `R` functions
+
+
+## What are `R` and `RStudio`?
+
+![](figs/r-rstudio-pda.jpg)
+
+`R` is the pheromone to `RStudio`'s PDA.
+
+
+## Why `R` and `RStudio`?
+
+## Installing `R` and `RStudio`
+
+## Getting started.
+
+## Data types
+
+## `R` functions
+
+## `R` packages
+
+## Reading in data from a `.csv` file
+
+## Exploaratory Data Analysis (EDA)
+
+## Other resources: optional but **recommended**
+
++ [RStudio Education](https://education.rstudio.com/learn/beginner/)
++ [An Introduction to R](https://intro2r.com/)
++ [Learning statistics with R: A tutorial for psychology students and other beginners](https://learningstatisticswithr.com/lsr-0.6.pdf)

@@ -1,0 +1,40 @@
+--- 
+title: "Module 1: BIOSCI220"
+author: "Charlotte Jones-Todd, University of Auckland"
+date: "Semester 1, 2021"
+output: 
+  bookdown::gitbook:
+    toc_depth: 2
+    download:
+      - ["biosci220_module_1.pdf", "PDF"]
+      - ["biosci220_module_1.epub", "EPUB"]
+    sharing:
+      github: no
+      twitter: no
+      facebook: no
+  
+---
+
+# Preface {-}
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/splash-training.jpg)
+Artwork by [\@allison_horst](https://github.com/allisonhorst/)
+
+## Course Overview BIOSCI220, University of Auckland
+
+Living systems are the most complex things in the Universe. The science of biology is therefore the science of the complex. Other sciences, like physics and chemistry, have simpler study subjects. This may surprise students who think of other sciences as difficult and maths-heavy, and think of biology as science but with less maths.
+
+However, biological research has actually been heavily quantitative for 100+ years. Much of the development of the field of statistics was driven by and for biologists and their research problems, which usually have a large amount of natural variability. In recent decades, the computational revolution has spread to every part of biology, and all biological fields now rely heavily on analyses that would be impossible without computers and computer programming: "big data" studies and complex models of biological phenomena.
+
+Therefore, in order to understand modern biological research and findings, and to participate in this research (and get jobs!), it is now essential for biology students to acquire skills in working with and visualising data, learning from data using models, and generating data using simulations of models. These might be classic statistical models, simulation models, or inference with process-based models. Most importantly, students need to gain the ability to be careful and critical thinkers about data and how it is acquired, as well as the ability to think critically about the models that we use to try to simplify, and thereby understand, the incredible complexity of biology.
+
+## This coursebook covers the materials taught in Module I only
+
+### Key Topics 
+
++ Data Exploration and Statistical Inference
++ Data wrangling and visualization. Introduction to R, importing and plotting data, R packages
++ Experimental design and introduction to linear models
++ Linear models with multiple variables; interpretation; ANOVA
++ Interpretation of p-values; model critique and model comparison
++ Large data, exploratory data analysis, introduction to clustering and dimensionality reduction
