@@ -1,6 +1,6 @@
 --- 
-title: "Module 1: BIOSCI220"
-author: "Charlotte Jones-Todd, University of Auckland"
+title: "Module I BIOSCI220, University of Auckland"
+author: "Charlotte Jones-Todd"
 date: "Semester 1, 2021"
 output: 
   bookdown::gitbook:
@@ -20,7 +20,7 @@ output:
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/splash-training.jpg)
 Artwork by [\@allison_horst](https://github.com/allisonhorst/)
 
-## Course Overview BIOSCI220, University of Auckland
+## Course Overview: BIOSCI220
 
 Living systems are the most complex things in the Universe. The science of biology is therefore the science of the complex. Other sciences, like physics and chemistry, have simpler study subjects. This may surprise students who think of other sciences as difficult and maths-heavy, and think of biology as science but with less maths.
 
@@ -28,9 +28,7 @@ However, biological research has actually been heavily quantitative for 100+ yea
 
 Therefore, in order to understand modern biological research and findings, and to participate in this research (and get jobs!), it is now essential for biology students to acquire skills in working with and visualising data, learning from data using models, and generating data using simulations of models. These might be classic statistical models, simulation models, or inference with process-based models. Most importantly, students need to gain the ability to be careful and critical thinkers about data and how it is acquired, as well as the ability to think critically about the models that we use to try to simplify, and thereby understand, the incredible complexity of biology.
 
-## This coursebook covers the materials taught in Module I only
-
-### Key Topics 
+## Module 1: Key Topics
 
 + Data Exploration and Statistical Inference
 + Data wrangling and visualization. Introduction to R, importing and plotting data, R packages
