@@ -31,7 +31,7 @@ Therefore, in order to understand modern biological research and findings, and t
 ## Module 1: Key Topics
 
 + Data Exploration and Statistical Inference
-+ Data wrangling and visualization. Introduction to R, importing and plotting data, R packages
++ Data wrangling and visualisation. Introduction to R, importing and plotting data, R packages
 + Experimental design and introduction to linear models
 + Linear models with multiple variables; interpretation; ANOVA
 + Interpretation of p-values; model critique and model comparison
