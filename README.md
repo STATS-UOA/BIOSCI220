@@ -1,6 +1,6 @@
 # BIOSCI220, semester 1, 2021.
 
-**This repository contains the materials for Module 1 (weeks 1 to 6) only**
+**This repository contains the materials for Module 1 (weeks 1 to 6) only** Course book [here](https://stats-uoa.github.io/BIOSCI220/)
 
 ## Teaching team
 
