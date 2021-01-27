@@ -1,0 +1,134 @@
+---
+title: "R and RStudio"
+subtitle: "week 1"
+author: "BIOSCI220"
+institute: "Universty of Auckland"
+date: ""
+output:
+  xaringan::moon_reader:
+   yolo: 
+     times: 1
+     img: figs/yolo_img.jpg
+   css: xaringan-themer.css
+   lib_dir: libs
+   nature:
+     highlightStyle: github
+     highlightLines: true
+     countIncrementalSlides: false
+     slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+class: inverse, center, middle
+
+# R is the pheromone to RStudio's PDA.
+
+![](../coursebook/figs/r-rstudio-pda.jpg)
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_solarized_light()
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+
+---
+
+
+# Why R? 
+### not an extensive list
+
+--
++ Free
+
+--
++ Open source
+
+--
++ Huge online support network
+
+--
++ Flexible; if you can code it you can do it!
+
+--
++ Reproduciblity*
+
+
+---
+
+# Why RStudio? 
+### not an extensive list
+
+--
++ Works nicely with R
+
+--
++ Huge online support network
+
+--
++ Flexible; so, so, many tools and additions!
+
+--
++ Reproduciblity *
+
+---
+class: inverse, center, middle
+
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/code_hero.jpg" width="70%">
+
+[Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
+
+---
+
+# Terminology
+
+--
+
++ *running* code: the act of telling R to perform an act by giving it commands in the console
+--
+
++ *objects*: where values are saved in (see later for creating an object
+--
+
++ *script*: a text file containing a set of commands and comments
+--
+
++ *comments*: notes written within a *script* to better document/explain what's happening
+--
+
+---
+
+# More terminology
+
+--
+
++ *functions*: `R` commands that tell your computer what to do
+--
+
++ *arguments*: inputs we give to *functions* that are used by that *function* to give some output
+--
+
++ *packages*: a collection of specific *functions* 
+
+---
+
+# Live demo
+
+## `r emo::ji("computer")` [PollEv.com/cjonestodd303](PollEv.com/cjonestodd303)
+
+
+---
+# How did you do?
+
+<iframe src="https://www.polleverywhere.com/free_text_polls/s03EqxE3myyI1pt55CdP1?preview=true&controls=none" width="100%" height="100%" frameBorder="0"></iframe>

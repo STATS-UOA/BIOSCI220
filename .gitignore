@@ -15,3 +15,7 @@ r/class_ans.csv
 r/intro_quiz.r
 data/exec_data/*
 exam/
+slides/libs/*
+slides/week_1_files/*
+slides/week_1.html
+slides/xaringan-themer.css
