@@ -131,7 +131,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-and-rstudio" class="section level1">
 <h1><span class="header-section-number">1</span> <code>R</code> and <code>RStudio</code></h1>
 <p>The purpose of this chapter is to get you started learning a new language! Throughout BIOSCI220 you will be introduced to tools required to critically analyse and interpret biological data, and processing into biological information.</p>
-<p>Following each step of this chapter carefully you are expected to install <code>R</code> and <code>RStudio</code> onto your computers as each week you will be expected to carry out a little programming! If you don't have your own computers then there are, of course, lab computers available that already have <code>R</code> and <code>RStudio</code> installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of <a href="https://rstudio.cloud/">RStudio Cloud</a>; here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer. As a student at the University of Auckland you will already have an account associated with your UPI.</p>
+<p>Throughout this module you will be expected to use <code>R</code> and <code>RStudio weekly</code>. It is highly recommended that you familiarise yourself with these environments using the computer, on which, you plan to carry out the majority of your work. If this is a lab computer then <code>R</code> and <code>RStudio</code> will already been installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of <a href="https://rstudio.cloud/">RStudio Cloud</a>; here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer.</p>
+<p>However, if you plan to use your personal computer then you will need to install both <code>R</code> and <code>RStudio</code>. Follow the directions in [installing-r-and-rstudio] to do this.</p>
 <div id="learning-objectives" class="section level2">
 <h2><span class="header-section-number">1.1</span> Learning Objectives</h2>
 <ul>
@@ -155,7 +156,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## directory</code></pre>
 <pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
 <ul>
-<li>Use the appropriate <code>R</code> function to read in a <code>.csv</code> data; carry out basic exploratory data analysis using <code>tidyverse</code> (use the pipe operator, <code>%&gt;%</code> when summarising a <code>data.frame</code>); create simple plots of the data</li>
+<li>Use the appropriate <code>R</code> function to read in a <code>.csv</code> data; carry out basic exploratory data analysis using <code>tidyverse</code> (use the pipe operator, <code>%&gt;%</code> when summarising a <code>data.frame</code>); create simple plots of the data.</li>
 </ul>
 </div>
 <div id="introduction-to-r-and-rstudio" class="section level2">
@@ -199,7 +200,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="installing-r-and-rstudio" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Installing <code>R</code> and <code>RStudio</code></h3>
+<h3><span class="header-section-number">1.2.2</span> Installing R and RStudio</h3>
 <p>As mentioned above <code>RStudio</code> depends on <code>R</code> so there is an order you should follow when you download these software.</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Download and install <code>R</code></strong> by following <a href="https://cloud.r-project.org/">these instructions</a>. Make sure you choose the correct operating system; if you are unsure then please ask either a TA or myself.</p></li>
@@ -372,7 +373,6 @@ some_numbers</code></pre></div>
 <div id="using-functions-to-explore-the-data" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Using functions to explore the data</h3>
 <p>Automatically <code>RStudio</code> has run the command <code>View()</code> for you. This makes your dataset show itself in the top left pane. It's like looking at the data in Excel. Follow along with the commands below, I recommend that you open up a new <em>Script</em> and use that to write and save your commands for later. Don't forget to ensure you have read the <strong>paua</strong> into your session (all commands below assume that your data <em>Object</em> is called <code>paua</code>, if you've called it something different then just replace <code>paua</code> with whatever you've called it below.</p>
-<p><code>{r read quiet, echo = FALSE, eval = TRUE, message = FALSE paua &lt;- read_csv(&quot;https://raw.githubusercontent.com/STATS-UOA/BIOSCI220/master/data/paua.csv?token=ADCWN3XSWTG6ACKEYZPXFFLADHQ22&quot;)</code></p>
 <p>Now let's go ahead and use some functions to ask and answer questions about our data. The first thing you should <strong>always</strong> do is view any data frames you import.</p>
 <ul>
 <li>Let's have a look at your data in the <em>Console</em></li>

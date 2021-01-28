@@ -1,8 +1,8 @@
 ---
-title: "R and RStudio"
-subtitle: "week 1"
-author: "BIOSCI220"
-institute: "Universty of Auckland"
+title: "BIOSCI220"
+subtitle: "Module 1"
+author: "Universty of Auckland"
+institute: "[course book](https://stats-uoa.github.io/BIOSCI220/)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -22,6 +22,12 @@ output:
         </div>
 ---
 class: inverse, center, middle
+
+## `R` and `RStudio`
+### Week 1
+
+---
+class:  center, middle
 
 # R is the pheromone to RStudio's PDA.
 
@@ -120,6 +126,40 @@ class: inverse, center, middle
 --
 
 + *packages*: a collection of specific *functions* 
+
+---
+
+# Errors
+
+```{r error, error = TRUE}
+library(tidy)
+```
+
+---
+
+# Errors
+
+```{r error2, error = TRUE}
+lbrary(tidyverse)
+```
+
+---
+
+# Errors
+
+```{r error3, error = TRUE}
+paua <- read_csv("paua.csv")
+```
+
+---
+
+
+# Errors
+
+```{r error4, error = TRUE}
+library(tidyverse)
+paua <- read_csv("paua.csv")
+```
 
 ---
 

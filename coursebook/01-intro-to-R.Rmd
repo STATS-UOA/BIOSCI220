@@ -2,7 +2,13 @@
 
 The purpose of this chapter is to get you started learning a new language! Throughout BIOSCI220 you will be introduced to tools required to critically analyse and interpret biological data, and processing into biological information.
 
-Following each step of this chapter carefully you are expected to install `R` and `RStudio` onto your computers as each week you will be expected to carry out a little programming! If you don't have your own computers then there are, of course, lab computers available that already have `R` and `RStudio` installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of [RStudio Cloud](https://rstudio.cloud/); here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer. As a student at the University of Auckland you will already have an account associated with your UPI. 
+Throughout this module you will be expected to use `R` and `RStudio weekly`. It is highly
+recommended that you familiarise yourself with these environments using the computer, on
+which, you plan to carry out the majority of your work. If this is a lab computer then `R` and
+`RStudio` will already been installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of [RStudio Cloud](https://rstudio.cloud/); here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer.
+
+
+However, if you plan to use your personal computer then you will need to install both `R` and `RStudio`. Follow the directions in [installing-r-and-rstudio] to do this.
 
 ## Learning Objectives
 
@@ -25,7 +31,7 @@ and
 read.csv("paua.csv")
 ```
 
-+ Use the appropriate `R` function to read in a `.csv` data; carry out basic exploratory data analysis using `tidyverse` (use the pipe operator, `%>%` when summarising a `data.frame`); create simple plots of the data
++ Use the appropriate `R` function to read in a `.csv` data; carry out basic exploratory data analysis using `tidyverse` (use the pipe operator, `%>%` when summarising a `data.frame`); create simple plots of the data.
 
 
 ## Introduction to `R` and `RStudio`?
@@ -67,7 +73,7 @@ The selling pitch of this course states that *...biological research has actuall
 + There is a huge online support network
 + Offers many other features and tools to make your workflow with `R` easier
 
-### Installing `R` and `RStudio`
+### Installing R and RStudio
 
 As mentioned above `RStudio` depends on `R` so there is an order you should follow when you download these software.
 
@@ -305,8 +311,8 @@ Now notice how in the *Console* a few lines of code have been added. These are t
 
 Automatically `RStudio` has run the command `View()` for you. This makes your dataset show itself in the top left pane. It's like looking at the data in Excel. Follow along with the commands below, I recommend that you open up a new *Script* and use that to write and save your commands for later. Don't forget to ensure you have read the **paua** into your session (all commands below assume that your data *Object* is called `paua`, if you've called it something different then just replace `paua` with whatever you've called it below.
 
-```{r read quiet, echo = FALSE, eval = TRUE, message = FALSE
-paua <- read_csv("https://raw.githubusercontent.com/STATS-UOA/BIOSCI220/master/data/paua.csv?token=ADCWN3XSWTG6ACKEYZPXFFLADHQ22")
+```{r read quiet, echo = FALSE, eval = TRUE, message = FALSE}
+paua <- read_csv("../data/paua.csv")
 ```
 
 Now let's go ahead and use some functions to ask and answer questions about our data. The first thing you should **always** do is view any data frames you import.
@@ -402,7 +408,6 @@ boxplot(Age ~ Species, data  = paua)
 plot(Age ~ Length, data  = paua)
 boxplot(Age ~ Length, data  = paua)
 plot(paua$Age)
-
 ```
 
 ## Other resources: optional but **recommended**
