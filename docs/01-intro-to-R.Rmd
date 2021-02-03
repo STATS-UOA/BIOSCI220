@@ -106,6 +106,19 @@ Why?
 
 So your ex (code) can't come and mess up your life!
 
+##### Project-oriented workflow. Recommened: `.Rproj`
+
++ **Organised** Set up each Each assignment/university course as a *project*
++ **Self-contained** a *project* is a folder that contains all relevant files
+   + All paths can then be relative to that *project*
++ **Reproducible** the *project* should just work on a different computer
+
+Got to **Project** (top right) > **New Project** > **Create Project** ![](https://stats220.earo.me/img/rstudio-proj.png)
+
+## Project set-up
+
+![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png)
+
 
 `r emo::ji("warning")`Warning`r emo::ji("warning")`
 
@@ -333,7 +346,7 @@ First off download the `paua.csv` file from CANVAS (listed under Module 1, Week 
 
 To read the data into `RStudio` 
 
- In the *Environment* pane click **Import Dataset** > ** From Excel** > ** From Text (readr)** > **Browse** > *Choose your file, remembering which folder you downloaded it to* > *Another pane should pop up, check the data looks as you might expect* > **Import**
+ In the *Environment* pane click **Import Dataset** > ** From Text (readr)** > **Browse** > *Choose your file, remembering which folder you downloaded it to* > *Another pane should pop up, check the data looks as you might expect* > **Import**
  You should now notice that in the *Environment* pane there is something listed under *Data* (this is the name of the data.frame *Object* containing the data we will explore)
 
 Now notice how in the *Console* a few lines of code have been added. These are the commands you were telling your computer via the point-and-click procedure you went through! Notice the character string inside `read_csv()`... This is the full 'address' of your data (the folder you saved it in). When you tell your computer to look for something you need to tell it exactly where it is! Remember the `getwd()` command above, this tells you the default location `RStudio` will look for a file, if your file is not in this folder you have to tell it the **full** address.
