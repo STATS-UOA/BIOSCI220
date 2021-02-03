@@ -426,10 +426,8 @@ You would read the sequence  above as:
 
 The payoff is so clear: you make informative plots that help you understand data.
 
-+ Boxplot
-
-```{r box, echo = TRUE, eval = TRUE)
-plot(paua)
+```{r box, echo = TRUE, eval = TRUE}
+boxplot(Age ~ Species, data  = paua)
 ```
 
 So what have we asked our computer to do here? Given what we know about the types of data our `paua` *Object* contains what plots do you think would be most appropriate for each variable? Below is some example code; each line of code will produce a plot (perhaps not a sensible one though). What do you think? What is each plot showing us?
