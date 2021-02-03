@@ -7,6 +7,7 @@ why
 whyr
 why-rstudio
 installing-r-and-rstudio
+good-practice-always-start-with-a-clean-workspace
 getting-started
 r-scripts-a-.r-file
 writing-comments

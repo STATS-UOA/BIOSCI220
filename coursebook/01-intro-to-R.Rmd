@@ -59,19 +59,23 @@ The selling pitch of this course states that *...biological research has actuall
 
 + It's free
 + It's [open source](https://opensource.com/resources/what-open-source)
-  + There are no guarantees
-  + But it's always under scrutiny
-  + robust
++ A general-purpose of programming language
++ Written by statisticians (here in Auckland!)
 + It's available for all operating systems (Windows, Linux, and Mac)
 + There is a huge online support network
-+ It's extremely flexible; if you can code it you can do it!
-+ It facilitates [reproducibility](https://en.wikipedia.org/wiki/Reproducibility)
++ It's extremely flexible; if you can code it you can do it! 15,000+ packages available!
++ ...
 
 #### Why `RStudio`?
 
++ *"If R were an airplane, RStudio would be the airport..."* [Introduction to RStudio Awesomeness byJulie Lowndes](http://jules32.github.io/resources/RStudio_intro/)
 + Speaks nicely to `R`
++ Tab completion
++ Debugging capabilities
 + There is a huge online support network
 + Offers many other features and tools to make your workflow with `R` easier
++ It facilitates [reproducibility](https://en.wikipedia.org/wiki/Reproducibility)
++ ...
 
 ### Installing R and RStudio
 
@@ -84,12 +88,38 @@ As mentioned above `RStudio` depends on `R` so there is an order you should foll
  3. **Check all is working**
     + Open up `RStudio` from your computer menu, the icon will look something like this ![](https://vectorified.com/images/rstudio-icon-31.png){width=7%} (**DO NOT** use this icon  ![](https://cdn.iconscout.com/icon/free/png-512/r-5-283170.png){width=4%}, this is a link to `R` and will only open a very basic interface)
     + Wait a little and you should see `RStudio` open up to something similar to the screenshot below
-    ![](figs/rstudio.png)
+    ![](https://stats220.earo.me/img/rstudio-interface.png)
     + Pay close attention to the notes in the screenshot and familiarise yourself with the terms.
     + Finally, in the *Console* next to the prompt type `1:10` and press enter on your keyboard. Your computer should say something back you (in the *Console*)! What do you think you were asking it to do? Does the output make sense?^[You should have seen the numbers 1 to 10 printed out as a sequence.]
 
 If you get stuck at any of the steps above then please ask either a TA or myself. It is imperative for the rest of the course that you complete the steps above.
-   
+
+#### Good practice: always start with a clean workspace
+
+
+Go to **Tools** > **Global Options**
+
+![](https://miro.medium.com/max/2784/1*dUNl71Jic2zYhYS2hxOBZA.png)
+Why? 
+
+![](https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg){width=30%} 
+
+So your ex (code) can't come and mess up your life!
+
+
+`r emo::ji("warning")`Warning`r emo::ji("warning")`
+
+[Jenny Bryan will set your computer on fire](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) `r emo::ji("fire")` if you start your script like this
+
+```{r fire, echo = TRUE, eval = FALSE}
+rm(list = ls())
+```
+
+This
++ does **NOT** create a fresh `R` process
++ it makes your script vulnerable
++ ...
+
 
 
 ### Getting started
@@ -185,7 +215,6 @@ Functions (or command) perform tasks in R. They take in inputs called arguments 
 ### `R` packages
 
 
-
 The base installation of R comes with many useful packages as standard. These packages will contain many of the functions you will use on a daily basis. However, as you start using R for more diverse projects (and as your own use of R evolves) you will find that there comes a time when you will need to extend R’s capabilities. Happily, many thousands of R users have developed useful code and shared this code as installable packages. You can think of a package as a collection of functions, data and help files collated into a well defined standard structure which you can download and install in R.
 
 To install a package from CRAN you can use the install.packages() function. For example if you want to install the remotes package enter the following code into the Console window of RStudio (note: you will need a working internet connection to do this)
@@ -219,7 +248,10 @@ Sometimes rather than doing what you expect it to your computer will return an E
 
  + Read it! THE MESSAGES ARE WRITTEN IN AS PLAIN A ENGLISH AS POSSIBLE
  + **DO NOT** continue running bits of code hoping the issue will go away. IT WILL NOT.
- + Try and work out what it means and fix it
+ + Try and work out what it means and fix it:
+   + read the documentation!
+   + search or ask questions on [Stack Overflow](https://stackoverflow.com/) or [RStudio Community](https://community.rstudio.com/)
+
 
 Sometimes your computer will return a warning messages to you prefaced "Warning:". These can sometimes be ignored as they may not affect us. However, READ THE MESSAGE and decide for yourself. Occasionally, also your computer will write you a friendly message, just keeping you up-to date with what it's doing, again don't ignore these they might be telling you something useful!
 
@@ -297,7 +329,7 @@ library(tidyverse)
 
 ### Reading in data from a `.csv` file
 
-First off download [this .csv]() file onto your computer (remember which folder you saved it in!)
+First off download the `paua.csv` file from CANVAS (listed under Module 1, Week 1.) onto your computer (remember which folder you saved it in!)
 
 To read the data into `RStudio` 
 
@@ -410,7 +442,7 @@ boxplot(Age ~ Length, data  = paua)
 plot(paua$Age)
 ```
 
-## Other resources: optional but **recommended**
+## Other resources: optional but recommended
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png)
 Artwork by [\@allison_horst](https://github.com/allisonhorst/)
