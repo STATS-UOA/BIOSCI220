@@ -363,7 +363,7 @@ some_numbers</code></pre></div>
 <p>You need to tell your computer where to look!</p>
 <p>Look at the top of your <em>Console</em>. You will see something like <em>~/Desktop/</em> or <em>C://Users/...</em> (it won't be an exact match of course). This is the 'address' of where your computer is looking. Now, run <code>getwd()</code> and see what output you get (it will be the same as written on the top of your <em>Console</em> pane. This is because <code>getwd()</code> stands for <strong>get</strong> the current <strong>w</strong>orking<strong>d</strong>irectory (i.e., the current directory you are currently <em>working</em> in) e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
-<pre><code>## [1] &quot;/home/charlotte/Git/BIOSCI220/docs&quot;</code></pre>
+<pre><code>## [1] &quot;/home/cjon911/Git/BIOSCI220/docs&quot;</code></pre>
 <p>You should ensure that you are aware of which directory you're working in (which folder <code>RStudio</code> is looking in by default) as this is important later on when we come to reading in files and saving our work!</p>
 <div id="changing-address" class="section level4">
 <h4><span class="header-section-number">1.3.9.1</span> Changing address</h4>
@@ -479,10 +479,9 @@ some_numbers</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">paua <span class="op">%&gt;%</span>
 <span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
 <span class="kw">summarize</span>(<span class="dt">mean_age =</span> <span class="kw">mean</span>(Age))</code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   Species            mean_age
-##   &lt;chr&gt;                 &lt;dbl&gt;
+## * &lt;chr&gt;                 &lt;dbl&gt;
 ## 1 Haliotis australis     7.55
 ## 2 Haliotis iris          4.40</code></pre>
 <p>You would read the sequence above as:</p>
