@@ -108,9 +108,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> <code>R</code> and <code>RStudio</code></a><ul>
 <li class="chapter" data-level="1.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="1.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Introduction to <code>R</code> and <code>RStudio</code>?</a></li>
-<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#project-set-up"><i class="fa fa-check"></i><b>1.3</b> Project set-up</a></li>
-<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>1.4</b> Exploratory Data Analysis (EDA)</a></li>
-<li class="chapter" data-level="1.5" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#other-resources-optional-but-recommended"><i class="fa fa-check"></i><b>1.5</b> Other resources: optional but recommended</a></li>
+<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>1.3</b> Exploratory Data Analysis (EDA)</a></li>
+<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#other-resources-optional-but-recommended"><i class="fa fa-check"></i><b>1.4</b> Other resources: optional but recommended</a></li>
 </ul></li>
 </ul>
 
@@ -219,17 +218,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ol>
 <p>If you get stuck at any of the steps above then please ask either a TA or myself. It is imperative for the rest of the course that you complete the steps above.</p>
-<div id="good-practice-always-start-with-a-clean-workspace" class="section level4">
-<h4><span class="header-section-number">1.2.2.1</span> Good practice: always start with a clean workspace</h4>
+<div id="good-practice" class="section level4">
+<h4><span class="header-section-number">1.2.2.1</span> Good practice</h4>
+<p><strong>Always start with a clean workspace</strong></p>
 <p>Go to <strong>Tools</strong> &gt; <strong>Global Options</strong></p>
-<p><img src="https://miro.medium.com/max/2784/1*dUNl71Jic2zYhYS2hxOBZA.png" /> Why?</p>
+<p><img src="https://miro.medium.com/max/2784/1*dUNl71Jic2zYhYS2hxOBZA.png" /> <strong>Why? So your ex (code) can't come and mess up your life!</strong></p>
 <div class="figure">
-<img src="https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg" style="width:30.0%" />
+<img src="https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg" />
 
 </div>
-<p>So your ex (code) can't come and mess up your life!</p>
-<div id="project-oriented-workflow.-recommened-.rproj" class="section level5">
-<h5><span class="header-section-number">1.2.2.1.1</span> Project-oriented workflow. Recommened: <code>.Rproj</code></h5>
+<p><strong>Project-oriented workflow</strong>. Recommened: <code>.Rproj</code></p>
 <ul>
 <li><strong>Organised</strong> Set up each Each assignment/university course as a <em>project</em></li>
 <li><strong>Self-contained</strong> a <em>project</em> is a folder that contains all relevant files</li>
@@ -237,22 +235,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>Reproducible</strong> the <em>project</em> should just work on a different computer</li>
 </ul>
 <p>Got to <strong>Project</strong> (top right) &gt; <strong>New Project</strong> &gt; <strong>Create Project</strong> <img src="https://stats220.earo.me/img/rstudio-proj.png" /></p>
-</div>
-</div>
-</div>
-</div>
-<div id="project-set-up" class="section level2">
-<h2><span class="header-section-number">1.3</span> Project set-up</h2>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png" />
-
-</div>
+<p><strong>Project set-up</strong></p>
+<p><img src="https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png" />{width = 30%}</p>
 <p>⚠️Warning⚠️</p>
 <p><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Jenny Bryan will set your computer on fire</a> 🔥 if you start your script like this</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
 <p>This + does <strong>NOT</strong> create a fresh <code>R</code> process + it makes your script vulnerable + ...</p>
+</div>
+</div>
 <div id="getting-started" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Getting started</h3>
+<h3><span class="header-section-number">1.2.3</span> Getting started</h3>
 <p>As in step 3. above open up <code>RStudio</code> from your computer menu, the icon will look something like this <img src="https://vectorified.com/images/rstudio-icon-31.png" style="width:7.0%" />. Using the diagram above identify the different panes:</p>
 <ul>
 <li><em>Console</em> where you directly type command in and communicate with your computer (via the language <code>R</code>).</li>
@@ -268,7 +260,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="r-scripts-a-.r-file" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> R <em>Script</em>s (a <code>.r</code> file)</h3>
+<h3><span class="header-section-number">1.2.4</span> R <em>Script</em>s (a <code>.r</code> file)</h3>
 <p>Go <strong>File</strong> &gt; <strong>New File</strong> &gt; <strong>R Script</strong> to open up a new <em>Script</em></p>
 <p>A new (fourth) pane should open up in the top left of <code>RStudio</code>, your <em>Console</em> will have shrunk in size to accommodate this extra pane. This file will have a <code>.r</code> extension and is where you can write, edit, and save the <code>R</code> commands you write. It's a dedicated test editor for your <code>R</code> code (very useful if you want to save your code to run at a later date). The main difference between typing your code into a <em>Script</em> vs <em>Console</em> is that you edit it and save it for later! Remember though the <em>Console</em> is the pane where you communicate with your computer so all code you write will have to be <em>Run</em> here. There are two ways of <em>running</em> a line of code you've written in your <em>Script</em></p>
 <ul>
@@ -278,12 +270,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Type <code>1:10</code> in your <em>Script</em> and practise <em>running</em> this line of code using both methods above. Not that if you've <em>Run</em> the code successfully then your computer will speak back to you each time via the <em>Console</em></p>
 </div>
 <div id="writing-comments" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> Writing <em>Comments</em></h3>
+<h3><span class="header-section-number">1.2.5</span> Writing <em>Comments</em></h3>
 <p><em>Comments</em> are notes to yourself (future or present) or to someone else that are, typically, written interspersed in your code. Now, the comments you write will typically be in a language your computer doesn't understand (e.g., English). So that you can write yourself notes in your <em>Script</em> you need to tell your computer using the <code>R</code> language to ignore them. To do this precede any note you write with #, see below. The # is <code>R</code> for <em>ignore anything after this character</em>.</p>
 <p>Now remember when you want to leave your <code>R</code> Session you'll need to <strong>Save</strong> your <em>Script</em> to use it again. To do this go <strong>File</strong> &gt; <strong>Save As</strong> and name your file what you wish (remember too to choose a relevant folder on your computer!).</p>
 </div>
 <div id="data-types" class="section level3">
-<h3><span class="header-section-number">1.3.4</span> Data types</h3>
+<h3><span class="header-section-number">1.2.6</span> Data types</h3>
 <p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/continuous_discrete.png" /> Artwork by <a href="https://github.com/allisonhorst/">@allison_horst</a></p>
 <p>Here we're covering data types in <code>R</code> (e.g., integers, doubles/numeric, logical, and characters).</p>
 <ul>
@@ -297,7 +289,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] &quot;character&quot;</code></pre>
 </div>
 <div id="creating-objects" class="section level3">
-<h3><span class="header-section-number">1.3.5</span> Creating <em>Objects</em></h3>
+<h3><span class="header-section-number">1.2.7</span> Creating <em>Objects</em></h3>
 <p><em>Objects</em> are created values using the symbols <code>&lt;-</code> (an arrow formed out of <code>&lt;</code> and <code>-</code>). Like we, typically, write an equation the left-hand side is the <em>Object</em> we're defining (creating) and the right-hand side is the stuff we're defining it as. For example, below I'm creating the <em>Object</em> <code>my_name</code> and assigning it the character string of my first name</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_name &lt;-<span class="st"> &quot;Charlotte&quot;</span></code></pre></div>
 <p>So now the Object <code>my_name</code> ‘contains’ the value <code>&quot;Charlotte&quot;</code>. Another assignment to the same object will overwrite the content.</p>
@@ -316,11 +308,11 @@ some_numbers</code></pre></div>
 <p>An <em>Object</em> can also be an entire dataset, see <a href="r-and-rstudio.html#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a> below.</p>
 </div>
 <div id="r-functions" class="section level3">
-<h3><span class="header-section-number">1.3.6</span> <code>R</code> functions</h3>
+<h3><span class="header-section-number">1.2.8</span> <code>R</code> functions</h3>
 <p>Functions (or command) perform tasks in R. They take in inputs called arguments and return outputs. You can either manually specify a function’s arguments or use the function’s default values. For example, the function seq() in R generates a sequence of numbers. If you just run seq() it will return the value 1. That doesn’t seem very useful! This is because the default arguments are set as seq(from = 1, to = 1). Thus, if you don’t pass in different values for from and to to change this behaviour, R just assumes all you want is the number 1. You can change the argument values by updating the values after the = sign. If we try out seq(from = 2, to = 5) we get the result 2 3 4 5 that we might expect.</p>
 </div>
 <div id="r-packages" class="section level3">
-<h3><span class="header-section-number">1.3.7</span> <code>R</code> packages</h3>
+<h3><span class="header-section-number">1.2.9</span> <code>R</code> packages</h3>
 <p>The base installation of R comes with many useful packages as standard. These packages will contain many of the functions you will use on a daily basis. However, as you start using R for more diverse projects (and as your own use of R evolves) you will find that there comes a time when you will need to extend R’s capabilities. Happily, many thousands of R users have developed useful code and shared this code as installable packages. You can think of a package as a collection of functions, data and help files collated into a well defined standard structure which you can download and install in R.</p>
 <p>To install a package from CRAN you can use the install.packages() function. For example if you want to install the remotes package enter the following code into the Console window of RStudio (note: you will need a working internet connection to do this)</p>
 <div class="figure">
@@ -343,7 +335,7 @@ some_numbers</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(the.package.name)</code></pre></div>
 </div>
 <div id="r-errors" class="section level3">
-<h3><span class="header-section-number">1.3.8</span> <code>R</code> Errors</h3>
+<h3><span class="header-section-number">1.2.10</span> <code>R</code> Errors</h3>
 <p>Sometimes rather than doing what you expect it to your computer will return an Error message to you via the <em>Console</em> prefaced with **Error in...* followed by text that will try to explain what went wrong. This, generally, means something has gone wrong, so what do you do?</p>
 <ul>
 <li>Read it! THE MESSAGES ARE WRITTEN IN AS PLAIN A ENGLISH AS POSSIBLE</li>
@@ -355,7 +347,7 @@ some_numbers</code></pre></div>
 <p>Sometimes your computer will return a warning messages to you prefaced &quot;Warning:&quot;. These can sometimes be ignored as they may not affect us. However, READ THE MESSAGE and decide for yourself. Occasionally, also your computer will write you a friendly message, just keeping you up-to date with what it's doing, again don't ignore these they might be telling you something useful!</p>
 </div>
 <div id="working-directories" class="section level3">
-<h3><span class="header-section-number">1.3.9</span> Working directories</h3>
+<h3><span class="header-section-number">1.2.11</span> Working directories</h3>
 <div class="figure">
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Map-kassel-1-800.jpg" />
 
@@ -366,14 +358,14 @@ some_numbers</code></pre></div>
 <pre><code>## [1] &quot;/home/cjon911/Git/BIOSCI220/docs&quot;</code></pre>
 <p>You should ensure that you are aware of which directory you're working in (which folder <code>RStudio</code> is looking in by default) as this is important later on when we come to reading in files and saving our work!</p>
 <div id="changing-address" class="section level4">
-<h4><span class="header-section-number">1.3.9.1</span> Changing address</h4>
+<h4><span class="header-section-number">1.2.11.1</span> Changing address</h4>
 <p>So you're not where you want to be!</p>
 <p>Click <strong>Session</strong> &gt; <strong>Set Working Directory</strong> &gt; <strong>Choose Directory</strong> &gt; <em>Chose where you want to go</em></p>
 <p>Now notice that something has been written in your <em>Console</em> something similar to <code>setwd(&quot;~/Git/BIOSCI220/data&quot;)</code>. Now <code>setwd()</code> stands for <strong>set</strong> your <strong>w</strong>orking<strong>d</strong>irectory. If you know the address of the directory you want to work in without having to point-and-click you could use this command directly, in this case you've used the point-and-click to do it and RStudio has helpfully written out your choices as an <code>R</code> command.</p>
 </div>
 </div>
 <div id="getting-help" class="section level3">
-<h3><span class="header-section-number">1.3.10</span> Getting help</h3>
+<h3><span class="header-section-number">1.2.12</span> Getting help</h3>
 <div class="figure">
 <img src="https://r-coder.com/wp-content/uploads/2020/03/help-r.png" />
 
@@ -392,7 +384,7 @@ some_numbers</code></pre></div>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level2">
-<h2><span class="header-section-number">1.4</span> Exploratory Data Analysis (EDA)</h2>
+<h2><span class="header-section-number">1.3</span> Exploratory Data Analysis (EDA)</h2>
 <p>To finish off this section and to ensure you're all set to go for the rest of the module we're going to carry out some exploratory data analysis and visualisations on some real-world data :-)</p>
 <p>For this module we will be using <code>tidyverse</code>. <a href="https://www.tidyverse.org/">'tidyverse'</a> is a collection of <code>R</code> packages that all share underlying design philosophy, grammar, and data structures. They are specifically designed to make data wrangling, manipulation, visualisation, and analysis simpler.</p>
 <p>To install <strong>all</strong> the packages that belong to the <code>tidyverse</code> run</p>
@@ -402,14 +394,14 @@ some_numbers</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Get the tidyverse packages from our local library
 <span class="kw">library</span>(tidyverse)</code></pre></div>
 <div id="reading-in-data-from-a-.csv-file" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Reading in data from a <code>.csv</code> file</h3>
+<h3><span class="header-section-number">1.3.1</span> Reading in data from a <code>.csv</code> file</h3>
 <p>First off download the <code>paua.csv</code> file from CANVAS (listed under Module 1, Week 1.) onto your computer (remember which folder you saved it in!)</p>
 <p>To read the data into <code>RStudio</code></p>
 <p>In the <em>Environment</em> pane click <strong>Import Dataset</strong> &gt; ** From Text (readr)** &gt; <strong>Browse</strong> &gt; <em>Choose your file, remembering which folder you downloaded it to</em> &gt; <em>Another pane should pop up, check the data looks as you might expect</em> &gt; <strong>Import</strong> You should now notice that in the <em>Environment</em> pane there is something listed under <em>Data</em> (this is the name of the data.frame <em>Object</em> containing the data we will explore)</p>
 <p>Now notice how in the <em>Console</em> a few lines of code have been added. These are the commands you were telling your computer via the point-and-click procedure you went through! Notice the character string inside <code>read_csv()</code>... This is the full 'address' of your data (the folder you saved it in). When you tell your computer to look for something you need to tell it exactly where it is! Remember the <code>getwd()</code> command above, this tells you the default location <code>RStudio</code> will look for a file, if your file is not in this folder you have to tell it the <strong>full</strong> address.</p>
 </div>
 <div id="using-functions-to-explore-the-data" class="section level3">
-<h3><span class="header-section-number">1.4.2</span> Using functions to explore the data</h3>
+<h3><span class="header-section-number">1.3.2</span> Using functions to explore the data</h3>
 <p>Automatically <code>RStudio</code> has run the command <code>View()</code> for you. This makes your dataset show itself in the top left pane. It's like looking at the data in Excel. Follow along with the commands below, I recommend that you open up a new <em>Script</em> and use that to write and save your commands for later. Don't forget to ensure you have read the <strong>paua</strong> into your session (all commands below assume that your data <em>Object</em> is called <code>paua</code>, if you've called it something different then just replace <code>paua</code> with whatever you've called it below.</p>
 <p>Now let's go ahead and use some functions to ask and answer questions about our data. The first thing you should <strong>always</strong> do is view any data frames you import.</p>
 <ul>
@@ -454,7 +446,7 @@ some_numbers</code></pre></div>
 ## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, …</code></pre>
 <p><code>glimpse()</code> will give you the first few entries of each variable in a row after the variable name. Note also, that the data type of the variable is given immediately after each variable’s name inside <code>&lt; &gt;</code>.</p>
 <div id="the-pipe-operator" class="section level4">
-<h4><span class="header-section-number">1.4.2.1</span> The pipe operator <code>%&gt;%</code></h4>
+<h4><span class="header-section-number">1.3.2.1</span> The pipe operator <code>%&gt;%</code></h4>
 <p>A nifty <code>tidyverse</code> tool is called the pipe operator <code>%&gt;%</code>. The pipe operator allows us to combine multiple operations in <code>R</code> into a single sequential chain of actions.</p>
 <p>Say you would like to perform a hypothetical sequence of operations on a hypothetical data frame x using hypothetical functions f(), g(), and h():</p>
 <ul>
@@ -493,7 +485,7 @@ some_numbers</code></pre></div>
 </div>
 </div>
 <div id="basic-plotting-for-your-own-purposes" class="section level3">
-<h3><span class="header-section-number">1.4.3</span> Basic plotting (for your own purposes)</h3>
+<h3><span class="header-section-number">1.3.3</span> Basic plotting (for your own purposes)</h3>
 <p>The payoff is so clear: you make informative plots that help you understand data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(Age <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data  =</span> paua)</code></pre></div>
 <p><img src="_main_files/figure-html/box-1.png" width="672" /></p>
@@ -506,7 +498,7 @@ some_numbers</code></pre></div>
 </div>
 </div>
 <div id="other-resources-optional-but-recommended" class="section level2">
-<h2><span class="header-section-number">1.5</span> Other resources: optional but recommended</h2>
+<h2><span class="header-section-number">1.4</span> Other resources: optional but recommended</h2>
 <p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png" /> Artwork by <a href="https://github.com/allisonhorst/">@allison_horst</a></p>
 <ul>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>

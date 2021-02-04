@@ -94,19 +94,21 @@ As mentioned above `RStudio` depends on `R` so there is an order you should foll
 
 If you get stuck at any of the steps above then please ask either a TA or myself. It is imperative for the rest of the course that you complete the steps above.
 
-#### Good practice: always start with a clean workspace
+#### Good practice
+
+**Always start with a clean workspace**
 
 
 Go to **Tools** > **Global Options**
 
 ![](https://miro.medium.com/max/2784/1*dUNl71Jic2zYhYS2hxOBZA.png)
-Why? 
+**Why? So your ex (code) can't come and mess up your life!**
 
-![](https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg){width=30%} 
+![](https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg) 
 
-So your ex (code) can't come and mess up your life!
 
-##### Project-oriented workflow. Recommened: `.Rproj`
+
+**Project-oriented workflow**. Recommened: `.Rproj`
 
 + **Organised** Set up each Each assignment/university course as a *project*
 + **Self-contained** a *project* is a folder that contains all relevant files
@@ -115,9 +117,9 @@ So your ex (code) can't come and mess up your life!
 
 Got to **Project** (top right) > **New Project** > **Create Project** ![](https://stats220.earo.me/img/rstudio-proj.png)
 
-## Project set-up
+**Project set-up**
 
-![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png)
+![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png){width = 30%}
 
 
 `r emo::ji("warning")`Warning`r emo::ji("warning")`
