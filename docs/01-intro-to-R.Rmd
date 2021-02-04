@@ -119,7 +119,7 @@ Got to **Project** (top right) > **New Project** > **Create Project** ![](https:
 
 **Project set-up**
 
-![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png){width = 30%}
+![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png){width=30%}
 
 
 `r emo::ji("warning")`Warning`r emo::ji("warning")`
@@ -339,7 +339,6 @@ To tell your computer to access the `tidyverse` functionality in your session ru
 ```{r, echo = TRUE, eval = TRUE}
 ## Get the tidyverse packages from our local library
 library(tidyverse)
-
 ```
 
 ### Reading in data from a `.csv` file
@@ -441,7 +440,7 @@ You would read the sequence  above as:
 
 The payoff is so clear: you make informative plots that help you understand data.
 
-```{r box, echo = TRUE, eval = TRUE}
+```{r boxplot, echo = TRUE, eval = TRUE}
 boxplot(Age ~ Species, data  = paua)
 ```
 
