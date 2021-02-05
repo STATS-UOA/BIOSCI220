@@ -1,5 +1,10 @@
 # BIOSCI220, semester 1, 2021.
 
+## Copyright
+
+All files are (C)Copyright by the University of Auckland unless explicitly stated otherwise. Distrubution without prior written permission is prohibited.
+
+
 **This repository contains the materials for Module 1 (weeks 1 to 6) only**
 
 ### Course book [here](https://stats-uoa.github.io/BIOSCI220/)
