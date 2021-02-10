@@ -1,0 +1,234 @@
+# Data exploration and visualization
+
+
+## Learning objectives
+
++ Define data sovereignty and explain this in relation to a researcher's obligation when collecting, displaying, and analysing data
++ Create and communicate informative data visualisations using `R`
++ Discuss and critique data visualisations
++ Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions
+
+## Data wrangling and manipulation
+
+### Introuducing the [Palmer penguins](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
+
+![](https://allisonhorst.github.io/palmerpenguins/man/figures/lter_penguins.png)
+Artwork by [\@allison_horst](https://github.com/allisonhorst/)
+
+
+```{r penguins}
+library(palmerpenguins) ## contains some nice penguin data
+penguins
+```
+
+### Common dataframe manipulations in the `tidyverse`, using `dplyr` and `tidyr`
+
+#### `tidy` data
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg){width=50%}
+Illustration from the Openscapes blog [Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst
+
++ Removing NA values
+
+```{r}
+library(tidyverse)
+penguins_nafree <- penguins %>% drop_na()
+penguins_nafree
+```
+
++ Extract rows that meet logical criteria
+
+```{r}
+dplyr::filter(penguins_nafree, island == "Torgersen" )
+```
+
++ Summarise data into single row of values
+
+```{r}
+dplyr::summarise(penguins_nafree, avgerage_bill_length = mean(bill_length_mm))
+```
+
++ Group data into rows with the same value of Species
+
+```{r}
+dplyr::group_by(penguins_nafree, species)
+```
+
++ Compute separate summary row for each group
+
+```{r}
+penguins_nafree %>% 
+  group_by(species) %>% 
+  summarise(avgerage_bill_length = mean(bill_length_mm))
+```
+
++ Compute separate summary row for each group
+
+```{r}
+penguins_nafree %>% 
+  group_by(island,species) %>% 
+  summarise(avgerage_bill_length = mean(bill_length_mm))
+```
+
+
+
+
+## Data sovereignty
+
+[''**Data sovereignty** is the idea that data are subject to the laws and governance structures within the nation it is collected''](https://en.wikipedia.org/wiki/Data_sovereignty)
+
+
+
+
+## Data Viz
+
+> "...have obligations in that we have a great deal of power over how people 
+> ultimately make use of data, both in the patterns they see and the conclusions they draw."
+
+> `r tufte::quote_footer('--- Michael Correll, Ethical Dimensions of Visualization Research')`
+
+> "Clutter and confusion are not attributes of data - they are shortcomings of design."
+
+> `r tufte::quote_footer('--- Edward Tufte')`
+
+### Two types of plots
+
+#### For you
+
+#### For others
+
+### `ggplot2`
+
+`ggplot2` is an `R` package for producing statistical, or data, graphics; it has an underlying grammar based on the [Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448)
+
+Every `ggplot2` plot has three key components:
+
+  + `data`,
+
+  + A set of `aes`thetic mappings between variables in the data and visual properties, and
+
+  + At least one layer which describes how to render each observation. Layers are usually created with a `geom` function.
+
+<img src="https://www.ericchowkokyew.com/wp-content/uploads/2019/07/image-2.png" width="50%">
+
+#### Plotting penguins
+
+**You might find [this application](https://cmjt.shinyapps.io/penguin/) useful**
+
+Scatter plot
+
+```{r flippoint}
+ggplot(penguins_nafree,aes(x = body_mass_g, y = flipper_length_mm)) + ## data & aesthetics
+    geom_point()  ## geom
+ 
+```
+How about improving our plots?
+
+Simple scatter plot with a *trend* line
+
+```{r simplec}
+ggplot(penguins_nafree, aes(x = body_mass_g, y = flipper_length_mm)) +
+    geom_point() +
+    geom_smooth(method = "lm", col = "blue", se = FALSE)
+```
+
+Using facets to split by sex
+
+```{r facetc}
+ggplot(penguins_nafree, aes(x = body_mass_g, y = flipper_length_mm, 
+                         col = species)) +
+    geom_point(size = 2, alpha = 0.5) + 
+    geom_smooth(method = "lm", se = FALSE) +
+    facet_grid(~ sex) +
+    theme_bw() + 
+    labs(title = "Flipper Length and Body Mass, by Sex & Species",
+         subtitle = paste0(nrow(penguins), " of the Palmer Penguins"),
+         x = "Body Mass (g)", 
+         y = "Flipper Length (mm)")
+```
+
+Boxplot
+
+```{r}
+ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + ## data & aesthetics
+    geom_boxplot()  ## geom
+```
+But do we get all we want to from this? What about variation within the species?
+
+```{r}
+ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + ## data & aesthetics
+    geom_boxplot()  ## geom
+```
+
+What about distribution?
+
+```{r}
+ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + ## data & aesthetics
+    geom_violin()  ## geom
+```
+
+
+#### What do we think about when we look at plots
+
+Between group variation
+
+```{r, echo = FALSE}
+means <- penguins_nafree %>% group_by(species) %>% summarise(means = mean(bill_length_mm))
+mean <- mean(penguins_nafree$bill_length_mm)
+means$ends <- mean
+means$lag1 <- means$means[c(2,3,1)]
+means$lag2 <- means$means[c(3,1,2)]
+ggplot(penguins_nafree,aes(x = species, y = bill_length_mm)) + 
+    geom_violin()  + 
+  ylab("Bill length (mm)") +
+  xlab("Species") +
+   geom_point(data = means, aes(x = species, y = means),color = "blue", size = 2) +
+annotate(geom = 'text', label = "Average bill length per species" , x = -Inf, y = Inf, hjust = 0, vjust = 1.2, color = "blue") +
+  geom_hline(yintercept = mean, color = "red") +
+  annotate(geom = 'text', label = "Overall average bill length" , x = -Inf, y = Inf, hjust = 0, vjust = 3, color = "red") +
+  geom_segment(data = means, aes(x = species, y = means, xend = species, yend = ends),col = "darkgreen", size = 2)  +
+  annotate(geom = 'text', label = "Differences to overall average" , x = -Inf, y = Inf, hjust = 0, vjust = 5, color = "darkgreen") +
+  geom_hline(data = means, aes(yintercept = means), color = "blue", alpha = 0.3, lty = 2) + 
+  geom_segment(data = means, aes(x = as.numeric(species) - 0.15, y = means, 
+                                 xend = as.numeric(species) - 0.15, yend = lag1),col = "purple", size = 2) +
+  geom_segment(data = means, aes(x = as.numeric(species) + 0.15, y = means, 
+                                 xend = as.numeric(species) + 0.15, yend = lag2),col = "purple", size = 2)+
+  annotate(geom = 'text', label = "Differences between groups" , x = -Inf, y = Inf, 
+           hjust = 0, vjust = 7, color = "purple")
+```
+Within group variation
+
+```{r,echo = FALSE}
+jit <- ggplot() + 
+  geom_jitter(data = penguins_nafree,aes(x = species, y = bill_length_mm, color = species), alpha = 0.2) 
+
+penguins_nafree$x_points <- layer_data(jit)$x
+penguins_nafree$y_points <- layer_data(jit)$y
+penguins_nafree <- penguins_nafree %>% group_by(species) %>% mutate(sp_means = mean(bill_length_mm))
+
+ggplot() + 
+  ylab("Bill length (mm)") +
+  xlab("Species") +
+  geom_point(data = means, aes(x = species, y = means, color = species), size = 2) +
+  geom_text(data = means, aes(x = species, y = means + 2.5, color = species, 
+                              label = paste0("Species average = ",round(means,3)))) +
+  geom_hline(data = means, aes(yintercept = means, color = species), alpha = 0.3, lty = 2) +
+  geom_point(data = penguins_nafree,aes(x = x_points, y = y_points, color = species), alpha = 0.2) +
+  theme(legend.position = "none") + 
+  geom_segment(data = penguins_nafree, aes(x = x_points, y = y_points, xend = x_points, 
+                                 yend = sp_means,color = species), size = 1, alpha = 0.2) 
+```
+
+
+## Other resources: optional but recommended
+
++ [Why data sovereignty matters](https://www.onenet.co.nz/our-resources/why-data-sovereignty-matters/)
++ [Indigenous Data Sovereignty and Policy](https://library.oapen.org/handle/20.500.12657/42782)
++ [Principles of Māori Data Sovereignty](https://cdn.auckland.ac.nz/assets/psych/about/our-research/documents/TMR%2BM%C4%81ori%2BData%2BSovereignty%2BPrinciples%2BOct%2B2018.pdf)
++ [`ggplot2` cheatsheet](https://rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf)
++ [Elegant Graphics for Data Analysis](https://ggplot2-book.org/introduction.html)
++ [Using `ggplot2` to communicate your results](https://ourcodingclub.github.io/tutorials/datavis/)
++ [Teacups, giraffes, and statistics: free online introductory level R and statistics modules](https://tinystats.github.io/teacups-giraffes-and-statistics/)
+
+
+
