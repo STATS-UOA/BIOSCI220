@@ -1,60 +1,102 @@
 # Data exploration and visualization
 
+So now you've been introduced to `R` and `RStudio` let's get going with some data manipulation and visualization. Exploring and visualising your data is one of the most important steps. It's also one of the simplest!
+
+You'll not find anyone who's not made the mistake of taking their data for granted. Just because someone says it's so **NEVER** trust that that's the case. From typos, to `NA`s, through [-999](https://stats.stackexchange.com/questions/225175/why-do-some-people-use-999-or-9999-to-replace-missing-values) and let's not even talk dates, your data will always have a surprise in store for you.
+
 
 ## Learning objectives
 
++ Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions
 + Define data sovereignty and explain this in relation to a researcher's obligation when collecting, displaying, and analysing data
 + Create and communicate informative data visualisations using `R`
 + Discuss and critique data visualisations
-+ Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions
+
 
 ## Data wrangling and manipulation
 
+**`tidy` data**
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg){width=70%}
+
+Illustration from the Openscapes blog [Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst
+
 ### Introuducing the [Palmer penguins](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
 
-![](https://allisonhorst.github.io/palmerpenguins/man/figures/lter_penguins.png)
-Artwork by [\@allison_horst](https://github.com/allisonhorst/)
 
+
+```{r embed, out.extra='style="border: none;"', out.width='40%', echo = FALSE}
+knitr::include_url('https://giphy.com/embed/3og0IO5z8Rd30ktV6g')
+```
 
 ```{r penguins}
 library(palmerpenguins) ## contains some nice penguin data
 penguins
 ```
 
+So, what does this show us?
+
++ `A tibble: 344 x 8`: A `tibble` is a specific kind of data frame in `R`. The `penguin` dataset has
+   + `344` rows (i.e., 344 different observations). Here, each observation corresponds to a penguin.
+   + `8` columns corresponding to 3 variables describing each observation.
++ `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, and  `year` are the different variables of this dataset.
++ We then have a preview of the first 10 rows of observations corresponding to the first 10 penguins. ```... with 334 more rows` indicates there are 334 more rows to see, but these have not been printed (likely as it would clog our screen)
+
+To learn more about the penguins read the [paper that talks all about the data collection.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
+
 ### Common dataframe manipulations in the `tidyverse`, using `dplyr` and `tidyr`
 
-#### `tidy` data
+Even from these first few rows of data we can see that there are some `NA` values. Let's count the number of `NA`s. Remember the `%>%` operator? Here we're going to be introduced to a few new things
 
-![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg){width=50%}
-Illustration from the Openscapes blog [Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst
+  + the `apply()` function,
+  + the `is.na()` function, and
+  + how `R` deals with `logical` values!
 
-+ Removing NA values
+```{r, message = FALSE}
+library(tidyverse)
+penguins %>% 
+  apply(.,2,is.na) %>%
+  apply(.,2,sum)
+```
+There's lot going on in that code! Let's break it down
+
++ Take `penguins` then
++ Use `penguins` as an input to the `apply()` function (this is specified as the first argument using the `.`)
+  + Now the `apply()` function takes 3 arguments: 
+    1. the data object you want it to *apply* something to (in our case `penguins`)
+    2. the margin you want to *apply* that something to; 1 stands for rows and 2 stands for columns, and
+    3. the function you want it to apply (in our case `is.na()`).
+  + So the second line of code is asking `R` to *apply* the `is.na()` function over the columns of `penguins`
+    + `is.na()` asks for each value it's fed is it an `NA` value; it returens a `TRUE` if so and a `FALSE` otherwise
++ The output from the first `apply()` is then fed to the second `apply()` (using the `.`). The `sum()` function then add them up!
+    + `R` treats a `TRUE` as a 1 and a `FALSE` as a 0.
+    
+So how many `NA`s do you think there are!
+
+Doesn't help much. To
+
+Now we know there are `NA` values throughout the data let's remove then and create a new `NA` free version called `penguins_nafree`. There is a really handy `tidyverse` (`dplyr`) function for this!
 
 ```{r}
-library(tidyverse)
 penguins_nafree <- penguins %>% drop_na()
 penguins_nafree
 ```
 
-+ Extract rows that meet logical criteria
+Below are some other useful manipulation functions; have a look at the out puts and run them yourselves and see if you can work out what they're doing.
 
 ```{r}
-dplyr::filter(penguins_nafree, island == "Torgersen" )
+filter(penguins_nafree, island == "Torgersen" )
+summarise(penguins_nafree, avgerage_bill_length = mean(bill_length_mm))
+group_by(penguins_nafree, species)
 ```
 
-+ Summarise data into single row of values
 
-```{r}
-dplyr::summarise(penguins_nafree, avgerage_bill_length = mean(bill_length_mm))
-```
+Often we want to summarise variables by different groups (factors). Below we
 
-+ Group data into rows with the same value of Species
++ Take the `penguins_nafree` data then
++ Use this and apply the `group_by()` function to group by `species`
++ Use this output and apply the `summarize()` function to calculate the mean (using (`mean()`) bill length (`bill_length_mm`) of each group (`species`), calling the resulting number `avgerage_bill_length`
 
-```{r}
-dplyr::group_by(penguins_nafree, species)
-```
-
-+ Compute separate summary row for each group
 
 ```{r}
 penguins_nafree %>% 
@@ -62,7 +104,8 @@ penguins_nafree %>%
   summarise(avgerage_bill_length = mean(bill_length_mm))
 ```
 
-+ Compute separate summary row for each group
+We can also group by multiple factors, for example, 
+
 
 ```{r}
 penguins_nafree %>% 
@@ -91,13 +134,38 @@ penguins_nafree %>%
 
 > `r tufte::quote_footer('--- Edward Tufte')`
 
+
 ### Two types of plots
 
-#### For you
+1. **For you**
+  + data exploration
+  + doesn't have to look pretty
+  + just needs to get to the point
+  
+```{r example, me, echo = FALSE, fig.cap="", warning = FALSE, message = FALSE}
+## scatter
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point()
+## histogram
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram(aes(fill = species), alpha = 0.5, position = "identity")
+```
 
-#### For others
 
-### `ggplot2`
+ 2. **For others**
+   + clear purpose
+   + designed for the audience
+   + make it easy to read (*this covers a lot of things*)
+   + do not distort
+   
+   
+![](https://jimgruman.netlify.app/post/variableimportance/2020_31_PalmerPenguins.png)
+
+Plots by Cedric Scherer and mentioned on [this blog](https://jimgruman.netlify.app/post/variableimportance/)
+
+So we've seen some pretty plots, let's get around to making some!
+
+### Introducing `ggplot2`
 
 `ggplot2` is an `R` package for producing statistical, or data, graphics; it has an underlying grammar based on the [Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448)
 
@@ -109,62 +177,71 @@ Every `ggplot2` plot has three key components:
 
   + At least one layer which describes how to render each observation. Layers are usually created with a `geom` function.
 
-<img src="https://www.ericchowkokyew.com/wp-content/uploads/2019/07/image-2.png" width="50%">
 
-#### Plotting penguins
+#### Plotting `palmerpenguins`
 
-**You might find [this application](https://cmjt.shinyapps.io/penguin/) useful**
+**You might find [this application](https://cmjt.shinyapps.io/penguin/) useful, now and later...**
 
-Scatter plot
+We've seen that there are three `factor` variables in the dataset: `species`, `island`, and `sex`. To count the number of penguins of each `species` and `sex` on each `island` we could use
 
-```{r flippoint}
-ggplot(penguins_nafree,aes(x = body_mass_g, y = flipper_length_mm)) + ## data & aesthetics
-    geom_point()  ## geom
- 
-```
-How about improving our plots?
-
-Simple scatter plot with a *trend* line
-
-```{r simplec}
-ggplot(penguins_nafree, aes(x = body_mass_g, y = flipper_length_mm)) +
-    geom_point() +
-    geom_smooth(method = "lm", col = "blue", se = FALSE)
+```{r count}
+penguins_nafree %>%
+  count(species, sex, island)
 ```
 
-Using facets to split by sex
+Not too easy to compare the numbers here; what about a bar graph (`geom_bar()`)? Based on what we went throuh in the lecture see if you can figure out what each line is adding to the plot. What do you think `facet_wrap()` is doing? To figure it out run the code yourself and try changing some of the lines of code.
 
-```{r facetc}
-ggplot(penguins_nafree, aes(x = body_mass_g, y = flipper_length_mm, 
-                         col = species)) +
-    geom_point(size = 2, alpha = 0.5) + 
-    geom_smooth(method = "lm", se = FALSE) +
-    facet_grid(~ sex) +
-    theme_bw() + 
-    labs(title = "Flipper Length and Body Mass, by Sex & Species",
-         subtitle = paste0(nrow(penguins), " of the Palmer Penguins"),
-         x = "Body Mass (g)", 
-         y = "Flipper Length (mm)")
+```{r bar}
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() + ## remember themes...
+  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
 ```
 
-Boxplot
 
-```{r}
-ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + ## data & aesthetics
-    geom_boxplot()  ## geom
+We aslo saw there were a few continuous variables, so let's look at scatter plots (`geom_point()`).
+
+```{r point}
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() + ## Oo a new theme
+  xlab("Bill length (mm)") +
+  ylab("Bill length (mm)")
 ```
-But do we get all we want to from this? What about variation within the species?
 
-```{r}
-ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + ## data & aesthetics
-    geom_boxplot()  ## geom
-```
+What about the *spread*/*distribution* of our continuous vaiables by the factor variables (e.g., `species`):
 
-What about distribution?
+  + Boxplots (`geom_boxplot()`)? 
+  + Violin plots (`geom_violin()`)? 
+  + Histograms (`geom_histogram()`)?
 
-```{r}
-ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + ## data & aesthetics
-    geom_violin()  ## geom
+
+In addition,we should always avoid using similarily bight red and green colours: they may not be distinguishable for red-green colorblind readers. Using `ggplot2` we can access a whole range of colourblind friendly palettes: one package that has a whole range is `RColorBrewer` install it then try running `RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)` what do you think you've asked your compueter to show you?
+
+
+```{r, message=FALSE}
+## boxplot
+ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) +
+    geom_boxplot() +
+    ylab("Flipper length (mm)") + xlab("") +
+  theme_classic() ## yet another theme
+## violin plot
+ggplot(penguins_nafree,aes(x = species, y = flipper_length_mm)) + 
+    geom_violin() +
+    ylab("Flipper length (mm)") + xlab("") +
+    theme_minimal() ## soon you could be making your own
+## histogram, with a colorblind friendly palette
+## try running display.brewer.all(colorblindFriendly = TRUE)
+## what do you think it's doing
+ggplot(penguins_nafree,aes(x = flipper_length_mm)) + 
+    geom_histogram(aes(fill = species), alpha = 0.5, position = "identity") +
+    xlab("Flipper length (mm)") + 
+    scale_fill_brewer(palette = "Dark2", name = "Species") +
+  theme_light()
+
 ```
 
 

@@ -139,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-and-rstudio" class="section level1">
 <h1><span class="header-section-number">1</span> <code>R</code> and <code>RStudio</code></h1>
 <p>The purpose of this chapter is to get you started learning a new language! Throughout BIOSCI220 you will be introduced to tools required to critically analyse and interpret biological data, and processing into biological information.</p>
-<p>Throughout this module you will be expected to use <code>R</code> and <code>RStudio weekly</code>. It is highly recommended that you familiarise yourself with these environments using the computer, on which, you plan to carry out the majority of your work. If this is a lab computer then <code>R</code> and <code>RStudio</code> will already been installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of <a href="https://rstudio.cloud/">RStudio Cloud</a>; here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer.</p>
+<p>Throughout this module you will be expected to use <code>R</code> and <code>RStudio</code> weekly. It is highly recommended that you familiarise yourself with these environments using the computer, on which, you plan to carry out the majority of your work. If this is a lab computer then <code>R</code> and <code>RStudio</code> will already been installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of <a href="https://rstudio.cloud/">RStudio Cloud</a>; here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer.</p>
 <p>However, if you plan to use your personal computer then you will need to install both <code>R</code> and <code>RStudio</code>. Follow the directions in [installing-r-and-rstudio] to do this.</p>
 <div id="learning-objectives" class="section level2">
 <h2><span class="header-section-number">1.1</span> Learning Objectives</h2>
@@ -366,7 +366,7 @@ some_numbers</code></pre></div>
 <p>You need to tell your computer where to look!</p>
 <p>Look at the top of your <em>Console</em>. You will see something like <em>~/Desktop/</em> or <em>C://Users/...</em> (it won't be an exact match of course). This is the 'address' of where your computer is looking. Now, run <code>getwd()</code> and see what output you get (it will be the same as written on the top of your <em>Console</em> pane. This is because <code>getwd()</code> stands for <strong>get</strong> the current <strong>w</strong>orking<strong>d</strong>irectory (i.e., the current directory you are currently <em>working</em> in) e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
-<pre><code>## [1] &quot;/home/charlotte/Git/BIOSCI220/docs&quot;</code></pre>
+<pre><code>## [1] &quot;/home/cjon911/Git/BIOSCI220/docs&quot;</code></pre>
 <p>You should ensure that you are aware of which directory you're working in (which folder <code>RStudio</code> is looking in by default) as this is important later on when we come to reading in files and saving our work!</p>
 <div id="changing-address" class="section level4">
 <h4><span class="header-section-number">1.2.11.1</span> Changing address</h4>
@@ -460,12 +460,6 @@ some_numbers</code></pre></div>
 <h4><span class="header-section-number">1.3.2.1</span> The pipe operator <code>%&gt;%</code></h4>
 <p>A nifty <code>tidyverse</code> tool is called the pipe operator <code>%&gt;%</code>. The pipe operator allows us to combine multiple operations in <code>R</code> into a single sequential chain of actions.</p>
 <p>Say you would like to perform a hypothetical sequence of operations on a hypothetical data frame x using hypothetical functions f(), g(), and h():</p>
-<ul>
-<li>Take <code>x</code> then</li>
-<li>Use <code>x</code> as an input to a function <code>f()</code> then</li>
-<li>Use the output of this as an input to a function <code>g()</code> then</li>
-<li>Use the output of this as an input to a function <code>h()</code></li>
-</ul>
 <p>This is where the pipe operator %&gt;% comes in handy. %&gt;% takes the output of one function and then “pipes” it to be the input of the next function. Furthermore, a helpful trick is to read %&gt;% as “then” or “and then.” For example, you can obtain the same output as the hypothetical sequence of functions as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">f</span>() <span class="op">%&gt;%</span><span class="st"> </span>
@@ -491,7 +485,7 @@ some_numbers</code></pre></div>
 <ul>
 <li>Take the <code>paua</code> data.frame then</li>
 <li>Use this and apply the <code>group_by()</code> function to group by <code>Species</code></li>
-<li>Use this output and apply the <code>summarize()</code> function to calculate the mean Age of each group (Species), calling the resulting number <code>mean_age</code></li>
+<li>Use this output and apply the <code>summarize()</code> function to calculate the mean (using (<code>mean()</code>) <code>Age</code> of each group (<code>Species</code>), calling the resulting number <code>mean_age</code></li>
 </ul>
 </div>
 </div>
