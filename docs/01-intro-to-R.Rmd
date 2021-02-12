@@ -1,14 +1,14 @@
 #  `R` and `RStudio`
 
-The purpose of this chapter is to get you started learning a new language! Throughout BIOSCI220 you will be introduced to tools required to critically analyse and interpret biological data, and processing into biological information.
+The purpose of this chapter is to get you started learning a new language! Throughout BIOSCI220 you will be introduced to tools required to critically analyse and interpret biological data.
 
 Throughout this module you will be expected to use `R` and `RStudio` weekly. It is highly
-recommended that you familiarise yourself with these environments using the computer, on
-which, you plan to carry out the majority of your work. If this is a lab computer then `R` and
+recommended that you familiarise yourself with these environments using the computer on
+which you plan to carry out the majority of your work. If this is a lab computer then `R` and
 `RStudio` will already been installed. If you choose to use these then you should still complete the exercises below to familiarise yourself with the software. Another option available is the use of [RStudio Cloud](https://rstudio.cloud/); here, everything is run in a web browser (on a remote server) and doesn't require you to download the software onto your personal computer.
 
 
-However, if you plan to use your personal computer then you will need to install both `R` and `RStudio`. Follow the directions in [installing-r-and-rstudio] to do this.
+However, if you plan to use your personal computer then you will need to install both `R` and `RStudio`. Follow the directions in [Installing R and RStudio] to do so.
 
 ## Learning Objectives
 
@@ -34,18 +34,18 @@ read.csv("paua.csv")
 + Use the appropriate `R` function to read in a `.csv` data; carry out basic exploratory data analysis using `tidyverse` (use the pipe operator, `%>%` when summarising a `data.frame`); create simple plots of the data.
 
 
-## Introduction to `R` and `RStudio`?
+## Introduction to `R` and `RStudio`
 
 ![](figs/r-rstudio-pda.jpg)
 
 `R` is the pheromone to `RStudio`'s PDA.
 
 
-`R` is a language. Specifically a programming language; it's the way you can speak to your computer to ask it to carry out certain computations.
+`R` is a language, specifically, a programming language; it's the way you can speak to your computer to ask it to carry out certain computations.
 
-`RStudio` is an integrated development environment (IDE). This means it is basically an interface, albeit a fancy one, that makes it easier to communicate with your computer in the `R` language. The main benefit is the additional features it has that enable you to more efficiently *speak* `R`.
+`RStudio` is an integrated development environment (IDE). This means it is basically an interface, albeit a fancy one, that makes it easier to communicate with your computer in the language `R`. The main benefit is the additional features it has that enable you to more efficiently *speak* `R`.
 
-**Note** `R` and `RStudio` are two **different** pieces of software; for this course you are expected to download both. As you'd expect the PDA depends on the pheromones (i.e., `RStudio` depends on `R`) so you have to download `R` to use `RStudio`! 
+**Note** `R` and `RStudio` are two **different** pieces of software; for this course you are expected to download both. As you'd expect, the PDA depends on the pheromones (i.e., `RStudio` depends on `R`) so you have to download `R` to use `RStudio`! 
 
 ### Why?
 
@@ -68,7 +68,9 @@ The selling pitch of this course states that *...biological research has actuall
 
 #### Why `RStudio`?
 
-+ *"If R were an airplane, RStudio would be the airport..."* [Introduction to RStudio Awesomeness byJulie Lowndes](http://jules32.github.io/resources/RStudio_intro/)
+> "If R were an airplane, RStudio would be the airport..." `r tufte::quote_footer('--- Julie Lowndes, Introduction to RStudio Awesomeness')`
+
+ 
 + Speaks nicely to `R`
 + Tab completion
 + Debugging capabilities
@@ -94,21 +96,19 @@ As mentioned above `RStudio` depends on `R` so there is an order you should foll
 
 If you get stuck at any of the steps above then please ask either a TA or myself. It is imperative for the rest of the course that you complete the steps above.
 
-#### Good practice
+#### Good practice*
 
-**Always start with a clean workspace**
+**Always start with a clean workspace** **Why?** *So your ex (code) can't come and mess up your life!**
+
+![](https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg) 
 
 
 Go to **Tools** > **Global Options**
 
 ![](https://miro.medium.com/max/2784/1*dUNl71Jic2zYhYS2hxOBZA.png)
-**Why? So your ex (code) can't come and mess up your life!**
-
-![](https://memegenerator.net/img/instances/57296391/when-your-ex-texts-you-after-months-hey-whats-up-not-today-satan-not-today.jpg) 
 
 
-
-**Project-oriented workflow**. Recommened: `.Rproj`
+**Project-oriented workflow**. Recommended: `.Rproj`
 
 + **Organised** Set up each Each assignment/university course as a *project*
 + **Self-contained** a *project* is a folder that contains all relevant files
@@ -131,15 +131,16 @@ rm(list = ls())
 ```
 
 This
+
 + does **NOT** create a fresh `R` process
 + it makes your script vulnerable
-+ ...
++ it **will** come back to bite you
 
 
 
 ### Getting started
 
-As in step 3. above  open up `RStudio` from your computer menu, the icon will look something like this ![](https://vectorified.com/images/rstudio-icon-31.png){width=7%}. Using the diagram above identify the different panes:
+As in *step 3.* above  open up `RStudio` from your computer menu, the icon will look something like this ![](https://vectorified.com/images/rstudio-icon-31.png){width=7%}. Using the diagram above identify the different panes:
 
  + *Console* where you directly type command in and communicate with your computer (via the language `R`).
  + *Environment pane*
@@ -156,7 +157,7 @@ Some terminology
 
 Go **File** > **New File** > **R Script** to open up a new *Script*
 
-A new (fourth) pane should open up in the top left of `RStudio`, your *Console* will have shrunk in size to accommodate this extra pane. This file will have a `.r` extension and is where you can write, edit, and save the `R` commands you write. It's a dedicated test editor for your `R` code (very useful if you want to save your code to run at a later date). The main difference between typing your code into a *Script* vs *Console* is that you edit it and save it for later! Remember though the *Console* is the pane where you communicate with your computer so all code you write will have to be *Run* here. There are two ways of *running* a line of code you've written in your *Script*
+If you had only three panes showing before, a new (fourth) pane should open up in the top left of `RStudio`. This file will have a `.r` extension and is where you can write, edit, and save the `R` commands you write. It's a dedicated text editor for your `R` code (very useful if you want to save your code to run at a later date). The main difference between typing your code into a *Script* vs *Console* is that you edit it and save it for later! Remember though the *Console* is the pane where you communicate with your computer so all code you write will have to be *Run* here. There are two ways of *running* a line of code you've written in your *Script*
 
  + Ensure your cursor is on the line of code you want to run, hold down **Ctrl** and press **Enter**.
  + Ensure your cursor is on the line of code you want to run, then use your mouse to click the Run button (it has a green arrow next to it) on the top right of the *Script* pane.
@@ -165,9 +166,20 @@ Type `1:10` in your *Script* and practise *running* this line of code using both
 
 ### Writing *Comments*
 
-*Comments* are notes to yourself (future or present) or to someone else that are, typically, written interspersed in your code. Now, the comments you write will typically be in a language your computer doesn't understand (e.g., English). So that you can write yourself notes in your *Script* you need to tell your computer using the `R` language to ignore them. To do this precede any note you write with \#, see below. The \# is `R` for *ignore anything after this character*.
+*Comments* are notes to yourself (future or present) or to someone else and are, typically, written interspersed in your code. Now, the comments you write will typically be in a language your computer doesn't understand (e.g., English). So that you can write yourself notes in your *Script* you need to tell your computer using the `R` language to ignore them. To do this precede any note you write with \#, see below. The \# is `R` for *ignore anything after this character*.
 
-Now remember when you want to leave your `R` Session you'll need to **Save** your *Script* to use it again. To do this go **File** > **Save As** and name your file what you wish (remember too to choose a relevant folder on your computer!).
+```{r comments, echo = TRUE, eval = TRUE}
+## IGNORE ME
+## I'm a comment
+## I repeat I'm a comment
+## I am not a cat
+## OK let's run some code
+2 + 2
+## Hmm maybe I should check this
+## @kareem_carr ;-)
+```
+
+Now remember when you want to leave your `R` session you'll need to **Save** your *Script* to use it again. To do this go **File** > **Save As** and name your file what you wish (remember too to choose a relevant folder on your computer, or as recommended use the `.Rproj` set-up as above).
 
 ### Data types
 
@@ -190,7 +202,7 @@ class("Charlotte")
 
 ### Creating *Objects*
 
-*Objects* are created values using the symbols `<-` (an arrow formed out of `<` and `-`). Like we, typically, write an equation the left-hand side is the *Object* we're defining (creating) and the right-hand side is the stuff we're defining it as.  For example, below I'm creating the *Object* `my_name` and assigning it the character string of my first name
+*Objects* are created values using the symbols `<-` (an arrow formed out of `<` and `-`). Like we, typically, write an equation the left-hand side is the *Object* we're defining (creating) and the right-hand side is the stuff we're defining it as.  For example, below I'm creating the *Object* `my_name` and assigning it the character string of my first name.
 
 ```{r name, eval = TRUE, echo = TRUE}
 my_name <- "Charlotte"
@@ -209,7 +221,7 @@ my_name
 ```
 
 
-*Note*: `R` is case sensitive: it treats `my_name` and `m=My_Name` as **completely** different objects.
+*Note*: `R` is case sensitive: it treats `my_name` and `My_Name` as **different** objects.
 
 An object can be assigned a collection of things:
 
@@ -225,14 +237,13 @@ An *Object* can also be an entire dataset, see [Exploratory Data Analysis (EDA)]
 
 ### `R` functions
 
-Functions (or command) perform tasks in R. They take in inputs called arguments and return outputs. You can either manually specify a function’s arguments or use the function’s default values. For example, the function seq() in R generates a sequence of numbers. If you just run seq() it will return the value 1. That doesn’t seem very useful! This is because the default arguments are set as seq(from = 1, to = 1). Thus, if you don’t pass in different values for from and to to change this behaviour, R just assumes all you want is the number 1. You can change the argument values by updating the values after the = sign. If we try out seq(from = 2, to = 5) we get the result 2 3 4 5 that we might expect.
+Functions (or commands) perform tasks in R. They take in inputs called *arguments* and return outputs. You can either manually specify a function’s arguments or use the function’s default values. For example, the function `seq()` in R generates a sequence of numbers. If you just run `seq()` it will return the value 1. That doesn’t seem very useful! This is because the default arguments are set as `seq(from = 1, to = 1)`. Thus, if you don't pass in different values for from and to to change this behaviour, your computer just assumes all you want is the number 1. You can change the argument values by updating the values after the `=` sign. If we try out `seq(from = 2, to = 5)` we get the result `r `seq(from = 2, to = 5)` that we might expect.
 
 ### `R` packages
 
+An `R` *package* is simply a collection of functions! Typically all focused on a particular type of procedure.
 
-The base installation of R comes with many useful packages as standard. These packages will contain many of the functions you will use on a daily basis. However, as you start using R for more diverse projects (and as your own use of R evolves) you will find that there comes a time when you will need to extend R’s capabilities. Happily, many thousands of R users have developed useful code and shared this code as installable packages. You can think of a package as a collection of functions, data and help files collated into a well defined standard structure which you can download and install in R.
-
-To install a package from CRAN you can use the install.packages() function. For example if you want to install the remotes package enter the following code into the Console window of RStudio (note: you will need a working internet connection to do this)
+The base installation of `R` comes with many useful packages as standard and these packages will contain many of the functions you will use on a daily basis (e.g., `mean()`, `length()`). However, often we wish to do more than base `R` offer! To do this we need to access all the other amazing packages there are in the `R`verse. 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Interior_view_of_Stockholm_Public_Library.jpg/800px-Interior_view_of_Stockholm_Public_Library.jpg)
 
@@ -261,11 +272,12 @@ library(the.package.name)
 
 Sometimes rather than doing what you expect it to your computer will return an Error message to you via the *Console* prefaced with **Error in...* followed by text that will try to explain what went wrong. This, generally, means something has gone wrong, so what do you do?
 
- + Read it! THE MESSAGES ARE WRITTEN IN AS PLAIN A ENGLISH AS POSSIBLE
+ + **Read it**! THE MESSAGES ARE WRITTEN IN PLAIN ENGLISH (MOSTLY)
  + **DO NOT** continue running bits of code hoping the issue will go away. IT WILL NOT.
- + Try and work out what it means and fix it:
-   + read the documentation!
-   + search or ask questions on [Stack Overflow](https://stackoverflow.com/) or [RStudio Community](https://community.rstudio.com/)
+ + Try and work out what it means and fix it by:
+ 
+    + reading the documentation, see []
+    + search or ask questions on [Stack Overflow](https://stackoverflow.com/) or [RStudio Community](https://community.rstudio.com/)
 
 
 Sometimes your computer will return a warning messages to you prefaced "Warning:". These can sometimes be ignored as they may not affect us. However, READ THE MESSAGE and decide for yourself. Occasionally, also your computer will write you a friendly message, just keeping you up-to date with what it's doing, again don't ignore these they might be telling you something useful!
@@ -338,6 +350,8 @@ To tell your computer to access the `tidyverse` functionality in your session ru
 
 ```{r, echo = TRUE, eval = TRUE}
 ## Get the tidyverse packages from our local library
+## Do this every time you start a new session
+## and want to use the tidyverse! 
 library(tidyverse)
 ```
 
@@ -372,10 +386,10 @@ paua
 So, what does this show us?
 
 + `A tibble: 60 x 3`: A `tibble` is a specific kind of data frame in `R`. Our `paua` dataset has
-   + `60` rows (i.e., 60 different observations). Here, each observation corresponds to a Paua shell.
+   + `60` rows (i.e., 60 different observations). Here, each observation corresponds to a P$\overline{a}$ua shell.
    + `3` columns corresponding to 3 variables describing each observation.
 + `Species`, `Length`, and `Age` are the different variables of this dataset.
-+ We then have a preview of the first 10 rows of observations corresponding to the first 10 Paua shells. ```... with 50 more rows` indicates there are 50 more rows to see, but these have not been printed (likely as it would clog our screen)
++ We then have a preview of the first 10 rows of observations corresponding to the first 10 P$\overline{a}$uashells. ```... with 50 more rows` indicates there are 50 more rows to see, but these have not been printed (likely as it would clog our screen)
 
 Let's look at some other ways of exploring the data.
 
@@ -391,7 +405,7 @@ View(paua)
 glimpse(paua)
 ```
 
-`glimpse()` will give you the first few entries of each variable in a row after the variable name. Note also, that the data type  of the variable is given immediately after each variable’s name inside `< >`.
+`glimpse()` will give you the first few entries of each variable in a row after the variable name. Note also, that the data type  of the variable is given immediately after each variables name inside `< >`.
 
 #### The pipe operator `%>%`
 

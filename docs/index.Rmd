@@ -33,7 +33,7 @@ Therefore, in order to understand modern biological research and findings, and t
 + Data Exploration and Statistical Inference
 + Data wrangling and visualisation. Introduction to R, importing and plotting data, R packages
 + Experimental design and introduction to linear models
-+ Linear models with multiple variables; interpretation; ANOVA
++ Linear models with multiple variables; model interpretation
 + Interpretation of p-values; model critique and model comparison
 + Large data, exploratory data analysis, introduction to clustering and dimensionality reduction
 
@@ -46,12 +46,13 @@ knitr::include_url("https://biosci220.netlify.app/")
 
 ## Timetable & Assessment (Modules I, II, and III)
 
-+ **Lectures** in 405-460 Monday 9–10am
-+ **Labs** in 106-014
-  + Monday 2–5pm
-  + Tuesday 10am–1pm
-  + Thursday 10am–1pm
-  + Friday 10am–1pm
++ **Lectures**  Monday 9–10am
++ **Labs**
+
+   + Monday 2–5pm
+   + Tuesday 10am–1pm
+   + Thursday 10am–1pm
+   + Friday 10am–1pm
 
 + **Lab exercises** 60% Total (11 labs in Total; 6 for Module 1, weeks 1--6) *Due weekly by 5pm*
 + Weekly **quizzes** 10% Total (11 quizzes in Total; 5 for Module 1, weeks 2--6) *Due weekly by 5pm*

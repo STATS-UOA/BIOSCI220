@@ -17,12 +17,29 @@ You'll not find anyone who's not made the mistake of taking their data for grant
 
 **`tidy` data**
 
+> "Tidy datasets are all alike, but every messy dataset is messy in its own way." `r tufte::quote_footer('--- Hadley Wickham')`
+
+
+There are three interrelated rules which make a dataset `tidy`:
+
+ 1. Each variable must have its own column
+ 2. Each observation must have its own row
+ 3. Each value must have its own cell
+
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg){width=70%}
 
 Illustration from the Openscapes blog [Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst
 
-### Introuducing the [Palmer penguins](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
 
+Why ensure that your data is `tidy`? 
+
+ + **Consistency:** using a consistent format aids learning and reproducibility
+
+ + **Simplicity:** it's a format that is well understood by `R`
+ 
+> "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets." [`r tufte::quote_footer('--- Hadley Wickham, Tidy data')`](https://vita.had.co.nz/papers/tidy-data.html)
+
+### Introuducing the [Palmer penguins](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
 
 
 ```{r embed, out.extra='style="border: none;"', out.width='40%', echo = FALSE}
@@ -67,7 +84,7 @@ There's lot going on in that code! Let's break it down
     2. the margin you want to *apply* that something to; 1 stands for rows and 2 stands for columns, and
     3. the function you want it to apply (in our case `is.na()`).
   + So the second line of code is asking `R` to *apply* the `is.na()` function over the columns of `penguins`
-    + `is.na()` asks for each value it's fed is it an `NA` value; it returens a `TRUE` if so and a `FALSE` otherwise
+    + `is.na()` asks for each value it's fed is it an `NA` value; it returns a `TRUE` if so and a `FALSE` otherwise
 + The output from the first `apply()` is then fed to the second `apply()` (using the `.`). The `sum()` function then add them up!
     + `R` treats a `TRUE` as a 1 and a `FALSE` as a 0.
     
@@ -125,19 +142,14 @@ penguins_nafree %>%
 
 ## Data Viz
 
-> "...have obligations in that we have a great deal of power over how people 
-> ultimately make use of data, both in the patterns they see and the conclusions they draw."
+> "...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw." `r tufte::quote_footer('--- Michael Correll, Ethical Dimensions of Visualization Research')`
 
-> `r tufte::quote_footer('--- Michael Correll, Ethical Dimensions of Visualization Research')`
-
-> "Clutter and confusion are not attributes of data - they are shortcomings of design."
-
-> `r tufte::quote_footer('--- Edward Tufte')`
+> "Clutter and confusion are not attributes of data - they are shortcomings of design." `r tufte::quote_footer('--- Edward Tufte')`
 
 
-### Two types of plots
+### Exploratory and explanatory plots
 
-1. **For you**
+1. **Exploratory plots** (*for you*)
   + data exploration
   + doesn't have to look pretty
   + just needs to get to the point
@@ -152,7 +164,7 @@ ggplot(data = penguins, aes(x = bill_length_mm)) +
 ```
 
 
- 2. **For others**
+ 2. **Explanatory plots** (*For others*)
    + clear purpose
    + designed for the audience
    + make it easy to read (*this covers a lot of things*)
@@ -189,7 +201,7 @@ penguins_nafree %>%
   count(species, sex, island)
 ```
 
-Not too easy to compare the numbers here; what about a bar graph (`geom_bar()`)? Based on what we went throuh in the lecture see if you can figure out what each line is adding to the plot. What do you think `facet_wrap()` is doing? To figure it out run the code yourself and try changing some of the lines of code.
+Not too easy to compare the numbers here; what about a bar graph (`geom_bar()`)? Based on what we went through in the lecture see if you can figure out what each line is adding to the plot. What do you think `facet_wrap()` is doing? To figure it out run the code yourself and try changing some of the lines of code.
 
 ```{r bar}
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
@@ -201,7 +213,7 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 ```
 
 
-We aslo saw there were a few continuous variables, so let's look at scatter plots (`geom_point()`).
+We also saw there were a few continuous variables, so let's look at scatter plots (`geom_point()`).
 
 ```{r point}
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
@@ -212,14 +224,14 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   ylab("Bill length (mm)")
 ```
 
-What about the *spread*/*distribution* of our continuous vaiables by the factor variables (e.g., `species`):
+What about the *spread*/*distribution* of our continuous variables by the factor variables (e.g., `species`):
 
   + Boxplots (`geom_boxplot()`)? 
   + Violin plots (`geom_violin()`)? 
   + Histograms (`geom_histogram()`)?
 
 
-In addition,we should always avoid using similarily bight red and green colours: they may not be distinguishable for red-green colorblind readers. Using `ggplot2` we can access a whole range of colourblind friendly palettes: one package that has a whole range is `RColorBrewer` install it then try running `RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)` what do you think you've asked your compueter to show you?
+In addition,we should always avoid using similarly bight red and green colours: they may not be distinguishable for red-green colorblind readers. Using `ggplot2` we can access a whole range of colourblind friendly palettes: one package that has a whole range is `RColorBrewer` install it then try running `RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)` what do you think you've asked your computer to show you?
 
 
 ```{r, message=FALSE}
@@ -273,6 +285,7 @@ annotate(geom = 'text', label = "Average bill length per species" , x = -Inf, y 
   annotate(geom = 'text', label = "Differences between groups" , x = -Inf, y = Inf, 
            hjust = 0, vjust = 7, color = "purple")
 ```
+
 Within group variation
 
 ```{r,echo = FALSE}
