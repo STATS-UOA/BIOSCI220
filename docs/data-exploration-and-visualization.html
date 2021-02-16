@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="r-and-rstudio.html"/>
-
+<link rel="next" href="hypothesis-testing-and-introduction-to-linear-regression.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -144,6 +119,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-viz"><i class="fa fa-check"></i><b>2.4</b> Data Viz</a></li>
 <li class="chapter" data-level="2.5" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#other-resources-optional-but-recommended-1"><i class="fa fa-check"></i><b>2.5</b> Other resources: optional but recommended</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Hypothesis testing and introduction to linear regression</a><ul>
+<li class="chapter" data-level="3.1" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#learning-objectives-2"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#hypothesis-testing"><i class="fa fa-check"></i><b>3.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="3.3" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#power-significance-and-multiple-comparisons"><i class="fa fa-check"></i><b>3.3</b> Power, Significance, and multiple comparisons</a></li>
+<li class="chapter" data-level="3.4" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#one-way-anova-analysis-of-variance-using-lm"><i class="fa fa-check"></i><b>3.4</b> One way ANOVA (<strong>AN</strong>alysis Of <strong>VA</strong>riance) using <code>lm()</code></a></li>
+<li class="chapter" data-level="3.5" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#p-values-more-to-come"><i class="fa fa-check"></i><b>3.5</b> 😱 p-values 😱 (<em>more to come</em>)</a></li>
+<li class="chapter" data-level="3.6" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#other-resources-optional-but-recommended-2"><i class="fa fa-check"></i><b>3.6</b> Other resources: optional but recommended</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -163,13 +146,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-exploration-and-visualization" class="section level1">
 <h1><span class="header-section-number">2</span> Data exploration and visualization</h1>
-<p>So now you’ve been introduced to <code>R</code> and <code>RStudio</code> let’s get going with some data manipulation and visualization. Exploring and visualising your data is one of the most important steps. It’s also one of the simplest!</p>
-<p>You’ll not find anyone who’s not made the mistake of taking their data for granted. Just because someone says it’s so <strong>NEVER</strong> trust that that’s the case. From typos, to <code>NA</code>s, through <a href="https://stats.stackexchange.com/questions/225175/why-do-some-people-use-999-or-9999-to-replace-missing-values">-999</a> and let’s not even talk dates, your data will always have a surprise in store for you.</p>
+<p>So now you've been introduced to <code>R</code> and <code>RStudio</code> let's get going with some data manipulation and visualization. Exploring and visualising your data is one of the most important steps. It's also one of the simplest!</p>
+<p>You'll not find anyone who's not made the mistake of taking their data for granted. Just because someone says it's so <strong>NEVER</strong> trust that that's the case. From typos, to <code>NA</code>s, through <a href="https://stats.stackexchange.com/questions/225175/why-do-some-people-use-999-or-9999-to-replace-missing-values">-999</a> and let's not even talk dates, your data will always have a surprise in store for you.</p>
 <div id="learning-objectives-1" class="section level2">
 <h2><span class="header-section-number">2.1</span> Learning objectives</h2>
 <ul>
 <li>Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions</li>
-<li>Define data sovereignty and explain this in relation to a researcher’s obligation when collecting, displaying, and analysing data</li>
+<li>Define and discuss Māori Data Sovereignty principles</li>
+<li>Define data sovereignty and explain this in relation to a researcher's obligation when collecting, displaying, and analysing data</li>
 <li>Create and communicate informative data visualisations using <code>R</code></li>
 <li>Discuss and critique data visualisations</li>
 </ul>
@@ -178,9 +162,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.2</span> Data wrangling and manipulation</h2>
 <p><strong><code>tidy</code> data</strong></p>
 <blockquote>
-“Tidy datasets are all alike, but every messy dataset is messy in its own way.”
+&quot;Tidy datasets are all alike, but every messy dataset is messy in its own way.&quot;
 <footer>
-— Hadley Wickham
+--- Hadley Wickham
 </footer>
 </blockquote>
 <p>There are three interrelated rules which make a dataset <code>tidy</code>:</p>
@@ -189,26 +173,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Each observation must have its own row</li>
 <li>Each value must have its own cell</li>
 </ol>
-<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg" style="width:70.0%" /></p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg" style="width:70.0%" />
+
+</div>
 <p>Illustration from the Openscapes blog <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">Tidy Data for reproducibility, efficiency, and collaboration</a> by Julia Lowndes and Allison Horst</p>
 <p>Why ensure that your data is <code>tidy</code>?</p>
 <ul>
 <li><p><strong>Consistency:</strong> using a consistent format aids learning and reproducibility</p></li>
-<li><p><strong>Simplicity:</strong> it’s a format that is well understood by <code>R</code></p></li>
+<li><p><strong>Simplicity:</strong> it's a format that is well understood by <code>R</code></p></li>
 </ul>
 <blockquote>
-“Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets.” [
+&quot;Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets.&quot;
 <footer>
-— Hadley Wickham, Tidy data
+--- Hadley Wickham, Tidy data
 </footer>
-<p>](<a href="https://vita.had.co.nz/papers/tidy-data.html" class="uri">https://vita.had.co.nz/papers/tidy-data.html</a>)</p>
 </blockquote>
+<p><a href="https://vita.had.co.nz/papers/tidy-data.html"><code>Tidy</code> Data</a></p>
 <div id="introuducing-the-palmer-penguins" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Introuducing the <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081">Palmer penguins</a></h3>
 <iframe src="https://giphy.com/embed/3og0IO5z8Rd30ktV6g" width="40%" height="400px" style="border: none;">
 </iframe>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">library</span>(palmerpenguins) <span class="co">## contains some nice penguin data</span></a>
-<a class="sourceLine" id="cb36-2" title="2">penguins</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(palmerpenguins) ## contains some nice penguin data
+penguins</code></pre></div>
 <pre><code>## # A tibble: 344 x 8
 ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
 ##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
@@ -225,11 +212,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 <p>So, what does this show us?</p>
 <ul>
-<li><code>A tibble: 344 x 8</code>: A <code>tibble</code> is a specific kind of data frame in <code>R</code>. The <code>penguin</code> dataset has
-<ul>
+<li><code>A tibble: 344 x 8</code>: A <code>tibble</code> is a specific kind of data frame in <code>R</code>. The <code>penguin</code> dataset has</li>
 <li><code>344</code> rows (i.e., 344 different observations). Here, each observation corresponds to a penguin.</li>
 <li><code>8</code> columns corresponding to 3 variables describing each observation.</li>
-</ul></li>
 <li><code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code>, <code>body_mass_g</code>, <code>sex</code>, and <code>year</code> are the different variables of this dataset.</li>
 <li>We then have a preview of the first 10 rows of observations corresponding to the first 10 penguins. ``<code>... with 334 more rows</code> indicates there are 334 more rows to see, but these have not been printed (likely as it would clog our screen)</li>
 </ul>
@@ -237,25 +222,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="common-dataframe-manipulations-in-the-tidyverse-using-dplyr-and-tidyr" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Common dataframe manipulations in the <code>tidyverse</code>, using <code>dplyr</code> and <code>tidyr</code></h3>
-<p>Even from these first few rows of data we can see that there are some <code>NA</code> values. Let’s count the number of <code>NA</code>s. Remember the <code>%&gt;%</code> operator? Here we’re going to be introduced to a few new things</p>
+<p>Even from these first few rows of data we can see that there are some <code>NA</code> values. Let's count the number of <code>NA</code>s. Remember the <code>%&gt;%</code> operator? Here we're going to be introduced to a few new things</p>
 <ul>
 <li>the <code>apply()</code> function,</li>
 <li>the <code>is.na()</code> function, and</li>
 <li>how <code>R</code> deals with <code>logical</code> values!</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb38-2" title="2">penguins <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-3" title="3"><span class="st">  </span><span class="kw">apply</span>(.,<span class="dv">2</span>,is.na) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-4" title="4"><span class="st">  </span><span class="kw">apply</span>(.,<span class="dv">2</span>,sum)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+penguins <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">apply</span>(.,<span class="dv">2</span>,is.na) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">apply</span>(.,<span class="dv">2</span>,sum)</code></pre></div>
 <pre><code>##           species            island    bill_length_mm     bill_depth_mm 
 ##                 0                 0                 2                 2 
 ## flipper_length_mm       body_mass_g               sex              year 
 ##                 2                 2                11                 0</code></pre>
-<p>There’s lot going on in that code! Let’s break it down</p>
+<p>There's lot going on in that code! Let's break it down</p>
 <ul>
 <li>Take <code>penguins</code> then</li>
-<li>Use <code>penguins</code> as an input to the <code>apply()</code> function (this is specified as the first argument using the <code>.</code>)
-<ul>
+<li>Use <code>penguins</code> as an input to the <code>apply()</code> function (this is specified as the first argument using the <code>.</code>)</li>
 <li>Now the <code>apply()</code> function takes 3 arguments:
 <ol style="list-style-type: decimal">
 <li>the data object you want it to <em>apply</em> something to (in our case <code>penguins</code>)</li>
@@ -264,8 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 <li>So the second line of code is asking <code>R</code> to <em>apply</em> the <code>is.na()</code> function over the columns of <code>penguins</code>
 <ul>
-<li><code>is.na()</code> asks for each value it’s fed is it an <code>NA</code> value; it returns a <code>TRUE</code> if so and a <code>FALSE</code> otherwise</li>
-</ul></li>
+<li><code>is.na()</code> asks for each value it's fed is it an <code>NA</code> value; it returns a <code>TRUE</code> if so and a <code>FALSE</code> otherwise</li>
 </ul></li>
 <li>The output from the first <code>apply()</code> is then fed to the second <code>apply()</code> (using the <code>.</code>). The <code>sum()</code> function then add them up!
 <ul>
@@ -273,10 +256,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p>So how many <code>NA</code>s do you think there are!</p>
-<p>Doesn’t help much. To</p>
-<p>Now we know there are <code>NA</code> values throughout the data let’s remove then and create a new <code>NA</code> free version called <code>penguins_nafree</code>. There is a really handy <code>tidyverse</code> (<code>dplyr</code>) function for this!</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">penguins_nafree &lt;-<span class="st"> </span>penguins <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>()</a>
-<a class="sourceLine" id="cb40-2" title="2">penguins_nafree</a></code></pre></div>
+<p>Doesn't help much. To</p>
+<p>Now we know there are <code>NA</code> values throughout the data let's remove then and create a new <code>NA</code> free version called <code>penguins_nafree</code>. There is a really handy <code>tidyverse</code> (<code>dplyr</code>) function for this!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">penguins_nafree &lt;-<span class="st"> </span>penguins <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>()
+penguins_nafree</code></pre></div>
 <pre><code>## # A tibble: 333 x 8
 ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
 ##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
@@ -291,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Adelie  Torge…           38.6          21.2              191        3800
 ## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
-<p>Below are some other useful manipulation functions; have a look at the out puts and run them yourselves and see if you can work out what they’re doing.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">filter</span>(penguins_nafree, island <span class="op">==</span><span class="st"> &quot;Torgersen&quot;</span> )</a></code></pre></div>
+<p>Below are some other useful manipulation functions; have a look at the out puts and run them yourselves and see if you can work out what they're doing.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(penguins_nafree, island <span class="op">==</span><span class="st"> &quot;Torgersen&quot;</span> )</code></pre></div>
 <pre><code>## # A tibble: 47 x 8
 ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
 ##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
@@ -307,12 +290,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Adelie  Torge…           38.6          21.2              191        3800
 ## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 37 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">summarise</span>(penguins_nafree, <span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarise</span>(penguins_nafree, <span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
 <pre><code>## # A tibble: 1 x 1
 ##   avgerage_bill_length
 ##                  &lt;dbl&gt;
 ## 1                 44.0</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">group_by</span>(penguins_nafree, species)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(penguins_nafree, species)</code></pre></div>
 <pre><code>## # A tibble: 333 x 8
 ## # Groups:   species [3]
 ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
@@ -334,9 +317,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use this and apply the <code>group_by()</code> function to group by <code>species</code></li>
 <li>Use this output and apply the <code>summarize()</code> function to calculate the mean (using (<code>mean()</code>) bill length (<code>bill_length_mm</code>) of each group (<code>species</code>), calling the resulting number <code>avgerage_bill_length</code></li>
 </ul>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">penguins_nafree <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb48-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb48-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">penguins_nafree <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   species   avgerage_bill_length
 ## * &lt;fct&gt;                    &lt;dbl&gt;
@@ -344,9 +327,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Chinstrap                 48.8
 ## 3 Gentoo                    47.6</code></pre>
 <p>We can also group by multiple factors, for example,</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">penguins_nafree <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb50-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(island,species) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb50-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">penguins_nafree <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(island,species) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;island&#39;. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 5 x 3
 ## # Groups:   island [3]
@@ -361,20 +344,104 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="data-sovereignty" class="section level2">
 <h2><span class="header-section-number">2.3</span> Data sovereignty</h2>
-<p><a href="https://en.wikipedia.org/wiki/Data_sovereignty">’‘<strong>Data sovereignty</strong> is the idea that data are subject to the laws and governance structures within the nation it is collected’’</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Data_sovereignty">''<strong>Data sovereignty</strong> is the idea that data are subject to the laws and governance structures within the nation it is collected''</a></p>
+<blockquote>
+&quot;For Indigenous peoples, historical encounters with statistics have been fraught, and none more so than when involving official data produced as part of colonial attempts at statecraft.&quot;
+<footer>
+--- Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.
+</footer>
+</blockquote>
+<div id="māori-data-sovereignty-principles" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Māori Data Sovereignty principles</h3>
+<blockquote>
+&quot;Māori Data Sovereignty has emerged as a critical policy issue as Aotearoa New Zealand develops world-leading linked administrative data resources.&quot;
+<footer>
+--- Andrew Sporle, Maui Hudson, Kiri West. Chapter 5, Indigenous Data Sovereignty and Policy
+</footer>
+</blockquote>
+<blockquote>
+“Māori data refers to data produced by Māori or that is about Māori and the environments we have relationships with.&quot;
+<footer>
+--- Te Mana Raraunga Charter
+</footer>
+</blockquote>
+<blockquote>
+Data is a “potential taonga, something precious that needs to be maintained, in relation to its utility”
+<footer>
+--- Dr W. Edwards, TMR website
+</footer>
+</blockquote>
+<p>Article Two of the <em>Treaty of Waitangi</em> obliges the Government to actively protect taonga, consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include</p>
+<ul>
+<li>provenance of the data: does the dataset come from a significant Māori source?</li>
+<li>opportunity for the data: could the dataset support Māori aspirations for their people or their whenua (land)?</li>
+<li>utility of the data: does the dataset have multiple uses?</li>
+</ul>
+<p><strong>Māori Data Sovereignty principles</strong> to inform the recognition of Māori rights and interests in data, and the ethical use of data to enhance Māori well-being:</p>
+<ul>
+<li><p><strong>Rangatiratanga</strong>, authority</p>
+<ul>
+<li>Māori have an inherent right to exercise control over Māori data and Māori data ecosystems. This right includes, but is not limited to, the creation, collection, access, analysis, interpretation, management, security, dissemination, use and reuse of Māori data.</li>
+<li>Decisions about the physical and virtual storage of Māori data shall enhance control for current and future generations. Whenever possible, Māori data shall be stored in Aotearoa New Zealand.</li>
+<li>Māori have the right to data that is relevant and empowers sustainable self-determination and effective self-governance</li>
+</ul></li>
+<li><p><strong>Whakapapa</strong>, relationships</p>
+<ul>
+<li>All data has a whakapapa (genealogy). Accurate metadata should, at minimum, provide information about the provenance of the data, the purpose(s) for its collection, the context of its collection, and the parties involved.</li>
+<li>The ability to disaggregate Māori data increases its relevance for Māori communities and iwi. Māori data shall be collected and coded using categories that prioritise Māori needs and aspirations.</li>
+<li>Current decision-making over data can have long-term consequences, good and bad, for future generations of Māori. A key goal of Māori data governance should be to protect against future harm.</li>
+</ul></li>
+<li><p><strong>Whanaungatanga</strong>, obligations</p>
+<ul>
+<li>Individuals’ rights (including privacy rights), risks and benefits in relation to data need to be balanced with those of the groups of which they are a part. In some contexts, collective Māori rights will prevail over those of individuals.</li>
+<li>Individuals and organisations responsible for the creation, collection, analysis, management, access, security or dissemination of Māori data are accountable to the communities, groups and individuals from whom the data derive</li>
+</ul></li>
+<li><p><strong>Kotahitanga</strong>, collective benefit</p>
+<ul>
+<li>Data ecosystems shall be designed and function in ways that enable Māori to derive individual and collective benefit.</li>
+<li>Build capacity. Māori Data Sovereignty requires the development of a Māori workforce to enable the creation, collection, management, security, governance and application of data.</li>
+<li>Connections between Māori and other Indigenous peoples shall be supported to enable the sharing of strategies, resources and ideas in relation to data, and the attainment of common goals.</li>
+</ul></li>
+<li><p><strong>Manaakitanga</strong>, reciprocity</p>
+<ul>
+<li>The collection, use and interpretation of data shall uphold the dignity of Māori communities, groups and individuals. Data analysis that stigmatises or blames Māori can result in collective and individual harm and should be actively avoided.</li>
+<li>Free, prior and informed consent shall underpin the collection and use of all data from or about Māori. Less defined types of consent shall be balanced by stronger governance arrangements.</li>
+</ul></li>
+<li><p><strong>Kaitiakitanga</strong>, guardianship</p>
+<ul>
+<li>Māori data shall be stored and transferred in such a way that it enables and reinforces the capacity of Māori to exercise kaitiakitanga over Māori data.</li>
+<li>Ethics. Tikanga, kawa (protocols) and mātauranga (knowledge) shall underpin the protection, access and use of Māori data.</li>
+<li>Māori shall decide which Māori data shall be controlled (tapu) or open (noa) access.</li>
+</ul></li>
+</ul>
+<p><a href="https://www.temanararaunga.maori.nz/"><img src="https://images.squarespace-cdn.com/content/58e9b10f9de4bb8d1fb5ebbc/1493722836783-JKE7O92ZBD7F2VMNOV59/TeManaRaraunga_wide_logo+6-1-fw.png?content-type=image%2Fpng" /></a></p>
+<p>The <em>Te Mana o te Raraunga Model</em> was developed to align Māori concepts with data rights and interests, and guide agencies in the appropriate use of Māori data</p>
+<ul>
+<li><strong>Whakapapa</strong> and <strong>whanaungatanga</strong>: recognising the connectedness between the material, natural and spiritual worlds</li>
+<li><strong>Rangatiratanga</strong>: māori rights to own, access, control and possess data from them or about them and their environs</li>
+<li><strong>Kotahitanga</strong>: collective vision and unity of purpose</li>
+<li><strong>Manaakitanga</strong>: ethical data use to progress Māori aspirations for wellbeing</li>
+<li><strong>Kaitiakitanga</strong>: sustainable data stewardship</li>
+</ul>
+<p><strong>Resourses</strong></p>
+<ul>
+<li><p><a href="https://researchcommons.waikato.ac.nz/bitstream/handle/10289/12919/data%20practices.pdf?sequence=5&amp;isAllowed=y">Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.</a></p></li>
+<li><p><a href="https://library.oapen.org/handle/20.500.12657/42782">Walter, Maggie, Tahu Kukutai, Stephanie Russo Carroll, and Desi Rodriguez-Lonebear. Indigenous Data Sovereignty and Policy. Taylor &amp; Francis, 2020.</a></p></li>
+</ul>
+</div>
 </div>
 <div id="data-viz" class="section level2">
 <h2><span class="header-section-number">2.4</span> Data Viz</h2>
 <blockquote>
-“…have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw.”
+&quot;...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw.&quot;
 <footer>
-— Michael Correll, Ethical Dimensions of Visualization Research
+--- Michael Correll, Ethical Dimensions of Visualization Research
 </footer>
 </blockquote>
 <blockquote>
-“Clutter and confusion are not attributes of data - they are shortcomings of design.”
+&quot;Clutter and confusion are not attributes of data - they are shortcomings of design.&quot;
 <footer>
-— Edward Tufte
+--- Edward Tufte
 </footer>
 </blockquote>
 <div id="exploratory-and-explanatory-plots" class="section level3">
@@ -384,25 +451,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <ul>
 <li>data exploration</li>
-<li>doesn’t have to look pretty</li>
+<li>doesn't have to look pretty</li>
 <li>just needs to get to the point</li>
+<li>explore and discover new data facets</li>
+<li>formulate new questions</li>
 </ul>
 <p><img src="_main_files/figure-html/example,%20me-1.png" width="672" /><img src="_main_files/figure-html/example,%20me-2.png" width="672" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>Explanatory plots</strong> (<em>For others</em>)</li>
+<li><strong>Explanatory plots</strong> (<em>For others</em>), most common kind of graph used in scientific publications</li>
 </ol>
 <ul>
 <li>clear purpose</li>
 <li>designed for the audience</li>
 <li>make it easy to read (<em>this covers a lot of things</em>)</li>
 <li>do not distort</li>
+<li>guide the reader to a particular conclusion</li>
+<li>answer a specific question</li>
+<li>support a decision</li>
 </ul>
-<p><img src="https://jimgruman.netlify.app/post/variableimportance/2020_31_PalmerPenguins.png" /></p>
+<div class="figure">
+<img src="https://jimgruman.netlify.app/post/variableimportance/2020_31_PalmerPenguins.png" />
+
+</div>
 <p>Plots by Cedric Scherer and mentioned on <a href="https://jimgruman.netlify.app/post/variableimportance/">this blog</a></p>
-<p>So we’ve seen some pretty plots, let’s get around to making some!</p>
+</div>
+<div id="ten-simple-rules-for-better-figures" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Ten Simple Rules for Better Figures</a></h3>
+<blockquote>
+&quot;Scientific visualization is classically defined as the process of graphically displaying scientific data. However, this process is far from direct or automatic. There are so many different ways to represent the same data: scatter plots, linear plots, bar plots, and pie charts, to name just a few. Furthermore, the same data, using the same type of plot, may be perceived very differently depending on who is looking at the figure. A more accurate definition for scientific visualization would be a graphical interface between people and data.&quot;
+<footer>
+--- Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures
+</footer>
+</blockquote>
+<ul>
+<li><p><strong>Know</strong> Your Audience</p></li>
+<li><p><strong>Identify</strong> Your Message</p></li>
+<li><p><strong>Adapt</strong> the Figure to the Support Medium</p></li>
+<li><p><strong>Captions</strong> Are Not Optional</p></li>
+<li><p><strong>Do Not</strong> Trust the Defaults</p></li>
+<li><p>Use <strong>Color</strong> Effectively</p></li>
+<li><p><strong>Do Not Mislead</strong> the Reader</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Misleading_graph">There are formulas to measure how misleading a graph is!</a></li>
+</ul></li>
+<li><p><strong>Avoid</strong> <em>Chartjunk</em></p></li>
+<li><p><strong>Message</strong> Trumps Beauty</p></li>
+</ul>
+<blockquote>
+&quot;message and readability of the figure is the most important aspect while beauty is only an option&quot;
+<footer>
+--- Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures
+</footer>
+</blockquote>
+<ul>
+<li><p>Get the Right <strong>Tool</strong></p>
+<ul>
+<li>I'm an advocate for <code>R</code> 😉</li>
+</ul></li>
+</ul>
+<p>So we've seen some pretty plots, let's get around to making some!</p>
 </div>
 <div id="introducing-ggplot2" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Introducing <code>ggplot2</code></h3>
+<h3><span class="header-section-number">2.4.3</span> Introducing <code>ggplot2</code></h3>
 <p><code>ggplot2</code> is an <code>R</code> package for producing statistical, or data, graphics; it has an underlying grammar based on the <a href="https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448">Grammar of Graphics</a></p>
 <p>Every <code>ggplot2</code> plot has three key components:</p>
 <ul>
@@ -411,11 +521,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>At least one layer which describes how to render each observation. Layers are usually created with a <code>geom</code> function.</p></li>
 </ul>
 <div id="plotting-palmerpenguins" class="section level4">
-<h4><span class="header-section-number">2.4.2.1</span> Plotting <code>palmerpenguins</code></h4>
-<p><strong>You might find <a href="https://cmjt.shinyapps.io/penguin/">this application</a> useful, now and later…</strong></p>
-<p>We’ve seen that there are three <code>factor</code> variables in the dataset: <code>species</code>, <code>island</code>, and <code>sex</code>. To count the number of penguins of each <code>species</code> and <code>sex</code> on each <code>island</code> we could use</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">penguins_nafree <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb53-2" title="2"><span class="st">  </span><span class="kw">count</span>(species, sex, island)</a></code></pre></div>
+<h4><span class="header-section-number">2.4.3.1</span> Plotting <code>palmerpenguins</code></h4>
+<p><strong>You might find <a href="https://cmjt.shinyapps.io/penguin/">this application</a> useful, now and later...</strong></p>
+<p>We've seen that there are three <code>factor</code> variables in the dataset: <code>species</code>, <code>island</code>, and <code>sex</code>. To count the number of penguins of each <code>species</code> and <code>sex</code> on each <code>island</code> we could use</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">penguins_nafree <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">count</span>(species, sex, island)</code></pre></div>
 <pre><code>## # A tibble: 10 x 4
 ##    species   sex    island        n
 ##    &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;
@@ -429,21 +539,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Chinstrap male   Dream        34
 ##  9 Gentoo    female Biscoe       58
 ## 10 Gentoo    male   Biscoe       61</code></pre>
-<p>Not too easy to compare the numbers here; what about a bar graph (<code>geom_bar()</code>)? Based on what we went through in the lecture see if you can figure out what each line is adding to the plot. What do you think <code>facet_wrap()</code> is doing? To figure it out run the code yourself and try changing some of the lines of code.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="kw">ggplot</span>(penguins_nafree, <span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">fill =</span> sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">alpha =</span> <span class="fl">0.8</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-3" title="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>island) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-5" title="5"><span class="st">  </span><span class="kw">theme_linedraw</span>() <span class="op">+</span><span class="st"> </span><span class="co">## remember themes...</span></a>
-<a class="sourceLine" id="cb55-6" title="6"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;cyan4&quot;</span>,<span class="st">&quot;darkorange&quot;</span>), <span class="dt">name =</span> <span class="st">&quot;Sex&quot;</span>) </a></code></pre></div>
+<p>It's not too easy to compare the numbers here; what about a bar graph (<code>geom_bar()</code>)? Based on what we went through in the lecture see if you can figure out what each line is adding to the plot. What do you think <code>facet_wrap()</code> is doing? To figure it out run the code yourself and try changing some of the lines of code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(penguins_nafree, <span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">fill =</span> sex)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">alpha =</span> <span class="fl">0.8</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>island) <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_linedraw</span>() <span class="op">+</span><span class="st"> </span>## remember themes...
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;cyan4&quot;</span>,<span class="st">&quot;darkorange&quot;</span>), <span class="dt">name =</span> <span class="st">&quot;Sex&quot;</span>) </code></pre></div>
 <p><img src="_main_files/figure-html/bar-1.png" width="672" /></p>
-<p>We also saw there were a few continuous variables, so let’s look at scatter plots (<code>geom_point()</code>).</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> penguins_nafree, <span class="kw">aes</span>(<span class="dt">x =</span> bill_length_mm, <span class="dt">y =</span> bill_depth_mm)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species),<span class="dt">size =</span> <span class="dv">2</span>)  <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-3" title="3"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;darkorchid&quot;</span>,<span class="st">&quot;cyan4&quot;</span>), <span class="dt">name =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="co">## Oo a new theme</span></a>
-<a class="sourceLine" id="cb56-5" title="5"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-6" title="6"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>)</a></code></pre></div>
+<p>We also saw there were a few continuous variables, so let's look at scatter plots (<code>geom_point()</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> penguins_nafree, <span class="kw">aes</span>(<span class="dt">x =</span> bill_length_mm, <span class="dt">y =</span> bill_depth_mm)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species),<span class="dt">size =</span> <span class="dv">2</span>)  <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;darkorchid&quot;</span>,<span class="st">&quot;cyan4&quot;</span>), <span class="dt">name =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>## Oo a new theme
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/point-1.png" width="672" /></p>
 <p>What about the <em>spread</em>/<em>distribution</em> of our continuous variables by the factor variables (e.g., <code>species</code>):</p>
 <ul>
@@ -451,31 +561,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Violin plots (<code>geom_violin()</code>)?</li>
 <li>Histograms (<code>geom_histogram()</code>)?</li>
 </ul>
-<p>In addition,we should always avoid using similarly bight red and green colours: they may not be distinguishable for red-green colorblind readers. Using <code>ggplot2</code> we can access a whole range of colourblind friendly palettes: one package that has a whole range is <code>RColorBrewer</code> install it then try running <code>RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)</code> what do you think you’ve asked your computer to show you?</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co">## boxplot</span></a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="kw">ggplot</span>(penguins_nafree,<span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> flipper_length_mm)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb57-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb57-4" title="4"><span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Flipper length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb57-5" title="5"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="co">## yet another theme</span></a></code></pre></div>
+<p>In addition,we should always avoid using similarly bight red and green colours: they may not be distinguishable for red-green colorblind readers. Using <code>ggplot2</code> we can access a whole range of colourblind friendly palettes: one package that has a whole range is <code>RColorBrewer</code> install it then try running <code>RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)</code> what do you think you've asked your computer to show you?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## boxplot
+<span class="kw">ggplot</span>(penguins_nafree,<span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> flipper_length_mm)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Flipper length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>() ## yet another theme</code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="co">## violin plot</span></a>
-<a class="sourceLine" id="cb58-2" title="2"><span class="kw">ggplot</span>(penguins_nafree,<span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> flipper_length_mm)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-3" title="3"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb58-4" title="4"><span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Flipper length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb58-5" title="5"><span class="st">    </span><span class="kw">theme_minimal</span>() <span class="co">## soon you could be making your own</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## violin plot
+<span class="kw">ggplot</span>(penguins_nafree,<span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> flipper_length_mm)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Flipper length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_minimal</span>() ## soon you could be making your own</code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="co">## histogram, with a colorblind friendly palette</span></a>
-<a class="sourceLine" id="cb59-2" title="2"><span class="co">## try running display.brewer.all(colorblindFriendly = TRUE)</span></a>
-<a class="sourceLine" id="cb59-3" title="3"><span class="co">## what do you think it&#39;s doing</span></a>
-<a class="sourceLine" id="cb59-4" title="4"><span class="kw">ggplot</span>(penguins_nafree,<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb59-5" title="5"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> species), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb59-6" title="6"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Flipper length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb59-7" title="7"><span class="st">    </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Dark2&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Species&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb59-8" title="8"><span class="st">  </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## histogram, with a colorblind friendly palette
+## try running display.brewer.all(colorblindFriendly = TRUE)
+## what do you think it&#39;s doing
+<span class="kw">ggplot</span>(penguins_nafree,<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> species), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Flipper length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Dark2&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Species&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-16-3.png" width="672" /></p>
 </div>
 <div id="what-do-we-think-about-when-we-look-at-plots" class="section level4">
-<h4><span class="header-section-number">2.4.2.2</span> What do we think about when we look at plots</h4>
+<h4><span class="header-section-number">2.4.3.2</span> What do we think about when we look at plots</h4>
 <p>Between group variation</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Within group variation</p>
@@ -497,19 +607,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="r-and-rstudio.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="r-and-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-testing-and-introduction-to-linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -564,7 +668,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

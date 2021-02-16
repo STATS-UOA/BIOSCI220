@@ -8,6 +8,7 @@ You'll not find anyone who's not made the mistake of taking their data for grant
 ## Learning objectives
 
 + Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions
++ Define and discuss Māori Data Sovereignty principles
 + Define data sovereignty and explain this in relation to a researcher's obligation when collecting, displaying, and analysing data
 + Create and communicate informative data visualisations using `R`
 + Discuss and critique data visualisations
@@ -37,7 +38,9 @@ Why ensure that your data is `tidy`?
 
  + **Simplicity:** it's a format that is well understood by `R`
  
-> "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets." [`r tufte::quote_footer('--- Hadley Wickham, Tidy data')`](https://vita.had.co.nz/papers/tidy-data.html)
+> "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets." `r tufte::quote_footer('--- Hadley Wickham, Tidy data')`
+
+[`Tidy` Data](https://vita.had.co.nz/papers/tidy-data.html)
 
 ### Introuducing the [Palmer penguins](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
 
@@ -137,7 +140,79 @@ penguins_nafree %>%
 
 [''**Data sovereignty** is the idea that data are subject to the laws and governance structures within the nation it is collected''](https://en.wikipedia.org/wiki/Data_sovereignty)
 
+> "For Indigenous peoples, historical encounters with statistics have been fraught, and none more so than when involving official data produced as part of colonial attempts at statecraft." `r tufte::quote_footer('--- Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.')`
 
+
+### Māori Data Sovereignty principles
+ 
+ > "Māori Data Sovereignty has emerged as a critical policy issue as Aotearoa
+New Zealand develops world-leading linked administrative data resources." `r tufte::quote_footer('--- Andrew Sporle, Maui Hudson, Kiri West. Chapter 5, Indigenous Data Sovereignty and Policy')`
+
+
+> “Māori data refers to data produced by Māori or that is about Māori and the environments we have relationships with."  `r tufte::quote_footer('--- Te Mana Raraunga Charter')`
+
+
+> Data is a “potential taonga, something precious that needs to be maintained, in relation to its utility” `r tufte::quote_footer('--- Dr W. Edwards, TMR website')`
+
+
+Article Two of the *Treaty of Waitangi* obliges the Government to actively protect taonga, consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include
+
+ + provenance of the data: does the dataset come from a significant Māori source?
+ + opportunity for the data: could the dataset support Māori aspirations for their people or their whenua (land)?
+ + utility of the data: does the dataset have multiple uses?
+
+**Māori Data Sovereignty principles** to inform the recognition of Māori rights and interests in data, and the ethical use of data to enhance Māori well-being:
+
++ **Rangatiratanga**, authority
+
+    + Māori have an inherent right to exercise control over Māori data and Māori data ecosystems. This right includes, but is not limited to, the creation, collection, access, analysis, interpretation, management, security, dissemination, use and reuse of Māori data.
+    + Decisions about the physical and virtual storage of Māori data shall enhance control for current and future generations. Whenever possible, Māori data shall be stored in Aotearoa New Zealand.
+    + Māori have the right to data that is relevant and empowers sustainable self-determination and effective self-governance
+  
++ **Whakapapa**, relationships
+
+    + All data has a whakapapa (genealogy). Accurate metadata should, at minimum, provide information about the provenance of the data, the purpose(s) for its collection, the context of its collection, and the parties involved.
+    + The ability to disaggregate Māori data increases its relevance for Māori communities and iwi. Māori data shall be collected and coded using categories that prioritise Māori needs and aspirations.
+    +  Current decision-making over data can have long-term consequences, good and bad, for future generations of Māori. A key goal of Māori data governance should be to protect against future harm.
+   
++ **Whanaungatanga**, obligations
+
+    + Individuals’ rights (including privacy rights), risks and benefits in relation to data need to be balanced with those of the groups of which they are a part. In some contexts, collective Māori rights will prevail over those of individuals.
+    + Individuals and organisations responsible for the creation, collection, analysis, management, access, security or dissemination of Māori data are accountable to the communities, groups and individuals from whom the data derive
+   
++ **Kotahitanga**, collective benefit
+
+    + Data ecosystems shall be designed and function in ways that enable Māori to derive individual and collective benefit.
+    + Build capacity. Māori Data Sovereignty requires the development of a Māori workforce to enable the creation, collection, management, security, governance and application of data.
+    + Connections between Māori and other Indigenous peoples shall be supported to enable the sharing of strategies, resources and ideas in relation to data, and the attainment of common goals.
+   
++ **Manaakitanga**, reciprocity
+
+    + The collection, use and interpretation of data shall uphold the dignity of Māori communities, groups and individuals. Data analysis that stigmatises or blames Māori can result in collective and individual harm and should be actively avoided.
+    + Free, prior and informed consent shall underpin the collection and use of all data from or about Māori. Less defined types of consent shall be balanced by stronger governance arrangements.
+  
++ **Kaitiakitanga**, guardianship
+
+    + Māori data shall be stored and transferred in such a way that it enables and reinforces the capacity of Māori to exercise kaitiakitanga over Māori data.
+    + Ethics. Tikanga, kawa (protocols) and mātauranga (knowledge) shall underpin the protection, access and use of Māori data.
+    + Māori shall decide which Māori data shall be controlled (tapu) or open (noa) access.
+
+
+[![](https://images.squarespace-cdn.com/content/58e9b10f9de4bb8d1fb5ebbc/1493722836783-JKE7O92ZBD7F2VMNOV59/TeManaRaraunga_wide_logo+6-1-fw.png?content-type=image%2Fpng)](https://www.temanararaunga.maori.nz/)
+
+The *Te Mana o te Raraunga Model* was developed to align Māori concepts with data rights and interests, and guide agencies in the appropriate use of Māori data
+
++ **Whakapapa** and **whanaungatanga**: recognising the connectedness between the material, natural and spiritual worlds
++ **Rangatiratanga**: māori rights to own, access, control and possess data from them or about them and their environs
++ **Kotahitanga**: collective vision and unity of purpose
++ **Manaakitanga**: ethical data use to progress Māori aspirations for wellbeing
++ **Kaitiakitanga**: sustainable data stewardship
+
+**Resourses**
+
++ [Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.](https://researchcommons.waikato.ac.nz/bitstream/handle/10289/12919/data%20practices.pdf?sequence=5&isAllowed=y)
+
++ [Walter, Maggie, Tahu Kukutai, Stephanie Russo Carroll, and Desi Rodriguez-Lonebear. Indigenous Data Sovereignty and Policy. Taylor & Francis, 2020.](https://library.oapen.org/handle/20.500.12657/42782) 
 
 
 ## Data Viz
@@ -150,9 +225,12 @@ penguins_nafree %>%
 ### Exploratory and explanatory plots
 
 1. **Exploratory plots** (*for you*)
+
   + data exploration
   + doesn't have to look pretty
   + just needs to get to the point
+  + explore and discover new data facets
+  + formulate new questions
   
 ```{r example, me, echo = FALSE, fig.cap="", warning = FALSE, message = FALSE}
 ## scatter
@@ -164,16 +242,52 @@ ggplot(data = penguins, aes(x = bill_length_mm)) +
 ```
 
 
- 2. **Explanatory plots** (*For others*)
+ 2. **Explanatory plots** (*For others*), most common kind of graph used in
+scientific publications
+
    + clear purpose
    + designed for the audience
    + make it easy to read (*this covers a lot of things*)
    + do not distort
-   
+   + guide the reader to a particular conclusion 
+   + answer a specific question
+   + support a decision
    
 ![](https://jimgruman.netlify.app/post/variableimportance/2020_31_PalmerPenguins.png)
 
 Plots by Cedric Scherer and mentioned on [this blog](https://jimgruman.netlify.app/post/variableimportance/)
+
+
+
+### [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+
+> "Scientific visualization is classically defined as the process of graphically displaying scientific data. However, this process is far from direct or automatic. There are so many different ways to represent the same data: scatter plots, linear plots, bar plots, and pie charts, to name just a few. Furthermore, the same data, using the same type of plot, may be perceived very differently depending on who is looking at the figure. A more accurate definition for scientific visualization would be a graphical interface between people and data." `r tufte::quote_footer('--- Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures ')`
+
+ + **Know** Your Audience
+ 
+ + **Identify** Your Message
+ 
+ + **Adapt** the Figure to the Support Medium
+ 
+ + **Captions** Are Not Optional
+ 
+ + **Do Not** Trust the Defaults
+ 
+ + Use **Color** Effectively
+ 
+ + **Do Not Mislead** the Reader
+ 
+    + [There are formulas to measure how misleading a graph is!](https://en.wikipedia.org/wiki/Misleading_graph)
+    
+ + **Avoid** *Chartjunk*
+ 
+ + **Message** Trumps Beauty
+ 
+> "message and readability of the figure is the most important aspect while beauty is only an option" `r tufte::quote_footer('--- Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures ')`
+
+ + Get the Right **Tool**
+ 
+    + I'm an advocate for `R` `r emo::ji("wink")`
 
 So we've seen some pretty plots, let's get around to making some!
 
@@ -201,7 +315,7 @@ penguins_nafree %>%
   count(species, sex, island)
 ```
 
-Not too easy to compare the numbers here; what about a bar graph (`geom_bar()`)? Based on what we went through in the lecture see if you can figure out what each line is adding to the plot. What do you think `facet_wrap()` is doing? To figure it out run the code yourself and try changing some of the lines of code.
+It's not too easy to compare the numbers here; what about a bar graph (`geom_bar()`)? Based on what we went through in the lecture see if you can figure out what each line is adding to the plot. What do you think `facet_wrap()` is doing? To figure it out run the code yourself and try changing some of the lines of code.
 
 ```{r bar}
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
@@ -271,8 +385,8 @@ ggplot(penguins_nafree,aes(x = species, y = bill_length_mm)) +
     geom_violin()  + 
   ylab("Bill length (mm)") +
   xlab("Species") +
-   geom_point(data = means, aes(x = species, y = means),color = "blue", size = 2) +
-annotate(geom = 'text', label = "Average bill length per species" , x = -Inf, y = Inf, hjust = 0, vjust = 1.2, color = "blue") +
+  geom_point(data = means, aes(x = species, y = means),color = "blue", size = 2) +
+  annotate(geom = 'text', label = "Average bill length per species" , x = -Inf, y = Inf, hjust = 0, vjust = 1.2, color = "blue") +
   geom_hline(yintercept = mean, color = "red") +
   annotate(geom = 'text', label = "Overall average bill length" , x = -Inf, y = Inf, hjust = 0, vjust = 3, color = "red") +
   geom_segment(data = means, aes(x = species, y = means, xend = species, yend = ends),col = "darkgreen", size = 2)  +

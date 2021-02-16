@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Hypothesis testing and introduction to linear regression | Module I BIOSCI220, University of Auckland</title>
+  <meta name="description" content="3 Hypothesis testing and introduction to linear regression | Module I BIOSCI220, University of Auckland" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Hypothesis testing and introduction to linear regression | Module I BIOSCI220, University of Auckland" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Hypothesis testing and introduction to linear regression | Module I BIOSCI220, University of Auckland" />
+  
+  
+  
+
+<meta name="author" content="Charlotte Jones-Todd" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-exploration-and-visualization.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-overview-biosci220"><i class="fa fa-check"></i><b>0.1</b> Course Overview: BIOSCI220</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#module-1-key-topics"><i class="fa fa-check"></i><b>0.2</b> Module 1: Key Topics</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#timetable-assessment-modules-i-ii-and-iii"><i class="fa fa-check"></i><b>0.3</b> Timetable &amp; Assessment (Modules I, II, and III)</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> <code>R</code> and <code>RStudio</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Introduction to <code>R</code> and <code>RStudio</code></a></li>
+<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>1.3</b> Exploratory Data Analysis (EDA)</a></li>
+<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#other-resources-optional-but-recommended"><i class="fa fa-check"></i><b>1.4</b> Other resources: optional but recommended</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html"><i class="fa fa-check"></i><b>2</b> Data exploration and visualization</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#learning-objectives-1"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-wrangling-and-manipulation"><i class="fa fa-check"></i><b>2.2</b> Data wrangling and manipulation</a></li>
+<li class="chapter" data-level="2.3" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-sovereignty"><i class="fa fa-check"></i><b>2.3</b> Data sovereignty</a></li>
+<li class="chapter" data-level="2.4" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-viz"><i class="fa fa-check"></i><b>2.4</b> Data Viz</a></li>
+<li class="chapter" data-level="2.5" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#other-resources-optional-but-recommended-1"><i class="fa fa-check"></i><b>2.5</b> Other resources: optional but recommended</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Hypothesis testing and introduction to linear regression</a><ul>
+<li class="chapter" data-level="3.1" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#learning-objectives-2"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#hypothesis-testing"><i class="fa fa-check"></i><b>3.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="3.3" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#power-significance-and-multiple-comparisons"><i class="fa fa-check"></i><b>3.3</b> Power, Significance, and multiple comparisons</a></li>
+<li class="chapter" data-level="3.4" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#one-way-anova-analysis-of-variance-using-lm"><i class="fa fa-check"></i><b>3.4</b> One way ANOVA (<strong>AN</strong>alysis Of <strong>VA</strong>riance) using <code>lm()</code></a></li>
+<li class="chapter" data-level="3.5" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#p-values-more-to-come"><i class="fa fa-check"></i><b>3.5</b> 😱 p-values 😱 (<em>more to come</em>)</a></li>
+<li class="chapter" data-level="3.6" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#other-resources-optional-but-recommended-2"><i class="fa fa-check"></i><b>3.6</b> Other resources: optional but recommended</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module I BIOSCI220, University of Auckland</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hypothesis-testing-and-introduction-to-linear-regression" class="section level1">
+<h1><span class="header-section-number">3</span> Hypothesis testing and introduction to linear regression</h1>
+<div id="learning-objectives-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> Learning objectives</h2>
+<ul>
+<li>Formulate a question/hypothesis to investigate based on the given data</li>
+<li>Use an appropriate visualization or other summary to motivate and communicate your hypothesis</li>
+<li>Explain and discuss the limitations of different hypothesis testing techniques (e.g., single and two-sample t-tests, ANOVA, randomisation test)</li>
+<li>Explain and discuss the limitations of statistical linear regression
+<ul>
+<li>with a single factor explanatory variable</li>
+</ul></li>
+<li>Interpret and communicate the estimated coefficients to both a statistical and non-statistical audience</li>
+<li>Describe the aims of the following hypothesis tests
+<ul>
+<li>one-sample t-test</li>
+<li>two-sample t-test (independent and dependent)</li>
+<li>randomization test</li>
+<li>one-way Analysis of Variance (ANOVA)</li>
+</ul></li>
+<li>List the aims of hypothesis testing and write out the appropriate null and alternative hypothesis using statistical notation</li>
+<li>Write R code to carry out an hypothesis test using the appropriate variables in their dataset. Specifically write R code to carry out</li>
+<li>one-sample t-test</li>
+<li>two-sample t-test (independent and dependent)</li>
+<li>randomization test</li>
+<li>one-way Analysis of Variance (ANOVA)</li>
+<li>Interpret and communicate the findings of an hypothesis test accurately and concisely</li>
+<li>List the limitations of the hypothesis in relation to the questions posed by the data</li>
+<li>State in terms of probability statements the meaning of the power and significance level of an hypothesis test</li>
+</ul>
+</div>
+<div id="hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">3.2</span> Hypothesis testing</h2>
+<p>Using the <code>paua.csv</code> data from CANVAS</p>
+<div id="the-poverlinetextaua-dataset" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> The P<span class="math inline">\(\overline{\text{a}}\)</span>ua dataset</h3>
+<p>The P<span class="math inline">\(\overline{\text{a}}\)</span>ua dataset contains the following variables</p>
+<ul>
+<li>Age of P<span class="math inline">\(\overline{\text{a}}\)</span>ua in years (calculated from counting rings in the cone)</li>
+<li>Length of P<span class="math inline">\(\overline{\text{a}}\)</span>ua shell in centimeters</li>
+<li>Species of P<span class="math inline">\(\overline{\text{a}}\)</span>ua: <em>Haliotis iris</em> (typically found in NZ) and <em>Haliotis australis</em> (less commonly found in NZ)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+paua &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;paua.csv&quot;</span>)</code></pre></div>
+</div>
+<div id="one-sample-t-test" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> One-Sample t-test</h3>
+<p><img src="_main_files/figure-html/vio1-1.png" width="672" /></p>
+<p>Do we believe that the average length of P<span class="math inline">\(\overline{\text{a}}\)</span>ua shells is 5cm? Well from our sample the average length is 5.192cm ... But what about variation?</p>
+<p>Enter the Standard Error of the Mean, <strong>SEM</strong> (*reflects our uncertainty about the mean) <span class="math inline">\(= \frac{\sigma}{\sqrt{n}}\)</span>; where <span class="math inline">\(\sigma = \sqrt{\frac{\Sigma_{i = 1}^n(x_i - \bar{x})^2}{n-1}}\)</span> (<span class="math inline">\(i = 1,...,n\)</span>) is the standard deviation of the sample, <span class="math inline">\(n\)</span> is the sample size, and <span class="math inline">\(\bar{x}\)</span> is the sample mean.</p>
+<div id="calculating-x_i---barx2" class="section level4">
+<h4><span class="header-section-number">3.2.2.1</span> Calculating <span class="math inline">\((x_i - \bar{x})^2\)</span></h4>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/var.gif" />
+
+</div>
+<p>In <code>R</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sem &lt;-<span class="st"> </span>paua <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Length),
+                   <span class="dt">sem =</span> <span class="kw">sd</span>(Length)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(Length)))
+sem</code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##    mean   sem
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1  5.19 0.155</code></pre>
+</div>
+</div>
+<div id="visualising-the-uncertainty" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Visualising the uncertainty</h3>
+<p><img src="_main_files/figure-html/vizun-1.png" width="672" /></p>
+<div id="why-error-bars-that-are-pm-twice-the-sem" class="section level4">
+<h4><span class="header-section-number">3.2.3.1</span> Why error bars that are <span class="math inline">\(\pm\)</span> twice the SEM?</h4>
+<p>This is approx. the 95% confidence interval for the population mean</p>
+<p>The exact 95% CI is given by + Mean <span class="math inline">\(\pm\)</span> <span class="math inline">\(t_{df,1 - \alpha/2}\)</span> <span class="math inline">\(\times\)</span> SEM ( df = degrees of freedom; <span class="math inline">\(\alpha\)</span> = level of significance)</p>
+<p>Each mean has its own confidence interval whose width depends on the SEM for that mean</p>
+<p>When the df (*more on these later) are large (e.g. 30 or greater) and <span class="math inline">\(\alpha\)</span> = 0.05 <span class="math inline">\(t_{df,1 - \alpha/2}\)</span> = <span class="math inline">\(t_{large,0.975}\)</span> <span class="math inline">\(\approx\)</span> 2</p>
+<p>Hence, the 95% confidence interval for the population mean is approximately Mean ± 2 <span class="math inline">\(\pm\)</span> SEM</p>
+<p>So carrying out the test <span class="math inline">\(H_0: \mu = 5\)</span> vs <span class="math inline">\(H_1: \mu \neq 5\)</span></p>
+<p>The t-statistic is calculated as follow: <span class="math inline">\(\frac{\bar{x}- \mu}{\text{SEM}}\)</span> = <span class="math inline">\(\frac{5.1925 - 5}{0.155351}\)</span> = 1.239</p>
+<p><span class="math inline">\(\bar{x}\)</span> is the sample mean <span class="math inline">\(\mu\)</span> is the theoretical value</p>
+<p>We can compute the p-value corresponding to the absolute value of the t-test statistics (|t|) for the degrees of freedom (df): df = <span class="math inline">\(n − 1 = 60 - 1 = 59\)</span>.</p>
+<p>Using <code>R</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(paua<span class="op">$</span>Length, <span class="dt">mu =</span> <span class="dv">5</span> )</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  paua$Length
+## t = 1.2391, df = 59, p-value = 0.2202
+## alternative hypothesis: true mean is not equal to 5
+## 95 percent confidence interval:
+##  4.881643 5.503357
+## sample estimates:
+## mean of x 
+##    5.1925</code></pre>
+<p>The p-vale gives the probability that under our null hypothesis we observe anything as least as extreme as what we did. This probability is <span class="math inline">\(\sim\)</span> 22%. Do you think what we've observed is likely under the null hypothesis?</p>
+<p>Does this plot help?</p>
+<p><img src="_main_files/figure-html/vizunmu-1.png" width="672" /></p>
+</div>
+</div>
+<div id="differences-between-two-means" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Differences between two means</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">means &lt;-<span class="st"> </span>paua <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(Age))
+## violin plot with transparent points
+a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(paua,<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Age)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Age (years)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> means, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> means, <span class="dt">color =</span> Species), <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">data =</span> means, <span class="kw">aes</span>(<span class="dt">yintercept =</span> means, <span class="dt">color =</span> Species), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> means, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> means <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;Species averege = &quot;</span>,<span class="kw">round</span>(means,<span class="dv">3</span>)), <span class="dt">color =</span> Species))
+a </code></pre></div>
+<p><img src="_main_files/figure-html/vio-1.png" width="672" /></p>
+<p>Calculating the differences between species means:</p>
+<p><em>Haliotis australis</em> average - <em>Haliotis iris</em> average = <span class="math inline">\(\mu_{\text{Haliotis australis}} - \mu_{\text{Haliotis iris}}\)</span> = 7.546 - 4.403 = 3.143.</p>
+<p>Doesn't really tell us much. <strong>The average values are all well and good... but... variation?</strong> Recall the SEM from the one-sample t-test? The same idea holds here, although the calculation is a little bit more complicated (as we have to think about the number of observations in each group). But from the two group SEMs we can calculate the Standard Error of the Difference between two means, <strong>SED</strong>.</p>
+<div id="independent-samples-t-test-with-lm-and-t.test" class="section level4">
+<h4><span class="header-section-number">3.2.4.1</span> Independent samples t-test with <code>lm()</code> and <code>t.test()</code></h4>
+<p>Null hypothesis: <span class="math inline">\(H_0\)</span> (are on average the same age) verses the alternative hypothesis, <span class="math inline">\(H_1\)</span>, that they aren't!</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0\)</span> vs <span class="math inline">\(H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}\)</span></li>
+</ul>
+<p>Test Statistic: t-statistic = <span class="math inline">\(\frac{\bar{x}_{\text{difference}} - \mu}{\text{SED}}\)</span> = <span class="math inline">\(\frac{\bar{x}_{\text{difference}} - 0}{\text{SED}}\)</span> =</p>
+<p>where <span class="math inline">\(\bar{x}_{\text{difference}}\)</span> is the differences between the species` averages.</p>
+<p>Probability of getting a t-statistic at least as extreme as the one we observe (more on this later)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test &lt;-<span class="st"> </span><span class="kw">t.test</span>(Age <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> paua)
+test</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Age by Species
+## t = 7.2777, df = 44.807, p-value = 4.051e-09
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.273123 4.013024
+## sample estimates:
+## mean in group Haliotis australis      mean in group Haliotis iris 
+##                         7.545939                         4.402866</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Age <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> paua)
+<span class="kw">summary</span>(t.lm)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Age ~ Species, data = paua)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.9050 -0.9227 -0.0752  0.5973  5.5988 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)            7.5459     0.3256  23.174  &lt; 2e-16 ***
+## SpeciesHaliotis iris  -3.1431     0.4204  -7.477 4.63e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.595 on 58 degrees of freedom
+## Multiple R-squared:  0.4908, Adjusted R-squared:  0.482 
+## F-statistic:  55.9 on 1 and 58 DF,  p-value: 4.631e-10</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## changing the baseline
+## it&#39;s the ordering that makes the difference
+paua_rl &lt;-<span class="st"> </span>paua <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Species =</span> <span class="kw">fct_relevel</span>(Species, <span class="st">&quot;Haliotis iris&quot;</span>, <span class="st">&quot;Haliotis australis&quot;</span>))
+
+c.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Age <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> paua_rl)
+<span class="kw">summary</span>(c.lm)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Age ~ Species, data = paua_rl)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.9050 -0.9227 -0.0752  0.5973  5.5988 
+## 
+## Coefficients:
+##                           Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                 4.4029     0.2659  16.560  &lt; 2e-16 ***
+## SpeciesHaliotis australis   3.1431     0.4204   7.477 4.63e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.595 on 58 degrees of freedom
+## Multiple R-squared:  0.4908, Adjusted R-squared:  0.482 
+## F-statistic:  55.9 on 1 and 58 DF,  p-value: 4.631e-10</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="inference-lm" class="section level4">
+<h4><span class="header-section-number">3.2.4.2</span> Inference <code>lm()</code></h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(c.lm)<span class="op">$</span>coef</code></pre></div>
+<pre><code>##                           Estimate Std. Error  t value     Pr(&gt;|t|)
+## (Intercept)               4.402866  0.2658700 16.56022 1.190603e-23
+## SpeciesHaliotis australis 3.143073  0.4203774  7.47679 4.630689e-10</code></pre>
+<p>(Intercept) = <span class="math inline">\(\mu_\text{Haliotis iris}\)</span> = 4.4028662</p>
+<p>SE of (Intercept) = SE of <span class="math inline">\(\mu_\text{Haliotis iris}\)</span> = SEM = 0.26587</p>
+<p><span class="math inline">\(\text{SpeciesHaliotis australis}\)</span> = <span class="math inline">\(\mu_\text{Haliotis australis}\)</span> – <span class="math inline">\(\mu_\text{Haliotis iris}\)</span> = 3.1430733</p>
+<p>SE of <span class="math inline">\(\text{SpeciesHaliotis australis}\)</span> = SE of (<span class="math inline">\(\mu_\text{Haliotis australis}\)</span> – <span class="math inline">\(\mu_\text{Haliotis iris}\)</span> ) = SED = 0.4203774</p>
+<p><strong>Hypotheses being tested</strong></p>
+<ul>
+<li>The t value and Pr (&gt;|t|) are the t - and p-value for testing the null hypotheses:
+<ul>
+<li>Mean abundance is zero for <em>Haliotis iris</em> (not interested in this really)</li>
+<li>No difference between the population means of <em>Haliotis iris</em> and <em>Haliotis australis</em></li>
+</ul></li>
+</ul>
+</div>
+<div id="randomization-test" class="section level4">
+<h4><span class="header-section-number">3.2.4.3</span> Randomization test</h4>
+<p>The basic approach to randomization tests is straightforward:</p>
+<ol style="list-style-type: decimal">
+<li>Decide on a metric to measure the effect in question (e.g., differences between group means)</li>
+<li>Calculate that test statistic on the observed data. Note this metric can be <strong>anything</strong> you wish</li>
+<li>For chosen number of times (i.e., <code>nreps</code> below)
+<ul>
+<li>Shuffle the data labels</li>
+<li>Calculate the test statistic for the reshuffled data and retain</li>
+</ul></li>
+<li>Calculate the proportion of times your reshuffeled statistics equal or exceed the observed
+<ul>
+<li>typically here we use the absolute values as we'd be carrying out a two-tailed test</li>
+<li>this is the probability of such an extreme result under the null</li>
+</ul></li>
+<li>Reject or retain the null on the basis of this probability.</li>
+</ol>
+<p><strong>Randomization Test on Two Independent Samples</strong></p>
+<p>Do average lengths differ between Species?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">means &lt;-<span class="st"> </span>paua <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(Length))
+<span class="kw">ggplot</span>(paua,<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Length)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Length (cms)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> means, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> means, <span class="dt">color =</span> Species), <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">data =</span> means, <span class="kw">aes</span>(<span class="dt">yintercept =</span> means, <span class="dt">color =</span> Species), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> means, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> means <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;Species averege = &quot;</span>,<span class="kw">round</span>(means,<span class="dv">3</span>)), <span class="dt">color =</span> Species))</code></pre></div>
+<p><img src="_main_files/figure-html/violen-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(paua,<span class="kw">aes</span>(<span class="dt">x =</span> Length, <span class="dt">fill =</span> Species)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Length (cms)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/violen-2.png" width="672" /></p>
+<p>But because the data are skewed and we've likely got non-constant variances we be better off adopting a randomization test, rather than a parametric t-test</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## observed differences in means
+diff_in_means &lt;-<span class="st"> </span>(paua <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Length)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">diff =</span> <span class="kw">diff</span>(mean)))<span class="op">$</span>diff
+diff_in_means</code></pre></div>
+<pre><code>## [1] -0.9569444</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Number of times I want to randomise
+nreps &lt;-<span class="st"> </span><span class="dv">1000</span>   
+## initialize empty array to hold results
+randomisation_difference_mean &lt;-<span class="st"> </span><span class="kw">numeric</span>(nreps)
+<span class="kw">set.seed</span>(<span class="dv">1234</span>) ## *****Remove this line for actual analyses*****
+## This means that each run with produce the same results and
+## agree with the printout that I show.
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nreps) {
+  ## the observations
+  data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">value =</span> paua<span class="op">$</span>Length)
+  ##  randomise labels
+  data<span class="op">$</span>random_labels &lt;-<span class="kw">sample</span>(paua<span class="op">$</span>Species, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
+  ## randomised differences in mean
+  randomisation_difference_mean[i] &lt;-<span class="st"> </span>(data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(random_labels) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(value)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">diff =</span> <span class="kw">diff</span>(mean)))<span class="op">$</span>diff
+}
+## results
+results &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">randomisation_difference_mean =</span> randomisation_difference_mean)</code></pre></div>
+<p><strong>Interpreting p-values for a randomisation test</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## How many randomised differences in means are as least as extreme as the one we observed
+## absolute value as dealing with two tailed
+n_exceed &lt;-<span class="st"> </span><span class="kw">sum</span>(<span class="kw">abs</span>(results<span class="op">$</span>randomisation_difference_mean) <span class="op">&gt;=</span><span class="st"> </span><span class="kw">abs</span>(diff_in_means))
+n_exceed</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## proportion
+n_exceed<span class="op">/</span>nreps</code></pre></div>
+<pre><code>## [1] 0.001</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(results, <span class="kw">aes</span>(<span class="dt">x =</span> randomisation_difference_mean)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Differences between randomised group means&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> diff_in_means, <span class="dt">col =</span> <span class="st">&quot;cyan4&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>,<span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Observed difference between means&quot;</span> , 
+           <span class="dt">x =</span> <span class="op">-</span><span class="ot">Inf</span>, <span class="dt">y =</span> <span class="ot">Inf</span>, <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="fl">1.5</span>, <span class="dt">color =</span> <span class="st">&quot;cyan4&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/hist-1.png" width="672" /> How would the parametirc t-test have served?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> paua)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Length by Species
+## t = 3.5404, df = 57.955, p-value = 0.0007957
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.4158802 1.4980086
+## sample estimates:
+## mean in group Haliotis australis      mean in group Haliotis iris 
+##                         5.766667                         4.809722</code></pre>
+<p>Not too different after all</p>
+<ul>
+<li>In experimental situations a large p-value (large tail proportion) means that the luck of the randomisation quite often produces group differences as large or even larger than what we’ve got in our data.</li>
+<li>A small p-value means that the luck of the randomisation draw hardly ever produces group differences as large as we’ve got in our data.</li>
+<li><strong>Statistical significance does not imply practical significance.</strong></li>
+<li><strong>Statistical significance says nothing about the size of treatment differences.</strong> To estimate the sizes of differences you need confidence intervals.</li>
+</ul>
+<p><strong>NOTE: We can extend the randomization test to make inference about any sample statistic (not just the mean)</strong></p>
+</div>
+</div>
+</div>
+<div id="power-significance-and-multiple-comparisons" class="section level2">
+<h2><span class="header-section-number">3.3</span> Power, Significance, and multiple comparisons</h2>
+<p>Recall, we have two competing hypotheses (claims) relating to the <strong>true</strong> vale of some population characteristic (e.g., the population mean, denoted <span class="math inline">\(\mu\)</span>):</p>
+<p><strong>Type I</strong> error (false positive): declare a difference (i.e., reject <span class="math inline">\(H_0\)</span>) when there is no difference (i.e. <span class="math inline">\(H_0\)</span> is true). Risk of the Type I error is determined by the <strong>level of significance</strong> (which we set!) (i.e., <span class="math inline">\(\alpha =\text{ P(Type I error)} = \text{P(false positive)}\)</span>.</p>
+<div class="figure">
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_1_errors.png?raw=true" alt="Artwork by @allison_horst" />
+<p class="caption">Artwork by <span class="citation">@allison_horst</span></p>
+</div>
+<p><strong>Type II</strong> error (false negative): difference not declared (i.e., <span class="math inline">\(H_0\)</span> not rejected) when there is a difference (i.e., <span class="math inline">\(H_0\)</span> is false). Let <span class="math inline">\(\beta =\)</span> P(do not reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is false); so, <span class="math inline">\(1-\beta\)</span> = P(reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is false) = P(a true positive), which is the statistical <strong>power</strong> of the test.</p>
+<div class="figure">
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_2_errors.png?raw=true" alt="Artwork by @allison_horst" />
+<p class="caption">Artwork by <span class="citation">@allison_horst</span></p>
+</div>
+<p><strong>Significance level</strong> = probability of a Type I error = probability of finding an effect that is not there (false positive).</p>
+<p><strong>Power</strong>: the probability that the test correctly rejects the null hypothesis when the alternative hypothesis is true. probability of finding an effect that is there = 1 - probability of a <strong>Type II</strong> error (false negative).</p>
+<p>Reducing the chance of a <strong>Type I</strong> error increases the chance of a <strong>Type II</strong> error. They are inversely related. <strong>Type II</strong> error rate is determined by a combination of the following.</p>
+<ul>
+<li><strong>Effect size</strong> (size of difference, of biological significance) between the true population parameters</li>
+<li>Experimental error variance</li>
+<li><strong>Sample size</strong></li>
+<li>Choice of <strong>Type I</strong> error rate (<span class="math inline">\(\alpha\)</span>)</li>
+</ul>
+<p>Each time we carry out a hypothesis test the probability we get a false positive result (<strong>Type I</strong> error) is given by <span class="math inline">\(\alpha\)</span> (the <strong>level of significance</strong> we choose).</p>
+<p>When we have <strong>multiple comparisons</strong> to make we should then control the <strong>Type I</strong> error rate across the entire <em>family</em> of tests under consideration, i.e., control the <strong>Family-Wise Error Rate (FWER)</strong>; this ensures that the risk of making at least one <strong>Type I</strong> error among the family of comparisons in the experiment is <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div id="one-way-anova-analysis-of-variance-using-lm" class="section level2">
+<h2><span class="header-section-number">3.4</span> One way ANOVA (<strong>AN</strong>alysis Of <strong>VA</strong>riance) using <code>lm()</code></h2>
+<p><strong>Key assumptions of Analysis of Variance</strong></p>
+<p>Observations are <strong>independent</strong></p>
+<ul>
+<li>Check experiment description</li>
+<li>How were data collected?</li>
+</ul>
+<p>All observations have the <strong>same variance</strong></p>
+<ul>
+<li>Spread of the observations does not depend on the Treatment Mean</li>
+</ul>
+<p>All observations are (approximately) normally distributed.</p>
+<p>Remember the penguins?</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(bill_length_mm <span class="op">~</span><span class="st"> </span>species, <span class="dt">data =</span> penguins)
+<span class="kw">summary</span>(fit.lm)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = bill_length_mm ~ species, data = penguins)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.9338 -2.2049  0.0086  2.0662 12.0951 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)       38.7914     0.2409  161.05   &lt;2e-16 ***
+## speciesChinstrap  10.0424     0.4323   23.23   &lt;2e-16 ***
+## speciesGentoo      8.7135     0.3595   24.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.96 on 339 degrees of freedom
+##   (2 observations deleted due to missingness)
+## Multiple R-squared:  0.7078, Adjusted R-squared:  0.7061 
+## F-statistic: 410.6 on 2 and 339 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Taking <strong>species</strong> <code>Adelie</code> as the <strong>baseline</strong>..</p>
+<p>Which pairs of means are different?</p>
+<ul>
+<li>Pair-wise comparisons of means
+<ul>
+<li>Use two-sample t-tests</li>
+<li>We need to calculate our <strong>observed</strong> t-value where <span class="math inline">\(\text{t-value} = \frac{\text{Sample Difference}_{ij} - \text{Difference assuming } H_0 \text{ is true}_{ij}}{\text{SE of } \text{Sample Difference}_{ij}}\)</span> where <span class="math inline">\(\text{Sample Difference}_{ij}\)</span> = Difference between pair of sample means</li>
+</ul></li>
+<li>Compute the p-value for observed t-value</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fit.lm)<span class="op">$</span>coef</code></pre></div>
+<pre><code>##                   Estimate Std. Error   t value      Pr(&gt;|t|)
+## (Intercept)      38.791391  0.2408694 161.04737 2.470328e-322
+## speciesChinstrap 10.042433  0.4322643  23.23216  4.232862e-72
+## speciesGentoo     8.713487  0.3595046  24.23749  5.330682e-76</code></pre>
+<p>(Intercept) = <span class="math inline">\(\text{mean}_{\text{Adelie}}\)</span> = 38.7913907</p>
+<p>SE of (Intercept) = SE of <span class="math inline">\(\text{mean}_{\text{Adelie}\)</span> = SEM = 38.7913907</p>
+<p><span class="math inline">\(\text{speciesChinstrap}\)</span> = <span class="math inline">\(\text{mean}_{\text{Chinstrap}}\)</span> - <span class="math inline">\(\text{mean}_{\text{Adelie}}\)</span> = 10.0424328</p>
+<p>SE of <span class="math inline">\(\text{speciesChinstrap}\)</span> = SE of (<span class="math inline">\(\text{mean}_{\text{Chinstrap}}\)</span> - <span class="math inline">\(\text{mean}_{\text{Adelie}}\)</span> ) = SED = 0.4322643</p>
+<p>What is <span class="math inline">\(\text{mean}_{\text{Gentoo}}\)</span> - <span class="math inline">\(\text{mean}_{\text{Adelie}}\)</span></p>
+<p><strong>Hypotheses being tested</strong></p>
+<ul>
+<li>The t value and Pr (&gt;|t|) are the t - and p-value for testing the null hypotheses:
+<ul>
+<li>Mean abundance is zero for Adelie population</li>
+<li>No difference between the population means of Chinstrap and Adelie</li>
+<li>No difference between the population means of Gentoo and Adelie</li>
+</ul></li>
+</ul>
+<p>We’re interested in 2 and 3, but not necessarily 1!</p>
+<div id="model-diagnostics-and-data-transformations" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Model diagnostics and data transformations</h3>
+<p>Observations are <strong>independent</strong></p>
+<ul>
+<li>Check experiment description</li>
+<li>How were data collected?</li>
+</ul>
+<p>All observations have the <strong>same variance</strong></p>
+<ul>
+<li>Spread of the observations does not depend on the Treatment Mean</li>
+</ul>
+<p>All observations are (approximately) normally distributed.</p>
+<p><strong>Residual plot to evaluate homogeneity of variances assumption</strong></p>
+<p>Plot residuals against the estimated values of the treatment means (Predicted Values)</p>
+<p>If the variability of the observations around the treatment means differs between groups, this will be reflected in the residual plot</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">resids &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Residuals =</span> <span class="kw">residuals</span>(fit.lm))
+<span class="co"># Extract predicted (fitted) values and add to the data frame</span>
+resids<span class="op">$</span>Fitted.Values &lt;-<span class="st"> </span><span class="kw">fitted.values</span>(fit.lm)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><strong>Other diagnostic plots</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gglm<span class="op">::</span><span class="kw">gglm</span>(fit.lm) <span class="co"># Plot the four main diagnostic plots</span></code></pre></div>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : pseudoinverse used at 38.741</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : neighborhood radius 8.7637</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : reciprocal condition number 3.8046e-30</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : There are other near singularities as well. 101.86</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : pseudoinverse used at 0.0065821</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : neighborhood radius 0.001548</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : reciprocal condition number 1.3674e-15</code></pre>
+<pre><code>## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : There are other near singularities as well. 6.5996e-05</code></pre>
+<p><img src="_main_files/figure-html/qqnorm-1.png" width="672" /></p>
+<p><strong>QQplot</strong></p>
+<ul>
+<li>Normal quantile-quantile (QQ) plot</li>
+</ul>
+<p>• Plot sorted residuals versus expected order statistics from a standard normal distribution</p>
+<ul>
+<li><p>Samples should be close to a line</p></li>
+<li><p>Points moving away from 45 degree line at the tails suggest the data are from a skewed distribution, but it is difficult to be confident with so few data points</p></li>
+</ul>
+<p><strong>Outliers: Causes</strong></p>
+<ul>
+<li>Errors in collecting and/or recording of data</li>
+<li>Mistakes in technique</li>
+<li>Treatment and/or environment</li>
+<li>Affect statistical inference</li>
+<li>Inflation of estimated experimental error variance</li>
+<li>Influence estimate of treatment mean</li>
+<li>Investigate cause before discarding data</li>
+<li>Discarded data results in loss of information</li>
+</ul>
+<p><strong>Looking for outliers with residuals</strong></p>
+<ul>
+<li>Large positive or negative values far removed from the 1-to-1 line in the normal QQ plot
+<ul>
+<li>Points far removed from upper and lower boundaries of the Residuals versus Predicted values plot</li>
+</ul></li>
+</ul>
+<p><strong>Variance stabilizing transformations</strong></p>
+<ul>
+<li>Used to change the scale of the observations
+<ul>
+<li>To conform more closely with the ANOVA assumptions</li>
+<li>To provide more valid inferences from ANOVA</li>
+<li>Significance levels (<span class="math inline">\(\alpha\)</span>) don't apply to original data</li>
+<li>Conduct analysis and make all inferences on transformed</li>
+<li>Present summary tables on the original measurement scale</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="p-values-more-to-come" class="section level2">
+<h2><span class="header-section-number">3.5</span> 😱 p-values 😱 (<em>more to come</em>)</h2>
+<blockquote>
+&quot;Good statistical practice, as an essential component of good scientific practice, emphasizes principles of good study design and conduct, a variety of numerical and graphical summaries of data, understanding of the phenomenon under study, interpretation of results in context, complete reporting and proper logical and quantitative understanding of what data summaries mean. No single index should substitute for scientific reasoning.&quot;
+<footer>
+--- ASA Statement on p-Values
+</footer>
+</blockquote>
+<pre><code>**What is a p-Value?**</code></pre>
+<p>Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data (e.g., the sample mean difference between two compared groups) would be equal to or more extreme than its observed value</p>
+<ul>
+<li><p><strong>p-values</strong> can indicate how incompatible the data are with a specified statistical model</p></li>
+<li><p>p-values <strong>do not</strong> measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone</p></li>
+<li><p>scientific conclusions and business or policy decisions <strong>should not</strong> be based only on whether a p-value passes a specific threshold</p></li>
+<li><p>roper inference requires <strong>full</strong> reporting and transparency</p></li>
+<li><p>p-value, or statistical significance, does <strong>not</strong> measure the size of an effect or the importance of a result</p></li>
+<li><p>by itself, a p-value does <strong>not</strong> provide a good measure of evidence regarding a model or hypothesis</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Two-sample t -tests for pairwise comparisons of means: $ : t value = Estimate ÷ Std.Error = 23.23; Pr (&gt;|t|) = &lt;2e-16</p>
+</div>
+<div id="other-resources-optional-but-recommended-2" class="section level2">
+<h2><span class="header-section-number">3.6</span> Other resources: optional but recommended</h2>
+<ul>
+<li><a href="https://tinystats.github.io/teacups-giraffes-and-statistics/">Teacups, giraffes, and statistics: free online introductory level R and statistics modules</a></li>
+<li><blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+I thought it could be helpful to have a thread on ANOVA in R. As a statistical consultant, this is the most frequent FAQ I get from clients - how to run a linear model on their data, conduct hypothesis tests, extract predicted means and perform contrasts.
+</p>
+— We are R-Ladies (<span class="citation">@WeAreRLadies</span>) <a href="https://twitter.com/WeAreRLadies/status/1223790298024726528?ref_src=twsrc%5Etfw">February 2, 2020</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">The ASA Statement on p-Values: Context, Process, and Purpose</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-exploration-and-visualization.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

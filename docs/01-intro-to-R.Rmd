@@ -357,7 +357,7 @@ library(tidyverse)
 
 ### Reading in data from a `.csv` file
 
-First off download the `paua.csv` file from CANVAS (listed under Module 1, Week 1.) onto your computer (remember which folder you saved it in!)
+First off download the `paua.csv` file from CANVAS onto your computer (remember which folder you saved it in!)
 
 To read the data into `RStudio` 
 
