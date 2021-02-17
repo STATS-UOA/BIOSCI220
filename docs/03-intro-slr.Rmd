@@ -3,37 +3,28 @@
 ## Learning objectives
 
 + Formulate a question/hypothesis to investigate based on the given data
-+ Use an appropriate visualization or other summary to motivate and communicate your hypothesis
-+ Explain and discuss the limitations of different hypothesis testing techniques (e.g., single and two-sample t-tests, ANOVA, randomisation test)
-+ Explain and discuss the limitations of statistical linear regression
-    +  with a single factor explanatory variable
-+ Interpret and communicate the estimated coefficients to both a statistical and non-statistical audience
-+ Describe the aims of the following hypothesis tests
-      + one-sample t-test
-      + two-sample t-test (independent and dependent)
-      + randomization test
-      + one-way Analysis of Variance (ANOVA)
-+ List the aims of hypothesis testing and write out the appropriate null and alternative hypothesis using statistical notation
-+ Write R code to carry out an hypothesis test using the appropriate variables in their dataset. Specifically write R code to carry out
-   + one-sample t-test
-   + two-sample t-test (independent and dependent)
-   + randomization test
-   + one-way Analysis of Variance (ANOVA)
- + Interpret and communicate the findings of an hypothesis test accurately and concisely
- + List the limitations of the hypothesis in relation to the questions posed by the data
++ Explain and discuss the limitations of statistical linear regression, with a single factor explanatory variable
++ Interpret and communicate the estimated coefficients of a linear regression model with a single factor explanatory variable to both a statistical and non-statistical audience; discuss and critique model fit
++ List the aims and write out the appropriate null and alternative hypothesis using statistical notation for a
+    + one-sample t-test
+    + two-sample t-test (independent and dependent)
+    + randomization test
+    + one-way Analysis of Variance (ANOVA)
++ Write R code to carry out a randomization test
++ Use the `lm()` function to carry out a
+    + two-sample t-test (independent)
+    + one-way Analysis of Variance (ANOVA)
+ + Correctly interpret and communicate a p-value in terms of the hypotheses test listed above
  + State in terms of probability statements the meaning of the power and significance level of an hypothesis test
+ 
 
-## Hypothesis testing
+## Introdcution to hypothesis testing
 
-Using the `paua.csv` data from CANVAS
+Using the `paua.csv` data from CANVAS. The P$\overline{\text{a}}$ua dataset contains the following variables
 
-### The P$\overline{\text{a}}$ua dataset
-
-The P$\overline{\text{a}}$ua dataset contains the following variables
-
- + Age of  P$\overline{\text{a}}$ua in years (calculated from counting rings in the cone) 
- + Length of  P$\overline{\text{a}}$ua shell in centimeters
- + Species of  P$\overline{\text{a}}$ua: *Haliotis iris* (typically found in NZ) and
+ + `Age` of  P$\overline{\text{a}}$ua in years (calculated from counting rings in the cone) 
+ + `Length` of  P$\overline{\text{a}}$ua shell in centimeters
+ + `Species` of  P$\overline{\text{a}}$ua: *Haliotis iris* (typically found in NZ) and
 *Haliotis australis* (less commonly found in NZ) 
 
 ```{r read quiet2, echo = FALSE, eval = TRUE, message = FALSE}
@@ -46,7 +37,19 @@ library(tidyverse)
 paua <- read_csv("paua.csv")
 ```
 
+
+```{r}
+glimpse(paua)
+```
+
 ### One-Sample t-test
+
+Using a violin plot we can look at the distribution of shell `Length`. We can calculate the average `Length` of all shells in our sample
+
+```{r}
+paua %>% summarise(average_length = mean(Length))
+```
+
 
 ```{r vio1, echo = FALSE}
 ## violin plot with transparent points
@@ -66,16 +69,53 @@ os
   
 ```
 
-Do we believe that the average length of P$\overline{\text{a}}$ua shells is 5cm? Well from our sample the average length is `r round(mean(paua$Length),3)`cm ... But what about variation?
+What about drawing inference? Do we believe that the average length of P$\overline{\text{a}}$ua shells is, say, 5cm? We know our sample average, but can we make any claims based on this one number?
 
-Enter the Standard Error of the Mean, **SEM** (*reflects our uncertainty about the mean) $= \frac{\sigma}{\sqrt{n}}$; where $\sigma = \sqrt{\frac{\Sigma_{i = 1}^n(x_i - \bar{x})^2}{n-1}}$ ($i = 1,...,n$) is the standard deviation of the sample, $n$ is the sample size, and $\bar{x}$ is the sample mean.
+How do we reflect our uncertainty about the population mean? (*remember it's the population we want to make inference on based on our sample!*) Enter the Standard Error of the Mean, **SEM**,  $= \frac{\sigma}{\sqrt{n}}$; where $\sigma = \sqrt{\frac{\Sigma_{i = 1}^n(x_i - \bar{x})^2}{n-1}}$ ($i = 1,...,n$) is the standard deviation (SD) of the sample, $n$ is the sample size, and $\bar{x}$ is the sample mean.
 
 
-#### Calculating $(x_i - \bar{x})^2$ 
+**Calculating $\Sigma_{i = 1}^n(x_i - \bar{x})^2, i = 1,...,n$ by hand**.
+
+It's the sum squared differences of the distances between the $i^{th}$ observation and the sample mean $\bar{x}$ (denoted $\mu_x$ in the GIF below)
 
 ![](https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/var.gif)
 
+So using the example values in the GIF
+
+```{r}
+## our sample of values
+x <- c(1,2,3,5,6,9)
+## sample mean
+sample_mean <- mean(x)
+sample_mean
+## distance from mean for each value
+distance_from_mean <- x - sample_mean
+distance_from_mean
+## squared distance from mean for each value
+squared_distance_from_mean <- distance_from_mean^2
+squared_distance_from_mean
+## sum of the squared distances
+sum(squared_distance_from_mean)
+```
+**Calculating SD and SEM**
+
+Now what about the **SD**? Remember it's the $\sqrt{\frac{\Sigma_{i = 1}^n(x_i - \bar{x})^2}{n-1}}$ so = $\sqrt{\frac{`r sum(squared_distance_from_mean)`}{n-1}}$ = $\sqrt{\frac{`r sum(squared_distance_from_mean)`}{`r length(x)`-1}}$ = $\sqrt{\frac{`r sum(squared_distance_from_mean)`}{`r length(x)-1`}}$ = `r sqrt(sum(squared_distance_from_mean)/(length(x) - 1))`.
+
+Or we could just use `R`'s `sd()` function
+
+```{r}
+sd(x)
+```
+So the **SEM** is $\frac{\text{SD}}{\sqrt{n}}$ = $\frac{`r sd(x)`}{\sqrt{`r length(x)`}}$
+
 In `R`
+
+```{r}
+sd(x)/sqrt(length(x))
+
+```
+
+For the `paua` data we can simply use the in-built functions in `R` to calculate the SEM
 
 ```{r sem}
 sem <- paua %>% summarise(mean = mean(Length),
@@ -83,46 +123,91 @@ sem <- paua %>% summarise(mean = mean(Length),
 sem
   
 ```
-### Visualising the uncertainty
+
+**Visualising the uncertainty**
+
+Recall that the SEM is a measure of uncertainty about the mean. So we can use it to express our uncertainty visually. Typically $\pm$ twice the SEM is the interval used:
 
 ```{r vizun, echo = FALSE}
 os + geom_hline(data = sem, aes(yintercept = mean + 2*sem), lty = 3, alpha = 0.5) +
   geom_hline(data = sem, aes(yintercept = mean - 2*sem), lty = 3, alpha = 0.5)
 ```
 
-#### Why error bars that are $\pm$ twice the SEM?
+**Why error bars that are $\pm$ twice the SEM?**
 
-This is approx. the 95% confidence interval for the population mean
+This is approximately the 95% confidence interval for the population mean (*see lecture*)
 
-The exact 95% CI is given by
-  + Mean $\pm$ $t_{df,1 - \alpha/2}$ $\times$ SEM
- ( df = degrees of freedom; $\alpha$ = level of significance)
+The exact 95% CI is given by $\bar{x}$ (mean) $\pm$ $t_{df,1 - \alpha/2}$ $\times$ SEM
+
+  + df = degrees of freedom (*in this situation* df = n - 1)
+  + $\alpha$ = level of significance
 
 Each mean has its own confidence interval whose width depends on the SEM for that mean
 
-When the df (*more on these later) are large (e.g. 30 or greater) and $\alpha$ = 0.05 $t_{df,1 - \alpha/2}$ = $t_{large,0.975}$ $\approx$ 2
+When the df (*more on these later*) are large (e.g. 30 or greater) and $\alpha$ = 0.05 $t_{df,1 - \alpha/2}$ = $t_{large,0.975}$ $\approx$ 2. Hence, the 95% confidence interval for the population mean is approximately $\bar{x}$ (mean) $\pm$ 2 $\times$ SEM
 
-Hence, the 95% confidence interval for the population mean is approximately Mean ± 2 $\pm$ SEM
+**Back to our hypothesis test**
 
-So carrying out the test $H_0: \mu = 5$ vs $H_1: \mu \neq 5$
+**Question:** Do we believe that the average length of P$\overline{\text{a}}$ua shells is 5cm?
 
-The t-statistic is calculated as follow: $\frac{\bar{x}- \mu}{\text{SEM}}$ = $\frac{`r sem[1]` - 5}{`r sem[2]`}$ = `r round((sem[1] - 5)/sem[2], 3)`
+**Formalizing into a hypothesis test:**  
+
+ + *Null hypothesis*: On average P$\overline{\text{a}}$ua shells are 5cm long
+ + *Alternative hypothesis*: On average P$\overline{\text{a}}$ua shells are **not** 5cm long
+ + *Notationally*: $H_0: \mu = 5$ vs $H_1: \mu \neq 5$ (*$\mu$ is the proposed mean*)
+ 
+**Calculating a statistic** (*we use a t-statistic*)
+
+t-statistic $ = \frac{\bar{x}- \mu}{\text{SEM}}$ = $\frac{`r sem[1]` - 5}{`r sem[2]`}$ = `r round((sem[1] - 5)/sem[2], 3)`
+
+   + $\bar{x}$ is the sample mean
+
+   + $\mu$ is the theoretical value (*proposed mean*)
+   
+**The corresponding p-value**
+
+Q: *What is a p-Value?*
+
+A: Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data would be equal to or more extreme than its observed value
+
+So in this case it's the probability, under the null hypothesis ($\mu = 5$), that we would observe a statistic as least as extreme as we did.
+
+Under our null hypothesis the distribution of the t-statistic is as below. The one calculated from our hypothesis test was 1.2391. Now, remember that our alternative hypotheses was $H_1: \mu \neq 5$ so we have to consider both sides of the inequality; hence, anything as least as extreme is either $> 1.2391$ or $< -1.2391$ to our observed statistic (vertical lines). Anything as least as extreme is therefore given by the grey shaded areas.
+
+```{r, echo = FALSE}
+data <- data.frame(quantiles = rt(1000,df = 59))
+data$dens <- dt(data$quantiles, df = 59)
+ggplot(data, aes(x = quantiles, y = dens)) +
+  geom_line() +
+  theme_classic() +
+  ylab("density") +
+  xlab("t-statistic") +
+  geom_vline(xintercept = 1.2391, color = "cyan4" , size = 2) + 
+  geom_vline(xintercept = -1.2391, color = "cyan4" , size = 2) +
+  geom_area(data = data[data$quantiles >= 1.2391,],
+            mapping = aes(x = quantiles, y = dens),fill = "grey",alpha = 0.3) +
+  geom_area(data = data[data$quantiles <= -1.2391,],
+            mapping = aes(x = quantiles, y = dens),fill = "grey",alpha = 0.3)
+
+```
+
+We can calculate the p-value using the `pt()` function (where `q` is our calculated t-statistic, and `df` are the degrees of freedom from above):
+
+```{r}
+2*(1 - pt(q  = 1.2391,df = 59))
+```
 
 
-$\bar{x}$ is the sample mean
-$\mu$ is the theoretical value
 
-We can compute the p-value corresponding to the absolute value of the t-test statistics (|t|) for the degrees of freedom (df): df = $n − 1 = 60 - 1 = 59$.
-
-Using `R`
+Or we could do all of the above in one step using `R`
 
 ```{r ostest}
 t.test(paua$Length, mu = 5 )
 ```
 
-The p-vale gives the probability that under our null hypothesis we observe anything as least as extreme as what we did. This probability is $\sim$ 22%. Do you think what we've observed is likely under the null hypothesis?
+Recall, that the p-value gives the probability that under our null hypothesis we observe anything as least as extreme as what we did (hence the $\times 2$, think of the grey shaded area in the graph). This probability is $\sim$ 22%. Do you think what we've observed is likely under the null hypothesis?
 
-Does this plot help?
+Does this plot help? The proposed mean is shown by the red horizontal line; the dashed line shows the sample mean and the dotted lines $\pm$ the SEM.
 
 ```{r vizunmu, echo  = FALSE}
 os + geom_hline(data = sem, aes(yintercept = mean + 2*sem), lty = 3, alpha = 0.5) +
@@ -132,52 +217,86 @@ os + geom_hline(data = sem, aes(yintercept = mean + 2*sem), lty = 3, alpha = 0.5
 
 ### Differences between two means
 
-```{r vio}
-means <- paua %>% group_by(Species) %>% summarise(means = mean(Age))
+```{r vio, echo = FALSE}
+means <- paua %>% group_by(Species) %>% summarise(means = mean(Length))
 ## violin plot with transparent points
-a <- ggplot(paua,aes(x = Species, y = Age)) + 
+a <- ggplot(paua,aes(x = Species, y = Length)) + 
   geom_violin() +
   geom_point(alpha = 0.4) +
-  ylab("Age (years)") + xlab("") +
+  ylab("Length (cm)") + xlab("") +
   theme_classic() +
   geom_point(data = means, aes(x = Species, y = means, color = Species), size = 2) +
   geom_hline(data = means, aes(yintercept = means, color = Species), lty = 2, alpha = 0.5) +
   theme(legend.position = "none") +
-  geom_text(data = means, aes(x = Species, y = means + 1, label = paste0("Species averege = ",round(means,3)), color = Species))
+  geom_text(data = means, aes(x = Species, y = means + 25, label = paste0("Species averege = ",round(means,3)), color = Species))
 a 
   
 ```
 
-Calculating the differences between species means:
+**Calculating the differences between species means:**
 
-*Haliotis australis* average - *Haliotis iris* average = $\mu_{\text{Haliotis australis}} - \mu_{\text{Haliotis iris}}$ = `r round(means[1,2],3)` - `r round(means[2,2],3)` = `r round(means[1,2] - means[2,2],3)`.
+*Haliotis australis* average - *Haliotis iris* average = $\mu_{\text{Haliotis australis}} - \mu_{\text{Haliotis iris}}$ = `r round(means[1,2],3)` - `r round(means[2,2],3)` = `r round(means[1,2] - means[2,2],3)`.Doesn't really tell us much... 
 
-Doesn't really tell us much. **The average values are all well and good... but... variation?** Recall the SEM from the one-sample t-test? The same idea holds here, although the calculation is a little bit more complicated (as we have to think about the number of observations in each group). But from the two group SEMs we can calculate the Standard Error of the Difference between two means, **SED**.
+As above the average values are all well and good, but what about **variation?** Recall the SEM from the one-sample t-test? The same idea holds here, although the calculation is a little bit more complicated (as we have to think about the number of observations in each group). But from the two group SEMs we can calculate the Standard Error of the Difference between two means, **SED**.
 
 
 #### Independent samples t-test with `lm()` and `t.test()`
 
+**Question:** Do we believe that the average length of P$\overline{\text{a}}$ua shells 
 
-Null hypothesis: $H_0$ (are on average the same age) verses the alternative hypothesis, $H_1$, that they aren't!
+**Formalizing into a hypothesis test:**
+   
+   + **Null hypothesis**: On average the species' shells are the same length
+   + **Alternative hypothesis**: they aren't!
+   + *Notationally*: $H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0$ vs $H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}$
+   
+    + $\mu_{j}$ is the average length for species $j = $ (*Haliotis iris*, *Haliotis australis*), 
 
-+ $H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0$ vs $H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}$
+**Calculate the test statistic:** t-statistic = $\frac{\bar{x}_{\text{difference}} - \mu}{\text{SED}}$ = $\frac{\bar{x}_{\text{difference}} - 0}{\text{SED}}$
 
-Test Statistic: t-statistic = $\frac{\bar{x}_{\text{difference}} - \mu}{\text{SED}}$ = $\frac{\bar{x}_{\text{difference}} - 0}{\text{SED}}$ = 
+   + where $\bar{x}_{\text{difference}}$ is the differences between the species` averages. 
 
-where $\bar{x}_{\text{difference}}$ is the differences between the species` averages. 
+Calculations area a little bit more tricky here so let's use `R`. We have two options (both answer our question):
 
-Probability of getting a t-statistic at least as extreme as the one we observe (more on this later)
+**Option 1.** using `t.test()`
 
 ```{r lmt}
-test <- t.test(Age ~ Species, data = paua)
+test <- t.test(Length ~ Species, data = paua)
+## printing out the result
 test
+test$p.value
+
 ```
 
+Listed are the t-statistic, `t` = `r test$statistic` and the p-value, `p-value` = `r test$p.value` for the hypothesis test outlined above. What would you conclude?
+
+**Option 2.** using `lm()`
 
 ```{r lm}
-t.lm <- lm(Age ~ Species, data = paua)
-summary(t.lm)
+t.lm <- lm(Length ~ Species, data = paua)
+##extracting the estimated parameters
+summary(t.lm)$coef
 ```
+
+So,  what are the printed values? 
+
+**Inference** 
+
+(Intercept) = the *baseline* = $\mu_\text{Haliotis australis}$ = `r summary(t.lm)$coef[1,1]`
+
+SE of (Intercept) = SE of $\mu_\text{Haliotis australis}$ = SEM = `r summary(t.lm)$coef[1,2]`
+
+$\text{SpeciesHaliotis iris}$ = $\mu_\text{Haliotis iris}$ – $\mu_\text{Haliotis australis}$ = `r summary(t.lm)$coef[2,1]`
+
+SE of $\text{SpeciesHaliotis iris}$ = SE of ($\mu_\text{Haliotis iris}$ – $\mu_\text{Haliotis australis}$ ) = SED = `r summary(t.lm)$coef[2,2]`
+
+**Hypotheses being tested**
+
++ The `t value` and `Pr (>|t|)` are the t - and p-value for testing the null hypotheses:
+
+	1. Mean abundance is zero for *Haliotis australis* (not interested in this really)
+	2. No difference between the population means of *Haliotis australis* and *Haliotis iris*
+
 
 
 ```{r, echo = FALSE}
@@ -197,23 +316,10 @@ c.lm <- lm(Age ~ Species, data = paua_rl)
 summary(c.lm)
 
 ```
-```{r, echo = FALSE}
-means$base <- summary(c.lm)$coef[1,1]
-a + geom_text(data = means[2,],aes(x = Species, y = base - 0.25, color = Species, label = paste0("Baseline = ",round(means,3)))) +
-  geom_segment(data = means[1,], aes(x = Species, y = means, xend = Species, yend = base,color = Species), size = 1) +
-  geom_text(data = means[1,], aes(x = Species, y = base - 0.25, color = Species, label = paste0("diff to baseline = ",round(means - base,3))))
-  
-```
 
-#### Inference `lm()`
+**Inference** 
 
-
-```{r lmsumary}
-summary(c.lm)$coef
-```
-
-
-(Intercept) = $\mu_\text{Haliotis iris}$ = `r summary(c.lm)$coef[1,1]`
+(Intercept) = the *baseline* = $\mu_\text{Haliotis iris}$ = `r summary(c.lm)$coef[1,1]`
 
 SE of (Intercept) = SE of $\mu_\text{Haliotis iris}$ = SEM = `r summary(c.lm)$coef[1,2]`
 
@@ -223,11 +329,92 @@ SE of $\text{SpeciesHaliotis australis}$ = SE of ($\mu_\text{Haliotis australis}
 
 **Hypotheses being tested**
 
-+ The t value and Pr (>|t|) are the t - and p-value for testing the null hypotheses:
-	+ Mean abundance is zero for *Haliotis iris* (not interested in this really)
-	+ No difference between the population means of *Haliotis iris* and *Haliotis australis*
++ The `t value` and `Pr (>|t|)` are the t - and p-value for testing the null hypotheses:
 
-#### Randomization test
+	1. Mean abundance is zero for *Haliotis iris* (not interested in this really)
+	2. No difference between the population means of *Haliotis iris* and *Haliotis australis*
+
+```{r, echo = FALSE}
+means$base <- summary(c.lm)$coef[1,1]
+a + geom_text(data = means[2,],aes(x = Species, y = base - 0.25, color = Species, label = paste0("Baseline = ",round(means,3)))) +
+  geom_segment(data = means[1,], aes(x = Species, y = means, xend = Species, yend = base,color = Species), size = 1) +
+  geom_text(data = means[1,], aes(x = Species, y = base - 0.25, color = Species, label = paste0("diff to baseline = ",round(means - base,3))))
+  
+```
+
+
+## `r emo::ji('scream')` Correctly interpreting p-values `r emo::ji('scream')`
+
+> "Good statistical practice, as an essential component of good scientific practice, 
+emphasizes principles of good study design and conduct, a variety of numerical 
+and graphical summaries of data, understanding of the phenomenon under study, 
+interpretation of results in context, complete reporting and proper
+logical and quantitative understanding of what data summaries mean. 
+No single index should substitute for scientific reasoning." `r tufte::quote_footer('--- ASA Statement on p-Values')`
+
+**What is a p-Value?**
+
+Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data (e.g., the sample mean difference between two compared groups) would be equal to or more extreme than its observed value.
+
+**Note**
+
++ **p-values** can indicate how incompatible the data are with a specified statistical model
+
++ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
+
++ scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
+
++ roper inference requires **full** reporting and transparency
+
++ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
+
++ by itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
+
+
+### [The ASA Statement on p-Values: Context, Process, and Purpose](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)
+
+**Q:** Why do so many colleges and grad schools teach *p-val*=0.05?
+
+**A:** Because that's still what the scientific community and journal editors use. `r emo::ji('scream')` **BUT IT SHOULDN'T BE** `r emo::ji('scream')`
+
+**Q:** Why do so many people still use *p-val*=0.05?
+
+**A:** Because that's what they were taught in college or grad school. `r emo::ji('scream')`**BUT THEY SHOULDN'T BE**`r emo::ji('scream')`
+
+
+## Power, Significance, and multiple comparisons
+
+Recall, we have two competing hypotheses (claims) relating to the **true** vale of some population characteristic (e.g., the population mean, denoted $\mu$):
+
+**Some terminology**
+
+**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
+
+![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_1_errors.png?raw=true)
+
+**Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
+
+![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_2_errors.png?raw=true)
+
+**Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
+
+**Power**: the probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a **Type II** error (false negative).
+
+Reducing the chance of a **Type I** error increases the chance of a **Type II** error. They are inversely related. **Type II** error rate is determined by a combination of the following.
+
+  + **Effect size** (size of difference, of biological significance) between the true population parameters
+  + Experimental error variance 
+  + **Sample size**
+  + Choice of **Type I** error rate ($\alpha$)
+  
+
+Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose).
+
+When we have **multiple comparisons** to make we should then control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is $\alpha$.
+
+
+## Randomization test
 
 The basic approach to randomization tests is straightforward:
 
@@ -236,7 +423,7 @@ The basic approach to randomization tests is straightforward:
  3. For chosen number of times (i.e., `nreps` below) 
     + Shuffle the data labels
     + Calculate the test statistic for the reshuffled data and retain
- 4. Calculate the proportion of times your reshuffeled statistics equal or exceed the observed
+ 4. Calculate the proportion of times your reshuffled statistics equal or exceed the observed
     + typically here we use the absolute values as we'd be carrying out a two-tailed test
     + this is the probability of such an extreme result under the null
  5. Reject or retain the null on the basis of this probability.
@@ -255,7 +442,7 @@ ggplot(paua,aes(x = Species, y = Length)) +
   geom_point(data = means, aes(x = Species, y = means, color = Species), size = 2) +
   geom_hline(data = means, aes(yintercept = means, color = Species), lty = 2, alpha = 0.5) +
   theme(legend.position = "none") +
-  geom_text(data = means, aes(x = Species, y = means + 1, label = paste0("Species averege = ",round(means,3)), color = Species))
+  geom_text(data = means, aes(x = Species, y = means + 0.3, label = paste0("Species averege = ",round(means,3)), color = Species))
   
 ggplot(paua,aes(x = Length, fill = Species)) + 
   geom_histogram(position = "identity", alpha = 0.3) +
@@ -264,7 +451,7 @@ ggplot(paua,aes(x = Length, fill = Species)) +
 
 ```
 
-But because the data are skewed and we've likely got non-constant variances we be better off adopting a randomization test, rather than a parametric t-test
+But because the data are skewed and we've likely got non-constant variances we may be better off adopting a randomization test, rather than a parametric t-test
 
 ```{r}
 ## observed differences in means
@@ -301,7 +488,6 @@ n_exceed/nreps
 ```
 
 
-
 ```{r hist}
 ggplot(results, aes(x = randomisation_difference_mean)) +
   geom_histogram() +
@@ -312,7 +498,8 @@ ggplot(results, aes(x = randomisation_difference_mean)) +
   
 
 ```
-How would the parametirc t-test have served?
+
+How would the parametric t-test have served?
 
 ```{r t}
 t.test(Length ~ Species, data = paua)
@@ -320,80 +507,41 @@ t.test(Length ~ Species, data = paua)
 
 Not too different after all
 
-   + In experimental situations a large p-value (large tail proportion) means that the luck of the randomisation quite often produces group differences as large or even larger than what we’ve got in our data.
-   + A small p-value means that the luck of the randomisation draw hardly ever produces group differences as large as we’ve got in our data.
+**Note**
+
++ In experimental situations a large p-value (large tail proportion) means that the luck of the randomisation quite often produces group differences as large or even larger than what we've got in our data.
+   + A small p-value means that the luck of the randomisation draw hardly ever produces group differences as large as we've got in our data.
    + **Statistical significance does not imply practical significance.**
    + **Statistical significance says nothing about the size of treatment differences.** To estimate the sizes of differences you need confidence intervals.
 
+
 **NOTE: We can extend the randomization test to make inference about any sample statistic (not just the mean)**
 
-## Power, Significance, and multiple comparisons
+## One way ANOVA using `lm()`
 
-Recall, we have two competing hypotheses (claims) relating to the **true** vale of some population characteristic (e.g., the population mean, denoted $\mu$):
-
-
-**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
-
-![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_1_errors.png?raw=true)
-
-**Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
-
-![Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/type_2_errors.png?raw=true)
-
-**Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
-
-**Power**: the probability that the test correctly rejects the null hypothesis when the
-alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a **Type II** error (false negative).
-
-Reducing the chance of a **Type I** error increases the chance of a **Type II** error. They are inversely related. **Type II** error rate is determined by a combination of the following.
-
-  + **Effect size** (size of difference, of biological significance) between the true population parameters
-  + Experimental error variance 
-  + **Sample size**
-  + Choice of **Type I** error rate ($\alpha$)
-  
-
-Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose).
-
-When we have **multiple comparisons** to make we should then control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is $\alpha$.
+![](https://pbs.twimg.com/media/EeMWb7QWsAIGftR?format=jpg&name=small)
 
 
-## One way ANOVA (**AN**alysis Of **VA**riance) using `lm()`
-
-**Key assumptions of Analysis of Variance**
-
-Observations are **independent**
- 
-+ Check experiment description
-+ How were data collected?
-	
-All observations have the **same variance**
-
-+ Spread of the observations does not depend on the Treatment Mean
-	
-All observations are (approximately) normally distributed.
-
-
-Remember the penguins?
+Remember the penguins? **You might find [this application](https://cmjt.shinyapps.io/penguin/) useful, now and later...**
 
 ```{r,echo = FALSE}
 require(palmerpenguins)
 penguins_nafree <- penguins %>% drop_na()
-means <- penguins %>% group_by(species) %>% summarise(means = mean(bill_length_mm, na.rm = TRUE))
-mean <- mean(penguins_nafree$bill_length_mm)
+means <- penguins %>% group_by(species) %>% summarise(means = mean(bill_depth_mm, na.rm = TRUE))
+mean <- mean(penguins_nafree$bill_depth_mm)
 means$ends <- mean
 means$lag1 <- means$means[c(2,3,1)]
 means$lag2 <- means$means[c(3,1,2)]
 penguins_nafree <- penguins %>% drop_na()
 jit <- ggplot() + 
-  geom_jitter(data = penguins_nafree,aes(x = species, y = bill_length_mm, color = species), alpha = 0.2) 
+  geom_jitter(data = penguins_nafree,aes(x = species, y = bill_depth_mm, color = species), alpha = 0.2) 
 
 penguins_nafree$x_points <- layer_data(jit)$x
 penguins_nafree$y_points <- layer_data(jit)$y
-penguins_nafree <- penguins_nafree %>% group_by(species) %>% mutate(sp_means = mean(bill_length_mm))
+penguins_nafree <- penguins_nafree %>% group_by(species) %>% mutate(sp_means = mean(bill_depth_mm))
 
 ggplot() + 
-  ylab("Bill length (mm)") +
+  ylab("Bill depth (mm)") +
   xlab("") +
   geom_point(data = means, aes(x = species, y = means, color = species), size = 2) +
   geom_text(data = means, aes(x = species, y = means + 2.5, color = species, 
@@ -405,22 +553,19 @@ ggplot() +
                                  yend = sp_means,color = species), size = 1, alpha = 0.2) 
 ```
 
+
+Now we have more than two groups: $3$ potential comparisons we might be interested in. Remember that each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose). In light of this we should  control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is $\alpha$.
+
+
+**AN**alysis Of **VA**riance (ANOVA): this can, again, be done using `lm()`
+
+
 ```{r}
-fit.lm <- lm(bill_length_mm ~ species, data = penguins)
-summary(fit.lm)
+fit.lm <- lm(bill_depth_mm ~ species, data = penguins_nafree)
 ```
 
 Taking **species** `Adelie` as the **baseline**..
 
-Which pairs of means are different?
-
- + Pair-wise comparisons of means
-  	+ Use two-sample t-tests
- 	+ We need to calculate our **observed**  t-value where
-$\text{t-value} = \frac{\text{Sample Difference}_{ij} - \text{Difference assuming } H_0 \text{ is true}_{ij}}{\text{SE of } \text{Sample Difference}_{ij}}$
- where
-   $\text{Sample Difference}_{ij}$ = Difference between pair of sample means
- + Compute the p-value for observed t-value
  
 ```{r lmsum2}
 summary(fit.lm)$coef
@@ -429,134 +574,72 @@ summary(fit.lm)$coef
 
 (Intercept) = $\text{mean}_{\text{Adelie}}$ = `r summary(fit.lm)$coef[1,1]`
 
-SE of (Intercept) = SE of $\text{mean}_{\text{Adelie}$ = SEM = `r summary(fit.lm)$coef[1,1]`
+SE of (Intercept) = SE of $\text{mean}_{\text{Adelie}}$ = SEM = `r summary(fit.lm)$coef[1,1]`
 
 $\text{speciesChinstrap}$ = $\text{mean}_{\text{Chinstrap}}$ - $\text{mean}_{\text{Adelie}}$ = `r summary(fit.lm)$coef[2,1]`
 
 SE of $\text{speciesChinstrap}$ = SE of ($\text{mean}_{\text{Chinstrap}}$ - $\text{mean}_{\text{Adelie}}$ ) = SED = `r summary(fit.lm)$coef[2,2]`
 
-What is $\text{mean}_{\text{Gentoo}}$ - $\text{mean}_{\text{Adelie}}$ 
+What is $\text{mean}_{\text{Gentoo}}$ - $\text{mean}_{\text{Adelie}}$?
 
 **Hypotheses being tested**
 
-+ The t value and Pr (>|t|) are the t - and p-value for testing the null hypotheses:
-	+ Mean abundance is zero for Adelie population
-	+ No difference between the population means of Chinstrap and Adelie
-	+ No difference between the population means of Gentoo and Adelie
++ The `t value` and `Pr (>|t|)` are the t - and p-value for testing the null hypotheses
 
-We’re interested in 2 and 3, but not necessarily 1!
+	1. Mean abundance is zero for Adelie population
+	2. No difference between the population means of Chinstrap and Adelie
+	3. No difference between the population means of Gentoo and Adelie
+
+We're interested in 2 and 3, but not necessarily 1!
+
+What do you conclude? Does your inference match the plot?
+
+## Model diagnostics
+
+Carrying out any linear regression we have some **key assumptions**
+
++ **Independence** 
++ There is a **linear relationship** between the response and the explanatory variables
++ The residuals have **constant variance**
++ The **residuals** are normally distributed
 
 
-### Model diagnostics and data transformations
+**Diagnostic plots**
 
-Observations are **independent**
- 
-+ Check experiment description
-+ How were data collected?
-	
-All observations have the **same variance**
-
-+ Spread of the observations does not depend on the Treatment Mean
-	
-All observations are (approximately) normally distributed.
-
-**Residual plot to evaluate homogeneity of variances assumption**
-
-Plot residuals against the estimated values of the treatment means (Predicted Values)
-
-If the variability of the observations around the treatment means differs between groups, this will be reflected in the residual plot
-
-```{r resids}
-resids <- data.frame(Residuals = residuals(fit.lm))
-# Extract predicted (fitted) values and add to the data frame
-resids$Fitted.Values <- fitted.values(fit.lm)
-```
-
-```{r, echo = FALSE, fig.height = 5}
-fan <- ggplot(resids, aes(x = Fitted.Values, y = Residuals)) +
-  theme_bw() + 
-  geom_point(size = 4, shape = 18) +
-  geom_hline( yintercept = 0, col = 2, size = 2) +
-  geom_abline( intercept = 0, slope = +1.5, col = 4, linetype = 2 ,size = 2) +
-  geom_abline( intercept = 0, slope = -1.5, col = 4, linetype = 2 ,size = 2)
-fan
-```
-
-**Other diagnostic plots**
-
-```{r qqnorm}
+```{r qqnorm, message = FALSE, warning = FALSE}
 gglm::gglm(fit.lm) # Plot the four main diagnostic plots
 ```
 
-**QQplot**
+**Residuals vs Fitted** plot
 
-+ Normal quantile-quantile (QQ) plot
+You are basically looking for no pattern or structure in your residuals (e.g., a "starry" night). You definitely don't want to see is the scatter increasing around the zero line (dashed line) as the fitted values get bigger (e.g., think of a trumpet, a wedge of cheese, or even a slice of pizza) which would indicate unequal variances (heteroscedacity). 
 
-  • Plot sorted residuals versus expected order statistics from a standard normal distribution
+[Note: things look a bit weird, points are in clumps? Why? Well think of the model we fitted (i.e., one with a single factor explanatory variable)]
 
-+ Samples should be close to a line
+**Normal quantile-quantile (QQ)** plot
 
-+ Points moving away from 45 degree line at the tails suggest the data are from a skewed distribution, but it is difficult to be confident with so few data points
-
-**Outliers: Causes**
-
-+ Errors in collecting and/or recording of data
-+ Mistakes in technique
-+ Treatment and/or environment
-+ Affect statistical inference
-+ Inflation of estimated experimental error variance
-+ Influence estimate of treatment mean
-+ Investigate cause before discarding data
-+ Discarded data results in loss of information
-
-**Looking for outliers with residuals** 
-
-+ Large positive or negative values far removed from the 1-to-1 line in the normal QQ plot
-	+ Points far removed from upper and lower boundaries of the Residuals versus Predicted values plot
-
-**Variance stabilizing transformations**
-
-+ Used to change the scale of the observations
-	+ To conform more closely with the ANOVA assumptions
-	+ To provide more valid inferences from ANOVA
-	+ Significance levels ($\alpha$) don't apply to original data
-	+ Conduct analysis and make all inferences on transformed
-	+ Present summary tables on the original measurement scale
-	
+This plot shows the sorted residuals versus expected order statistics from a standard normal distribution. Samples should be close to a line; points moving away from 45 degree line at the tails suggest the data are from a skewed distribution.
 
 
-## `r emo::ji('scream')` p-values `r emo::ji('scream')` (*more to come*)
+**Scale-Location** plot ($\sqrt{\text{|standardized residuals vs Fitted|}}$)
 
-> "Good statistical practice, as an essential component of good scientific practice, 
-emphasizes principles of good study design and conduct, a variety of numerical 
-and graphical summaries of data, understanding of the phenomenon under study, 
-interpretation of results in context, complete reporting and proper
-logical and quantitative understanding of what data summaries mean. 
-No single index should substitute for scientific reasoning." `r tufte::quote_footer('--- ASA Statement on p-Values')`
+Another way to check the homoskedasticity (constant-variance) assumption. We want the  line to be roughly horizontal. If this is the case then the average magnitude of the standardized residuals isn't changing much as a function of the fitted values. We'd also like the spread around the  line not to vary much with the fitted values; then the variability of magnitudes doesn't vary much as a function of the fitted values.
 
-	**What is a p-Value?**
+**Residuals vs Leverage** plot (standardized residuals vs Leverage)
 
-Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data (e.g., the sample mean difference between two compared groups) would be equal to or more extreme than its observed value
+This can help detect outliers in a linear regression model. For linear regression model leverage measures how sensitive a fitted value is to a change in the true response. We're looking at how the spread of standardized residuals changes as the leverage. This can also be used to detect heteroskedasticity and non-linearity: the spread of standardized residuals shouldn't change as a function of leverage. In addition, points with high leverage may be influential: that is, deleting them would change the model a lot. 
 
+[Note: things look a bit weird: there are only three points? Why? Well think of the model we fitted (i.e., one with a single factor explanatory variable). We can't tell much here, bu twill use these plots more later on.]
 
-+ **p-values** can indicate how incompatible the data are with a specified statistical model
-
-+ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
-
-+ scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
-
-+ roper inference requires **full** reporting and transparency
-
-+ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
-
-+ by itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
-
-**Example**
-
-Two-sample t -tests for pairwise comparisons of means:  $\text{speciesChinstrap} : t value = Estimate ÷ Std.Error =  23.23; Pr (>|t|) =  <2e-16
 
 ## Other resources: optional but recommended
 
-+ [Teacups, giraffes, and statistics: free online introductory level R and statistics modules](https://tinystats.github.io/teacups-giraffes-and-statistics/)
-+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I thought it could be helpful to have a thread on ANOVA in R. As a statistical consultant, this is the most frequent FAQ I get from clients - how to run a linear model on their data, conduct hypothesis tests, extract predicted means and perform contrasts.</p>&mdash; We are R-Ladies (@WeAreRLadies) <a href="https://twitter.com/WeAreRLadies/status/1223790298024726528?ref_src=twsrc%5Etfw">February 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 + [The ASA Statement on p-Values: Context, Process, and Purpose](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I thought it could be helpful to have a thread on ANOVA in R. As a statistical consultant, this is the most frequent FAQ I get from clients - how to run a linear model on their data, conduct hypothesis tests, extract predicted means and perform contrasts.</p>&mdash; We are R-Ladies (@WeAreRLadies) <a href="https://twitter.com/WeAreRLadies/status/1223790298024726528?ref_src=twsrc%5Etfw">February 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;ve made this cheat sheet and I think it&#39;s important. Most stats 101 tests are simple linear models - including &quot;non-parametric&quot; tests. It&#39;s so simple we should only teach regression. Avoid confusing students with a zoo of named tests. <a href="https://t.co/9PFR1ly3lW">https://t.co/9PFR1ly3lW</a> 1/n</p>&mdash; Jonas K. Lindeløv (@jonaslindeloev) <a href="https://twitter.com/jonaslindeloev/status/1110907133833502721?ref_src=twsrc%5Etfw">March 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ 
+ <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The aov() function in <a href="https://twitter.com/hashtag/Rstats?src=hash&amp;ref_src=twsrc%5Etfw">#Rstats</a> is actually a wrapper around the lm() function <a href="https://t.co/FbvxQdtD4c">pic.twitter.com/FbvxQdtD4c</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1189536788790042625?ref_src=twsrc%5Etfw">October 30, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+

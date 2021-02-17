@@ -7,11 +7,89 @@ You'll not find anyone who's not made the mistake of taking their data for grant
 
 ## Learning objectives
 
-+ Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions
 + Define and discuss Māori Data Sovereignty principles
 + Define data sovereignty and explain this in relation to a researcher's obligation when collecting, displaying, and analysing data
++ Carry out and interpret the outputs of basic exploratory data analysis using in-built R functions
 + Create and communicate informative data visualisations using `R`
 + Discuss and critique data visualisations
+
+## Data sovereignty
+[''**Data sovereignty** is the idea that data are subject to the laws and governance structures within the nation it is collected''](https://en.wikipedia.org/wiki/Data_sovereignty)
+
+> "For Indigenous peoples, historical encounters with statistics have been fraught, and none more so than when involving official data produced as part of colonial attempts at statecraft." `r tufte::quote_footer('--- Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.')`
+
+
+### Māori Data Sovereignty principles
+ 
+ > "Māori Data Sovereignty has emerged as a critical policy issue as Aotearoa
+New Zealand develops world-leading linked administrative data resources." `r tufte::quote_footer('--- Andrew Sporle, Maui Hudson, Kiri West. Chapter 5, Indigenous Data Sovereignty and Policy')`
+
+
+> “Māori data refers to data produced by Māori or that is about Māori and the environments we have relationships with."  `r tufte::quote_footer('--- Te Mana Raraunga Charter')`
+
+
+> Data is a “potential taonga, something precious that needs to be maintained, in relation to its utility” `r tufte::quote_footer('--- Dr W. Edwards, TMR website')`
+
+
+Article Two of the Treaty of Waitangi obliges the Government to actively protect [taonga])(https://maoridictionary.co.nz/search?keywords=taonga), consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include
+
+ + provenance of the data: does the dataset come from a significant Māori source?
+ + opportunity for the data: could the dataset support Māori aspirations for their people or their whenua (land)?
+ + utility of the data: does the dataset have multiple uses?
+
+**Māori Data Sovereignty principles** inform the recognition of Māori rights and interests in data, and promote the ethical use of data to enhance Māori wellbeing:
+
++ **Rangatiratanga** (*authority*)
+
+    + Māori have an inherent right to exercise control over Māori data and Māori data ecosystems. This right includes, but is not limited to, the creation, collection, access, analysis, interpretation, management, security, dissemination, use and reuse of Māori data.
+    + Decisions about the physical and virtual storage of Māori data shall enhance control for current and future generations. Whenever possible, Māori data shall be stored in Aotearoa New Zealand.
+    + Māori have the right to data that is relevant and empowers sustainable self-determination and effective self-governance
+  
++ **Whakapapa** (*relationships*)
+
+    + All data has a whakapapa (genealogy). Accurate metadata should, at minimum, provide information about the provenance of the data, the purpose(s) for its collection, the context of its collection, and the parties involved.
+    + The ability to disaggregate Māori data increases its relevance for Māori communities and iwi. Māori data shall be collected and coded using categories that prioritise Māori needs and aspirations.
+    +  Current decision-making over data can have long-term consequences, good and bad, for future generations of Māori. A key goal of Māori data governance should be to protect against future harm.
+   
++ **Whanaungatanga** (*obligations*)
+
+    + Individuals’ rights (including privacy rights), risks and benefits in relation to data need to be balanced with those of the groups of which they are a part. In some contexts, collective Māori rights will prevail over those of individuals.
+    + Individuals and organisations responsible for the creation, collection, analysis, management, access, security or dissemination of Māori data are accountable to the communities, groups and individuals from whom the data derive
+   
++ **Kotahitanga** (*collective benefit*)
+
+    + Data ecosystems shall be designed and function in ways that enable Māori to derive individual and collective benefit.
+    + Build capacity. Māori Data Sovereignty requires the development of a Māori workforce to enable the creation, collection, management, security, governance and application of data.
+    + Connections between Māori and other Indigenous peoples shall be supported to enable the sharing of strategies, resources and ideas in relation to data, and the attainment of common goals.
+   
++ **Manaakitanga** (*reciprocity*)
+
+    + The collection, use and interpretation of data shall uphold the dignity of Māori communities, groups and individuals. Data analysis that stigmatises or blames Māori can result in collective and individual harm and should be actively avoided.
+    + Free, prior and informed consent shall underpin the collection and use of all data from or about Māori. Less defined types of consent shall be balanced by stronger governance arrangements.
+  
++ **Kaitiakitanga** (*guardianship*)
+
+    + Māori data shall be stored and transferred in such a way that it enables and reinforces the capacity of Māori to exercise kaitiakitanga over Māori data.
+    + Ethics. Tikanga, kawa (protocols) and mātauranga (knowledge) shall underpin the protection, access and use of Māori data.
+    + Māori shall decide which Māori data shall be controlled (tapu) or open (noa) access.
+
+
+[![](https://images.squarespace-cdn.com/content/58e9b10f9de4bb8d1fb5ebbc/1493722836783-JKE7O92ZBD7F2VMNOV59/TeManaRaraunga_wide_logo+6-1-fw.png?content-type=image%2Fpng)](https://www.temanararaunga.maori.nz/)
+
+The *Te Mana o te Raraunga Model* was developed to align Māori concepts with data rights and interests, and guide agencies in the appropriate use of Māori data
+
++ **Whakapapa** and **whanaungatanga**: recognising the connectedness between the material, natural and spiritual worlds
++ **Rangatiratanga**: Māori rights to own, access, control and possess data from them or about them and their environs
++ **Kotahitanga**: collective vision and unity of purpose
++ **Manaakitanga**: ethical data use to progress Māori aspirations for wellbeing
++ **Kaitiakitanga**: sustainable data stewardship
+
+**Resources**
+
++ [Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.](https://researchcommons.waikato.ac.nz/bitstream/handle/10289/12919/data%20practices.pdf?sequence=5&isAllowed=y)
+
++ [Walter, Maggie, Tahu Kukutai, Stephanie Russo Carroll, and Desi Rodriguez-Lonebear. Indigenous Data Sovereignty and Policy. Taylor & Francis, 2020.](https://library.oapen.org/handle/20.500.12657/42782) 
+
 
 
 ## Data wrangling and manipulation
@@ -57,9 +135,10 @@ penguins
 So, what does this show us?
 
 + `A tibble: 344 x 8`: A `tibble` is a specific kind of data frame in `R`. The `penguin` dataset has
-   + `344` rows (i.e., 344 different observations). Here, each observation corresponds to a penguin.
-   + `8` columns corresponding to 3 variables describing each observation.
-+ `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, and  `year` are the different variables of this dataset.
+  + `344` rows (i.e., 344 different observations). Here, each observation corresponds to a penguin.
+  + `8` columns corresponding to 3 variables describing each observation.
+  + `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, and  `year` are the different variables of this dataset.
+  
 + We then have a preview of the first 10 rows of observations corresponding to the first 10 penguins. ```... with 334 more rows` indicates there are 334 more rows to see, but these have not been printed (likely as it would clog our screen)
 
 To learn more about the penguins read the [paper that talks all about the data collection.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
@@ -102,7 +181,7 @@ penguins_nafree <- penguins %>% drop_na()
 penguins_nafree
 ```
 
-Below are some other useful manipulation functions; have a look at the out puts and run them yourselves and see if you can work out what they're doing.
+Below are some other useful manipulation functions; have a look at the outputs and run them yourselves and see if you can work out what they're doing.
 
 ```{r}
 filter(penguins_nafree, island == "Torgersen" )
@@ -135,86 +214,6 @@ penguins_nafree %>%
 
 
 
-
-## Data sovereignty
-
-[''**Data sovereignty** is the idea that data are subject to the laws and governance structures within the nation it is collected''](https://en.wikipedia.org/wiki/Data_sovereignty)
-
-> "For Indigenous peoples, historical encounters with statistics have been fraught, and none more so than when involving official data produced as part of colonial attempts at statecraft." `r tufte::quote_footer('--- Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.')`
-
-
-### Māori Data Sovereignty principles
- 
- > "Māori Data Sovereignty has emerged as a critical policy issue as Aotearoa
-New Zealand develops world-leading linked administrative data resources." `r tufte::quote_footer('--- Andrew Sporle, Maui Hudson, Kiri West. Chapter 5, Indigenous Data Sovereignty and Policy')`
-
-
-> “Māori data refers to data produced by Māori or that is about Māori and the environments we have relationships with."  `r tufte::quote_footer('--- Te Mana Raraunga Charter')`
-
-
-> Data is a “potential taonga, something precious that needs to be maintained, in relation to its utility” `r tufte::quote_footer('--- Dr W. Edwards, TMR website')`
-
-
-Article Two of the *Treaty of Waitangi* obliges the Government to actively protect taonga, consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include
-
- + provenance of the data: does the dataset come from a significant Māori source?
- + opportunity for the data: could the dataset support Māori aspirations for their people or their whenua (land)?
- + utility of the data: does the dataset have multiple uses?
-
-**Māori Data Sovereignty principles** to inform the recognition of Māori rights and interests in data, and the ethical use of data to enhance Māori well-being:
-
-+ **Rangatiratanga**, authority
-
-    + Māori have an inherent right to exercise control over Māori data and Māori data ecosystems. This right includes, but is not limited to, the creation, collection, access, analysis, interpretation, management, security, dissemination, use and reuse of Māori data.
-    + Decisions about the physical and virtual storage of Māori data shall enhance control for current and future generations. Whenever possible, Māori data shall be stored in Aotearoa New Zealand.
-    + Māori have the right to data that is relevant and empowers sustainable self-determination and effective self-governance
-  
-+ **Whakapapa**, relationships
-
-    + All data has a whakapapa (genealogy). Accurate metadata should, at minimum, provide information about the provenance of the data, the purpose(s) for its collection, the context of its collection, and the parties involved.
-    + The ability to disaggregate Māori data increases its relevance for Māori communities and iwi. Māori data shall be collected and coded using categories that prioritise Māori needs and aspirations.
-    +  Current decision-making over data can have long-term consequences, good and bad, for future generations of Māori. A key goal of Māori data governance should be to protect against future harm.
-   
-+ **Whanaungatanga**, obligations
-
-    + Individuals’ rights (including privacy rights), risks and benefits in relation to data need to be balanced with those of the groups of which they are a part. In some contexts, collective Māori rights will prevail over those of individuals.
-    + Individuals and organisations responsible for the creation, collection, analysis, management, access, security or dissemination of Māori data are accountable to the communities, groups and individuals from whom the data derive
-   
-+ **Kotahitanga**, collective benefit
-
-    + Data ecosystems shall be designed and function in ways that enable Māori to derive individual and collective benefit.
-    + Build capacity. Māori Data Sovereignty requires the development of a Māori workforce to enable the creation, collection, management, security, governance and application of data.
-    + Connections between Māori and other Indigenous peoples shall be supported to enable the sharing of strategies, resources and ideas in relation to data, and the attainment of common goals.
-   
-+ **Manaakitanga**, reciprocity
-
-    + The collection, use and interpretation of data shall uphold the dignity of Māori communities, groups and individuals. Data analysis that stigmatises or blames Māori can result in collective and individual harm and should be actively avoided.
-    + Free, prior and informed consent shall underpin the collection and use of all data from or about Māori. Less defined types of consent shall be balanced by stronger governance arrangements.
-  
-+ **Kaitiakitanga**, guardianship
-
-    + Māori data shall be stored and transferred in such a way that it enables and reinforces the capacity of Māori to exercise kaitiakitanga over Māori data.
-    + Ethics. Tikanga, kawa (protocols) and mātauranga (knowledge) shall underpin the protection, access and use of Māori data.
-    + Māori shall decide which Māori data shall be controlled (tapu) or open (noa) access.
-
-
-[![](https://images.squarespace-cdn.com/content/58e9b10f9de4bb8d1fb5ebbc/1493722836783-JKE7O92ZBD7F2VMNOV59/TeManaRaraunga_wide_logo+6-1-fw.png?content-type=image%2Fpng)](https://www.temanararaunga.maori.nz/)
-
-The *Te Mana o te Raraunga Model* was developed to align Māori concepts with data rights and interests, and guide agencies in the appropriate use of Māori data
-
-+ **Whakapapa** and **whanaungatanga**: recognising the connectedness between the material, natural and spiritual worlds
-+ **Rangatiratanga**: māori rights to own, access, control and possess data from them or about them and their environs
-+ **Kotahitanga**: collective vision and unity of purpose
-+ **Manaakitanga**: ethical data use to progress Māori aspirations for wellbeing
-+ **Kaitiakitanga**: sustainable data stewardship
-
-**Resourses**
-
-+ [Lovett, R., Lee, V., Kukutai, T., Cormack, D., Rainie, S.C. and Walker, J., 2019. Good data practices for Indigenous data sovereignty and governance. Good data, pp.26-36.](https://researchcommons.waikato.ac.nz/bitstream/handle/10289/12919/data%20practices.pdf?sequence=5&isAllowed=y)
-
-+ [Walter, Maggie, Tahu Kukutai, Stephanie Russo Carroll, and Desi Rodriguez-Lonebear. Indigenous Data Sovereignty and Policy. Taylor & Francis, 2020.](https://library.oapen.org/handle/20.500.12657/42782) 
-
-
 ## Data Viz
 
 > "...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw." `r tufte::quote_footer('--- Michael Correll, Ethical Dimensions of Visualization Research')`
@@ -232,6 +231,8 @@ The *Te Mana o te Raraunga Model* was developed to align Māori concepts with da
   + explore and discover new data facets
   + formulate new questions
   
+For example,
+  
 ```{r example, me, echo = FALSE, fig.cap="", warning = FALSE, message = FALSE}
 ## scatter
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
@@ -242,7 +243,7 @@ ggplot(data = penguins, aes(x = bill_length_mm)) +
 ```
 
 
- 2. **Explanatory plots** (*For others*), most common kind of graph used in
+ 2. **Explanatory plots** (*for others*), most common kind of graph used in
 scientific publications
 
    + clear purpose
@@ -253,6 +254,8 @@ scientific publications
    + answer a specific question
    + support a decision
    
+For example,
+
 ![](https://jimgruman.netlify.app/post/variableimportance/2020_31_PalmerPenguins.png)
 
 Plots by Cedric Scherer and mentioned on [this blog](https://jimgruman.netlify.app/post/variableimportance/)
@@ -371,7 +374,7 @@ ggplot(penguins_nafree,aes(x = flipper_length_mm)) +
 ```
 
 
-#### What do we think about when we look at plots
+### What do we think about when we look at plots (*a taster*)
 
 Between group variation
 
