@@ -228,7 +228,7 @@ a <- ggplot(paua,aes(x = Species, y = Length)) +
   geom_point(data = means, aes(x = Species, y = means, color = Species), size = 2) +
   geom_hline(data = means, aes(yintercept = means, color = Species), lty = 2, alpha = 0.5) +
   theme(legend.position = "none") +
-  geom_text(data = means, aes(x = Species, y = means + 25, label = paste0("Species averege = ",round(means,3)), color = Species))
+  geom_text(data = means, aes(x = Species, y = means + 0.25, label = paste0("Species averege = ",round(means,3)), color = Species))
 a 
   
 ```
@@ -250,7 +250,7 @@ As above the average values are all well and good, but what about **variation?**
    + **Alternative hypothesis**: they aren't!
    + *Notationally*: $H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0$ vs $H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}$
    
-    + $\mu_{j}$ is the average length for species $j = $ (*Haliotis iris*, *Haliotis australis*), 
+    + $\mu_{j}$ is the average length for species $j =$ (*Haliotis iris*, *Haliotis australis*), 
 
 **Calculate the test statistic:** t-statistic = $\frac{\bar{x}_{\text{difference}} - \mu}{\text{SED}}$ = $\frac{\bar{x}_{\text{difference}} - 0}{\text{SED}}$
 
@@ -364,7 +364,7 @@ Informally, a p-value is the probability under a specified statistical model tha
 
 + scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
 
-+ roper inference requires **full** reporting and transparency
++ proper inference requires **full** reporting and transparency
 
 + p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
 

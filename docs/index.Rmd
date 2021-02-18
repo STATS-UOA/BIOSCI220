@@ -4,7 +4,7 @@ author: "Charlotte Jones-Todd"
 date: "Semester 1, 2021"
 output: 
   bookdown::gitbook:
-    toc_depth: 2
+    toc_depth: 3
     download:
       - ["biosci220_module_1.pdf", "PDF"]
       - ["biosci220_module_1.epub", "EPUB"]
