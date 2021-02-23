@@ -55,7 +55,7 @@ else
 	    echo "ERROR: .Rmd doesn't exist." >&2
 	    exit 2
 	fi
-	R -e "rmarkdown::render('index.Rmd',output_dir = './')" 2>&1 >/dev/null
+	R -e "rmarkdown::render('index.Rmd')" 2>&1 >/dev/null
     fi
 fi
 
