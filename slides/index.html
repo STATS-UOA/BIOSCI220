@@ -85,6 +85,8 @@ The selling pitch of this course states that *...biological research has actuall
 --
 + Flexible; if you can code it you can do it!
 
+--
++ Everybody's doing it...
 
 
 ---
@@ -120,7 +122,7 @@ class: inverse, center, middle
 + **running** code: the act of telling R to perform an act by giving it commands in the console
 --
 
-+ **objects**: where values are saved in (see later for creating an object
++ **objects**: what values are stored in
 --
 
 + **script**: a text file containing a set of commands and comments
@@ -193,7 +195,7 @@ paua &lt;- read_csv("paua.csv")
 ```
 
 ```
-## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/BIOSCI220/slides').
+## Error: 'paua.csv' does not exist in current working directory ('/home/cjon911/Git/BIOSCI220/slides').
 ```
 
 
@@ -207,14 +209,14 @@ paua &lt;- read_csv("paua.csv")
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
 *library(tidyverse)
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ]
 
@@ -222,15 +224,15 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
-library(tidyverse)  
+library(tidyverse)
 *paua &lt;- read_csv("../data/paua.csv")
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ```
 ## Parsed with column specification:
@@ -246,16 +248,16 @@ library(tidyverse)
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
-library(tidyverse)  
-paua &lt;- read_csv("../data/paua.csv")  
+library(tidyverse)
+paua &lt;- read_csv("../data/paua.csv")
 *glimpse(paua)
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ```
 ## Parsed with column specification:
@@ -276,21 +278,26 @@ paua &lt;- read_csv("../data/paua.csv")
 ]
 
 &lt;style&gt;
-.left-panel-example_read-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_read-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_read-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_read-auto {
-  width: 0%;
+.panel2-example_read-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_read-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -306,14 +313,14 @@ paua &lt;- read_csv("../data/paua.csv")
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
 *paua
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 60 x 3
@@ -337,15 +344,15 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
-paua %&gt;%  
+paua %&gt;%
 * group_by(Species)
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 60 x 3
@@ -370,16 +377,16 @@ paua %&gt;%
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
-paua %&gt;%  
-  group_by(Species) %&gt;%  
+paua %&gt;%
+  group_by(Species) %&gt;%
 * summarise(av_length = mean(Length))
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 2 x 2
@@ -391,21 +398,26 @@ paua %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-example_mean-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_mean-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_mean-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_mean-auto {
-  width: 0%;
+.panel2-example_mean-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_mean-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -420,14 +432,14 @@ paua %&gt;%
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
 *library(ggplot2)
 ```
 ]
  
-.right-panel-example_plot-auto[
+.panel2-example_plot-auto[
 
 ]
 
@@ -435,68 +447,73 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
+library(ggplot2)
 *ggplot(data = paua,aes(x = Species, y = Length))
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
-ggplot(data = paua,aes(x = Species, y = Length)) +  
+library(ggplot2)
+ggplot(data = paua,aes(x = Species, y = Length)) +
 * geom_boxplot()
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
-ggplot(data = paua,aes(x = Species, y = Length)) +  
-  geom_boxplot()  
+library(ggplot2)
+ggplot(data = paua,aes(x = Species, y = Length)) +
+  geom_boxplot()
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-example_plot-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_plot-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_plot-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_plot-auto {
-  width: 0%;
+.panel2-example_plot-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_plot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -551,7 +568,7 @@ class: center, middle
 # [PollEv.com/cjonestodd303](PollEv.com/cjonestodd303)
 ## In groups: what does data soverignty mean to a researcher?
 
-<div class="countdown" id="timer_603457ba" style="top:0;right:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60385fdf" style="top:0;right:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -574,14 +591,14 @@ class: center, middle
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 *library(palmerpenguins)  ## contains some nice penguin data
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ]
 
@@ -589,7 +606,7 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
@@ -597,7 +614,7 @@ library(palmerpenguins)  ## contains some nice penguin data
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ## # A tibble: 344 x 8
@@ -621,16 +638,16 @@ library(palmerpenguins)  ## contains some nice penguin data
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
-penguins %&gt;%  
+penguins %&gt;%
 * apply(.,2,is.na)
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ##        species island bill_length_mm bill_depth_mm flipper_length_mm
@@ -1330,17 +1347,17 @@ penguins %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
-penguins %&gt;%  
-  apply(.,2,is.na) %&gt;%  
+penguins %&gt;%
+  apply(.,2,is.na) %&gt;%
 * apply(.,2,sum)
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ##           species            island    bill_length_mm     bill_depth_mm 
@@ -1351,21 +1368,26 @@ penguins %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-penguins-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins-auto {
-  width: 0%;
+.panel2-penguins-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1381,14 +1403,14 @@ penguins %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins_na-auto[
+.panel1-penguins_na-auto[
 
 ```r
 *penguins_nafree &lt;- penguins %&gt;% drop_na()
 ```
 ]
  
-.right-panel-penguins_na-auto[
+.panel2-penguins_na-auto[
 
 ]
 
@@ -1396,15 +1418,15 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins_na-auto[
+.panel1-penguins_na-auto[
 
 ```r
-penguins_nafree &lt;- penguins %&gt;% drop_na()  
+penguins_nafree &lt;- penguins %&gt;% drop_na()
 *penguins_nafree
 ```
 ]
  
-.right-panel-penguins_na-auto[
+.panel2-penguins_na-auto[
 
 ```
 ## # A tibble: 333 x 8
@@ -1425,21 +1447,26 @@ penguins_nafree &lt;- penguins %&gt;% drop_na()
 ]
 
 &lt;style&gt;
-.left-panel-penguins_na-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins_na-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins_na-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins_na-auto {
-  width: 0%;
+.panel2-penguins_na-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_na-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1455,14 +1482,14 @@ penguins_nafree &lt;- penguins %&gt;% drop_na()
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
 *penguins_nafree
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 333 x 8
@@ -1486,15 +1513,15 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
-penguins_nafree %&gt;%  
+penguins_nafree %&gt;%
 * group_by(species)
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 333 x 8
@@ -1519,16 +1546,16 @@ penguins_nafree %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
-penguins_nafree %&gt;%  
-  group_by(species) %&gt;%  
+penguins_nafree %&gt;%
+  group_by(species) %&gt;%
 * summarise(avgerage_bill_length = mean(bill_length_mm))
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 3 x 2
@@ -1541,21 +1568,26 @@ penguins_nafree %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-penguins_av-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins_av-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins_av-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins_av-auto {
-  width: 0%;
+.panel2-penguins_av-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_av-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1583,7 +1615,7 @@ class: center, middle
 ---
 **[PollEv.com/cjonestodd303](PollEv.com/cjonestodd303): in groups, what do you think of this plot**
 
-<div class="countdown" id="timer_60345805" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60385d2b" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1661,123 +1693,128 @@ Every `ggplot2` plot has three key components:
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
 *ggplot(penguins_nafree, aes(x = species, fill = sex))
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_1_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_01_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 * geom_bar(alpha = 0.8, position = "dodge")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
 * facet_wrap(~island)
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
 * xlab("")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
-  xlab("") +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
 * theme_linedraw()
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_5_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_05_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
-  xlab("") +  
-  theme_linedraw() +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() +
 * scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_6_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_06_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-bar-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-bar-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-bar-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-bar-auto {
-  width: 0%;
+.panel2-bar-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-bar-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1794,123 +1831,128 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
 *ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_1_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_01_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 * geom_point(aes(color = species),size = 2)
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
 * scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
 * theme_bw()   ## Oo a new theme
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
   theme_bw() +  ## Oo a new theme
 * xlab("Bill length (mm)")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_5_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_05_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
   theme_bw() +  ## Oo a new theme
-  xlab("Bill length (mm)") +  
+  xlab("Bill length (mm)") +
 * ylab("Bill length (mm)")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_6_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_06_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-point-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-point-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-point-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-point-auto {
-  width: 0%;
+.panel2-point-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-point-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%

@@ -88,6 +88,8 @@ The selling pitch of this course states that *...biological research has actuall
 --
 + Flexible; if you can code it you can do it!
 
+--
++ Everybody's doing it...
 
 
 ---
@@ -123,7 +125,7 @@ class: inverse, center, middle
 + **running** code: the act of telling R to perform an act by giving it commands in the console
 --
 
-+ **objects**: where values are saved in (see later for creating an object
++ **objects**: what values are stored in
 --
 
 + **script**: a text file containing a set of commands and comments
