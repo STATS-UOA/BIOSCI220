@@ -94,6 +94,24 @@ The selling pitch of this course states that *...biological research has actuall
 
 ---
 
+## a`R`t
+
+.pull-left[
+```{r, eval = FALSE}
+## devtools::install_github("djnavarro/turmite59")
+turmite59::turmite59("blue")
+
+```
+]
+
+.pull-right[
+<img src = "img/turmite_59_blue.png">
+]
+
+.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
+
+---
+
 ## Why `RStudio`? 
 ### not an extensive list
 
