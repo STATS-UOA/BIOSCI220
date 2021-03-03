@@ -56,6 +56,8 @@ penguins_nafree %>%
                      "bill_length_mm", "bill_depth_mm")) 
 
 ```
+
+
 **Using `prcomp`**
 
 **Why scale**
@@ -85,17 +87,8 @@ From the `Cumulative Proportion` row we see that by knowing the position of a sa
 To assess this we can use the information printed above alongside a *screeplot*:
 
 ```{r}
-## Option 1
-screeplot(pca)
-## Option 2
 library(factoextra) ## install this package first
 fviz_screeplot(pca)
-## Option 3
-variance_explained <- data.frame(proportion = summary(pca)$importance[2,],
-                                 PC = 1:4)
-variance_explained %>% ggplot(aes(x = PC, y = 100*proportion)) + 
-  geom_col() + 
-  ylab("% of total variance")
 
 ```
 
@@ -135,59 +128,15 @@ pca$rotation %>%
 The new variables (PCs) are stored in `pca$x`, lets plot some of them alongside the loadings using a *biplot*. For `PC1` vs `PC2`:
 
 ```{r}
-## Option 1
-biplot(pca)
-## Option 2
 fviz_pca_biplot(pca, geom = "point") +
       geom_point (alpha = 0.2)
-## Option 3
-pca_plot <- pca$x %>%
-  as.data.frame() %>%
-  ggplot(aes(x = PC1, y = PC2)) +
-  geom_point()
-
-df <- pca$rotation %>%
-  as.data.frame() %>%
-  mutate(variables = rownames(.))
-pca_plot + geom_segment(data = df,
-               aes(xend = PC1, yend = PC2), 
-               x = 0, 
-               y = 0, 
-               arrow = arrow(type = "closed")) + 
-  geom_text(data = df,
-            aes(x = PC1, y = PC2, label = variables), 
-            hjust = 0, 
-            vjust = 1,
-            size = 5) 
 ```
 
 Now for `PC2` vs `PC3`
 
 ```{r}
-## Option 1
-biplot(pca,2:3 )
-## Option 2
 fviz_pca_biplot(pca, axes = c(2,3),geom = "point") +
       geom_point (alpha = 0.2)
-## Option 3
-pca_plot <- pca$x %>%
-  as.data.frame() %>%
-  ggplot(aes(x = PC2, y = PC3)) +
-  geom_point()
-
-df <- pca$rotation %>%
-  as.data.frame() %>%
-  mutate(variables = rownames(.))
-pca_plot + geom_segment(data = df,
-               aes(xend = PC2, yend = PC3), 
-               x = 0, 
-               y = 0, 
-               arrow = arrow(type = "closed")) + 
-  geom_text(data = df,
-            aes(x = PC2, y = PC3, label = variables), 
-            hjust = 0, 
-            vjust = 1,
-            size = 5) 
 ```
 
 #### PCA using RNAseq data
@@ -213,19 +162,19 @@ data <- t(as.matrix(data[,-1]))
   ## as.matrix()
 ## structure?
 str(data)
-## rownames
-rownames(data)
 ```
 
 Now the data is in the correct shape let's perform the PCA
 
-```{r pca rna,echo = TRUE}
+```{r, eval = FALSE}
 pca <- prcomp(data)
 ## Summary of PCA
 summary(pca)
 ## scree plot (proportion of variance explained)
 ## Looks like the first two PCs alone explain the majority of the variation in the data
-screeplot(pca,type = "lines")
+fviz_screeplot(pca)
+fviz_pca_biplot(pca, geom = "point") +
+      geom_point (alpha = 0.2)
 ```
 
 
@@ -250,9 +199,8 @@ df <- penguins_nafree %>%
   
 ```
 
-Setting `nstart = 25` means that R will try 25 different random starting assignments and then select the best results corresponding to the one with the lowest within cluster variation.
+Setting `nstart = 25` means that R will try 25 different random starting assignments and then select the best results corresponding to the one with the lowest within cluster variation. But how many clusters do we choose? Let's try 1 to 5...
 
-We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember its a **subjective choice** and we'll be looking at a few pointers
 
 ```{r}
 ## set the seed so we all start off in the same place
@@ -280,31 +228,13 @@ The `kmeans()` function returns a list of components:
 + `betweenss`, between-cluster sum of squares
 + `size`, number of observations in each cluster
 
+#### Choosing the number of clusters
 
-**Elbow** method
-
-Optimal clusters are at the point in which the knee "bends" or in mathemetical terms when the marginal total within sum of squares (`tot.withinss`) for an additional cluster begins to decrease at a linear rate
-
-This is easier to see via a plot:
-
-```{r}
-wss <- data.frame(wss = c(k1$tot.withinss,k2$tot.withinss,k3$tot.withins,
-                          k4$tot.withinss, k5$tot.withinss),
-                  num_clus = 1:5)
-ggplot(wss,aes(x = num_clus, y = wss)) +
-  geom_col() +
-  labs(y = "Total within-cluster sum of squares", x = "Number of clusters")
-## Alternatively
-fviz_nbclust(df, kmeans, method = "wss") +
-  labs(subtitle = "Elbow method")
-```
-
-There is a pretty obvious inflection (elbow) at 2 clusters, but maybe at 3 too. We can rule out an optimal number of clusters above 3 as there is then only a  minimal marginal reduction in total within sum of squares. However, the model is ambiguous on whether 2 or 3 clusters is optimal...
-
+We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember its a **subjective choice** and we'll be looking at a few pointers
 
 **Visual inspection** method
 
-```{r}
+```{r, fig.width="100%"}
 p1 <- fviz_cluster(k1, data = df)
 p2 <- fviz_cluster(k2, data = df)
 p3 <- fviz_cluster(k3, data = df)
@@ -315,6 +245,22 @@ p5 <- fviz_cluster(k5, data = df)
 library(patchwork) 
 (p1| p2| p3)/ (p4 | p5)
 ```
+
+
+**Elbow** method
+
+Optimal clusters are at the point in which the knee "bends" or in mathemetical terms when the marginal total within sum of squares (`tot.withinss`) for an additional cluster begins to decrease at a linear rate
+
+This is easier to see via a plot:
+
+```{r}
+fviz_nbclust(df, kmeans, method = "wss") +
+  labs(subtitle = "Elbow method")
+```
+
+There is a pretty obvious inflection (elbow) at 2 clusters, but maybe at 3 too. We can rule out an optimal number of clusters above 3 as there is then only a  minimal marginal reduction in total within sum of squares. However, the model is ambiguous on whether 2 or 3 clusters is optimal...
+
+
 
 **Silhouette** method
 
@@ -341,6 +287,33 @@ fviz_nbclust(df, kmeans, nstart = 25,  method = "gap_stat", nboot = 50)+
 Suggests 1 is the optimal cluster
 
 **Basically it's up to you to collate all the suggestions and make and informed decision**
+
+```{r}
+## Trying all the cluster indecies AHHHHH
+library(NbClust)
+cluster_30_indexes <- NbClust(data = df, distance = "euclidean", min.nc = 2, max.nc = 9, method = "complete", index ="all")
+fviz_nbclust(cluster_30_indexes) +
+      theme_minimal() +
+      labs(title = "Frequency of Optimal Clusters using 30 indexes in NbClust Package")
+```
+
+Not obvious basically still undecided between 2 and 3, but according tothe absolute majority rule the "best" number is 3
+
+#### Clustering RNAseq data
+
+
+```{r}
+## Elbow mwthod
+fviz_nbclust(data, kmeans, method = "wss") +
+  labs(subtitle = "Elbow method") ## suggests 6
+# Silhouette method
+fviz_nbclust(data, kmeans, method = "silhouette")+
+  labs(subtitle = "Silhouette method") ## suggests 2...
+# Gap statistic
+# recommended value: nboot = 500 for your analysis (it will take a while)
+fviz_nbclust(data, kmeans, nstart = 25,  method = "gap_stat", nboot = 10 )+
+  labs(subtitle = "Gap statistic method") ## suggests 6
+```
 
 ## Other resources: optional but recommended
 
