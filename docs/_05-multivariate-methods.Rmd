@@ -1,0 +1,384 @@
+# Multivariate Data Methods
+
+## Learning Objectives
+
++ Discuss the aims and motivations of Multidimensional Scaling (MDS) and its relevance in biology
++ Explain the aims and motivation behind Principal Component Analysis (PCA) and its relevance in biology
++ Write `R` code to carry out PCA
++ Interpret the effectively communicate the output of PCA
++ Analyse and interpret multivariate data using an appropriate method 
++ Interpret and communicate, to both a statistical and non-statistical audience, multivariate data techniques
+
+## Dimension reduction
+
+Reduction of dimensions is needed when there are far too many features in a dataset, making it hard to distinguish between the important ones that are relevant to the output and the redundant or not-so important ones. Reducing the dimensions of data is called **dimensionality reduction.**
+
+So the aim is to **find the best low-dimensional representation of the variation** in a multivariate (lots and lots of variables) data set, but how do we do this? 
+
+One way is termed Principal Coordinate Analysis (PCA). PCA is a **feature extraction** method that **reduces the dimensionality of the data** (number of variables) by creating new uncorrelated variables while minimizing loss of information on the original variables.
+
+**Think of a baguette.** The baguette pictured here represents two data dimensions: 1) the length of the bread and 2) the height of the bread (we'll ignore depth of bread for now). Think of the baguette as your data; when we carry out PCA we're rotating our original axes (*x- and y-coordinates*) to capture as much of the variation in our data as possible. This results in **new** uncorrelated variables that each explain a \% of variation in our data; the procedure is designed so that the first new variable (PC1) explains the most, the second (PC2) the second most and so on.
+
+![](https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/pca.gif)
+
+
+Now rather than a baguette think of data; the baguette above represent the *shape* of the scatter between the two variables plotted below. The rotating grey axes represent the PCA procedure, essentially searching for the *best* rotation of the original axes to represent the variation in the data as best it can. Mathematically the Euclidean distance (e.g., the distance between points $p$ and $q$ in Euclidean space, $\sqrt{(p-q)^2}$) between the points and the rotating axes is being minimised (i.e., the shortest possible across all points), see the blue lines. Once this distance is minimised across all points we "settle" on our new axes (the black tiled axes).
+
+![](https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/perp.gif)
+
+Luckily we can do this all in `R`!
+
+### PCA  in `R`
+
+**Using the `palmerpenguins` data**
+
+```{r}
+## we should be used to loading these packages by now :-)
+library(tidyverse)
+library(palmerpenguins)
+## getting rid of NAs
+penguins_nafree <- penguins %>% drop_na()
+## introducing a new package GGally, please install
+## using install.packages("GGally")
+library(GGally)
+## this is what's called a pairs plot, compares all variables
+## in our data to each other
+ggpairs(data = penguins_nafree)
+```
+
+When carrying out PCA we're only interested in numeric variables, so let's just plot those. We can use the piping operator `%>%` to do this with out creating a new data frame
+
+```{r}
+penguins_nafree %>%
+  select(species, where(is.numeric)) %>% 
+  ggpairs(aes(color = species),
+        columns = c("flipper_length_mm", "body_mass_g", 
+                     "bill_length_mm", "bill_depth_mm")) 
+
+```
+**Using `prcomp`**
+
+**Why scale**
+
+```{r}
+pca <- penguins_nafree %>% 
+  select(where(is.numeric), -year) %>% ## year makes no sense here so we remove it and keep the other numeric variables
+  scale() %>% 
+  prcomp()
+## print out a summary
+summary(pca)
+```
+
+This output tells us that we obtain 4 principal components, which are called `PC1` `PC2`, `PC3`, and `PC4` (this is as expected because we used the 4 original numeric variables!). Each of these `PC`s explains a percentage of the total variation (`Proportion of Variance`) in the dataset: 
+ 
+ + `PC1` explains $\sim$ 68\% of the total variance, which means that just over half of the information in the dataset 
+ (5 variables) can be encapsulated by just that one Principal Component. 
+ + `PC2` explains $\sim$ 19\% of the variance.
+ + `PC3` explains $\sim$ 9\% of the variance.
+ + `PC4` explains $\sim$ 2\% of the variance.
+ 
+ 
+From the `Cumulative Proportion` row we see that by knowing the position of a sample in relation to just `PC1` and `PC2` we can get a pretty accurate view on where it stands in relation to other samples, as just `PC1` and `PC2`  explain 88\% of the variance.
+
+**So how many PCs do we keep?** The whole point of this exercise is to **reduce** the number of variables we need to explain the variation in our data. So how many of these new variables (PCs) do we keep?
+
+To assess this we can use the information printed above alongside a *screeplot*:
+
+```{r}
+## Option 1
+screeplot(pca)
+## Option 2
+library(factoextra) ## install this package first
+fviz_screeplot(pca)
+## Option 3
+variance_explained <- data.frame(proportion = summary(pca)$importance[2,],
+                                 PC = 1:4)
+variance_explained %>% ggplot(aes(x = PC, y = 100*proportion)) + 
+  geom_col() + 
+  ylab("% of total variance")
+
+```
+
+
+The three basic types of information we obtain from Principal Component Analysis:
+
+  + **PC scores:**  the coordinates of our samples on the new PC axis: the new uncorrelated variables (stored in `pca$x`)
+
+  + **Eigenvalues:** (see above) represent the variance explained by each PC; we can use these to calculate the proportion of variance in the original data that each axis explains
+
+  + **Variable loadings** (eigenvectors): these reflect the weight that each variable has on a particular PC and can be thought of as the correlation between the PC and the original variable
+  
+The **loadings** (*relationship*) between the initial variables and the principal components are stored in `pca$rotation`:
+
+```{r}
+pca$rotation
+```
+
+Here we can see that `bill_length_mm` has a strong positive relationship with `PC1`, whereas `bill_depth_mm` has a strong negative relationship. Both `fliper_length_mm` and `body_mass_g` also have a strong positive relationship with `PC1`. 
+
+Plotting this we get
+
+```{r, echo = FALSE}
+pca$rotation %>%
+  as.data.frame() %>%
+  mutate(variables = rownames(.)) %>%
+  gather(PC,loading,PC1:PC4) %>%
+  ggplot(aes(abs(loading), variables, fill = loading > 0)) +
+  geom_col() +
+  facet_wrap(~PC, scales = "free_y") +
+  labs(x = "Absolute value of loading",y = NULL, fill = "Positive?") 
+
+```
+
+  
+  
+The new variables (PCs) are stored in `pca$x`, lets plot some of them alongside the loadings using a *biplot*. For `PC1` vs `PC2`:
+
+```{r}
+## Option 1
+biplot(pca)
+## Option 2
+fviz_pca_biplot(pca, geom = "point") +
+      geom_point (alpha = 0.2)
+## Option 3
+pca_plot <- pca$x %>%
+  as.data.frame() %>%
+  ggplot(aes(x = PC1, y = PC2)) +
+  geom_point()
+
+df <- pca$rotation %>%
+  as.data.frame() %>%
+  mutate(variables = rownames(.))
+pca_plot + geom_segment(data = df,
+               aes(xend = PC1, yend = PC2), 
+               x = 0, 
+               y = 0, 
+               arrow = arrow(type = "closed")) + 
+  geom_text(data = df,
+            aes(x = PC1, y = PC2, label = variables), 
+            hjust = 0, 
+            vjust = 1,
+            size = 5) 
+```
+
+Now for `PC2` vs `PC3`
+
+```{r}
+## Option 1
+biplot(pca,2:3 )
+## Option 2
+fviz_pca_biplot(pca, axes = c(2,3),geom = "point") +
+      geom_point (alpha = 0.2)
+## Option 3
+pca_plot <- pca$x %>%
+  as.data.frame() %>%
+  ggplot(aes(x = PC2, y = PC3)) +
+  geom_point()
+
+df <- pca$rotation %>%
+  as.data.frame() %>%
+  mutate(variables = rownames(.))
+pca_plot + geom_segment(data = df,
+               aes(xend = PC2, yend = PC3), 
+               x = 0, 
+               y = 0, 
+               arrow = arrow(type = "closed")) + 
+  geom_text(data = df,
+            aes(x = PC2, y = PC3, label = variables), 
+            hjust = 0, 
+            vjust = 1,
+            size = 5) 
+```
+
+#### PCA using RNAseq data
+
+Go through these code chunks and see if you can work out what each chunk is doing. Watch the associated course videos and comment on the output. Try running everything in your own R session and improve the visualisations of the results.
+
+```{r,echo = TRUE, eval = FALSE}
+## https://tavareshugo.github.io/data-carpentry-rnaseq/03_rnaseq_pca.html
+## read in rna sequencing data from URL
+data <- read.csv(url("https://raw.githubusercontent.com/tavareshugo/data-carpentry-rnaseq/master/data/counts_transformed.csv"))
+## let's have a look at the structure
+str(data)
+## dimensions
+dim(data)
+## class
+class(data)
+## Transform the data.frame (excluding the gene column) into a matrix and transpose the matrix so that rows = samples and columns = variables (this is the format prcomp() expects)
+data <- t(as.matrix(data[,-1]))
+## You could also use tidyverse syntax e.g.,library(plyr) pca_matrix <- trans_cts %>% 
+  ## # exclude the gene column
+  ## select(-gene) %>% 
+  ##  # coerce to a matrix
+  ## as.matrix()
+## structure?
+str(data)
+## rownames
+rownames(data)
+```
+
+Now the data is in the correct shape let's perform the PCA
+
+```{r pca rna,echo = TRUE}
+pca <- prcomp(data)
+## Summary of PCA
+summary(pca)
+## scree plot (proportion of variance explained)
+## Looks like the first two PCs alone explain the majority of the variation in the data
+screeplot(pca,type = "lines")
+```
+
+
+## Clustering
+
+**Identify optimal number of clusters**
+
+Kmeans clustering algorithms require number of clusters ("k") as an input.
+
+Identifying the appropriate k is important because too many or too few clusters impedes viewing overall trends. Too many clusters can lead to over-fitting (which limits generalizations) while insufficient clusters limits insights into commonality of groups.
+
+There are assorted methodologies to identify the approriate $k$. Tests range from blunt visual inspections to robust algorithms. The optimal number of clusters is ultimately a **subjective decision**.
+
+### K-means in `R` using `factoextra`
+
+```{r}
+## library for k-means clustering, will need to install first
+library(factoextra)
+
+df <- penguins_nafree %>%
+  select(where(is.numeric), -year)
+  
+```
+
+Setting `nstart = 25` means that R will try 25 different random starting assignments and then select the best results corresponding to the one with the lowest within cluster variation.
+
+We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember its a **subjective choice** and we'll be looking at a few pointers
+
+```{r}
+## set the seed so we all start off in the same place
+set.seed(4321)
+## one cluster
+k1 <- kmeans(df, centers = 1, nstart = 25)
+## two clusters
+k2 <- kmeans(df, centers = 2, nstart = 25)
+## three clusters
+k3 <- kmeans(df, centers = 3, nstart = 25)
+## four clusters
+k4 <- kmeans(df, centers = 4, nstart = 25)
+## five clusters
+k5 <- kmeans(df, centers = 5, nstart = 25)
+```
+
+
+The `kmeans()` function returns a list of components:
+
++ `cluster`, integers indicating the cluster to which each observation is allocated
++ `centers`, a matrix of cluster centers/means
++ `totss`, the total sum of squares
++ `withinss`, within-cluster sum of squares, one component per cluster
++ `tot.withinss`, total within-cluster sum of squares
++ `betweenss`, between-cluster sum of squares
++ `size`, number of observations in each cluster
+
+
+**Elbow** method
+
+Optimal clusters are at the point in which the knee "bends" or in mathemetical terms when the marginal total within sum of squares (`tot.withinss`) for an additional cluster begins to decrease at a linear rate
+
+This is easier to see via a plot:
+
+```{r}
+wss <- data.frame(wss = c(k1$tot.withinss,k2$tot.withinss,k3$tot.withins,
+                          k4$tot.withinss, k5$tot.withinss),
+                  num_clus = 1:5)
+ggplot(wss,aes(x = num_clus, y = wss)) +
+  geom_col() +
+  labs(y = "Total within-cluster sum of squares", x = "Number of clusters")
+## Alternatively
+fviz_nbclust(df, kmeans, method = "wss") +
+  labs(subtitle = "Elbow method")
+```
+
+There is a pretty obvious inflection (elbow) at 2 clusters, but maybe at 3 too. We can rule out an optimal number of clusters above 3 as there is then only a  minimal marginal reduction in total within sum of squares. However, the model is ambiguous on whether 2 or 3 clusters is optimal...
+
+
+**Visual inspection** method
+
+```{r}
+p1 <- fviz_cluster(k1, data = df)
+p2 <- fviz_cluster(k2, data = df)
+p3 <- fviz_cluster(k3, data = df)
+p4 <- fviz_cluster(k4, data = df)
+p5 <- fviz_cluster(k5, data = df)
+
+## for arranging plots
+library(patchwork) 
+(p1| p2| p3)/ (p4 | p5)
+```
+
+**Silhouette** method
+
+```{r}
+# Silhouette method
+fviz_nbclust(df, kmeans, method = "silhouette")+
+  labs(subtitle = "Silhouette method")
+
+```
+
+Suggests 2 is the optimal cluster
+
+
+**Gap** method
+
+```{r}
+# Gap statistic
+# recommended value: nboot = 500 for your analysis (it will take a while)
+set.seed(123) ## remove this
+fviz_nbclust(df, kmeans, nstart = 25,  method = "gap_stat", nboot = 50)+
+  labs(subtitle = "Gap statistic method")
+```
+
+Suggests 1 is the optimal cluster
+
+**Basically it's up to you to collate all the suggestions and make and informed decision**
+
+## Other resources: optional but recommended
+
++ [Eigenfaces](https://cmjt.github.io/statbiscuits/eigenfaces.html)
+
++ [ClusterDucks](https://cmjt.github.io/statbiscuits/clusterducks.html)
+
++ [TL;DR k-means clustering](https://github.com/allisonhorst/stats-illustrations#k-means-clustering-thread)
+
++ [Little book for Multivariate Analysis](https://little-book-of-r-for-multivariate-analysis.readthedocs.io/en/latest/index.html)
+
+
++ ['explor' is an R package to allow interactive exploration of multivariate analysis results](https://juba.github.io/explor/)
+
++ [The Mathematics Behind Principal Component Analysis (6 min read)](https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643)
+
+
+## Multidimensional Scaling in `R` (*not examinable*)
+
+
+Multidimensional scaling (MDS) is actually the more general technique of dimension reduction. PCA is a special case of MDS! 
+
+To carry out MDS in `R`
+
+```{r,eval = FALSE}
+## Plotting Multidimensional Scaling (for interest)
+## stats::cmdscale performs Classical MDS
+data("eurodist") ## road distances (in km) between 21 cities in Europe.
+?eurodist 
+autoplot(eurodist)
+## Plotting Classical (Metric) Multidimensional Scaling
+autoplot(cmdscale(eurodist, eig = TRUE))
+autoplot(cmdscale(eurodist, eig = TRUE), label = TRUE, shape = FALSE,
+         label.size = 3)
+## Plotting Non-metric Multidimensional Scaling
+## MASS::isoMDS and MASS::sammon perform Non-metric MDS
+library(MASS)
+autoplot(sammon(eurodist))
+autoplot(sammon(eurodist), shape = FALSE, label = TRUE,label.size = 3)
+## Have a go at interpreting these plots based on the geography of the cities :-)
+```
