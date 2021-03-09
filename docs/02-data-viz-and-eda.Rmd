@@ -31,7 +31,7 @@ New Zealand develops world-leading linked administrative data resources." `r tuf
 > Data is a “potential taonga, something precious that needs to be maintained, in relation to its utility” `r tufte::quote_footer('--- Dr W. Edwards, TMR website')`
 
 
-Article Two of the Treaty of Waitangi obliges the Government to actively protect [taonga](https://maoridictionary.co.nz/search?keywords=taonga), consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include
+[Te Tiriti o Waitangi/Treaty of Waitangi](https://nzhistory.govt.nz/politics/treaty/read-the-Treaty/differences-between-the-texts) obliges the Government to actively protect [taonga](https://maoridictionary.co.nz/search?keywords=taonga), consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include
 
  + provenance of the data: does the dataset come from a significant Māori source?
  + opportunity for the data: could the dataset support Māori aspirations for their people or their whenua (land)?
@@ -185,7 +185,7 @@ Below are some other useful manipulation functions; have a look at the outputs a
 
 ```{r}
 filter(penguins_nafree, island == "Torgersen" )
-summarise(penguins_nafree, avgerage_bill_length = mean(bill_length_mm))
+summarise(penguins_nafree, average_bill_length = mean(bill_length_mm))
 group_by(penguins_nafree, species)
 ```
 
@@ -194,13 +194,13 @@ Often we want to summarise variables by different groups (factors). Below we
 
 + Take the `penguins_nafree` data then
 + Use this and apply the `group_by()` function to group by `species`
-+ Use this output and apply the `summarize()` function to calculate the mean (using (`mean()`) bill length (`bill_length_mm`) of each group (`species`), calling the resulting number `avgerage_bill_length`
++ Use this output and apply the `summarize()` function to calculate the mean (using (`mean()`) bill length (`bill_length_mm`) of each group (`species`), calling the resulting number `average_bill_length`
 
 
 ```{r}
 penguins_nafree %>% 
   group_by(species) %>% 
-  summarise(avgerage_bill_length = mean(bill_length_mm))
+  summarise(average_bill_length = mean(bill_length_mm))
 ```
 
 We can also group by multiple factors, for example, 
@@ -209,7 +209,7 @@ We can also group by multiple factors, for example,
 ```{r}
 penguins_nafree %>% 
   group_by(island,species) %>% 
-  summarise(avgerage_bill_length = mean(bill_length_mm))
+  summarise(average_bill_length = mean(bill_length_mm))
 ```
 
 

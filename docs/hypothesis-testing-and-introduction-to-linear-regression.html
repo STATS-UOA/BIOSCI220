@@ -211,17 +211,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Formulate a question/hypothesis to investigate based on the given data</li>
 <li>Explain and discuss the limitations of statistical linear regression, with a single factor explanatory variable</li>
 <li>Interpret and communicate the estimated coefficients of a linear regression model with a single factor explanatory variable to both a statistical and non-statistical audience; discuss and critique model fit</li>
-<li>List the aims and write out the appropriate null and alternative hypothesis using statistical notation for a
+<li>List the aims, write out the appropriate null and alternative hypothesis using statistical notation for, and write <code>R</code> code to carry out a
 <ul>
 <li>one-sample t-test</li>
 <li>two-sample t-test (independent and dependent)</li>
 <li>randomization test</li>
-<li>one-way Analysis of Variance (ANOVA)</li>
-</ul></li>
-<li>Write R code to carry out a randomization test</li>
-<li>Use the <code>lm()</code> function to carry out a
-<ul>
-<li>two-sample t-test (independent)</li>
 <li>one-way Analysis of Variance (ANOVA)</li>
 </ul></li>
 <li>Correctly interpret and communicate a p-value in terms of the hypotheses test listed above</li>
@@ -317,7 +311,7 @@ sem</code></pre></div>
 <li><em>Notationally</em>: <span class="math inline">\(H_0: \mu = 5\)</span> vs <span class="math inline">\(H_1: \mu \neq 5\)</span> (<em><span class="math inline">\(\mu\)</span> is the proposed mean</em>)</li>
 </ul>
 <p><strong>Calculating a statistic</strong> (<em>we use a t-statistic</em>)</p>
-<p>t-statistic $ = $ = <span class="math inline">\(\frac{5.1925 - 5}{0.155351}\)</span> = 1.239</p>
+<p>t-statistic <span class="math inline">\(= \frac{\bar{x}- \mu}{\text{SEM}}\)</span> = <span class="math inline">\(\frac{5.1925 - 5}{0.155351}\)</span> = 1.239</p>
 <ul>
 <li><p><span class="math inline">\(\bar{x}\)</span> is the sample mean</p></li>
 <li><p><span class="math inline">\(\mu\)</span> is the theoretical value (<em>proposed mean</em>)</p></li>
@@ -352,16 +346,16 @@ sem</code></pre></div>
 <h3><span class="header-section-number">3.2.2</span> Differences between two means</h3>
 <p><img src="_main_files/figure-html/vio-1.png" width="672" /></p>
 <p><strong>Calculating the differences between species means:</strong></p>
-<p><em>Haliotis australis</em> average - <em>Haliotis iris</em> average = <span class="math inline">\(\mu_{\text{Haliotis australis}} - \mu_{\text{Haliotis iris}}\)</span> = 5.767 - 4.81 = 0.957.Doesn't really tell us much...</p>
+<p><em>Haliotis australis</em> average - <em>Haliotis iris</em> average = <span class="math inline">\(\mu_{\text{Haliotis australis}} - \mu_{\text{Haliotis iris}}\)</span> = 5.767 - 4.81 = 0.957. Doesn't really tell us much...</p>
 <p>As above the average values are all well and good, but what about <strong>variation?</strong> Recall the SEM from the one-sample t-test? The same idea holds here, although the calculation is a little bit more complicated (as we have to think about the number of observations in each group). But from the two group SEMs we can calculate the Standard Error of the Difference between two means, <strong>SED</strong>.</p>
 <div id="independent-samples-t-test-with-lm-and-t.test" class="section level4">
 <h4><span class="header-section-number">3.2.2.1</span> Independent samples t-test with <code>lm()</code> and <code>t.test()</code></h4>
-<p><strong>Question:</strong> Do we believe that the average length of P<span class="math inline">\(\overline{\text{a}}\)</span>ua shells</p>
+<p><strong>Question:</strong> Do we believe that on average the length of P<span class="math inline">\(\overline{\text{a}}\)</span>ua shells are equal between species</p>
 <p><strong>Formalizing into a hypothesis test:</strong></p>
 <ul>
 <li><strong>Null hypothesis</strong>: On average the species' shells are the same length</li>
 <li><strong>Alternative hypothesis</strong>: they aren't!</li>
-<li><p><em>Notationally</em>: <span class="math inline">\(H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0\)</span> vs <span class="math inline">\(H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}\)</span></p>
+<li><p><strong>Notationally</strong>: <span class="math inline">\(H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0\)</span> vs <span class="math inline">\(H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}\)</span></p>
 <ul>
 <li><span class="math inline">\(\mu_{j}\)</span> is the average length for species <span class="math inline">\(j =\)</span> (<em>Haliotis iris</em>, <em>Haliotis australis</em>),</li>
 </ul></li>
@@ -477,6 +471,11 @@ c.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Age <span class="o
 <p><strong>A:</strong> Because that's still what the scientific community and journal editors use. 😱 <strong>BUT IT SHOULDN'T BE</strong> 😱</p>
 <p><strong>Q:</strong> Why do so many people still use <em>p-val</em>=0.05?</p>
 <p><strong>A:</strong> Because that's what they were taught in college or grad school. 😱<strong>BUT THEY SHOULDN'T BE</strong>😱</p>
+<p>There are <strong>many</strong> different schools of thought about how a p-value should be interpreted.</p>
+<p>Most people agree that the p-value is a useful measure of the strength of evidence against the null hypothesis. The smaller the p-value, the stronger the evidence against <span class="math inline">\(H_0\)</span>.</p>
+<p>Some people go further and use an accept/reject framework. Under this framework, the null hypothesis <span class="math inline">\(H_0\)</span> should be rejected if the p-value is less than 0.05 (say), and accepted if the p-value is greater than 0.05.</p>
+<p>In this course we mostly use the strength of evidence interpretation.: The p-value measures how far out our observation lies in the tails of the distribution specified by <span class="math inline">\(H_0\)</span>.</p>
+<p>Substantial evidence of a difference, <strong>not</strong> Evidence of a substantial difference.</p>
 </div>
 </div>
 <div id="power-significance-and-multiple-comparisons" class="section level2">
@@ -518,10 +517,10 @@ c.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Age <span class="o
 </ul></li>
 <li>Calculate the proportion of times your reshuffled statistics equal or exceed the observed
 <ul>
-<li>typically here we use the absolute values as we'd be carrying out a two-tailed test</li>
+<li>typically here we use the absolute values as we'd be carrying out a <strong>two-tailed</strong> test (or we could double the p-value)</li>
 <li>this is the probability of such an extreme result under the null</li>
 </ul></li>
-<li>Reject or retain the null on the basis of this probability.</li>
+<li><strong>State</strong> the strength of evidence against the null on the basis of this <strong>probability</strong>.</li>
 </ol>
 <p><strong>Randomization Test on Two Independent Samples</strong></p>
 <p>Do average lengths differ between Species?</p>
@@ -616,7 +615,32 @@ n_exceed<span class="op">/</span>nreps</code></pre></div>
 <p>Now we have more than two groups: <span class="math inline">\(3\)</span> potential comparisons we might be interested in. Remember that each time we carry out a hypothesis test the probability we get a false positive result (<strong>Type I</strong> error) is given by <span class="math inline">\(\alpha\)</span> (the <strong>level of significance</strong> we choose). In light of this we should control the <strong>Type I</strong> error rate across the entire <em>family</em> of tests under consideration, i.e., control the <strong>Family-Wise Error Rate (FWER)</strong>; this ensures that the risk of making at least one <strong>Type I</strong> error among the family of comparisons in the experiment is <span class="math inline">\(\alpha\)</span>.</p>
 <p><strong>AN</strong>alysis Of <strong>VA</strong>riance (ANOVA): this can, again, be done using <code>lm()</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(bill_depth_mm <span class="op">~</span><span class="st"> </span>species, <span class="dt">data =</span> penguins_nafree)</code></pre></div>
-<p>Taking <strong>species</strong> <code>Adelie</code> as the <strong>baseline</strong>..</p>
+<p><em>F-test</em> using <code>anova()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## using anova()
+<span class="kw">anova</span>(fit.lm)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: bill_depth_mm
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## species     2 870.79  435.39  344.83 &lt; 2.2e-16 ***
+## Residuals 330 416.67    1.26                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Consider the ratio <span class="math inline">\({\frac {{\text{variation due to groups}}}{{\text{unexplained variance}}}} = {\frac {{\text{ mean between-group variability}}}{{\text{mean within-group variability}}}}\)</span> <span class="math inline">\(=\frac{\text{mean SSB}}{\text{mean SSW}}\)</span> <span class="math inline">\(=\frac{\text{MSB}}{\text{MSW}}\)</span> = <span class="math inline">\(\frac{435.3925914}{1.2626477}\)</span></p>
+<p>This is the <strong>F-statistic</strong>...</p>
+<p>Hypothesis: We test the Null hypothesis, <span class="math inline">\(H_0\)</span>, population (<code>species</code>) means are the same on average verses the alternative hypothesis, <span class="math inline">\(H_1\)</span>, that <strong>at least one</strong> differs from the others!</p>
+<p>Probability of getting an <strong>F-statistic</strong> at least as extreme as the one we observe (think of the area under the tails of the curve below) <strong>p-value</strong> Pr(&gt;F)= 1.446615710^{-81} tells us we have extremely strong evidence against <span class="math inline">\(H_0\)</span> at the &lt;&lt;0.0001% level of significance</p>
+<p><em>F-test</em> using <code>aov()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## using aov()
+aov &lt;-<span class="st"> </span><span class="kw">aov</span>(bill_depth_mm <span class="op">~</span><span class="st"> </span>species, <span class="dt">data =</span> penguins_nafree)
+<span class="kw">summary</span>(aov)</code></pre></div>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## species       2  870.8   435.4   344.8 &lt;2e-16 ***
+## Residuals   330  416.7     1.3                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>They are BOTH THE SAME</strong></p>
+<p>Taking <strong>species</strong> <code>Adelie</code> as the <strong>baseline</strong> in linear regression...</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fit.lm)<span class="op">$</span>coef</code></pre></div>
 <pre><code>##                     Estimate Std. Error     t value     Pr(&gt;|t|)
 ## (Intercept)      18.34726027 0.09299608 197.2906740 0.000000e+00

@@ -246,7 +246,7 @@ Data is a “potential taonga, something precious that needs to be maintained, i
 --- Dr W. Edwards, TMR website
 </footer>
 </blockquote>
-<p>Article Two of the Treaty of Waitangi obliges the Government to actively protect <a href="https://maoridictionary.co.nz/search?keywords=taonga">taonga</a>, consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include</p>
+<p><a href="https://nzhistory.govt.nz/politics/treaty/read-the-Treaty/differences-between-the-texts">Te Tiriti o Waitangi/Treaty of Waitangi</a> obliges the Government to actively protect <a href="https://maoridictionary.co.nz/search?keywords=taonga">taonga</a>, consult with Māori in respect of taonga, give effect to the principle of partnership and recognize Māori rangatiratanga over taonga. Factors that relate to how communities might recognize the taonga nature of any dataset include</p>
 <ul>
 <li>provenance of the data: does the dataset come from a significant Māori source?</li>
 <li>opportunity for the data: could the dataset support Māori aspirations for their people or their whenua (land)?</li>
@@ -437,11 +437,11 @@ penguins_nafree</code></pre></div>
 ##  9 Adelie  Torgersen           38.6          21.2               191        3800
 ## 10 Adelie  Torgersen           34.6          21.1               198        4400
 ## # … with 37 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarise</span>(penguins_nafree, <span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarise</span>(penguins_nafree, <span class="dt">average_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
 <pre><code>## # A tibble: 1 x 1
-##   avgerage_bill_length
-##                  &lt;dbl&gt;
-## 1                 44.0</code></pre>
+##   average_bill_length
+##                 &lt;dbl&gt;
+## 1                44.0</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(penguins_nafree, species)</code></pre></div>
 <pre><code>## # A tibble: 333 x 8
 ## # Groups:   species [3]
@@ -462,31 +462,31 @@ penguins_nafree</code></pre></div>
 <ul>
 <li>Take the <code>penguins_nafree</code> data then</li>
 <li>Use this and apply the <code>group_by()</code> function to group by <code>species</code></li>
-<li>Use this output and apply the <code>summarize()</code> function to calculate the mean (using (<code>mean()</code>) bill length (<code>bill_length_mm</code>) of each group (<code>species</code>), calling the resulting number <code>avgerage_bill_length</code></li>
+<li>Use this output and apply the <code>summarize()</code> function to calculate the mean (using (<code>mean()</code>) bill length (<code>bill_length_mm</code>) of each group (<code>species</code>), calling the resulting number <code>average_bill_length</code></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">penguins_nafree <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
 <pre><code>## # A tibble: 3 x 2
-##   species   avgerage_bill_length
-## * &lt;fct&gt;                    &lt;dbl&gt;
-## 1 Adelie                    38.8
-## 2 Chinstrap                 48.8
-## 3 Gentoo                    47.6</code></pre>
+##   species   average_bill_length
+## * &lt;fct&gt;                   &lt;dbl&gt;
+## 1 Adelie                   38.8
+## 2 Chinstrap                48.8
+## 3 Gentoo                   47.6</code></pre>
 <p>We can also group by multiple factors, for example,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">penguins_nafree <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(island,species) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avgerage_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_bill_length =</span> <span class="kw">mean</span>(bill_length_mm))</code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;island&#39;. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 5 x 3
 ## # Groups:   island [3]
-##   island    species   avgerage_bill_length
-##   &lt;fct&gt;     &lt;fct&gt;                    &lt;dbl&gt;
-## 1 Biscoe    Adelie                    39.0
-## 2 Biscoe    Gentoo                    47.6
-## 3 Dream     Adelie                    38.5
-## 4 Dream     Chinstrap                 48.8
-## 5 Torgersen Adelie                    39.0</code></pre>
+##   island    species   average_bill_length
+##   &lt;fct&gt;     &lt;fct&gt;                   &lt;dbl&gt;
+## 1 Biscoe    Adelie                   39.0
+## 2 Biscoe    Gentoo                   47.6
+## 3 Dream     Adelie                   38.5
+## 4 Dream     Chinstrap                48.8
+## 5 Torgersen Adelie                   39.0</code></pre>
 </div>
 </div>
 <div id="data-viz" class="section level2">

@@ -273,7 +273,7 @@ penguins_nafree &lt;-<span class="st"> </span>penguins <span class="op">%&gt;%</
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> penguins_nafree, <span class="kw">aes</span>(<span class="dt">x =</span> bill_depth_mm)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <p>First off let's fit a null (intercept only) model. This in <em>old money</em> would be called a one sample t-test.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">slm_null &lt;-<span class="st"> </span><span class="kw">lm</span>(bill_depth_mm <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> penguins_nafree)
 <span class="kw">summary</span>(slm_null)<span class="op">$</span>coef</code></pre></div>
@@ -302,7 +302,7 @@ penguins_nafree &lt;-<span class="st"> </span>penguins <span class="op">%&gt;%</
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()
 p1</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">slm &lt;-<span class="st"> </span><span class="kw">lm</span>(bill_depth_mm <span class="op">~</span><span class="st"> </span>bill_length_mm, <span class="dt">data =</span> penguins_nafree)</code></pre></div>
 <p><strong>Model formula</strong></p>
 <p>This model is simply <span class="math display">\[Y_i = \alpha + \beta_1x_i + \epsilon_i\]</span> where for observation <span class="math inline">\(i\)</span> <span class="math inline">\(Y_i\)</span> is the value of the response (<code>bill_depth_mm</code>) and <span class="math inline">\(x_i\)</span> is the value of the explanatory variable (<code>bill_length_mm</code>); As above <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta_1\)</span> are parameters to be estimated. We could also write this model as</p>
@@ -326,7 +326,7 @@ penguins_nafree<span class="op">$</span>pred_vals &lt;-<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred_vals))</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 </div>
 <div id="factor-and-a-continous-variable" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Factor and a continous variable</h3>
@@ -336,7 +336,7 @@ penguins_nafree<span class="op">$</span>pred_vals &lt;-<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()
 p2</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">slm_sp &lt;-<span class="st"> </span><span class="kw">lm</span>(bill_depth_mm <span class="op">~</span><span class="st"> </span>bill_length_mm <span class="op">+</span><span class="st"> </span>species, <span class="dt">data =</span> penguins_nafree)</code></pre></div>
 <p><strong>Model formula</strong></p>
 <p>Now we have two explanatory variables, so our model formula becomes</p>
@@ -375,7 +375,7 @@ penguins_nafree<span class="op">$</span>pred_vals &lt;-<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()  <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred_vals))</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 </div>
 <div id="interactions" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> Interactions</h3>
@@ -419,7 +419,7 @@ penguins_nafree<span class="op">$</span>pred_vals &lt;-<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()  <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred_vals))</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 </div>
 </div>
 <div id="model-comparison-selection-and-checking-again" class="section level2">
@@ -431,7 +431,7 @@ penguins_nafree<span class="op">$</span>pred_vals &lt;-<span class="st"> </span>
 </ul>
 <p>Let's look at the fit of the <code>slm</code> model (single continuous explanatory variable)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gglm<span class="op">::</span><span class="kw">gglm</span>(slm) <span class="co"># Plot the four main diagnostic plots</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <p>Do you think the residuals are Normally distributed (look at the QQ plot)? Think of what this model is, do you think it's the best we can do?</p>
 <div id="model-comparison-and-selection" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Model comparison and selection</h3>
@@ -474,7 +474,7 @@ penguins_nafree<span class="op">$</span>pred_vals &lt;-<span class="st"> </span>
 <p>This backs up what our ANOVA suggested model <code>slm_sp</code> as that preferred! As always it's important to do a sanity check! Does this make sense? Have a look at the outputs from these models and see what you think.</p>
 <p>Just because we've chosen a model (<em>the best of a bad bunch</em> perhaps) this doesn't let us off the hook. We should check our assumptions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gglm<span class="op">::</span><span class="kw">gglm</span>(slm_sp) <span class="co"># Plot the four main diagnostic plots</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="672" /> <strong>Residuals vs Fitted</strong> plot: equal spread? Doesn't look too trumpety!</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-52-1.png" width="672" /> <strong>Residuals vs Fitted</strong> plot: equal spread? Doesn't look too trumpety!</p>
 <p><strong>Normal quantile-quantile (QQ)</strong> plot: skewed? Maybe slightly right skewed (deviation upwards from the right tail)</p>
 <p><strong>Scale-Location</strong> plot: equal spared? I'd say so.</p>
 <p><strong>Residuals vs Leverage</strong>: ? Maybe a couple of points with high leverage.</p>
@@ -514,7 +514,7 @@ newdata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span c
 <pre><code>##       1 
 ## 15.4841</code></pre>
 <p>What does this look like on a plot</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 </div>
 </div>
 <div id="tldr-lm" class="section level2">

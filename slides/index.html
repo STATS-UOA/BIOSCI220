@@ -1621,7 +1621,7 @@ class: center, middle
 ---
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_6041a083" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_604717e2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1650,7 +1650,7 @@ class: center, middle
 
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_6041a232" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60471829" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1993,7 +1993,7 @@ class: center, middle
 
 ### **[slido.com](slido.com) code #biosci220: what does a plot tell us about our data?**
 
-<div class="countdown" id="timer_6041a0ef" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6047188a" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2007,6 +2007,543 @@ class: center, middle
 #### Within group variation
 
 ![](index_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+
+class: inverse, center, middle
+
+# Hypothesis testing and introduction to linear regression
+## Week 3
+
+---
+
+class: inverse
+
+
+.small[
+### Learning objectives
++ **Formulate** a question/hypothesis to investigate based on the given data
++ **List** the aims, write out the appropriate null and alternative hypothesis using statistical notation for, and write `R` code to carry out a
+    + one-sample t-test
+    + two-sample t-test (independent and dependent)
+    + randomization test
+    + one-way Analysis of Variance (ANOVA)
++ Correctly **interpret** and **communicate** a p-value in terms of the hypotheses test listed above
+
+]
+
+---
+
+class: inverse
+
+.small[
+### Learning objectives
++ **State** in terms of probability statements the meaning of the power and significance level of an hypothesis test
++ **Explain** and **discuss** the limitations of statistical linear regression, with a single factor explanatory variable
++ **Interpret** and **communicate** the estimated coefficients of a linear regression model with a single factor explanatory variable to both a statistical and non-statistical audience; discuss and critique model fit
+ ]
+ 
+---
+ 
+### One-Sample t-test
+
+![](index_files/figure-html/vio1-1.png)&lt;!-- --&gt;
+
+---
+
+How do we reflect our uncertainty about the population mean? 
+
+--
+
+**remember it's the population we want to make inference on based on our sample!**
+
+--
+
+Enter the Standard Error of the Mean, **SEM**,  `\(= \frac{\sigma}{\sqrt{n}}\)`
+
+---
+
+In `R`: 
+
+
+```r
+sem &lt;- paua %&gt;% summarise(mean = mean(Length),
+                   sem = sd(Length)/sqrt(length(Length)))
+sem
+```
+
+```
+## # A tibble: 1 x 2
+##    mean   sem
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1  5.19 0.155
+```
+
+---
+
+
+**Back to our hypothesis test**
+
+**Question:** Do we believe that the average length of Pāua shells is 5cm?
+
+**Formalizing into a hypothesis test:**  
+
+ + *Null hypothesis*: On average Pāua shells are 5cm long
+ + *Alternative hypothesis*: On average Pāua shells are **not** 5cm long
+ + *Notationally*: `\(H_0: \mu = 5\)` vs `\(H_1: \mu \neq 5\)` ( `\(\mu\)` is the proposed mean)
+ 
+---
+ 
+**Calculating a statistic** (*we use a t-statistic*)
+
+t-statistic `\(= \frac{\bar{x}- \mu}{\text{SEM}}\)` = `\(\frac{5.1925 - 5}{0.155351}\)` = 1.239
+
+   + `\(\bar{x}\)` is the sample mean
+
+   + `\(\mu\)` is the theoretical value (*proposed mean*)
+   
+   
+---
+
+*so great we have a statistic... now what*
+
+--
+
+ 😱 p-values 😱
+ 
+--
+ 
+Q: What is a p-Value?
+
+A: Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data would be equal to or more extreme than its observed value
+
+---
+
+In this case it's the probability, under the null hypothesis ( `\(\mu\)` = 5), that we would observe a statistic as least as extreme as we did.
+
+--
+
+The statistic calculated from our hypothesis test was 1.2391. 
+
+--
+Remember that our alternative hypotheses was `\(H_1: \mu \neq 5\)` so we have to consider **both sides** of the inequality; hence, anything as least as extreme is either `\(&gt; 1.2391\)` or `\(&lt; -1.2391\)` to our observed statistic.
+
+---
+class: inverse
+
+![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+
+#### We can do all of that in one step using `R`:
+
+
+```r
+t.test(paua$Length, mu = 5 )
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  paua$Length
+## t = 1.2391, df = 59, p-value = 0.2202
+## alternative hypothesis: true mean is not equal to 5
+## 95 percent confidence interval:
+##  4.881643 5.503357
+## sample estimates:
+## mean of x 
+##    5.1925
+```
+
+---
+class: center, middle
+
+&lt;img src="https://pbs.twimg.com/media/EeMWb7QWsAIGftR?format=jpg&amp;name=small"&gt;
+
+---
+class: center, middle
+
+**Question:** Do we believe that on average the length of Pāua shells are equal between species
+
+---
+class: center, middle
+
+![](index_files/figure-html/vio-1.png)&lt;!-- --&gt;
+
+---
+
+**Question:** Do we believe that on average the length of Pāua shells are equal between species
+
+**Formalizing into a hypothesis test:**
+   
+   + **Null hypothesis**: On average the species' shells are the same length
+   + **Alternative hypothesis**: they aren't!
+   + **Notationally**: `\(H_0: \mu_{\text{Haliotis iris}} - \mu_{\text{Haliotis australis}} = 0\)` vs `\(H_1: \mu_{\text{Haliotis iris}} \neq \mu_{\text{Haliotis australis}}\)`
+   
+
+---
+
+**Question:** Do we believe that on average the length of Pāua shells are equal between species
+
+**Calculate the test statistic:** t-statistic = `\(\frac{\bar{x}_{\text{difference}} - \mu}{\text{SED}}\)` = `\(\frac{\bar{x}_{\text{difference}} - 0}{\text{SED}}\)`, where `\(\bar{x}_{\text{difference}}\)` is the differences between the species' averages. 
+   
+---
+
+**Independent** samples t-test using `t.test()`
+
+
+
+```r
+test &lt;- t.test(Length ~ Species, data = paua)
+## printing out the result
+test
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  Length by Species
+## t = 3.5404, df = 57.955, p-value = 0.0007957
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.4158802 1.4980086
+## sample estimates:
+## mean in group Haliotis australis      mean in group Haliotis iris 
+##                         5.766667                         4.809722
+```
+
+```r
+test$p.value
+```
+
+```
+## [1] 0.0007956853
+```
+
+---
+
+**[slido.com](slido.com) code #biosci220**
+
+Listed are the t-statistic, `t` = 3.5403636 and the p-value, `p-value` = 8\times 10^{-4} for the hypothesis test we outlined earlier. 
+
+What would you conclude?
+
+
+<div class="countdown" id="timer_60471751" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+#### Independent samples t-test using `lm()`
+
+
+```r
+t.lm &lt;- lm(Length ~ Species, data = paua)
+##extracting the estimated parameters
+summary(t.lm)$coef
+```
+
+```
+##                        Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)           5.7666667  0.2278199 25.312396 4.911173e-33
+## SpeciesHaliotis iris -0.9569444  0.2941142 -3.253649 1.902460e-03
+```
+
+---
+
+**Inference** for `lm()`
+
+(Intercept) = the *baseline* = `\(\mu_\text{Haliotis australis}\)` = 5.7666667
+
+SE of (Intercept) = SE of `\(\mu_\text{Haliotis australis}\)` = SEM = 0.2278199
+
+`\(\text{SpeciesHaliotis iris}\)` = `\(\mu_\text{Haliotis iris}\)` – `\(\mu_\text{Haliotis australis}\)` = -0.9569444
+
+SE of `\(\text{SpeciesHaliotis iris}\)` = SE of ( `\(\mu_\text{Haliotis iris}\)` – `\(\mu_\text{Haliotis australis}\)` ) = SED = 0.2941142
+
+---
+
+**Hypotheses being tested**
+
++ The `t value` and `Pr (&gt;|t|)` are the t - and p-value for testing the null hypotheses:
+
+	1. Mean abundance is zero for *Haliotis australis* (not interested in this really)
+	2. No difference between the population means of *Haliotis australis* and *Haliotis iris*
+
+
+---
+
+![](index_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+---
+#### Randomization tests
+*what if we don't want to go parametric*
+
+
+&lt;img src = "https://i.imgflip.com/2e1aal.jpg"&gt;
+
+
+
+---
+**Randomization test**
+
+
+ 1. **Decide** on a metric to measure the effect in question (e.g., differences between group means)
+ 2. **Calculate** that test statistic on the observed data. Note this metric can be **anything** you wish
+ 3. For chosen number of times (*bigger the better*)
+    + **Shuffle** the data labels
+    + **Calculate** the test statistic for the reshuffled data and retain
+  
+---
+**Randomization test**
+
+ 4. **Calculate** the proportion of times your reshuffled statistics equal or exceed the observed
+    + typically here we use the absolute values as we'd be carrying out a **two-tailed** test (or we could double the p-value)
+    + this is the probability of such an extreme result under the null
+ 5. **State** the strength of evidence against the null on the basis of this **probability**.
+
+---
+
+![](index_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+---
+
+##### 😱 Correctly interpreting p-values 😱
+
++ **p-values** can indicate how incompatible the data are with a specified statistical model
+
+--
+
++ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
+
+--
+
++ scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
+
+---
+
+##### 😱 Correctly interpreting p-values 😱
+
++ proper inference requires **full** reporting and transparency
+
+--
+
++ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
+
+--
+
++ by itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
+
+---
+
+There are **many** different schools of thought about how a p-value should be interpreted.
+
+Most people agree that the p-value is a useful measure of the strength of evidence against the null hypothesis. The smaller the p-value, the stronger the evidence against `\(H_0\)`. 
+
+Some people go further and use an accept/reject framework. Under this framework, the null hypothesis `\(H_0\)` should be rejected if the p-value is less than 0.05 (say), and accepted if the p-value is greater than 0.05.
+
+
+---
+class: middle, center
+
+
+### Substantial evidence of a difference, **not** Evidence of a substantial difference.
+
+
+
+---
+**More than two groups** *some terminology*
+
+
+
+**Type I** error (false positive): declare a difference (i.e., reject `\(H_0\)`) when there is no difference (i.e. `\(H_0\)` is true). Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., `\(\alpha =\text{ P(Type I error)} = \text{P(false positive)}\)`.
+
+---
+
+**More than two groups** *some terminology*
+
+**Type II** error (false negative): difference not declared (i.e., `\(H_0\)` not rejected) when there is a difference (i.e., `\(H_0\)` is false). Let `\(\beta =\)` P(do not reject `\(H_0\)` when `\(H_0\)` is false); so, `\(1-\beta\)` = P(reject `\(H_0\)` when `\(H_0\)` is false) = P(a true positive), which is the statistical **power** of the test.
+
+---
+
+**More than two groups** *some terminology*
+
+
+**Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
+
+**Power**: the probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a **Type II** error (false negative).
+
+
+---
+
+**More than two groups** *some terminology*
+
+
+  + **Effect size** (size of difference, of biological significance) between the true population parameters
+  + Experimental error variance 
+  + **Sample size**
+  + Choice of **Type I** error rate ( `\(\alpha\)` )
+  
+---
+**More than two groups** *some terminology*
+
+Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by `\(\alpha\)` (the **level of significance** we choose).
+
+When we have **multiple comparisons** to make we should then control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is `\(\alpha\)`.
+
+---
+**More than two groups** One way ANOVA using `lm()`
+
+![](index_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+---
+
+**AN**alysis Of **VA**riance (ANOVA): this can, again, be done using `lm()`
+
+
+
+```r
+fit.lm &lt;- lm(bill_depth_mm ~ species, data = penguins_nafree)
+```
+
+*F-test* using `anova()`
+
+
+```r
+## using anova()
+anova(fit.lm)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: bill_depth_mm
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## species     2 870.79  435.39  344.83 &lt; 2.2e-16 ***
+## Residuals 330 416.67    1.26                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+
+**Consider the ratio**
+
+`\({\frac  {{\text{variation due to groups}}}{{\text{unexplained variance}}}} = {\frac  {{\text{ mean between-group variability}}}{{\text{mean within-group variability}}}}\)`  `\(=\frac{\text{mean SSB}}{\text{mean SSW}}\)` `\(=\frac{\text{MSB}}{\text{MSW}}\)`  =  `\(\frac{435.3925914}{1.2626477}\)`
+
+This is the **F-statistic**... 
+
+---
+
+Hypothesis: We test the Null hypothesis, `\(H_0\)`, population (species) means are the same on average verses the alternative hypothesis, `\(H_1\)`, that **at least one** differs from the others!
+
+---
+
+Probability of getting an **F-statistic** at least as extreme as the one we observe (think of the area under the tails of the curve below) **p-value** Pr(&gt;F)= 1.4466157\times 10^{-81} tells us we have extremely strong evidence against `\(H_0\)` at the &lt;&lt;0.0001% level of significance
+
+---
+
+*F-test* using `aov()`
+
+
+```r
+## using aov()
+aov &lt;- aov(bill_depth_mm ~ species, data = penguins_nafree)
+summary(aov)
+```
+
+```
+##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## species       2  870.8   435.4   344.8 &lt;2e-16 ***
+## Residuals   330  416.7     1.3                   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+**They are BOTH THE SAME**
+
+---
+
+## **Dummy** variables
+
+$$
+`\begin{aligned}
+\operatorname{bill\_depth\_mm} &amp;= \alpha\ + \\
+&amp;\quad \beta_{1}(\operatorname{species}_{\operatorname{Chinstrap}})\ + \\
+&amp;\quad \beta_{2}(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \epsilon
+\end{aligned}`
+$$
+
+<div class="countdown" id="timer_604717d3" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+---
+Taking **species** `Adelie` as the **baseline** in linear regression...
+
+ 
+
+```r
+summary(fit.lm)$coef
+```
+
+```
+##                     Estimate Std. Error     t value     Pr(&gt;|t|)
+## (Intercept)      18.34726027 0.09299608 197.2906740 0.000000e+00
+## speciesChinstrap  0.07332796 0.16497460   0.4444803 6.569867e-01
+## speciesGentoo    -3.35062162 0.13877592 -24.1441135 6.622121e-75
+```
+
+---
+
+(Intercept) = `\(\text{mean}_{\text{Adelie}}\)` = 18.3472603
+
+SE of (Intercept) = SE of `\(\text{mean}_{\text{Adelie}}\)` = SEM = 18.3472603
+
+`\(\text{speciesChinstrap}\)` = `\(\text{mean}_{\text{Chinstrap}}\)` - `\(\text{mean}_{\text{Adelie}}\)` = 0.073328
+
+SE of `\(\text{speciesChinstrap}\)` = SE of ( `\(\text{mean}_{\text{Chinstrap}}\)` - `\(\text{mean}_{\text{Adelie}}\)` ) = SED = 0.1649746
+
+---
+**Hypotheses being tested**
+
++ The `t value` and `Pr (&gt;|t|)` are the t - and p-value for testing the null hypotheses
+
+	1. Mean abundance is zero for Adelie population
+	2. No difference between the population means of Chinstrap and Adelie
+	3. No difference between the population means of Gentoo and Adelie
+
+We're interested in 2 and 3, but not necessarily 1! What do you conclude? Does your inference match the plot?
+
+---
+**Model diagnostics**
+
+Carrying out any linear regression we have some **key assumptions**
+
++ **Independence** 
++ There is a **linear relationship** between the response and the explanatory variables
++ The residuals have **constant variance**
++ The **residuals** are normally distributed
+
+---
+**Diagnostic plots**
+
+
+```r
+gglm::gglm(fit.lm) # Plot the four main diagnostic plots
+```
+
+---
+**Diagnostic plots**
+
+![](index_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
