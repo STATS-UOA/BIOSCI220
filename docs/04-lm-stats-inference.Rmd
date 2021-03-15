@@ -39,7 +39,7 @@ Here for observation $i$
   + $x_i$ is the value of the explanatory variable 
   + $\epsilon_i$ is the error term: the difference between $Y_i$ and its expected value
   + $\alpha$ is the intercept term (a parameter to be estimated), and 
-  + $\beta_1$ is the slope: coefficient of the explanatory variable (a parameter to be estimated), and 
+  + $\beta_1$ is the slope: coefficient of the explanatory variable (a parameter to be estimated)
 
 Does this remind you of anything?
 
@@ -327,7 +327,7 @@ anova(slm,slm_sp)
 ```
 As you'll see the `anova()` function takes the two model objects (`slm` and `slm_sp`) each as arguments. It returns an ANOVA testing whether the more complex model (`slm_sp`) is just as good at capturing the variation in the data as the simpler model (`slm`). The returned p-value should be interpreted as in any other hypothesis test. i.e., the probability of observing a statistic as least as extreme under our null hypothesis (here that each model is as good at capturing the variation in the data).
 
-WHat would we conclude here? I'd say we have pretty strong evidence against the models being equally good! I'd definitely plump for `slm_sp` over `slm`, looking back at the plots above does this make sense?
+What would we conclude here? I'd say we have pretty strong evidence against the models being equally good! I'd definitely plump for `slm_sp` over `slm`, looking back at the plots above does this make sense?
 
 Now what about `slm_int` vs `slm_sp`?
 
