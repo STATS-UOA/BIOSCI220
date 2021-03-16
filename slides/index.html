@@ -227,14 +227,14 @@ paua &lt;- read_csv("paua.csv")
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
 *library(tidyverse)
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ]
 
@@ -242,18 +242,19 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
-library(tidyverse)  
+library(tidyverse)
 *paua &lt;- read_csv("../data/paua.csv")
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   Species = col_character(),
 ##   Length = col_double(),
@@ -266,19 +267,20 @@ library(tidyverse)
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
-library(tidyverse)  
-paua &lt;- read_csv("../data/paua.csv")  
+library(tidyverse)
+paua &lt;- read_csv("../data/paua.csv")
 *glimpse(paua)
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   Species = col_character(),
 ##   Length = col_double(),
@@ -296,21 +298,26 @@ paua &lt;- read_csv("../data/paua.csv")
 ]
 
 &lt;style&gt;
-.left-panel-example_read-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_read-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_read-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_read-auto {
-  width: 0%;
+.panel2-example_read-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_read-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -326,14 +333,14 @@ paua &lt;- read_csv("../data/paua.csv")
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
 *paua
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 60 x 3
@@ -357,15 +364,15 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
-paua %&gt;%  
+paua %&gt;%
 * group_by(Species)
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 60 x 3
@@ -390,42 +397,47 @@ paua %&gt;%
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
-paua %&gt;%  
-  group_by(Species) %&gt;%  
+paua %&gt;%
+  group_by(Species) %&gt;%
 * summarise(av_length = mean(Length))
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 2 x 2
 ##   Species            av_length
-## * &lt;chr&gt;                  &lt;dbl&gt;
+##   &lt;chr&gt;                  &lt;dbl&gt;
 ## 1 Haliotis australis      5.77
 ## 2 Haliotis iris           4.81
 ```
 ]
 
 &lt;style&gt;
-.left-panel-example_mean-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_mean-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_mean-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_mean-auto {
-  width: 0%;
+.panel2-example_mean-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_mean-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -440,14 +452,14 @@ paua %&gt;%
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
 *library(ggplot2)
 ```
 ]
  
-.right-panel-example_plot-auto[
+.panel2-example_plot-auto[
 
 ]
 
@@ -455,68 +467,73 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
+library(ggplot2)
 *ggplot(data = paua,aes(x = Species, y = Length))
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
-ggplot(data = paua,aes(x = Species, y = Length)) +  
+library(ggplot2)
+ggplot(data = paua,aes(x = Species, y = Length)) +
 * geom_boxplot()
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
-ggplot(data = paua,aes(x = Species, y = Length)) +  
-  geom_boxplot()  
+library(ggplot2)
+ggplot(data = paua,aes(x = Species, y = Length)) +
+  geom_boxplot()
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-example_plot-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_plot-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_plot-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_plot-auto {
-  width: 0%;
+.panel2-example_plot-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_plot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -597,14 +614,14 @@ penguins %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 *library(palmerpenguins)  ## contains some nice penguin data
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ]
 
@@ -612,7 +629,7 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
@@ -620,7 +637,7 @@ library(palmerpenguins)  ## contains some nice penguin data
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ## # A tibble: 344 x 8
@@ -644,16 +661,16 @@ library(palmerpenguins)  ## contains some nice penguin data
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
-penguins %&gt;%  
+penguins %&gt;%
 * apply(.,2,is.na)
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ##        species island bill_length_mm bill_depth_mm flipper_length_mm
@@ -1353,17 +1370,17 @@ penguins %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
-penguins %&gt;%  
-  apply(.,2,is.na) %&gt;%  
+penguins %&gt;%
+  apply(.,2,is.na) %&gt;%
 * apply(.,2,sum)
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ##           species            island    bill_length_mm     bill_depth_mm 
@@ -1374,21 +1391,26 @@ penguins %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-penguins-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins-auto {
-  width: 0%;
+.panel2-penguins-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1411,14 +1433,14 @@ penguins_nafree
 count: false
  
 ### Data manipulation
-.left-panel-penguins_na-auto[
+.panel1-penguins_na-auto[
 
 ```r
 *penguins_nafree &lt;- penguins %&gt;% drop_na()
 ```
 ]
  
-.right-panel-penguins_na-auto[
+.panel2-penguins_na-auto[
 
 ]
 
@@ -1426,15 +1448,15 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins_na-auto[
+.panel1-penguins_na-auto[
 
 ```r
-penguins_nafree &lt;- penguins %&gt;% drop_na()  
+penguins_nafree &lt;- penguins %&gt;% drop_na()
 *penguins_nafree
 ```
 ]
  
-.right-panel-penguins_na-auto[
+.panel2-penguins_na-auto[
 
 ```
 ## # A tibble: 333 x 8
@@ -1455,21 +1477,26 @@ penguins_nafree &lt;- penguins %&gt;% drop_na()
 ]
 
 &lt;style&gt;
-.left-panel-penguins_na-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins_na-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins_na-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins_na-auto {
-  width: 0%;
+.panel2-penguins_na-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_na-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1493,14 +1520,14 @@ penguins_nafree %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
 *penguins_nafree
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 333 x 8
@@ -1524,15 +1551,15 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
-penguins_nafree %&gt;%  
+penguins_nafree %&gt;%
 * group_by(species)
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 333 x 8
@@ -1557,21 +1584,21 @@ penguins_nafree %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
-penguins_nafree %&gt;%  
-  group_by(species) %&gt;%  
+penguins_nafree %&gt;%
+  group_by(species) %&gt;%
 * summarise(avgerage_bill_length = mean(bill_length_mm))
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 3 x 2
 ##   species   avgerage_bill_length
-## * &lt;fct&gt;                    &lt;dbl&gt;
+##   &lt;fct&gt;                    &lt;dbl&gt;
 ## 1 Adelie                    38.8
 ## 2 Chinstrap                 48.8
 ## 3 Gentoo                    47.6
@@ -1579,21 +1606,26 @@ penguins_nafree %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-penguins_av-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins_av-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins_av-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins_av-auto {
-  width: 0%;
+.panel2-penguins_av-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_av-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1621,7 +1653,7 @@ class: center, middle
 ---
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_604717e2" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_605069fa" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1650,11 +1682,11 @@ class: center, middle
 
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_60471829" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_605069cf" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
-&lt;img src="img/coxcomb.png" width="3072" /&gt;
+![](img/coxcomb.png)&lt;!-- --&gt;
 
 .footnote[[Create this yourself](https://rpubs.com/kwlee58/492913)]
 ---
@@ -1720,123 +1752,128 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
 *ggplot(penguins_nafree, aes(x = species, fill = sex))
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_1_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_01_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 * geom_bar(alpha = 0.8, position = "dodge")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
 * facet_wrap(~island)
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
 * xlab("")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
-  xlab("") +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
 * theme_linedraw()
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_5_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_05_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
-  xlab("") +  
-  theme_linedraw() +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() +
 * scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_6_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_06_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-bar-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-bar-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-bar-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-bar-auto {
-  width: 0%;
+.panel2-bar-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-bar-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1863,123 +1900,128 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
 *ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_1_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_01_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 * geom_point(aes(color = species),size = 2)
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
 * scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
 * theme_bw()   ## Oo a new theme
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
   theme_bw() +  ## Oo a new theme
 * xlab("Bill length (mm)")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_5_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_05_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
   theme_bw() +  ## Oo a new theme
-  xlab("Bill length (mm)") +  
+  xlab("Bill length (mm)") +
 * ylab("Bill length (mm)")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_6_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_06_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-point-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-point-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-point-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-point-auto {
-  width: 0%;
+.panel2-point-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-point-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1993,7 +2035,7 @@ class: center, middle
 
 ### **[slido.com](slido.com) code #biosci220: what does a plot tell us about our data?**
 
-<div class="countdown" id="timer_6047188a" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60506858" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2231,7 +2273,7 @@ Listed are the t-statistic, `t` = 3.5403636 and the p-value, `p-value` = 8\times
 What would you conclude?
 
 
-<div class="countdown" id="timer_60471751" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60506864" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2480,7 +2522,7 @@ $$
 \end{aligned}`
 $$
 
-<div class="countdown" id="timer_604717d3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60506a91" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2544,6 +2586,520 @@ gglm::gglm(fit.lm) # Plot the four main diagnostic plots
 **Diagnostic plots**
 
 ![](index_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+
+---
+
+class: inverse, center, middle
+
+# Stats Inference
+## Week 4
+
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
++ **Carry out** and **interpret** tests for the existence of relationships between explanatory variables and the response in a linear model
++ **Write** `R` code to fit a linear model with a continuous explanatory variable and a factor explanatory variable
+]
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
+   + **Interpret** estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of
+      + the intercept
+      + the effect of a factor
+      + the effect of a one-unit increase in a numeric variable
+      + the effect of an x-unit increase in a numeric variable
+   + **Make** a point prediction of the response for a new observation
+  ]
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
++ **Write** `R` code to fit a linear model with interaction terms in the explanatory variables
++ **Interpret** estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of
+     + main effects in a model with an interaction
+     + the effect of one variable when others are included in the model
+  ]
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
+  + **Explain** why you may want to include interaction effects in a linear model
+  + **Describe** the differences between the operators `:` and `*` in an `R` model-fitting formula
+  ]
+
+---
+
+**Linear regression with a factor explanatory variable**
+
+
+
+```r
+fit.lm &lt;- lm(bill_depth_mm ~ species, data = penguins_nafree)
+summary(fit.lm)$coef
+```
+
+```
+##                     Estimate Std. Error     t value     Pr(&gt;|t|)
+## (Intercept)      18.34726027 0.09299608 197.2906740 0.000000e+00
+## speciesChinstrap  0.07332796 0.16497460   0.4444803 6.569867e-01
+## speciesGentoo    -3.35062162 0.13877592 -24.1441135 6.622121e-75
+```
+
+---
+**Linear regression with a factor explanatory variable**
+
+$$
+`\begin{aligned}
+\operatorname{\widehat{bill\_depth\_mm}} &amp;= 18.35\ + \\
+&amp;\quad 0.07(\operatorname{species}_{\operatorname{Chinstrap}})\ - \\
+&amp;\quad 3.35(\operatorname{species}_{\operatorname{Gentoo}})
+\end{aligned}`
+$$
+
+
+---
+
+![](index_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+---
+**Mathematical notation**
+
+`$$Y_i = \alpha + \beta_1x_i + \epsilon_i$$`
+where
+
+`$$\epsilon_i \sim \text{Normal}(0,\sigma^2).$$`
+
+--
+.small[
+Here for observation `\(i\)`
+
+  + `\(Y_i\)` is the value of the **response** 
+  + `\(x_i\)` is the value of the **explanatory variable** 
+  + `\(\epsilon_i\)` is the **error** term
+  + `\(\alpha\)` is the **intercept** term, and 
+  + `\(\beta_1\)` is the slope: **coefficient** of the explanatory variable
+]
+---
+
+
+First off let's fit a **null** (intercept only)  model. This in *old money* would be called a one sample t-test. 
+
+
+```r
+slm_null &lt;- lm(bill_depth_mm ~ 1, data = penguins_nafree)
+summary(slm_null)$coef
+```
+
+```
+##             Estimate Std. Error  t value      Pr(&gt;|t|)
+## (Intercept) 17.16486  0.1079134 159.0614 1.965076e-315
+```
+---
+
+
+**Inference**
+
+The `(Intercept)` term, 17.1648649, tells us the (estimated) average value of the response (`bill_depth_mm`), see
+
+
+```r
+penguins_nafree %&gt;% summarise(average_bill_depth = mean(bill_depth_mm))
+```
+
+```
+## # A tibble: 1 x 1
+##   average_bill_depth
+##                &lt;dbl&gt;
+## 1               17.2
+```
+
+
+---
+
+**`lm()` with a continuous explanatory variable**
+
+![](https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/lm.gif)
+---
+
+
+**Does `bill_length_mm` help explain some of the variation in `bill_depth_mm`?**
+
+![](index_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+---
+**Does `bill_length_mm` help explain some of the variation in `bill_depth_mm`?**
+
+
+```r
+slm &lt;- lm(bill_depth_mm ~ bill_length_mm, data = penguins_nafree)
+```
+
+$$
+`\begin{aligned}
+\operatorname{bill\_depth\_mm} &amp;= \alpha\ + \\
+&amp;\quad \beta_{1}(\operatorname{bill\_length\_mm})\ + \\
+&amp;\quad \epsilon
+\end{aligned}`
+$$
+
+---
+**Does `bill_length_mm` help explain some of the variation in `bill_depth_mm`?**
+
+```r
+summary(slm)$coef
+```
+
+```
+##                   Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)    20.78664867 0.85417308 24.335406 1.026904e-75
+## bill_length_mm -0.08232675 0.01926835 -4.272642 2.528290e-05
+```
+
+$$
+`\begin{aligned}
+\operatorname{\widehat{bill\_depth\_mm}} &amp;= 20.79\ - \\
+&amp;\quad 0.08(\operatorname{bill\_length\_mm})
+\end{aligned}`
+$$
+
+---
+
+Here, the `(Intercept)`: `Estimate` ($\alpha$ above) gives us the estimated average bill depth (mm) **given the estimated relationship** bill length (mm) and bill length.
+
+The `bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.082mm decrease (or a -0.082mm increase) in bill depth.
+
+---
+
+![](index_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+
+
+---
+
+**Adding** `species`; remember `species` is a factor variable!
+
+![](index_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+
+---
+**Factor and a continuous variable**
+
+
+```r
+slm_sp &lt;- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins_nafree)
+```
+
+$$
+`\begin{aligned}
+\operatorname{bill\_depth\_mm} &amp;= \alpha\ + \\
+&amp;\quad \beta_{1}(\operatorname{bill\_length\_mm})\ + \\
+&amp;\quad \beta_{2}(\operatorname{species}_{\operatorname{Chinstrap}})\ + \\
+&amp;\quad \beta_{3}(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \epsilon
+\end{aligned}`
+$$
+---
+**Factor and a continuous variable**
+
+
+```r
+summary(slm_sp)$coef
+```
+
+```
+##                    Estimate Std. Error    t value     Pr(&gt;|t|)
+## (Intercept)      10.5652616 0.69092642  15.291442 2.977289e-40
+## bill_length_mm    0.2004431 0.01767974  11.337449 2.258955e-25
+## speciesChinstrap -1.9330779 0.22571878  -8.564099 4.259893e-16
+## speciesGentoo    -5.1033153 0.19439523 -26.252267 1.043789e-82
+```
+
+---
+**Factor and a continuous variable**
+
+
+$$
+`\begin{aligned}
+\operatorname{\widehat{bill\_depth\_mm}} &amp;= 10.57\ + \\
+&amp;\quad 0.2(\operatorname{bill\_length\_mm})\ - \\
+&amp;\quad 1.93(\operatorname{species}_{\operatorname{Chinstrap}})\ - \\
+&amp;\quad 5.1(\operatorname{species}_{\operatorname{Gentoo}})
+\end{aligned}`
+$$
+
+---
+
+**Simpson's paradox...** look how the slope associated with bill length (coefficient of `bill_length_mm`) has switched direction from the model above! Why do you think this is?
+
+--
+
+`(Intercept)`: `Estimate` gives us the estimated average bill depth (mm) of the **Adelie** penguins **given the other variables in the model**.
+
+--
+
+
+`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.2mm increase in bill depth.
+
+ 
+
+---
+
+**The model**
+![](index_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+
+---
+**The model**
+
+The *coefficients* for the Gentoo and Chinstrap `species` give the shift (up or down) of the **parallel** lines from the **Adelie** level. So given the estimated relationship between bill depth and bill length these coefficients are the estimated change from the baseline. 
+---
+
+
+**[slido.com](slido.com) code #biosci220: Anything else we might want to try with these variables?**
+
+<div class="countdown" id="timer_60506a35" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+  
+---
+
+### Non-parallel lines?
+
+
+```r
+slm_int &lt;- lm(bill_depth_mm ~ bill_length_mm*species, data = penguins_nafree)
+summary(slm_int)$coef[,1:2]
+```
+
+```
+##                                    Estimate Std. Error
+## (Intercept)                     11.48770713 1.15987305
+## bill_length_mm                   0.17668344 0.02980564
+## speciesChinstrap                -3.91856701 2.06730876
+## speciesGentoo                   -6.36675118 1.77989710
+## bill_length_mm:speciesChinstrap  0.04552828 0.04594283
+## bill_length_mm:speciesGentoo     0.03092816 0.04111608
+```
+
+---
+
+The **model formula** is
+
+$$
+`\begin{aligned}
+\operatorname{bill\_depth\_mm} &amp;= \alpha\ + \\
+&amp;\quad \beta_{1}(\operatorname{bill\_length\_mm})\ + \\
+&amp;\quad \beta_{2}(\operatorname{species}_{\operatorname{Chinstrap}})\ + \\
+&amp;\quad \beta_{3}(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \beta_{4}(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Chinstrap}})\ + \\
+&amp;\quad \beta_{5}(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \epsilon
+\end{aligned}`
+$$
+---
+
+The **model formula** is
+
+$$
+`\begin{aligned}
+\operatorname{\widehat{bill\_depth\_mm}} &amp;= 11.49\ + \\
+&amp;\quad 0.18(\operatorname{bill\_length\_mm})\ - \\
+&amp;\quad 3.92(\operatorname{species}_{\operatorname{Chinstrap}})\ - \\
+&amp;\quad 6.37(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad 0.05(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Chinstrap}})\ + \\
+&amp;\quad 0.03(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Gentoo}})
+\end{aligned}`
+$$
+
+---
+
+
+`(Intercept)`: `Estimate` gives us the estimated average bill depth (mm) of the **Adelie** penguins **given the other variables in the model**.
+
+--
+
+`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.177mm increase in bill depth.
+
+---
+
+class: middle
+
+The main effects of species (i.e., `speciesChinstrap`: `Estimate` and `speciesGentoo`:`Estimate` ) again give the shift (up or down) of the lines from the **Adelie** level; however these lines are no longer parallel! The interaction terms (i.e., `bill_length_mm:speciesChinstrap` and `bill_length_mm:speciesGentoo`) specify the species specific slopes **given the other variables in the model**.
+
+---
+
+![](index_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+
+
+---
+
+**[slido.com](slido.com) code #biosci220: Which model do you prefer?**
+
+<div class="countdown" id="timer_60506a48" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+  
+
+---
+
+### Model comparison and selection
+
+**Are the non-parallel lines non-parallel enough to reject the parallel line model?** 
+
+--
+
+Now we can compare **nested** linear models by hypothesis testing. Luckily the `R` function `anova()` automates this. Yes the same idea as we've previously learnt about ANOVA! We essentially perform an F-ratio test between the nested models! 
+
+--
+
+By **nested** we mean that one model is a subset of the other (i.e., where some coefficients have been fixed at zero).
+
+---
+
+
+```r
+anova(slm,slm_sp)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: bill_depth_mm ~ bill_length_mm
+## Model 2: bill_depth_mm ~ bill_length_mm + species
+##   Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    331 1220.16                                  
+## 2    329  299.62  2    920.55 505.41 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+ `anova()` function takes the two model objects (`slm` and `slm_sp`) each as arguments. It returns an ANOVA testing whether the more complex model (`slm_sp`) is just as good at capturing the variation in the data as the simpler model (`slm`). The returned p-value should be interpreted as in any other hypothesis test (strength of evidence against the null) 
+
+---
+Now what about `slm_int` vs `slm_sp`?
+
+
+```r
+anova(slm_sp,slm_int)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: bill_depth_mm ~ bill_length_mm + species
+## Model 2: bill_depth_mm ~ bill_length_mm * species
+##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+## 1    329 299.62                           
+## 2    327 298.62  2   0.99284 0.5436 0.5812
+```
+So it seems both models are just as good at capturing the variation in our data: we're happy with the parallel lines!
+
+---
+
+**model checking again...**
+
+![](index_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+
+---
+
+**Akaike information criterion** (AIC), another model comparison tool
+
+It is an estimator of prediction error. The AIC provides a means for model selection.
+
+For now the smaller the better... (see Nick's section for more)
+
+
+```r
+AIC(slm,slm_sp,slm_int)
+```
+
+```
+##         df       AIC
+## slm      3 1383.4462
+## slm_sp   5  919.8347
+## slm_int  7  922.7294
+```
+
+---
+
+### After all that what do estimated parameters mean?
+
+**Confidence intervals for parameters**
+
+For the *chosen* `slm_sp` model we can get these simply by using 
+
+
+```r
+cis &lt;- confint(slm_sp)
+cis
+```
+
+```
+##                       2.5 %     97.5 %
+## (Intercept)       9.2060707 11.9244526
+## bill_length_mm    0.1656635  0.2352227
+## speciesChinstrap -2.3771120 -1.4890438
+## speciesGentoo    -5.4857298 -4.7209009
+```
+By default the 95% intervals are returned
+
+
+---
+
+### After all that what do estimated parameters mean?
+
+**Confidence intervals for parameters**
+
+--
+
+So this tells us that For every 1mm increase in bill length we estimate the expected bill depth to increases between 0.2 and 0.2 mm
+
+--
+
+We estimate that the expected bill depth of a Chinstrap penguin is between
+1.5 and 2.4 mm shallower than the Adelie penguin
+
+---
+
+## Point prediction
+
+Using the `slm_sp` model we can make a point prediction for the expected bill depth (mm) for Gentoo penguins with a bill length of 50mm:
+
+`$$\widehat{\text{bill depth}} = \hat{\alpha} + \hat{\beta_1}*50 + \hat{\beta_4}*1$$`
+`$$\downarrow$$`
+
+`$$\widehat{\text{bill depth}} = 10.56 + 0.20*50 - 5.10*1$$`
+`$$\downarrow$$`
+
+`$$15.47\text{mm}$$`
+
+---
+
+#### Rather than *by hand* we can do this easily in `R`
+
+
+```r
+## create new data frame with data we want to predict to
+## the names have to match those in our original data frame
+newdata &lt;- data.frame(species = "Gentoo",bill_length_mm = 50)
+## use predict() function
+predict(slm_sp, newdata = newdata) ## more accurate than our by hand version!
+```
+
+```
+##       1 
+## 15.4841
+```
+---
+
+![](index_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

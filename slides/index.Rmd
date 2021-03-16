@@ -1092,8 +1092,14 @@ class: inverse
 .small[
 ## Learning Objectives
 + **Carry out** and **interpret** tests for the existence of relationships between explanatory variables and the response in a linear model
-   + **Write** `R` code to fit a linear model with a single continuous explanatory variable
-   + **Write** `R` code to fit a linear model with a continuous explanatory variable and a factor explanatory variable
++ **Write** `R` code to fit a linear model with a continuous explanatory variable and a factor explanatory variable
+]
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
    + **Interpret** estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of
       + the intercept
       + the effect of a factor
@@ -1108,38 +1114,54 @@ class: inverse
 .small[
 ## Learning Objectives
 + **Write** `R` code to fit a linear model with interaction terms in the explanatory variables
-  + **Interpret** estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of
++ **Interpret** estimated effects with reference to confidence intervals from linear regression models. Specifically the interpretation of
      + main effects in a model with an interaction
      + the effect of one variable when others are included in the model
+  ]
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
   + **Explain** why you may want to include interaction effects in a linear model
   + **Describe** the differences between the operators `:` and `*` in an `R` model-fitting formula
   ]
 
 ---
 
-### Linear regression with a factor explanatory variable
+**Linear regression with a factor explanatory variable**
+
 
 ```{r}
 fit.lm <- lm(bill_depth_mm ~ species, data = penguins_nafree)
+summary(fit.lm)$coef
 ```
+
+---
+**Linear regression with a factor explanatory variable**
+
+```{r, echo = FALSE, results='asis'}
+extract_eq(fit.lm, wrap = TRUE, terms_per_line = 1,use_coefs = TRUE)
+```
+
 
 ---
 
 ```{r,echo = FALSE}
-require(palmerpenguins)
-penguins_nafree <- penguins %>% drop_na()
 means <- penguins %>% group_by(species) %>% summarise(means = mean(bill_depth_mm, na.rm = TRUE))
 mean <- mean(penguins_nafree$bill_depth_mm)
 means$ends <- mean
 means$lag1 <- means$means[c(2,3,1)]
 means$lag2 <- means$means[c(3,1,2)]
+means$base <- summary(fit.lm)$coef[1,1]
 penguins_nafree <- penguins %>% drop_na()
 jit <- ggplot() + 
   geom_jitter(data = penguins_nafree,aes(x = species, y = bill_depth_mm, color = species), alpha = 0.2) 
-
-penguins_nafree$x_points <- layer_data(jit)$x
-penguins_nafree$y_points <- layer_data(jit)$y
-penguins_nafree <- penguins_nafree %>% group_by(species) %>% mutate(sp_means = mean(bill_depth_mm))
+penguins_nafree_sp <- penguins_nafree
+penguins_nafree_sp$x_points <- layer_data(jit)$x
+penguins_nafree_sp$y_points <- layer_data(jit)$y
+penguins_nafree_sp <- penguins_nafree_sp %>% group_by(species) %>% mutate(sp_means = mean(bill_depth_mm))
 
 ggplot() + 
   ylab("Bill depth (mm)") +
@@ -1148,24 +1170,19 @@ ggplot() +
   geom_text(data = means, aes(x = species, y = means + 2.5, color = species, 
                               label = paste0("Species average = ",round(means,3)))) +
   geom_hline(data = means, aes(yintercept = means, color = species), alpha = 0.3, lty = 2) +
-  geom_point(data = penguins_nafree,aes(x = x_points, y = y_points, color = species), alpha = 0.2) +
+  geom_point(data = penguins_nafree_sp,aes(x = x_points, y = y_points, color = species), alpha = 0.2) +
   theme(legend.position = "none") + 
-  geom_segment(data = penguins_nafree, aes(x = x_points, y = y_points, xend = x_points, 
-                                 yend = sp_means,color = species), size = 1, alpha = 0.2) 
+  geom_segment(data = penguins_nafree_sp, aes(x = x_points, y = y_points, xend = x_points, 
+                                 yend = sp_means,color = species), size = 1, alpha = 0.2) +
+  geom_text(data = means[1,],aes(x = species, y = base - 0.25, color = species, label = 
+                                   paste0("Baseline = ",round(means,3)))) +
+  geom_segment(data = means[2:3,], aes(x = species, y = means, xend = species, yend = base,color = species), size = 1) +
+  geom_text(data = means[2:3,], aes(x = species, y = base - 0.25, color = species, 
+                                  label = paste0("diff to baseline = ",round(means - base,3))))
+  
 ```
 ---
-### Recall
-
-```{r, echo = FALSE, results='asis'}
-library(equatiomatic)
-extract_eq(fit.lm, wrap = TRUE, terms_per_line = 1)
-```
-
----
-
-
-
-### Mathematical notation (basically the same)
+**Mathematical notation**
 
 $$Y_i = \alpha + \beta_1x_i + \epsilon_i$$
 where
@@ -1178,21 +1195,14 @@ Here for observation $i$
 
   + $Y_i$ is the value of the **response** 
   + $x_i$ is the value of the **explanatory variable** 
-  + $\epsilon_i$ is the **error** term: the difference between $Y_i$ and its expected value
-  + $\alpha$ is the **intercept** term (a parameter to be estimated), and 
-  + $\beta_1$ is the slope: **coefficient** of the explanatory variable (a parameter to be estimated)
+  + $\epsilon_i$ is the **error** term
+  + $\alpha$ is the **intercept** term, and 
+  + $\beta_1$ is the slope: **coefficient** of the explanatory variable
 ]
 ---
 
-```{r, message=FALSE, echo = FALSE}
-ggplot(data = penguins_nafree, aes(x = bill_depth_mm)) +
-  geom_histogram() + theme_classic() +
-  xlab("Bill depth (mm)")
 
-```
----
-
-First off let's fit a null (intercept only)  model. This in *old money* would be called a one sample t-test. 
+First off let's fit a **null** (intercept only)  model. This in *old money* would be called a one sample t-test. 
 
 ```{r null}
 slm_null <- lm(bill_depth_mm ~ 1, data = penguins_nafree)
@@ -1200,47 +1210,34 @@ summary(slm_null)$coef
 ```
 ---
 
-```{r, echo = FALSE, results='asis'}
-library(equatiomatic)
-extract_eq(slm_null, wrap = TRUE, terms_per_line = 1)
-```
----
-
-```{r, message=FALSE, echo = FALSE}
-ggplot(data = penguins_nafree, aes(x = bill_depth_mm)) +
-  geom_histogram() + theme_classic() +
-  xlab("Bill depth (mm)") +
-  geom_hline(yintercept = summary(slm_null)$coef[1,1])
-
-```
-
----
 
 **Inference**
 
 The `(Intercept)` term, `r summary(slm_null)$coef[1,1]`, tells us the (estimated) average value of the response (`bill_depth_mm`), see
 
-```{r av}
+```{r}
 penguins_nafree %>% summarise(average_bill_depth = mean(bill_depth_mm))
 ```
+
+
 ---
 
-##  Linear regression with a continuous explanatory variable
+**`lm()` with a continuous explanatory variable**
 
 ![](https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/lm.gif)
 ---
 
-### Single continuous variable
 
 **Does `bill_length_mm` help explain some of the variation in `bill_depth_mm`?**
 
-```{r}
+```{r, echo = FALSE}
 p1 <- ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point() + ylab("Bill depth (mm)") +
   xlab("Bill length (mm)") + theme_classic()
 p1
 ```
 ---
+**Does `bill_length_mm` help explain some of the variation in `bill_depth_mm`?**
 
 ```{r slmish}
 slm <- lm(bill_depth_mm ~ bill_length_mm, data = penguins_nafree)
@@ -1250,8 +1247,14 @@ slm <- lm(bill_depth_mm ~ bill_length_mm, data = penguins_nafree)
 extract_eq(slm, wrap = TRUE, terms_per_line = 1)
 ```
 
+---
+**Does `bill_length_mm` help explain some of the variation in `bill_depth_mm`?**
 ```{r slmcoef}
 summary(slm)$coef
+```
+
+```{r, echo = FALSE, results='asis'}
+extract_eq(slm, wrap = TRUE, terms_per_line = 1,use_coefs = TRUE)
 ```
 
 ---
@@ -1273,11 +1276,12 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 
 ```
 
-### Factor and a continous variable
+
+---
 
 **Adding** `species`; remember `species` is a factor variable!
 
-```{r}
+```{r, echo = FALSE}
 p2 <- ggplot(data = penguins_nafree,
              aes(y = bill_depth_mm, x = bill_length_mm, color = species)) +
   geom_point() + ylab("Bill depth (mm)") +
@@ -1286,33 +1290,50 @@ p2
 ```
 
 ---
+**Factor and a continuous variable**
 
 ```{r}
 slm_sp <- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins_nafree)
 ```
+
 ```{r, echo = FALSE, results='asis'}
-extract_eq(slm_sp, wrap = TRUE)
+extract_eq(slm_sp, wrap = TRUE, terms_per_line = 1)
 ```
 ---
+**Factor and a continuous variable**
 
 ```{r}
 summary(slm_sp)$coef
 ```
 
 ---
+**Factor and a continuous variable**
+
+
+```{r, echo = FALSE, results='asis'}
+extract_eq(slm_sp, wrap = TRUE, terms_per_line = 1,use_coefs = TRUE)
+```
+
+---
 
 **Simpson's paradox...** look how the slope associated with bill length (coefficient of `bill_length_mm`) has switched direction from the model above! Why do you think this is?
 
+--
 
-Here, the `(Intercept)`: `Estimate` gives us the estimated average bill depth (mm) of the **Adelie** penguins **given the other variables in the model**.
+`(Intercept)`: `Estimate` gives us the estimated average bill depth (mm) of the **Adelie** penguins **given the other variables in the model**.
 
-The `bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_sp)$coef[2,1],3)`mm increase in bill depth.
+--
 
-What about the coefficient of the other species levels? Look at the plot below, these values give the shift (up or down) of the **parallel** lines from the **Adelie** level. So given the estimated relationship between bill depth and bill length these coefficients are the estimated change from the baseline. 
+
+`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_sp)$coef[2,1],3)`mm increase in bill depth.
+
+ 
 
 ---
-```{r}
-## calculate predicted values
+
+**The model**
+```{r, echo = FALSE}
+## What about the coefficient of the other species levels? 
 penguins_nafree$pred_vals <- predict(slm_sp)
 ## plot
 ggplot(data = penguins_nafree, aes(y = bill_depth_mm, x = bill_length_mm, color = species)) +
@@ -1321,34 +1342,60 @@ ggplot(data = penguins_nafree, aes(y = bill_depth_mm, x = bill_length_mm, color 
   geom_line(aes(y = pred_vals))
 
 ```
+
+---
+**The model**
+
+The *coefficients* for the Gentoo and Chinstrap `species` give the shift (up or down) of the **parallel** lines from the **Adelie** level. So given the estimated relationship between bill depth and bill length these coefficients are the estimated change from the baseline. 
+---
+
+
+**[slido.com](slido.com) code #biosci220: Anything else we might want to try with these variables?**
+
+`r countdown::countdown(minutes = 1, seconds = 0, bottom = 0)`
+  
 ---
 
 ### Non-parallel lines?
 
 ```{r}
 slm_int <- lm(bill_depth_mm ~ bill_length_mm*species, data = penguins_nafree)
-summary(slm_int)$coef
+summary(slm_int)$coef[,1:2]
 ```
 
 ---
 
-The model formula is then
+The **model formula** is
 
 ```{r, echo = FALSE, results='asis'}
 extract_eq(slm_int, wrap = TRUE,terms_per_line = 1)
 ```
+---
+
+The **model formula** is
+
+```{r, echo = FALSE, results='asis'}
+extract_eq(slm_int, wrap = TRUE,terms_per_line = 1,use_coefs = TRUE)
+```
 
 ---
 
-As before the `(Intercept)`: `Estimate` gives us the estimated average bill depth (mm) of the **Adelie** penguins **given the other variables in the model**.
 
-The `bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_int)$coef[2,1],3)`mm increase in bill depth.
+`(Intercept)`: `Estimate` gives us the estimated average bill depth (mm) of the **Adelie** penguins **given the other variables in the model**.
+
+--
+
+`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_int)$coef[2,1],3)`mm increase in bill depth.
+
+---
+
+class: middle
 
 The main effects of species (i.e., `speciesChinstrap`: `Estimate` and `speciesGentoo`:`Estimate` ) again give the shift (up or down) of the lines from the **Adelie** level; however these lines are no longer parallel! The interaction terms (i.e., `bill_length_mm:speciesChinstrap` and `bill_length_mm:speciesGentoo`) specify the species specific slopes **given the other variables in the model**.
 
 ---
 
-```{r}
+```{r, echo = FALSE}
 ## calculate predicted values
 penguins_nafree$pred_vals <- predict(slm_int)
 ## plot
@@ -1359,13 +1406,13 @@ ggplot(data = penguins_nafree, aes(y = bill_depth_mm, x = bill_length_mm, color 
 
 ```
 
+
 ---
 
-## model checking again...
+**[slido.com](slido.com) code #biosci220: Which model do you prefer?**
 
-```{r}
-gglm::gglm(slm) # Plot the four main diagnostic plots
-```
+`r countdown::countdown(minutes = 2, seconds = 0, bottom = 0)`
+  
 
 ---
 
@@ -1373,7 +1420,11 @@ gglm::gglm(slm) # Plot the four main diagnostic plots
 
 **Are the non-parallel lines non-parallel enough to reject the parallel line model?** 
 
+--
+
 Now we can compare **nested** linear models by hypothesis testing. Luckily the `R` function `anova()` automates this. Yes the same idea as we've previously learnt about ANOVA! We essentially perform an F-ratio test between the nested models! 
+
+--
 
 By **nested** we mean that one model is a subset of the other (i.e., where some coefficients have been fixed at zero).
 
@@ -1382,7 +1433,10 @@ By **nested** we mean that one model is a subset of the other (i.e., where some 
 ```{r, echo = TRUE}
 anova(slm,slm_sp)
 ```
-As you'll see the `anova()` function takes the two model objects (`slm` and `slm_sp`) each as arguments. It returns an ANOVA testing whether the more complex model (`slm_sp`) is just as good at capturing the variation in the data as the simpler model (`slm`). The returned p-value should be interpreted as in any other hypothesis test. i.e., the probability of observing a statistic as least as extreme under our null hypothesis (here that each model is as good at capturing the variation in the data).
+
+---
+
+ `anova()` function takes the two model objects (`slm` and `slm_sp`) each as arguments. It returns an ANOVA testing whether the more complex model (`slm_sp`) is just as good at capturing the variation in the data as the simpler model (`slm`). The returned p-value should be interpreted as in any other hypothesis test (strength of evidence against the null) 
 
 ---
 Now what about `slm_int` vs `slm_sp`?
@@ -1394,15 +1448,29 @@ So it seems both models are just as good at capturing the variation in our data:
 
 ---
 
+**model checking again...**
+
+```{r,echo = FALSE}
+gglm::gglm(slm) # Plot the four main diagnostic plots
+```
+
+---
+
+**Akaike information criterion** (AIC), another model comparison tool
+
+It is an estimator of prediction error. The AIC provides a means for model selection.
+
+For now the smaller the better... (see Nick's section for more)
+
 ```{r, echo = TRUE}
 AIC(slm,slm_sp,slm_int)
 ```
 
 ---
 
-After all that what do estimated parameters mean?
+### After all that what do estimated parameters mean?
 
-### Confidence intervals for parameters
+**Confidence intervals for parameters**
 
 For the *chosen* `slm_sp` model we can get these simply by using 
 
@@ -1410,15 +1478,27 @@ For the *chosen* `slm_sp` model we can get these simply by using
 cis <- confint(slm_sp)
 cis
 ```
-By default the 95% intervals are returned (see previous lecture)
+By default the 95% intervals are returned
+
+
+---
+
+### After all that what do estimated parameters mean?
+
+**Confidence intervals for parameters**
+
+--
 
 So this tells us that For every 1mm increase in bill length we estimate the expected bill depth to increases between `r round(cis[2,1],1)` and `r round(cis[2,2],1)` mm
 
-+ We estimate that the expected bill depth of a Chinstrap penguin is between
+--
+
+We estimate that the expected bill depth of a Chinstrap penguin is between
 `r -1*round(cis[3,2],1)` and `r -1*round(cis[3,1],1)` mm shallower than the Adelie penguin
 
 ---
 
+## Point prediction
 
 Using the `slm_sp` model we can make a point prediction for the expected bill depth (mm) for Gentoo penguins with a bill length of 50mm:
 
@@ -1430,9 +1510,9 @@ $$\downarrow$$
 
 $$15.47\text{mm}$$
 
---
+---
 
-Rather than *by hand* we can do this easily in `R`
+#### Rather than *by hand* we can do this easily in `R`
 
 ```{r,echo = TRUE}
 ## create new data frame with data we want to predict to
@@ -1442,7 +1522,6 @@ newdata <- data.frame(species = "Gentoo",bill_length_mm = 50)
 predict(slm_sp, newdata = newdata) ## more accurate than our by hand version!
 ```
 ---
-
 
 ```{r, echo = FALSE}
 ## calculate predicted values
