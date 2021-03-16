@@ -1086,6 +1086,17 @@ class: inverse, center, middle
 ## Week 4
 
 ---
+class: inverse
+
+## Key points from last week
+
++ **Every p-value has a Null Hypothesis**: You cannot interpret a p-value without first establishing the null hypothesis it is testing
+
+--
+
++ **Variation is the key**: trying our best to explain it really...
+
+---
 
 class: inverse
 
