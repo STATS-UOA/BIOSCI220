@@ -213,7 +213,7 @@ paua &lt;- read_csv("paua.csv")
 ```
 
 ```
-## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/BIOSCI220/slides').
+## Error: 'paua.csv' does not exist in current working directory ('/home/cjon911/Git/BIOSCI220/slides').
 ```
 
 
@@ -253,8 +253,7 @@ library(tidyverse)
 .panel2-example_read-auto[
 
 ```
-## 
-## ── Column specification ────────────────────────────────────────────────────────
+## Parsed with column specification:
 ## cols(
 ##   Species = col_character(),
 ##   Length = col_double(),
@@ -279,8 +278,7 @@ paua &lt;- read_csv("../data/paua.csv")
 .panel2-example_read-auto[
 
 ```
-## 
-## ── Column specification ────────────────────────────────────────────────────────
+## Parsed with column specification:
 ## cols(
 ##   Species = col_character(),
 ##   Length = col_double(),
@@ -291,9 +289,9 @@ paua &lt;- read_csv("../data/paua.csv")
 ```
 ## Rows: 60
 ## Columns: 3
-## $ Species &lt;chr&gt; "Haliotis iris", "Haliotis australis", "Haliotis australis", "…
-## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6.…
-## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, 6…
+## $ Species &lt;chr&gt; "Haliotis iris", "Haliotis australis", "Haliotis australis", …
+## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6…
+## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, …
 ```
 ]
 
@@ -411,7 +409,7 @@ paua %&gt;%
 ```
 ## # A tibble: 2 x 2
 ##   Species            av_length
-##   &lt;chr&gt;                  &lt;dbl&gt;
+## * &lt;chr&gt;                  &lt;dbl&gt;
 ## 1 Haliotis australis      5.77
 ## 2 Haliotis iris           4.81
 ```
@@ -641,18 +639,18 @@ library(palmerpenguins)  ## contains some nice penguin data
 
 ```
 ## # A tibble: 344 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           NA            NA                  NA          NA
-##  5 Adelie  Torgersen           36.7          19.3               193        3450
-##  6 Adelie  Torgersen           39.3          20.6               190        3650
-##  7 Adelie  Torgersen           38.9          17.8               181        3625
-##  8 Adelie  Torgersen           39.2          19.6               195        4675
-##  9 Adelie  Torgersen           34.1          18.1               193        3475
-## 10 Adelie  Torgersen           42            20.2               190        4250
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           NA            NA                 NA          NA
+##  5 Adelie  Torge…           36.7          19.3              193        3450
+##  6 Adelie  Torge…           39.3          20.6              190        3650
+##  7 Adelie  Torge…           38.9          17.8              181        3625
+##  8 Adelie  Torge…           39.2          19.6              195        4675
+##  9 Adelie  Torge…           34.1          18.1              193        3475
+## 10 Adelie  Torge…           42            20.2              190        4250
 ## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -1460,18 +1458,18 @@ penguins_nafree &lt;- penguins %&gt;% drop_na()
 
 ```
 ## # A tibble: 333 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           36.7          19.3               193        3450
-##  5 Adelie  Torgersen           39.3          20.6               190        3650
-##  6 Adelie  Torgersen           38.9          17.8               181        3625
-##  7 Adelie  Torgersen           39.2          19.6               195        4675
-##  8 Adelie  Torgersen           41.1          17.6               182        3200
-##  9 Adelie  Torgersen           38.6          21.2               191        3800
-## 10 Adelie  Torgersen           34.6          21.1               198        4400
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           36.7          19.3              193        3450
+##  5 Adelie  Torge…           39.3          20.6              190        3650
+##  6 Adelie  Torge…           38.9          17.8              181        3625
+##  7 Adelie  Torge…           39.2          19.6              195        4675
+##  8 Adelie  Torge…           41.1          17.6              182        3200
+##  9 Adelie  Torge…           38.6          21.2              191        3800
+## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -1531,18 +1529,18 @@ count: false
 
 ```
 ## # A tibble: 333 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           36.7          19.3               193        3450
-##  5 Adelie  Torgersen           39.3          20.6               190        3650
-##  6 Adelie  Torgersen           38.9          17.8               181        3625
-##  7 Adelie  Torgersen           39.2          19.6               195        4675
-##  8 Adelie  Torgersen           41.1          17.6               182        3200
-##  9 Adelie  Torgersen           38.6          21.2               191        3800
-## 10 Adelie  Torgersen           34.6          21.1               198        4400
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           36.7          19.3              193        3450
+##  5 Adelie  Torge…           39.3          20.6              190        3650
+##  6 Adelie  Torge…           38.9          17.8              181        3625
+##  7 Adelie  Torge…           39.2          19.6              195        4675
+##  8 Adelie  Torge…           41.1          17.6              182        3200
+##  9 Adelie  Torge…           38.6          21.2              191        3800
+## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -1564,18 +1562,18 @@ penguins_nafree %&gt;%
 ```
 ## # A tibble: 333 x 8
 ## # Groups:   species [3]
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           36.7          19.3               193        3450
-##  5 Adelie  Torgersen           39.3          20.6               190        3650
-##  6 Adelie  Torgersen           38.9          17.8               181        3625
-##  7 Adelie  Torgersen           39.2          19.6               195        4675
-##  8 Adelie  Torgersen           41.1          17.6               182        3200
-##  9 Adelie  Torgersen           38.6          21.2               191        3800
-## 10 Adelie  Torgersen           34.6          21.1               198        4400
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           36.7          19.3              193        3450
+##  5 Adelie  Torge…           39.3          20.6              190        3650
+##  6 Adelie  Torge…           38.9          17.8              181        3625
+##  7 Adelie  Torge…           39.2          19.6              195        4675
+##  8 Adelie  Torge…           41.1          17.6              182        3200
+##  9 Adelie  Torge…           38.6          21.2              191        3800
+## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -1598,7 +1596,7 @@ penguins_nafree %&gt;%
 ```
 ## # A tibble: 3 x 2
 ##   species   avgerage_bill_length
-##   &lt;fct&gt;                    &lt;dbl&gt;
+## * &lt;fct&gt;                    &lt;dbl&gt;
 ## 1 Adelie                    38.8
 ## 2 Chinstrap                 48.8
 ## 3 Gentoo                    47.6
@@ -1653,7 +1651,7 @@ class: center, middle
 ---
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_60513571" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_605798b8" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1682,11 +1680,11 @@ class: center, middle
 
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_605135f4" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6057995e" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
-![](img/coxcomb.png)&lt;!-- --&gt;
+&lt;img src="img/coxcomb.png" width="3072" /&gt;
 
 .footnote[[Create this yourself](https://rpubs.com/kwlee58/492913)]
 ---
@@ -2035,7 +2033,7 @@ class: center, middle
 
 ### **[slido.com](slido.com) code #biosci220: what does a plot tell us about our data?**
 
-<div class="countdown" id="timer_60513543" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60579ad7" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2273,7 +2271,7 @@ Listed are the t-statistic, `t` = 3.5403636 and the p-value, `p-value` = 8\times
 What would you conclude?
 
 
-<div class="countdown" id="timer_6051368c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60579b4b" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2522,7 +2520,7 @@ $$
 \end{aligned}`
 $$
 
-<div class="countdown" id="timer_605134c0" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60579876" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2671,9 +2669,10 @@ summary(fit.lm)$coef
 
 $$
 `\begin{aligned}
-\operatorname{\widehat{bill\_depth\_mm}} &amp;= 18.35\ + \\
+\operatorname{bill\_depth\_mm} &amp;= 18.35\ + \\
 &amp;\quad 0.07(\operatorname{species}_{\operatorname{Chinstrap}})\ - \\
-&amp;\quad 3.35(\operatorname{species}_{\operatorname{Gentoo}})
+&amp;\quad 3.35(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \epsilon
 \end{aligned}`
 $$
 
@@ -2776,16 +2775,17 @@ summary(slm)$coef
 
 $$
 `\begin{aligned}
-\operatorname{\widehat{bill\_depth\_mm}} &amp;= 20.79\ - \\
-&amp;\quad 0.08(\operatorname{bill\_length\_mm})
+\operatorname{bill\_depth\_mm} &amp;= 20.79\ - \\
+&amp;\quad 0.08(\operatorname{bill\_length\_mm})\ + \\
+&amp;\quad \epsilon
 \end{aligned}`
 $$
 
 ---
 
-Here, the `(Intercept)`: `Estimate` ($\alpha$ above) gives us the estimated average bill depth (mm) **given the estimated relationship** bill length (mm) and bill length.
+Here, the `(Intercept)`: `Estimate`, `\(\alpha\)` above, gives us the estimated average bill depth (mm) **given the estimated relationship** bill length (mm) and bill length.
 
-The `bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.082mm decrease (or a -0.082mm increase) in bill depth.
+The `bill_length_mm` : `Estimate`, `\(\beta_1\)` above, is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.082mm decrease (or a -0.082mm increase) in bill depth.
 
 ---
 
@@ -2837,10 +2837,11 @@ summary(slm_sp)$coef
 
 $$
 `\begin{aligned}
-\operatorname{\widehat{bill\_depth\_mm}} &amp;= 10.57\ + \\
+\operatorname{bill\_depth\_mm} &amp;= 10.57\ + \\
 &amp;\quad 0.2(\operatorname{bill\_length\_mm})\ - \\
 &amp;\quad 1.93(\operatorname{species}_{\operatorname{Chinstrap}})\ - \\
-&amp;\quad 5.1(\operatorname{species}_{\operatorname{Gentoo}})
+&amp;\quad 5.1(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \epsilon
 \end{aligned}`
 $$
 
@@ -2855,7 +2856,7 @@ $$
 --
 
 
-`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.2mm increase in bill depth.
+`bill_length_mm` : `Estimate`, `\(\beta_1\)` above, is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.2mm increase in bill depth.
 
  
 
@@ -2873,7 +2874,7 @@ The *coefficients* for the Gentoo and Chinstrap `species` give the shift (up or 
 
 **[slido.com](slido.com) code #biosci220: Anything else we might want to try with these variables?**
 
-<div class="countdown" id="timer_6051353a" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60579a0d" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -2918,12 +2919,13 @@ The **model formula** is
 
 $$
 `\begin{aligned}
-\operatorname{\widehat{bill\_depth\_mm}} &amp;= 11.49\ + \\
+\operatorname{bill\_depth\_mm} &amp;= 11.49\ + \\
 &amp;\quad 0.18(\operatorname{bill\_length\_mm})\ - \\
 &amp;\quad 3.92(\operatorname{species}_{\operatorname{Chinstrap}})\ - \\
 &amp;\quad 6.37(\operatorname{species}_{\operatorname{Gentoo}})\ + \\
 &amp;\quad 0.05(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Chinstrap}})\ + \\
-&amp;\quad 0.03(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Gentoo}})
+&amp;\quad 0.03(\operatorname{bill\_length\_mm} \times \operatorname{species}_{\operatorname{Gentoo}})\ + \\
+&amp;\quad \epsilon
 \end{aligned}`
 $$
 
@@ -2934,7 +2936,7 @@ $$
 
 --
 
-`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.177mm increase in bill depth.
+`bill_length_mm` : `Estimate`, `\(\beta_1\)` above, is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a 0.177mm increase in bill depth.
 
 ---
 
@@ -2951,7 +2953,7 @@ The main effects of species (i.e., `speciesChinstrap`: `Estimate` and `speciesGe
 
 **[slido.com](slido.com) code #biosci220: Which model do you prefer?**
 
-<div class="countdown" id="timer_60513709" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_605799d2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   

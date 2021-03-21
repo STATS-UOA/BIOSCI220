@@ -1270,9 +1270,9 @@ extract_eq(slm, wrap = TRUE, terms_per_line = 1,use_coefs = TRUE)
 
 ---
 
-Here, the `(Intercept)`: `Estimate` ($\alpha$ above) gives us the estimated average bill depth (mm) **given the estimated relationship** bill length (mm) and bill length.
+Here, the `(Intercept)`: `Estimate`, $\alpha$ above, gives us the estimated average bill depth (mm) **given the estimated relationship** bill length (mm) and bill length.
 
-The `bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r -1*round(summary(slm)$coef[2,1],3)`mm decrease (or a `r round(summary(slm)$coef[2,1],3)`mm increase) in bill depth.
+The `bill_length_mm` : `Estimate`, $\beta_1$ above, is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r -1*round(summary(slm)$coef[2,1],3)`mm decrease (or a `r round(summary(slm)$coef[2,1],3)`mm increase) in bill depth.
 
 ---
 
@@ -1336,7 +1336,7 @@ extract_eq(slm_sp, wrap = TRUE, terms_per_line = 1,use_coefs = TRUE)
 --
 
 
-`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_sp)$coef[2,1],3)`mm increase in bill depth.
+`bill_length_mm` : `Estimate`, $\beta_1$ above, is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_sp)$coef[2,1],3)`mm increase in bill depth.
 
  
 
@@ -1396,7 +1396,7 @@ extract_eq(slm_int, wrap = TRUE,terms_per_line = 1,use_coefs = TRUE)
 
 --
 
-`bill_length_mm` : `Estimate` ($\beta_1$ above) is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_int)$coef[2,1],3)`mm increase in bill depth.
+`bill_length_mm` : `Estimate`, $\beta_1$ above, is the slope associated with bill length (mm). So, here for every 1mm increase in bill length we estimated a `r round(summary(slm_int)$coef[2,1],3)`mm increase in bill depth.
 
 ---
 
