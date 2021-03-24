@@ -97,7 +97,7 @@ The SEM (`Std. Error`) = `r summary(slm_null)$coef[1,2]`.
 
 The hypothesis being tested is $H_0:$ (`(Intercept)` ) $\text{mean}_{\text{`average_bill_depth`}} = 0$ vs. $H_1:$ (`(Intercept)`) $\text{mean}_{\text{`average_bill_depth`}} \neq 0$ 
 
-The t-statistic is given by `t value` = `Estimate` + `Std. Error` =  `r summary(slm_null)$coef[1,3]`
+The t-statistic is given by `t value` = `Estimate` / `Std. Error` =  `r summary(slm_null)$coef[1,3]`
 
 The p-value is given by`Pr (>|t|)` =  `r summary(slm_null)$coef[1,4]`.
 
