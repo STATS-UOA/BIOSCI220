@@ -90,7 +90,7 @@ avoids systematic bias
 
 + **Design your own experiment?**
 
-```{r}
+```{r, echo = FALSE}
 knitr::include_app("https://cmjt.shinyapps.io/vested/")
 ```
 
