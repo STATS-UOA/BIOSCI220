@@ -1,0 +1,101 @@
+# Introduction to the design and analysis of experiments
+
+
+## Learning Objectives
+
+
+   + **Identify** the following in a given experiment
+      + experimental unit
+      + observational units
+   + **List** and **describe** the three main principals of experimental design
+       + Randomization
+       + Replication
+       + Blocking
+       
+##  Key phrases
+
+**Experimental unit** Smallest portion of experimental material which is *independently* perturbed
+ 
+
+**Treatment** The experimental condition *independently* applied to an experimental unit
+
+
+**Observational unit** The smallest unit on which a response is measured. If one measurement is made on each experimental unit: **Observational unit** = **Experimental unit**. If multiple measurements are made on each rat: each experimental unit has >1 observational unit (*pseudo-* or *technical replication*).
+
+### Example: herbicide
+
+*Biological question* How much herbicide residue is left in a plot of sprayed soil 2 weeks post spraying? We compare 2 herbicides: Weedz and B180. We randomly spray each of 5 plots of weeds with Weedz and the other 5 with B180.
+
+*Treatment*: 2 herbicides: Weedz and B180.
+
+*Experimental unit*: Plots
+
+*Observational unit*: changes depending on the scenario.
+
+   + A single core taken from each plot and one measurement per core taken $\rightarrow$ plot
+   + A single core taken from each plot and 6 subsamples are then taken from each core, measurements per subsample are taken $\rightarrow$ subsample
+   + 4 cores are taken from each plot and from each core a measurement is taken $\rightarrow$ core
+   
+
+### Key questions:
+
+  + What is the **scientific question**?
+  + What are the sources of **variation**?
+  + How many **treatments** are to be studied?
+  + What are the **experimental units**?
+  + How does the experimenter apply the treatments to the available experimental units and then **observe the responses**?
+  + Can the resulting design be **analyzed** or can the desired comparisons be made?
+
+
+## Three key principles of experimental design
+
+
+### **Replication**
+
++ **Biological replication:** each treatment is *independently* applied to each of several humans, animals or plants
+  + To generalize results to population
+
+
++ **Technical replication:** two or more samples from the same biological source which are *independently* processed
+  + Advantageous if processing steps introduce a lot of variation
+  + Increases the precision with which comparisons of relative abundances between treatments are made
+
+
++ **Pseudo-replication:** one sample from the same biological source, divided into two or more aliquots which are **independently** measured
+  + Advantageous for noisy measuring instruments
+  + Increases the **precision** with which comparisons of relative abundances between treatments are made
+  
+### **Randomization**
+
++ **Protects against bias**
+
+
++ Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of "chance".
+
++ Ensures that each treatment has the same probability of getting good (or bad) units and thus
+avoids systematic bias
++ random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups
++ typically statistical analysis assumes that observations are **independent**. This is almost never strictly true in practice but randomisation means that our estimates will behave as if they were based on independent observations
+
+
+### **Blocking**
+
++ Blocking helps **control variability** by making treatment groups more alike. Experimental units are divided into subsets (called blocks) so that units within the same block are more similar than units from different subsets or blocks. 
+
++ Blocking is a technique for dealing with *nuisance factors*. A *nuisance factor* is a factor that has some effect on the response, but is of no interest (e.g., age class).
+
+
+
+## Other resources: optional but recommended
+
++ **Design your own experiment?**
+
+```{r}
+knitr::include_app("https://cmjt.shinyapps.io/vested/")
+```
+
+ + [Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+
++ [Welham, S. J. Statistical Methods in Biology : Design and Analysis of Experiments and Regression. 2015. Print.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737830002091&search_scope=Combined_Local&tab=books&vid=NEWUI&context=L)
+
++ [Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver & Boyd, 1966. Print. O & B Paperbacks.](https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&context=L&vid=NEWUI&lang=en_US&search_scope=Combined_Local&adaptor=Local%20Search%20Engine&isFrbr=true&tab=books&query=any,contains,The_Design_of_Experiments&sortby=date&facet=frbrgroupid,include,627497507&offset=0)
