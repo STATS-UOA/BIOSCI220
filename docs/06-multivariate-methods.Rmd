@@ -139,44 +139,6 @@ fviz_pca_biplot(pca, axes = c(2,3),geom = "point") +
       geom_point (alpha = 0.2)
 ```
 
-#### PCA using RNAseq data
-
-Go through these code chunks and see if you can work out what each chunk is doing. Watch the associated course videos and comment on the output. Try running everything in your own R session and improve the visualisations of the results.
-
-```{r,echo = TRUE, eval = FALSE}
-## https://tavareshugo.github.io/data-carpentry-rnaseq/03_rnaseq_pca.html
-## read in rna sequencing data from URL
-data <- read.csv(url("https://raw.githubusercontent.com/tavareshugo/data-carpentry-rnaseq/master/data/counts_transformed.csv"))
-## let's have a look at the structure
-str(data)
-## dimensions
-dim(data)
-## class
-class(data)
-## Transform the data.frame (excluding the gene column) into a matrix and transpose the matrix so that rows = samples and columns = variables (this is the format prcomp() expects)
-data <- t(as.matrix(data[,-1]))
-## You could also use tidyverse syntax e.g.,library(plyr) pca_matrix <- trans_cts %>% 
-  ## # exclude the gene column
-  ## select(-gene) %>% 
-  ##  # coerce to a matrix
-  ## as.matrix()
-## structure?
-str(data)
-```
-
-Now the data is in the correct shape let's perform the PCA
-
-```{r, eval = FALSE}
-pca <- prcomp(data)
-## Summary of PCA
-summary(pca)
-## scree plot (proportion of variance explained)
-## Looks like the first two PCs alone explain the majority of the variation in the data
-fviz_screeplot(pca)
-fviz_pca_biplot(pca, geom = "point") +
-      geom_point (alpha = 0.2)
-```
-
 
 ## Clustering
 
@@ -234,7 +196,7 @@ We have an idea there may be 3 clusters, perhaps, but how do we know this is the
 
 **Visual inspection** method
 
-```{r, fig.width="100%"}
+```{r}
 p1 <- fviz_cluster(k1, data = df)
 p2 <- fviz_cluster(k2, data = df)
 p3 <- fviz_cluster(k3, data = df)
@@ -297,23 +259,9 @@ fviz_nbclust(cluster_30_indexes) +
       labs(title = "Frequency of Optimal Clusters using 30 indexes in NbClust Package")
 ```
 
-Not obvious basically still undecided between 2 and 3, but according tothe absolute majority rule the "best" number is 3
-
-#### Clustering RNAseq data
+Not obvious basically still undecided between 2 and 3, but according to the absolute majority rule the "best" number is 3
 
 
-```{r}
-## Elbow mwthod
-fviz_nbclust(data, kmeans, method = "wss") +
-  labs(subtitle = "Elbow method") ## suggests 6
-# Silhouette method
-fviz_nbclust(data, kmeans, method = "silhouette")+
-  labs(subtitle = "Silhouette method") ## suggests 2...
-# Gap statistic
-# recommended value: nboot = 500 for your analysis (it will take a while)
-fviz_nbclust(data, kmeans, nstart = 25,  method = "gap_stat", nboot = 10 )+
-  labs(subtitle = "Gap statistic method") ## suggests 6
-```
 
 ## Other resources: optional but recommended
 
@@ -338,11 +286,11 @@ Multidimensional scaling (MDS) is actually the more general technique of dimensi
 
 To carry out MDS in `R`
 
-```{r,eval = FALSE}
+```{r,eval = TRUE}
+library(ggfortify)
 ## Plotting Multidimensional Scaling (for interest)
 ## stats::cmdscale performs Classical MDS
 data("eurodist") ## road distances (in km) between 21 cities in Europe.
-?eurodist 
 autoplot(eurodist)
 ## Plotting Classical (Metric) Multidimensional Scaling
 autoplot(cmdscale(eurodist, eig = TRUE))
