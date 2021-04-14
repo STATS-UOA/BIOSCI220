@@ -11,8 +11,6 @@ knitr::opts_chunk$set(
 + Explain the aims and motivation behind Principal Component Analysis (PCA) and its relevance in biology
 + Explain the aims and motivation behind cluster analysis and its relevance in biology
 + Write `R` code to carry out PCA
-+ Interpret the effectively communicate the output of PCA
-+ Assess how many principal components are needed
 + Interpret principal component scores and describe a subject with a high or low score
 + Write `R` code to carry out k-means cluster analysis
 + Interpret `R` output from PCA and k-means cluster analysis

@@ -1762,3 +1762,48 @@ class: inverse
 ```{r, echo = FALSE}
 knitr::include_app("https://cmjt.shinyapps.io/vested/")
 ```
+
+---
+
+class: inverse, center, middle
+
+# Multivariate Data
+## Week 6
+
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
+
++ **Explain** the aims and motivation behind 
+      + Principal Component Analysis (PCA) 
+      + cluster analysis
++ **Write** `R` code to carry out PCA
++ **Interpret** the effectively communicate the output of PCA
+]
+
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
+
++ **Write** `R` code to carry out k-means cluster analysis
++ **Interpret** `R` output from PCA and k-means cluster analysis
++ **Interpret** and **communicate**, to both a statistical and non-statistical audience, multivariate data techniques, specifically,
+   + PCA
+   + k-means clustering
+]
+
+
+---
+
+<img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/pca.gif" >
+
+---
+
+<img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/perp.gif">
+
