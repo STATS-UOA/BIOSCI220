@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="statistical-inference.html"/>
-
+<link rel="next" href="multivariate-data-methods.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -160,12 +135,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#māori-data-sovereignty-principles"><i class="fa fa-check"></i><b>2.2.1</b> Māori Data Sovereignty principles</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-wrangling-and-manipulation"><i class="fa fa-check"></i><b>2.3</b> Data wrangling and manipulation</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#introuducing-the-palmer-penguins"><i class="fa fa-check"></i><b>2.3.1</b> Introuducing the <span>Palmer penguins</span></a></li>
+<li class="chapter" data-level="2.3.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#introuducing-the-palmer-penguins"><i class="fa fa-check"></i><b>2.3.1</b> Introuducing the <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081">Palmer penguins</a></a></li>
 <li class="chapter" data-level="2.3.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#common-dataframe-manipulations-in-the-tidyverse-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>2.3.2</b> Common dataframe manipulations in the <code>tidyverse</code>, using <code>dplyr</code> and <code>tidyr</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-viz"><i class="fa fa-check"></i><b>2.4</b> Data Viz</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#exploratory-and-explanatory-plots"><i class="fa fa-check"></i><b>2.4.1</b> Exploratory and explanatory plots</a></li>
-<li class="chapter" data-level="2.4.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#ten-simple-rules-for-better-figures"><i class="fa fa-check"></i><b>2.4.2</b> <span>Ten Simple Rules for Better Figures</span></a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#ten-simple-rules-for-better-figures"><i class="fa fa-check"></i><b>2.4.2</b> <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Ten Simple Rules for Better Figures</a></a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#introducing-ggplot2"><i class="fa fa-check"></i><b>2.4.3</b> Introducing <code>ggplot2</code></a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#what-do-we-think-about-when-we-look-at-plots-a-taster"><i class="fa fa-check"></i><b>2.4.4</b> What do we think about when we look at plots (<em>a taster</em>)</a></li>
 </ul></li>
@@ -178,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.2" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#differences-between-two-means"><i class="fa fa-check"></i><b>3.2.2</b> Differences between two means</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#correctly-interpreting-p-values"><i class="fa fa-check"></i><b>3.3</b> 😱 Correctly interpreting p-values 😱</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#the-asa-statement-on-p-values-context-process-and-purpose"><i class="fa fa-check"></i><b>3.3.1</b> <span>The ASA Statement on p-Values: Context, Process, and Purpose</span></a></li>
+<li class="chapter" data-level="3.3.1" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#the-asa-statement-on-p-values-context-process-and-purpose"><i class="fa fa-check"></i><b>3.3.1</b> <a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">The ASA Statement on p-Values: Context, Process, and Purpose</a></a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#power-significance-and-multiple-comparisons"><i class="fa fa-check"></i><b>3.4</b> Power, Significance, and multiple comparisons</a></li>
 <li class="chapter" data-level="3.5" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#randomization-test"><i class="fa fa-check"></i><b>3.5</b> Randomization test</a></li>
@@ -207,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="statistical-inference.html"><a href="statistical-inference.html#other-resources-optional-but-recommended-3"><i class="fa fa-check"></i><b>4.6</b> Other resources: optional but recommended</a></li>
 <li class="chapter" data-level="4.7" data-path="statistical-inference.html"><a href="statistical-inference.html#beyond-linear-models-to-generalised-linear-models-glms-not-examinable"><i class="fa fa-check"></i><b>4.7</b> Beyond Linear Models to Generalised Linear Models (GLMs) (<em>not examinable</em>)</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="statistical-inference.html"><a href="statistical-inference.html#counting-animals"><i class="fa fa-check"></i><b>4.7.1</b> Counting animals…</a></li>
+<li class="chapter" data-level="4.7.1" data-path="statistical-inference.html"><a href="statistical-inference.html#counting-animals..."><i class="fa fa-check"></i><b>4.7.1</b> Counting animals...</a></li>
 <li class="chapter" data-level="4.7.2" data-path="statistical-inference.html"><a href="statistical-inference.html#other-modelling-approaches-not-examinable"><i class="fa fa-check"></i><b>4.7.2</b> Other modelling approaches (not examinable)</a></li>
 </ul></li>
 </ul></li>
@@ -223,6 +198,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.3" data-path="introduction-to-the-design-and-analysis-of-experiments.html"><a href="introduction-to-the-design-and-analysis-of-experiments.html#blocking"><i class="fa fa-check"></i><b>5.3.3</b> <strong>Blocking</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="introduction-to-the-design-and-analysis-of-experiments.html"><a href="introduction-to-the-design-and-analysis-of-experiments.html#other-resources-optional-but-recommended-4"><i class="fa fa-check"></i><b>5.4</b> Other resources: optional but recommended</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html"><i class="fa fa-check"></i><b>6</b> Multivariate Data Methods</a><ul>
+<li class="chapter" data-level="6.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#learning-objectives-5"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#dimension-reduction"><i class="fa fa-check"></i><b>6.2</b> Dimension reduction</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#pca-in-r"><i class="fa fa-check"></i><b>6.2.1</b> PCA in <code>R</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#principal-components-from-the-original-variables"><i class="fa fa-check"></i><b>6.2.2</b> Principal components from the original variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#clustering"><i class="fa fa-check"></i><b>6.3</b> Clustering</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#k-means-in-r-using-factoextra"><i class="fa fa-check"></i><b>6.3.1</b> K-means in <code>R</code> using <code>factoextra</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#tldr-k-means-clustering"><i class="fa fa-check"></i><b>6.4</b> TL;DR k-means clustering</a></li>
+<li class="chapter" data-level="6.5" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#other-resources-optional-but-recommended-5"><i class="fa fa-check"></i><b>6.5</b> Other resources: optional but recommended</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#multidimensional-scaling-in-r-not-examinable"><i class="fa fa-check"></i><b>6.5.1</b> Multidimensional Scaling in <code>R</code> (<em>not examinable</em>)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -293,29 +282,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="replication" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> <strong>Replication</strong></h3>
 <ul>
-<li><strong>Biological replication:</strong> each treatment is <em>independently</em> applied to each of several humans, animals or plants
-<ul>
-<li>To generalize results to population</li>
-</ul></li>
-<li><strong>Technical replication:</strong> two or more samples from the same biological source which are <em>independently</em> processed
-<ul>
+<li><strong>Biological replication:</strong> each treatment is <em>independently</em> applied to each of several humans, animals or plants</li>
+<li><p>To generalize results to population</p></li>
+<li><strong>Technical replication:</strong> two or more samples from the same biological source which are <em>independently</em> processed</li>
 <li>Advantageous if processing steps introduce a lot of variation</li>
-<li>Increases the precision with which comparisons of relative abundances between treatments are made</li>
-</ul></li>
-<li><strong>Pseudo-replication:</strong> one sample from the same biological source, divided into two or more aliquots which are <strong>independently</strong> measured
-<ul>
+<li><p>Increases the precision with which comparisons of relative abundances between treatments are made</p></li>
+<li><strong>Pseudo-replication:</strong> one sample from the same biological source, divided into two or more aliquots which are <strong>independently</strong> measured</li>
 <li>Advantageous for noisy measuring instruments</li>
-<li>Increases the <strong>precision</strong> with which comparisons of relative abundances between treatments are made</li>
-</ul></li>
+<li><p>Increases the <strong>precision</strong> with which comparisons of relative abundances between treatments are made</p></li>
 </ul>
 </div>
 <div id="randomization" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> <strong>Randomization</strong></h3>
 <ul>
 <li><p><strong>Protects against bias</strong></p></li>
-<li><p>Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of “chance”.</p></li>
-<li>Ensures that each treatment has the same probability of getting good (or bad) units and thus
-avoids systematic bias</li>
+<li><p>Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of &quot;chance&quot;.</p></li>
+<li>Ensures that each treatment has the same probability of getting good (or bad) units and thus avoids systematic bias</li>
 <li>random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups</li>
 <li><p>typically statistical analysis assumes that observations are <strong>independent</strong>. This is almost never strictly true in practice but randomisation means that our estimates will behave as if they were based on independent observations</p></li>
 </ul>
@@ -336,26 +318,20 @@ avoids systematic bias</li>
 <iframe src="https://cmjt.shinyapps.io/vested/?showcase=0" width="672" height="400px">
 </iframe>
 <ul>
-<li><p><a href="https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&amp;search_scope=Combined_Local&amp;tab=books&amp;vid=NEWUI&amp;context=L">Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.</a></p></li>
+<li><p><a href="https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737730002091&amp;search_scope=Combined_Local&amp;tab=books&amp;vid=NEWUI&amp;context=L">Glass, David J. Experimental Design for Biologists. Second ed. 2014. Print.</a></p></li>
 <li><p><a href="https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21237737830002091&amp;search_scope=Combined_Local&amp;tab=books&amp;vid=NEWUI&amp;context=L">Welham, S. J. Statistical Methods in Biology : Design and Analysis of Experiments and Regression. 2015. Print.</a></p></li>
-<li><p><a href="https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&amp;context=L&amp;vid=NEWUI&amp;lang=en_US&amp;search_scope=Combined_Local&amp;adaptor=Local%20Search%20Engine&amp;isFrbr=true&amp;tab=books&amp;query=any,contains,The_Design_of_Experiments&amp;sortby=date&amp;facet=frbrgroupid,include,627497507&amp;offset=0">Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver &amp; Boyd, 1966. Print. O &amp; B Paperbacks.</a></p></li>
+<li><p><a href="https://catalogue.library.auckland.ac.nz/primo-explore/fulldisplay?docid=uoa_alma21198532990002091&amp;context=L&amp;vid=NEWUI&amp;lang=en_US&amp;search_scope=Combined_Local&amp;adaptor=Local%20Search%20Engine&amp;isFrbr=true&amp;tab=books&amp;query=any,contains,The_Design_of_Experiments&amp;sortby=date&amp;facet=frbrgroupid,include,627497507&amp;offset=0">Fisher, Ronald Aylmer. The Design of Experiments. 8th ed. Edinburgh: Oliver &amp; Boyd, 1966. Print. O &amp; B Paperbacks.</a></p></li>
 </ul>
 
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="statistical-inference.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="statistical-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multivariate-data-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -410,7 +386,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

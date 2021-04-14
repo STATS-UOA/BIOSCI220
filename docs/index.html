@@ -52,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -160,12 +135,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#māori-data-sovereignty-principles"><i class="fa fa-check"></i><b>2.2.1</b> Māori Data Sovereignty principles</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-wrangling-and-manipulation"><i class="fa fa-check"></i><b>2.3</b> Data wrangling and manipulation</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#introuducing-the-palmer-penguins"><i class="fa fa-check"></i><b>2.3.1</b> Introuducing the <span>Palmer penguins</span></a></li>
+<li class="chapter" data-level="2.3.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#introuducing-the-palmer-penguins"><i class="fa fa-check"></i><b>2.3.1</b> Introuducing the <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081">Palmer penguins</a></a></li>
 <li class="chapter" data-level="2.3.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#common-dataframe-manipulations-in-the-tidyverse-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>2.3.2</b> Common dataframe manipulations in the <code>tidyverse</code>, using <code>dplyr</code> and <code>tidyr</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#data-viz"><i class="fa fa-check"></i><b>2.4</b> Data Viz</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#exploratory-and-explanatory-plots"><i class="fa fa-check"></i><b>2.4.1</b> Exploratory and explanatory plots</a></li>
-<li class="chapter" data-level="2.4.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#ten-simple-rules-for-better-figures"><i class="fa fa-check"></i><b>2.4.2</b> <span>Ten Simple Rules for Better Figures</span></a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#ten-simple-rules-for-better-figures"><i class="fa fa-check"></i><b>2.4.2</b> <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Ten Simple Rules for Better Figures</a></a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#introducing-ggplot2"><i class="fa fa-check"></i><b>2.4.3</b> Introducing <code>ggplot2</code></a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-exploration-and-visualization.html"><a href="data-exploration-and-visualization.html#what-do-we-think-about-when-we-look-at-plots-a-taster"><i class="fa fa-check"></i><b>2.4.4</b> What do we think about when we look at plots (<em>a taster</em>)</a></li>
 </ul></li>
@@ -178,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.2" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#differences-between-two-means"><i class="fa fa-check"></i><b>3.2.2</b> Differences between two means</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#correctly-interpreting-p-values"><i class="fa fa-check"></i><b>3.3</b> 😱 Correctly interpreting p-values 😱</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#the-asa-statement-on-p-values-context-process-and-purpose"><i class="fa fa-check"></i><b>3.3.1</b> <span>The ASA Statement on p-Values: Context, Process, and Purpose</span></a></li>
+<li class="chapter" data-level="3.3.1" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#the-asa-statement-on-p-values-context-process-and-purpose"><i class="fa fa-check"></i><b>3.3.1</b> <a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">The ASA Statement on p-Values: Context, Process, and Purpose</a></a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#power-significance-and-multiple-comparisons"><i class="fa fa-check"></i><b>3.4</b> Power, Significance, and multiple comparisons</a></li>
 <li class="chapter" data-level="3.5" data-path="hypothesis-testing-and-introduction-to-linear-regression.html"><a href="hypothesis-testing-and-introduction-to-linear-regression.html#randomization-test"><i class="fa fa-check"></i><b>3.5</b> Randomization test</a></li>
@@ -207,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="statistical-inference.html"><a href="statistical-inference.html#other-resources-optional-but-recommended-3"><i class="fa fa-check"></i><b>4.6</b> Other resources: optional but recommended</a></li>
 <li class="chapter" data-level="4.7" data-path="statistical-inference.html"><a href="statistical-inference.html#beyond-linear-models-to-generalised-linear-models-glms-not-examinable"><i class="fa fa-check"></i><b>4.7</b> Beyond Linear Models to Generalised Linear Models (GLMs) (<em>not examinable</em>)</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="statistical-inference.html"><a href="statistical-inference.html#counting-animals"><i class="fa fa-check"></i><b>4.7.1</b> Counting animals…</a></li>
+<li class="chapter" data-level="4.7.1" data-path="statistical-inference.html"><a href="statistical-inference.html#counting-animals..."><i class="fa fa-check"></i><b>4.7.1</b> Counting animals...</a></li>
 <li class="chapter" data-level="4.7.2" data-path="statistical-inference.html"><a href="statistical-inference.html#other-modelling-approaches-not-examinable"><i class="fa fa-check"></i><b>4.7.2</b> Other modelling approaches (not examinable)</a></li>
 </ul></li>
 </ul></li>
@@ -223,6 +198,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.3" data-path="introduction-to-the-design-and-analysis-of-experiments.html"><a href="introduction-to-the-design-and-analysis-of-experiments.html#blocking"><i class="fa fa-check"></i><b>5.3.3</b> <strong>Blocking</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="introduction-to-the-design-and-analysis-of-experiments.html"><a href="introduction-to-the-design-and-analysis-of-experiments.html#other-resources-optional-but-recommended-4"><i class="fa fa-check"></i><b>5.4</b> Other resources: optional but recommended</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html"><i class="fa fa-check"></i><b>6</b> Multivariate Data Methods</a><ul>
+<li class="chapter" data-level="6.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#learning-objectives-5"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#dimension-reduction"><i class="fa fa-check"></i><b>6.2</b> Dimension reduction</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#pca-in-r"><i class="fa fa-check"></i><b>6.2.1</b> PCA in <code>R</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#principal-components-from-the-original-variables"><i class="fa fa-check"></i><b>6.2.2</b> Principal components from the original variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#clustering"><i class="fa fa-check"></i><b>6.3</b> Clustering</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#k-means-in-r-using-factoextra"><i class="fa fa-check"></i><b>6.3.1</b> K-means in <code>R</code> using <code>factoextra</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#tldr-k-means-clustering"><i class="fa fa-check"></i><b>6.4</b> TL;DR k-means clustering</a></li>
+<li class="chapter" data-level="6.5" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#other-resources-optional-but-recommended-5"><i class="fa fa-check"></i><b>6.5</b> Other resources: optional but recommended</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#multidimensional-scaling-in-r-not-examinable"><i class="fa fa-check"></i><b>6.5.1</b> Multidimensional Scaling in <code>R</code> (<em>not examinable</em>)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -248,12 +237,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/splash-training.jpg" />
-Artwork by <a href="https://github.com/allisonhorst/">@allison_horst</a></p>
+<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/splash-training.jpg" /> Artwork by <a href="https://github.com/allisonhorst/">@allison_horst</a></p>
 <div id="course-overview-biosci220" class="section level2">
 <h2><span class="header-section-number">0.1</span> Course Overview: BIOSCI220</h2>
 <p>Living systems are the most complex things in the Universe. The science of biology is therefore the science of the complex. Other sciences, like physics and chemistry, have simpler study subjects. This may surprise students who think of other sciences as difficult and maths-heavy, and think of biology as science but with less maths.</p>
-<p>However, biological research has actually been heavily quantitative for 100+ years. Much of the development of the field of statistics was driven by and for biologists and their research problems, which usually have a large amount of natural variability. In recent decades, the computational revolution has spread to every part of biology, and all biological fields now rely heavily on analyses that would be impossible without computers and computer programming: “big data” studies and complex models of biological phenomena.</p>
+<p>However, biological research has actually been heavily quantitative for 100+ years. Much of the development of the field of statistics was driven by and for biologists and their research problems, which usually have a large amount of natural variability. In recent decades, the computational revolution has spread to every part of biology, and all biological fields now rely heavily on analyses that would be impossible without computers and computer programming: &quot;big data&quot; studies and complex models of biological phenomena.</p>
 <p>Therefore, in order to understand modern biological research and findings, and to participate in this research (and get jobs!), it is now essential for biology students to acquire skills in working with and visualising data, learning from data using models, and generating data using simulations of models. These might be classic statistical models, simulation models, or inference with process-based models. Most importantly, students need to gain the ability to be careful and critical thinkers about data and how it is acquired, as well as the ability to think critically about the models that we use to try to simplify, and thereby understand, the incredible complexity of biology.</p>
 </div>
 <div id="module-1-key-topics" class="section level2">
@@ -274,15 +262,13 @@ Artwork by <a href="https://github.com/allisonhorst/">@allison_horst</a></p>
 <h2><span class="header-section-number">0.3</span> Timetable &amp; Assessment (Modules I, II, and III)</h2>
 <ul>
 <li><strong>Lectures</strong> Monday 9–10am</li>
-<li><p><strong>Labs</strong></p>
-<ul>
+<li><p><strong>Labs</strong></p></li>
 <li>Monday 2–5pm</li>
 <li>Tuesday 10am–1pm</li>
 <li>Thursday 10am–1pm</li>
-<li>Friday 10am–1pm</li>
-</ul></li>
-<li><strong>Lab exercises</strong> 60% Total (11 labs in Total; 6 for Module 1, weeks 1–6) <em>Due weekly by 5pm</em></li>
-<li>Weekly <strong>quizzes</strong> 10% Total (11 quizzes in Total; 5 for Module 1, weeks 2–6) <em>Due weekly by 5pm</em></li>
+<li><p>Friday 10am–1pm</p></li>
+<li><strong>Lab exercises</strong> 60% Total (11 labs in Total; 6 for Module 1, weeks 1--6) <em>Due weekly by 5pm</em></li>
+<li>Weekly <strong>quizzes</strong> 10% Total (11 quizzes in Total; 5 for Module 1, weeks 2--6) <em>Due weekly by 5pm</em></li>
 <li><p><strong>Final Exam</strong> 30%</p></li>
 </ul>
 
@@ -349,7 +335,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
