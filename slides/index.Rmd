@@ -1798,12 +1798,345 @@ class: inverse
    + k-means clustering
 ]
 
+---
+class: inverse
+
+###  Principal Component Analysis (PCA)
+
++ **AIM**: find the best low-dimensional representation of the variation in a multivariate data set
+
+-- 
+
++ PCA
+  + reduces the dimensionality of the data (number of variables) by creating new uncorrelated variables while minimizing loss of information on the original variables
 
 ---
+class: middle, center
+
 
 <img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/pca.gif" >
 
 ---
+class: middle, center
 
 <img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/perp.gif">
 
+
+
+---
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+penguins_nafree <- penguins %>% drop_na()
+library(GGally)
+penguins_nafree %>%
+  select(species, where(is.numeric)) %>% 
+  ggpairs(columns = c("flipper_length_mm", "body_mass_g", 
+                     "bill_length_mm", "bill_depth_mm"),
+          axisLabels = "none")
+```
+
+---
+
+ + `flipper_length_mm`, `body_mass_g`, and `bill_length_mm` are relatively strongly (positively) related to one another
+
+--
+
++ let's call this penguin *bigness*
+
+--
+
++ Is there a way we could reduce these three variables to represent the *bigness* of a penguin.
+
+---
+### PCA in `R`
+
+**Scale your data**: often the data variables are on very different scales (e.g., grams and millimeters) we should first make sure that each variable is on the same **scale**
+
+$$\frac{x - \mu_x}{\sigma_x}$$
+
+---
+
+### PCA in `R`
+
+**What do we get?**
+
++ **PC scores:**  the **new uncorrelated variables** 
+
++ **Eigenvalues:** represent the variance explained by each PC
+
++ **Variable loadings** (eigenvectors): can be thought of as the correlation between the PC and the original variable
+
+---
+### PCA in `R` using `prcomp()`
+  
+```{r, eval = FALSE, echo = TRUE}
+pca <- penguins_nafree %>% 
+  select(where(is.numeric), -year) %>% ## year makes no sense here so we remove it and keep the other numeric variables
+  scale() %>% ## scale the variables
+  prcomp()
+```
+
+---
+### PCA in `R` using `prcomp()`
+  
+```{r, echo = FALSE, eval = TRUE}
+pca <- penguins_nafree %>% 
+  select(where(is.numeric), -year) %>% ## year makes no sense here so we remove it and keep the other numeric variables
+  scale() %>% ## scale the variables
+  prcomp()
+```
+
+
+```{r, echo = TRUE, eval = TRUE}
+## print out a summary
+summary(pca)
+```
+
+---
+
++ `PC1` explains $\sim$ 68\% of the total variance, which means that just over half of the information in the dataset 
+ (5 variables) can be encapsulated by just that one Principal Component. 
+ + `PC2` explains $\sim$ 19\% of the variance.
+ + `PC3` explains $\sim$ 9\% of the variance.
+ + `PC4` explains $\sim$ 2\% of the variance.
+ 
+---
+### PCA in `R` using `prcomp()`
+
+The **loadings** (*relationship*) between the initial variables and the principal components are stored in `pca$rotation`:
+
+```{r}
+pca$rotation
+```
+
+
+---
+
+```{r, echo = FALSE}
+pca$rotation %>%
+  as.data.frame() %>%
+  mutate(variables = rownames(.)) %>%
+  gather(PC,loading,PC1:PC4) %>%
+  ggplot(aes(abs(loading), variables, fill = loading > 0)) +
+  geom_col() +
+  facet_wrap(~PC, scales = "free_y") +
+  labs(x = "Absolute value of loading",y = NULL, fill = "Positive?") 
+
+```
+
+---
+
+```{r, echo = FALSE}
+library(factoextra) ## install this package first
+fviz_pca_biplot(pca, geom = "point") +
+      geom_point (alpha = 0.2)
+```
+
+---
+**[slido.com](slido.com) code #biosci220: What do the PCs represent (roughly)**
+
++ `PC1` ?
++ `PC2` ?
+
+`r countdown::countdown(minutes = 2, seconds = 0, bottom = 0)`
+
+---
+### PCA; how many `PC`s to keep?
+
+```{r, message=FALSE}
+fviz_screeplot(pca)
+```
+
+---
+
+### PCA in `R` using `prcomp()`
+
+**What do we get?**
+
++ **PC scores:**  `pca$x` 
+
++ **Eigenvalues:** represent the variance explained by each PC
+
++ **Variable loadings** (eigenvectors): `pca$rotation`
+
+---
+class: inverse
+
+## Clustering 
+
++  **AIM:** categorise data (find groups) in unlabeled data
+
+--
+
++ k-means: number of groups represented by the variable $k$
+
+--
+
++  It's all about variation, and the idea of minimizing it, again!
+---
+
++ The number of clusters ($k$) are specified
+--
+
++ $k$ objects from the dataset are selected at random and *set* as the initial cluster centers 
+
+--
+
++ Each observation is assigned to their closest centroid
+
+--
+
++ For each of the $k$ clusters the cluster centroid is then updated 
+--
+
++ Repeat the two previous steps until 1) the cluster assignments stop changing or 2) the maximum number of iterations is reached
+
+---
+
+## ClusterDucks
+
+### In Sydney, the ducks have their own [fashion show](https://mymodernmet.com/australian-pied-piper-duck-show/)
+
+<img src = "https://github.com/cmjt/statbiscuits/blob/master/swots/images/blue_flowers-2.jpg?raw=true">
+
+---
+### RGB ClusterDucks
+
+```{r, echo = FALSE}
+data_url <- "https://github.com/cmjt/statbiscuits/raw/master/swots/data/duck_rgbs.RData"
+load(url(data_url))
+library(ggplot2)
+library(patchwork)
+m <- reshape2::melt(t(apply(duck_rgbs[[2]][,,1],2,rev)))
+r <- ggplot(m, aes(x = Var1, y = Var2, fill = value)) +
+    geom_tile() +
+    scale_fill_distiller(palette = "Reds", direction = 1,limits=c(0, 1)) +
+    theme_void() + theme(legend.title = element_blank()) 
+m <- reshape2::melt(t(apply(duck_rgbs[[2]][,,2],2,rev)))
+g <- ggplot(m, aes(x = Var1, y = Var2, fill = value)) +
+    geom_tile() + scale_fill_distiller(palette = "Greens", direction = 1, limits=c(0, 1)) +
+    theme_void() + theme(legend.title = element_blank())
+m <- reshape2::melt(t(apply(duck_rgbs[[2]][,,3],2,rev)))
+b <- ggplot(m, aes(x = Var1, y = Var2, fill = value)) +
+    geom_tile() + scale_fill_distiller(palette = "Blues", direction = 1, limits=c(0, 1)) +
+    theme_void() + theme(legend.title = element_blank())
+r + g + b
+```
+
+---
+### RGB ClusterDucks
+
++ In total we have `r length(duck_rgbs)` different images of `r length(table(stringr::str_match(names(duck_rgbs),"(.*?)-")[,2]))` different outfits.
+
++ Each image is summarised by  by the average R, G, and B value respectively.
+
+---
+### RGB ClusterDucks
+
+```{r, echo = FALSE, fig.cap = "3D scatterplot of the average RGB value per image."}
+cluster_ducks <- data.frame(attire  = stringr::str_match(names(duck_rgbs),"(.*?)-")[,2],
+                            av_red = sapply(duck_rgbs, function(x) mean(c(x[,,1]))),
+                            av_green = sapply(duck_rgbs, function(x) mean(c(x[,,2]))),
+                            av_blue = sapply(duck_rgbs, function(x) mean(c(x[,,3]))))
+library(plotly) ## for 3D interactive plots
+plot_ly(x = cluster_ducks$av_red, y = cluster_ducks$av_green, 
+        z = cluster_ducks$av_blue,
+        type = "scatter3d", mode = "markers", 
+        color = cluster_ducks$attire)
+```
+
+---
+#### k-means clustering
+
+**Can we cluster the outfits (images) based on the average R, G, B values?**
+```{r echo = FALSE, message = FALSE}
+## library for k-means clustering
+library(factoextra)
+## re format data. We deal only with the numerics info
+df <- cluster_ducks[,2:4]
+## specify rownames as image names
+rownames(df) <- names(duck_rgbs)
+distance <- get_dist(df)
+fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+```
+
+---
+#### k-means clustering with `kmeans()`
+
+**What do we specify for $k$?**
+
+```{r clusters}
+library(factoextra)
+## from two clusters to 6 (can we separate out the images?)
+set.seed(4321) ## remove this when doing it your self
+k2 <- kmeans(df, centers = 2, nstart = 25)
+k3 <- kmeans(df, centers = 3, nstart = 25)
+k4 <- kmeans(df, centers = 4, nstart = 25)
+k5 <- kmeans(df, centers = 5, nstart = 25)
+k6 <- kmeans(df, centers = 6, nstart = 25)
+```
+
+---
+#### k-means clustering with `kmeans()`
+
+**But how many clusters are there?** it's a subjective choice
+
++ **Visual inspection** method
++ **Elbow** method
++ **Silhouette** method
++ **Gap** method
++ and the many others in your notes...
+
+
+---
+#### k-means clustering with `kmeans()`
+
+**But how many clusters are there?** using the **elbow** method
+
+
+```{r}
+barplot(c(k2$tot.withinss,k3$tot.withinss,k4$tot.withinss,
+          k5$tot.withinss,k6$tot.withinss),
+        names = paste(2:6," clusters"))
+```
+
+---
+#### k-means clustering with `kmeans()`
+
+**But how many clusters are there?** using the **elbow** method
+
+```{r}
+fviz_nbclust(df, kmeans, method = "wss") +
+  labs(subtitle = "Elbow method")
+```
+---
+
+### 3 vs 4 vs 5
+
+```{r, echo = FALSE}
+p3 <- fviz_cluster(k3, data = df)
+p4 <- fviz_cluster(k4, data = df)
+p5 <- fviz_cluster(k5, data = df)
+library(patchwork) 
+p3 | p4 | p5
+```
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
+
+**[slido.com](slido.com) code #biosci220: Your thoughts...**
+
+`r countdown::countdown(minutes = 2, seconds = 0, bottom = 0)`
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
+  

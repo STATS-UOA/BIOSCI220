@@ -283,7 +283,7 @@ penguins_nafree <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggpairs</span>(<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;flipper_length_mm&quot;</span>, <span class="st">&quot;body_mass_g&quot;</span>, 
                      <span class="st">&quot;bill_length_mm&quot;</span>, <span class="st">&quot;bill_depth_mm&quot;</span>)) </code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
-<p>We see that a lot of these variables (e.g., <code>flipper_length_mm</code>, <code>body_mass_g</code>, and <code>bill_length_mm</code>) are relatively strongly (positively) related to one another. Could they actually be telling us the same information? Combined we could think of these three variables all telling us a little about <em>bigness</em> of penguin. Is there a way we could reduce these three variables into, say 1, to represent the <em>bigness</em> of a penguin. We may not need <em>all</em> the information (variation) captured by these variables, but could get away with fewer <em>new uncorrelated</em> variables that represent basically the same information (e.g., penguin <em>bigness</em>), thereby, <strong>reducing the dimensionality of the data</strong>.</p>
+<p>We see that a lot of these variables (e.g., <code>flipper_length_mm</code>, <code>body_mass_g</code>, and <code>bill_length_mm</code>) are relatively strongly (positively) related to one another. Could they actually be telling us the same information? Combined we could think of these three variables all telling us a little about <em>bigness</em> of penguin. Is there a way we could reduce these three variables, into say 1, to represent the <em>bigness</em> of a penguin. We may not need <em>all</em> the information (variation) captured by these variables, but could get away with fewer <em>new uncorrelated</em> variables that represent basically the same information (e.g., penguin <em>bigness</em>), thereby, <strong>reducing the dimensionality of the data</strong>.</p>
 <div id="using-prcomp-to-carry-out-pca" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Using <code>prcomp()</code> to carry out PCA</h3>
 <p>As often the data variables are on very different scales (e.g., grams and millimeters) we should first make sure that each variable is on the same <strong>scale</strong>. We call this scaling and can easily do this in <code>R</code> using the function <code>scale()</code>. Typically, we scale a variable, <span class="math inline">\(x\)</span>, by subtracting its mean, <span class="math inline">\(\mu_x\)</span>, (i.e., centering it) and dividing by its standard deviation, <span class="math inline">\(\sigma_x\)</span> a measure of its spread: <span class="math inline">\(\frac{x - \mu_x}{\sigma_x}\)</span>.This ensures that each variable is on the same scale (i.e., changes are relative).</p>
@@ -355,7 +355,7 @@ penguins_nafree <span class="op">%&gt;%</span>
 </div>
 <div id="principal-components-from-the-original-variables" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Principal components from the original variables</h3>
-<p>Recall that the principal components are a linear combination of the (statndardised) variables. So for PC1</p>
+<p>Recall that the principal components are a linear combination of the (statndardised) variables. So for <code>PC1</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">loadings1 &lt;-<span class="st"> </span>pca<span class="op">$</span>rotation[,<span class="dv">1</span>]
 loadings1</code></pre></div>
 <pre><code>##    bill_length_mm     bill_depth_mm flipper_length_mm       body_mass_g 
@@ -423,7 +423,7 @@ k5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(df, <span class=
 </ul>
 <div id="choosing-the-number-of-clusters" class="section level4">
 <h4><span class="header-section-number">6.4.1.1</span> Choosing the number of clusters</h4>
-<p>We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember its a <strong>subjective choice</strong> and we'll be looking at a few pointers</p>
+<p>We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember it's a <strong>subjective choice</strong> and we'll be looking at a few pointers</p>
 <p><strong>Visual inspection</strong> method</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p1 &lt;-<span class="st"> </span><span class="kw">fviz_cluster</span>(k1, <span class="dt">data =</span> df)
 p2 &lt;-<span class="st"> </span><span class="kw">fviz_cluster</span>(k2, <span class="dt">data =</span> df)

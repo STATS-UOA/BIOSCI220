@@ -6,6 +6,14 @@
     <meta name="author" content="Charlotte Jones-Todd" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -213,7 +221,7 @@ paua &lt;- read_csv("paua.csv")
 ```
 
 ```
-## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/BIOSCI220/slides').
+## Error: 'paua.csv' does not exist in current working directory ('/home/cjon911/Git/BIOSCI220/slides').
 ```
 
 
@@ -227,14 +235,14 @@ paua &lt;- read_csv("paua.csv")
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
 *library(tidyverse)
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ]
 
@@ -242,15 +250,15 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
-library(tidyverse)  
+library(tidyverse)
 *paua &lt;- read_csv("../data/paua.csv")
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ```
 ## Parsed with column specification:
@@ -266,16 +274,16 @@ library(tidyverse)
 count: false
  
 ### Everything working nicely!
-.left-panel-example_read-auto[
+.panel1-example_read-auto[
 
 ```r
-library(tidyverse)  
-paua &lt;- read_csv("../data/paua.csv")  
+library(tidyverse)
+paua &lt;- read_csv("../data/paua.csv")
 *glimpse(paua)
 ```
 ]
  
-.right-panel-example_read-auto[
+.panel2-example_read-auto[
 
 ```
 ## Parsed with column specification:
@@ -289,28 +297,33 @@ paua &lt;- read_csv("../data/paua.csv")
 ```
 ## Rows: 60
 ## Columns: 3
-## $ Species &lt;chr&gt; "Haliotis iris", "Haliotis australis", "Haliotis australis", "…
-## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6.…
-## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, 6…
+## $ Species &lt;chr&gt; "Haliotis iris", "Haliotis australis", "Haliotis australis", …
+## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6…
+## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, …
 ```
 ]
 
 &lt;style&gt;
-.left-panel-example_read-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_read-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_read-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_read-auto {
-  width: 0%;
+.panel2-example_read-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_read-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -326,14 +339,14 @@ paua &lt;- read_csv("../data/paua.csv")
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
 *paua
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 60 x 3
@@ -357,15 +370,15 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
-paua %&gt;%  
+paua %&gt;%
 * group_by(Species)
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 60 x 3
@@ -390,16 +403,16 @@ paua %&gt;%
 count: false
  
 ### Everything working nicely!
-.left-panel-example_mean-auto[
+.panel1-example_mean-auto[
 
 ```r
-paua %&gt;%  
-  group_by(Species) %&gt;%  
+paua %&gt;%
+  group_by(Species) %&gt;%
 * summarise(av_length = mean(Length))
 ```
 ]
  
-.right-panel-example_mean-auto[
+.panel2-example_mean-auto[
 
 ```
 ## # A tibble: 2 x 2
@@ -411,21 +424,26 @@ paua %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-example_mean-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_mean-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_mean-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_mean-auto {
-  width: 0%;
+.panel2-example_mean-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_mean-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -440,14 +458,14 @@ paua %&gt;%
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
 *library(ggplot2)
 ```
 ]
  
-.right-panel-example_plot-auto[
+.panel2-example_plot-auto[
 
 ]
 
@@ -455,68 +473,73 @@ count: false
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
+library(ggplot2)
 *ggplot(data = paua,aes(x = Species, y = Length))
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
-ggplot(data = paua,aes(x = Species, y = Length)) +  
+library(ggplot2)
+ggplot(data = paua,aes(x = Species, y = Length)) +
 * geom_boxplot()
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 ### Everything working nicely!
-.left-panel-example_plot-auto[
+.panel1-example_plot-auto[
 
 ```r
-library(ggplot2)  
-ggplot(data = paua,aes(x = Species, y = Length)) +  
-  geom_boxplot()  
+library(ggplot2)
+ggplot(data = paua,aes(x = Species, y = Length)) +
+  geom_boxplot()
 ```
 ]
  
-.right-panel-example_plot-auto[
-![](index_files/figure-html/example_plot_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-example_plot-auto[
+![](index_files/figure-html/example_plot_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-example_plot-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-example_plot-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-example_plot-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-example_plot-auto {
-  width: 0%;
+.panel2-example_plot-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_plot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -597,14 +620,14 @@ penguins %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 *library(palmerpenguins)  ## contains some nice penguin data
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ]
 
@@ -612,7 +635,7 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
@@ -620,22 +643,22 @@ library(palmerpenguins)  ## contains some nice penguin data
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ## # A tibble: 344 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           NA            NA                  NA          NA
-##  5 Adelie  Torgersen           36.7          19.3               193        3450
-##  6 Adelie  Torgersen           39.3          20.6               190        3650
-##  7 Adelie  Torgersen           38.9          17.8               181        3625
-##  8 Adelie  Torgersen           39.2          19.6               195        4675
-##  9 Adelie  Torgersen           34.1          18.1               193        3475
-## 10 Adelie  Torgersen           42            20.2               190        4250
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           NA            NA                 NA          NA
+##  5 Adelie  Torge…           36.7          19.3              193        3450
+##  6 Adelie  Torge…           39.3          20.6              190        3650
+##  7 Adelie  Torge…           38.9          17.8              181        3625
+##  8 Adelie  Torge…           39.2          19.6              195        4675
+##  9 Adelie  Torge…           34.1          18.1              193        3475
+## 10 Adelie  Torge…           42            20.2              190        4250
 ## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -644,16 +667,16 @@ library(palmerpenguins)  ## contains some nice penguin data
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
-penguins %&gt;%  
+penguins %&gt;%
 * apply(.,2,is.na)
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ##        species island bill_length_mm bill_depth_mm flipper_length_mm
@@ -1353,17 +1376,17 @@ penguins %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins-auto[
+.panel1-penguins-auto[
 
 ```r
 library(palmerpenguins)  ## contains some nice penguin data
-penguins %&gt;%  
-  apply(.,2,is.na) %&gt;%  
+penguins %&gt;%
+  apply(.,2,is.na) %&gt;%
 * apply(.,2,sum)
 ```
 ]
  
-.right-panel-penguins-auto[
+.panel2-penguins-auto[
 
 ```
 ##           species            island    bill_length_mm     bill_depth_mm 
@@ -1374,21 +1397,26 @@ penguins %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-penguins-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins-auto {
-  width: 0%;
+.panel2-penguins-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1411,14 +1439,14 @@ penguins_nafree
 count: false
  
 ### Data manipulation
-.left-panel-penguins_na-auto[
+.panel1-penguins_na-auto[
 
 ```r
 *penguins_nafree &lt;- penguins %&gt;% drop_na()
 ```
 ]
  
-.right-panel-penguins_na-auto[
+.panel2-penguins_na-auto[
 
 ]
 
@@ -1426,50 +1454,55 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins_na-auto[
+.panel1-penguins_na-auto[
 
 ```r
-penguins_nafree &lt;- penguins %&gt;% drop_na()  
+penguins_nafree &lt;- penguins %&gt;% drop_na()
 *penguins_nafree
 ```
 ]
  
-.right-panel-penguins_na-auto[
+.panel2-penguins_na-auto[
 
 ```
 ## # A tibble: 333 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           36.7          19.3               193        3450
-##  5 Adelie  Torgersen           39.3          20.6               190        3650
-##  6 Adelie  Torgersen           38.9          17.8               181        3625
-##  7 Adelie  Torgersen           39.2          19.6               195        4675
-##  8 Adelie  Torgersen           41.1          17.6               182        3200
-##  9 Adelie  Torgersen           38.6          21.2               191        3800
-## 10 Adelie  Torgersen           34.6          21.1               198        4400
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           36.7          19.3              193        3450
+##  5 Adelie  Torge…           39.3          20.6              190        3650
+##  6 Adelie  Torge…           38.9          17.8              181        3625
+##  7 Adelie  Torge…           39.2          19.6              195        4675
+##  8 Adelie  Torge…           41.1          17.6              182        3200
+##  9 Adelie  Torge…           38.6          21.2              191        3800
+## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
 
 &lt;style&gt;
-.left-panel-penguins_na-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins_na-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins_na-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins_na-auto {
-  width: 0%;
+.panel2-penguins_na-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_na-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1493,29 +1526,29 @@ penguins_nafree %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
 *penguins_nafree
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 333 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           36.7          19.3               193        3450
-##  5 Adelie  Torgersen           39.3          20.6               190        3650
-##  6 Adelie  Torgersen           38.9          17.8               181        3625
-##  7 Adelie  Torgersen           39.2          19.6               195        4675
-##  8 Adelie  Torgersen           41.1          17.6               182        3200
-##  9 Adelie  Torgersen           38.6          21.2               191        3800
-## 10 Adelie  Torgersen           34.6          21.1               198        4400
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           36.7          19.3              193        3450
+##  5 Adelie  Torge…           39.3          20.6              190        3650
+##  6 Adelie  Torge…           38.9          17.8              181        3625
+##  7 Adelie  Torge…           39.2          19.6              195        4675
+##  8 Adelie  Torge…           41.1          17.6              182        3200
+##  9 Adelie  Torge…           38.6          21.2              191        3800
+## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -1524,31 +1557,31 @@ count: false
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
-penguins_nafree %&gt;%  
+penguins_nafree %&gt;%
 * group_by(species)
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 333 x 8
 ## # Groups:   species [3]
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           36.7          19.3               193        3450
-##  5 Adelie  Torgersen           39.3          20.6               190        3650
-##  6 Adelie  Torgersen           38.9          17.8               181        3625
-##  7 Adelie  Torgersen           39.2          19.6               195        4675
-##  8 Adelie  Torgersen           41.1          17.6               182        3200
-##  9 Adelie  Torgersen           38.6          21.2               191        3800
-## 10 Adelie  Torgersen           34.6          21.1               198        4400
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750
+##  2 Adelie  Torge…           39.5          17.4              186        3800
+##  3 Adelie  Torge…           40.3          18                195        3250
+##  4 Adelie  Torge…           36.7          19.3              193        3450
+##  5 Adelie  Torge…           39.3          20.6              190        3650
+##  6 Adelie  Torge…           38.9          17.8              181        3625
+##  7 Adelie  Torge…           39.2          19.6              195        4675
+##  8 Adelie  Torge…           41.1          17.6              182        3200
+##  9 Adelie  Torge…           38.6          21.2              191        3800
+## 10 Adelie  Torge…           34.6          21.1              198        4400
 ## # … with 323 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
@@ -1557,16 +1590,16 @@ penguins_nafree %&gt;%
 count: false
  
 ### Data manipulation
-.left-panel-penguins_av-auto[
+.panel1-penguins_av-auto[
 
 ```r
-penguins_nafree %&gt;%  
-  group_by(species) %&gt;%  
+penguins_nafree %&gt;%
+  group_by(species) %&gt;%
 * summarise(avgerage_bill_length = mean(bill_length_mm))
 ```
 ]
  
-.right-panel-penguins_av-auto[
+.panel2-penguins_av-auto[
 
 ```
 ## # A tibble: 3 x 2
@@ -1579,21 +1612,26 @@ penguins_nafree %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-penguins_av-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-penguins_av-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-penguins_av-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-penguins_av-auto {
-  width: 0%;
+.panel2-penguins_av-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_av-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1621,7 +1659,7 @@ class: center, middle
 ---
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_60767559" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bbe4" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1650,7 +1688,7 @@ class: center, middle
 
 **[slido.com](slido.com) code #biosci220: what do you think of this plot?**
 
-<div class="countdown" id="timer_607674c1" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bc75" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -1720,123 +1758,128 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
 *ggplot(penguins_nafree, aes(x = species, fill = sex))
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_1_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_01_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 * geom_bar(alpha = 0.8, position = "dodge")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
 * facet_wrap(~island)
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
 * xlab("")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
-  xlab("") +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
 * theme_linedraw()
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_5_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_05_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-bar-auto[
+.panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +  
-  geom_bar(alpha = 0.8, position = "dodge") +  
-  facet_wrap(~island) +  
-  xlab("") +  
-  theme_linedraw() +  
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() +
 * scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex")
 ```
 ]
  
-.right-panel-bar-auto[
-![](index_files/figure-html/bar_auto_6_output-1.png)&lt;!-- --&gt;
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_06_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-bar-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-bar-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-bar-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-bar-auto {
-  width: 0%;
+.panel2-bar-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-bar-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1863,123 +1906,128 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
 *ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_1_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_01_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 * geom_point(aes(color = species),size = 2)
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_2_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_02_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
 * scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_3_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_03_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
 * theme_bw()   ## Oo a new theme
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_4_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_04_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
   theme_bw() +  ## Oo a new theme
 * xlab("Bill length (mm)")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_5_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_05_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
 count: false
  
 
-.left-panel-point-auto[
+.panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +  
-  geom_point(aes(color = species),size = 2)  +  
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +  
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
   theme_bw() +  ## Oo a new theme
-  xlab("Bill length (mm)") +  
+  xlab("Bill length (mm)") +
 * ylab("Bill length (mm)")
 ```
 ]
  
-.right-panel-point-auto[
-![](index_files/figure-html/point_auto_6_output-1.png)&lt;!-- --&gt;
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_06_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.left-panel-point-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-point-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
-  font-size: 80%
-}
-.right-panel-point-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-point-auto {
-  width: 0%;
+.panel2-point-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-point-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1993,7 +2041,7 @@ class: center, middle
 
 ### **[slido.com](slido.com) code #biosci220: what does a plot tell us about our data?**
 
-<div class="countdown" id="timer_60767510" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bc43" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2231,7 +2279,7 @@ Listed are the t-statistic, `t` = 3.5403636 and the p-value, `p-value` = 8\times
 What would you conclude?
 
 
-<div class="countdown" id="timer_60767383" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bd27" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2480,7 +2528,7 @@ $$
 \end{aligned}`
 $$
 
-<div class="countdown" id="timer_60767440" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077be77" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2834,7 +2882,7 @@ The *coefficients* for the Gentoo and Chinstrap `species` give the shift (up or 
 
 **[slido.com](slido.com) code #biosci220: Anything else we might want to try with these variables?**
 
-<div class="countdown" id="timer_6076766d" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bc16" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -2915,7 +2963,7 @@ The main effects of species (i.e., `speciesChinstrap`: `Estimate` and `speciesGe
 
 ![](index_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
 
-<div class="countdown" id="timer_6076761d" style="top:0;right:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bdce" style="top:0;right:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
   
@@ -3152,7 +3200,7 @@ class: inverse
 
 &lt;img src = "img/pirates.svg"&gt;
 
-<div class="countdown" id="timer_60767715" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6077bbd8" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -3333,14 +3381,348 @@ class: inverse
    + k-means clustering
 ]
 
+---
+class: inverse
+
+###  Principal Component Analysis (PCA)
+
++ **AIM**: find the best low-dimensional representation of the variation in a multivariate data set
+
+-- 
+
++ PCA
+  + reduces the dimensionality of the data (number of variables) by creating new uncorrelated variables while minimizing loss of information on the original variables
 
 ---
+class: middle, center
+
 
 &lt;img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/pca.gif" &gt;
 
 ---
+class: middle, center
 
 &lt;img src="https://raw.githubusercontent.com/cmjt/statbiscuits/master/figs_n_gifs/perp.gif"&gt;
+
+
+
+---
+![](index_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+
+---
+
+ + `flipper_length_mm`, `body_mass_g`, and `bill_length_mm` are relatively strongly (positively) related to one another
+
+--
+
++ let's call this penguin *bigness*
+
+--
+
++ Is there a way we could reduce these three variables to represent the *bigness* of a penguin.
+
+---
+### PCA in `R`
+
+**Scale your data**: often the data variables are on very different scales (e.g., grams and millimeters) we should first make sure that each variable is on the same **scale**
+
+`$$\frac{x - \mu_x}{\sigma_x}$$`
+
+---
+
+### PCA in `R`
+
+**What do we get?**
+
++ **PC scores:**  the **new uncorrelated variables** 
+
++ **Eigenvalues:** represent the variance explained by each PC
+
++ **Variable loadings** (eigenvectors): can be thought of as the correlation between the PC and the original variable
+
+---
+### PCA in `R` using `prcomp()`
+  
+
+```r
+pca &lt;- penguins_nafree %&gt;% 
+  select(where(is.numeric), -year) %&gt;% ## year makes no sense here so we remove it and keep the other numeric variables
+  scale() %&gt;% ## scale the variables
+  prcomp()
+```
+
+---
+### PCA in `R` using `prcomp()`
+  
+
+
+
+
+```r
+## print out a summary
+summary(pca)
+```
+
+```
+## Importance of components:
+##                           PC1    PC2     PC3     PC4
+## Standard deviation     1.6569 0.8821 0.60716 0.32846
+## Proportion of Variance 0.6863 0.1945 0.09216 0.02697
+## Cumulative Proportion  0.6863 0.8809 0.97303 1.00000
+```
+
+---
+
++ `PC1` explains `\(\sim\)` 68\% of the total variance, which means that just over half of the information in the dataset 
+ (5 variables) can be encapsulated by just that one Principal Component. 
+ + `PC2` explains `\(\sim\)` 19\% of the variance.
+ + `PC3` explains `\(\sim\)` 9\% of the variance.
+ + `PC4` explains `\(\sim\)` 2\% of the variance.
+ 
+---
+### PCA in `R` using `prcomp()`
+
+The **loadings** (*relationship*) between the initial variables and the principal components are stored in `pca$rotation`:
+
+
+```r
+pca$rotation
+```
+
+```
+##                          PC1         PC2        PC3        PC4
+## bill_length_mm     0.4537532 -0.60019490 -0.6424951  0.1451695
+## bill_depth_mm     -0.3990472 -0.79616951  0.4258004 -0.1599044
+## flipper_length_mm  0.5768250 -0.00578817  0.2360952 -0.7819837
+## body_mass_g        0.5496747 -0.07646366  0.5917374  0.5846861
+```
+
+
+---
+
+![](index_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+
+---
+
+
+```
+## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+```
+
+![](index_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+
+---
+**[slido.com](slido.com) code #biosci220: What do the PCs represent (roughly)**
+
++ `PC1` ?
++ `PC2` ?
+
+<div class="countdown" id="timer_6077be12" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+### PCA; how many `PC`s to keep?
+
+
+```r
+fviz_screeplot(pca)
+```
+
+![](index_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
+
+---
+
+### PCA in `R` using `prcomp()`
+
+**What do we get?**
+
++ **PC scores:**  `pca$x` 
+
++ **Eigenvalues:** represent the variance explained by each PC
+
++ **Variable loadings** (eigenvectors): `pca$rotation`
+
+---
+class: inverse
+
+## Clustering 
+
++  **AIM:** categorise data (find groups) in unlabeled data
+
+--
+
++ k-means: number of groups represented by the variable `\(k\)`
+
+--
+
++  It's all about variation, and the idea of minimizing it, again!
+---
+
++ The number of clusters ($k$) are specified
+--
+
++ `\(k\)` objects from the dataset are selected at random and *set* as the initial cluster centers 
+
+--
+
++ Each observation is assigned to their closest centroid
+
+--
+
++ For each of the `\(k\)` clusters the cluster centroid is then updated 
+--
+
++ Repeat the two previous steps until 1) the cluster assignments stop changing or 2) the maximum number of iterations is reached
+
+---
+
+## ClusterDucks
+
+### In Sydney, the ducks have their own [fashion show](https://mymodernmet.com/australian-pied-piper-duck-show/)
+
+&lt;img src = "https://github.com/cmjt/statbiscuits/blob/master/swots/images/blue_flowers-2.jpg?raw=true"&gt;
+
+---
+### RGB ClusterDucks
+
+![](index_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+
+---
+### RGB ClusterDucks
+
++ In total we have 29 different images of 6 different outfits.
+
++ Each image is summarised by  by the average R, G, and B value respectively.
+
+---
+### RGB ClusterDucks
+
+
+```
+## 
+## Attaching package: 'plotly'
+```
+
+```
+## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+```
+
+```
+## The following object is masked from 'package:stats':
+## 
+##     filter
+```
+
+```
+## The following object is masked from 'package:graphics':
+## 
+##     layout
+```
+
+```
+## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
+## Please use `arrange()` instead.
+## See vignette('programming') for more help
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.
+```
+
+&lt;div class="figure"&gt;
+<div id="htmlwidget-0aa52a9b03e955533125" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0aa52a9b03e955533125">{"x":{"visdat":{"75035d588b94":["function () ","plotlyVisDat"]},"cur_data":"75035d588b94","attrs":{"75035d588b94":{"x":[0.452950487674294,0.475131901679788,0.456098089299577,0.474525372909701,0.595518315853473,0.571859423822404,0.548290875512363,0.461976449541504,0.481079914013067,0.437996326598764,0.457944839166612,0.403088482682793,0.504802255410931,0.470760474532799,0.457738963823059,0.46800988173047,0.668916256922405,0.733485044052562,0.639871478002966,0.678572505925447,0.494195146906114,0.563255480371304,0.425367030735071,0.483720056616557,0.442555077527465,0.567232170097932,0.383322386826951,0.384206248805703,0.395447712346859],"y":[0.479042937581311,0.513162433461766,0.488145894373075,0.511734735580198,0.641342040692246,0.564512496500397,0.51883610900318,0.450825953953503,0.492575770856509,0.481165273589817,0.483836655559188,0.442602070734836,0.442609294182949,0.398087469879563,0.361938154714879,0.409232804232804,0.531884867961436,0.554768209077248,0.520815730213654,0.523191481720893,0.343360591900312,0.361570842640205,0.189140455013933,0.393314429204228,0.409872488179669,0.306391134143774,0.451479760255379,0.42232257679584,0.452845887059544],"z":[0.461054726599781,0.497711576898592,0.491989206921594,0.494864180039779,0.575706251492845,0.456744770731304,0.439735474991772,0.386626000631402,0.397371335865323,0.437424297486569,0.402850274640448,0.380299248671431,0.393100042446208,0.274626046307254,0.249183725871101,0.280174758792406,0.473485077324675,0.602344866015356,0.443726259131103,0.484964447317388,0.341210830126443,0.267390978846994,0.188142686503544,0.200742780861917,0.208620019816437,0.30988298891768,0.24186536304146,0.248711690770309,0.262346022728003],"mode":"markers","color":["blue_flowers","blue_flowers","blue_flowers","blue_flowers","blue_flowers","bridal","bridal","bridal","bridal","bridal","bridal","bridal","patterns","patterns","patterns","patterns","pink_check","pink_check","pink_check","pink_check","red","red","red","red","red","red","wax_jacket","wax_jacket","wax_jacket"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":[]},"yaxis":{"title":[]},"zaxis":{"title":[]}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[0.452950487674294,0.475131901679788,0.456098089299577,0.474525372909701,0.595518315853473],"y":[0.479042937581311,0.513162433461766,0.488145894373075,0.511734735580198,0.641342040692246],"z":[0.461054726599781,0.497711576898592,0.491989206921594,0.494864180039779,0.575706251492845],"mode":"markers","type":"scatter3d","name":"blue_flowers","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[0.571859423822404,0.548290875512363,0.461976449541504,0.481079914013067,0.437996326598764,0.457944839166612,0.403088482682793],"y":[0.564512496500397,0.51883610900318,0.450825953953503,0.492575770856509,0.481165273589817,0.483836655559188,0.442602070734836],"z":[0.456744770731304,0.439735474991772,0.386626000631402,0.397371335865323,0.437424297486569,0.402850274640448,0.380299248671431],"mode":"markers","type":"scatter3d","name":"bridal","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"frame":null},{"x":[0.504802255410931,0.470760474532799,0.457738963823059,0.46800988173047],"y":[0.442609294182949,0.398087469879563,0.361938154714879,0.409232804232804],"z":[0.393100042446208,0.274626046307254,0.249183725871101,0.280174758792406],"mode":"markers","type":"scatter3d","name":"patterns","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null},{"x":[0.668916256922405,0.733485044052562,0.639871478002966,0.678572505925447],"y":[0.531884867961436,0.554768209077248,0.520815730213654,0.523191481720893],"z":[0.473485077324675,0.602344866015356,0.443726259131103,0.484964447317388],"mode":"markers","type":"scatter3d","name":"pink_check","marker":{"color":"rgba(231,138,195,1)","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)"},"error_y":{"color":"rgba(231,138,195,1)"},"error_x":{"color":"rgba(231,138,195,1)"},"line":{"color":"rgba(231,138,195,1)"},"frame":null},{"x":[0.494195146906114,0.563255480371304,0.425367030735071,0.483720056616557,0.442555077527465,0.567232170097932],"y":[0.343360591900312,0.361570842640205,0.189140455013933,0.393314429204228,0.409872488179669,0.306391134143774],"z":[0.341210830126443,0.267390978846994,0.188142686503544,0.200742780861917,0.208620019816437,0.30988298891768],"mode":"markers","type":"scatter3d","name":"red","marker":{"color":"rgba(166,216,84,1)","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)"},"error_y":{"color":"rgba(166,216,84,1)"},"error_x":{"color":"rgba(166,216,84,1)"},"line":{"color":"rgba(166,216,84,1)"},"frame":null},{"x":[0.383322386826951,0.384206248805703,0.395447712346859],"y":[0.451479760255379,0.42232257679584,0.452845887059544],"z":[0.24186536304146,0.248711690770309,0.262346022728003],"mode":"markers","type":"scatter3d","name":"wax_jacket","marker":{"color":"rgba(255,217,47,1)","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)"},"error_y":{"color":"rgba(255,217,47,1)"},"error_x":{"color":"rgba(255,217,47,1)"},"line":{"color":"rgba(255,217,47,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+&lt;p class="caption"&gt;3D scatterplot of the average RGB value per image.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+#### k-means clustering
+
+**Can we cluster the outfits (images) based on the average R, G, B values?**
+![](index_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+
+---
+#### k-means clustering with `kmeans()`
+
+**What do we specify for `\(k\)`?**
+
+
+```r
+library(factoextra)
+## from two clusters to 6 (can we separate out the images?)
+set.seed(4321) ## remove this when doing it your self
+k2 &lt;- kmeans(df, centers = 2, nstart = 25)
+k3 &lt;- kmeans(df, centers = 3, nstart = 25)
+k4 &lt;- kmeans(df, centers = 4, nstart = 25)
+k5 &lt;- kmeans(df, centers = 5, nstart = 25)
+k6 &lt;- kmeans(df, centers = 6, nstart = 25)
+```
+
+---
+#### k-means clustering with `kmeans()`
+
+**But how many clusters are there?** it's a subjective choice
+
++ **Visual inspection** method
++ **Elbow** method
++ **Silhouette** method
++ **Gap** method
++ and the many others in your notes...
+
+
+---
+#### k-means clustering with `kmeans()`
+
+**But how many clusters are there?** using the **elbow** method
+
+
+
+```r
+barplot(c(k2$tot.withinss,k3$tot.withinss,k4$tot.withinss,
+          k5$tot.withinss,k6$tot.withinss),
+        names = paste(2:6," clusters"))
+```
+
+![](index_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
+
+---
+#### k-means clustering with `kmeans()`
+
+**But how many clusters are there?** using the **elbow** method
+
+
+```r
+fviz_nbclust(df, kmeans, method = "wss") +
+  labs(subtitle = "Elbow method")
+```
+
+![](index_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
+---
+
+### 3 vs 4 vs 5
+
+![](index_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
+
+**[slido.com](slido.com) code #biosci220: Your thoughts...**
+
+<div class="countdown" id="timer_6077bf25" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

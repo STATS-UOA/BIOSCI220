@@ -61,7 +61,7 @@ penguins_nafree %>%
 
 ```
 
-We see that a lot of these variables (e.g., `flipper_length_mm`, `body_mass_g`, and `bill_length_mm`) are relatively strongly (positively) related to one another. Could they actually be telling us the same information? Combined we could think of these three variables all telling us a little about *bigness* of penguin. Is there a way we could reduce these three variables into, say 1, to represent the *bigness* of a penguin. We may not need *all* the information (variation) captured by these variables, but could get away with fewer *new uncorrelated* variables that represent basically the same information (e.g., penguin *bigness*), thereby,  **reducing the dimensionality of the data**.
+We see that a lot of these variables (e.g., `flipper_length_mm`, `body_mass_g`, and `bill_length_mm`) are relatively strongly (positively) related to one another. Could they actually be telling us the same information? Combined we could think of these three variables all telling us a little about *bigness* of penguin. Is there a way we could reduce these three variables, into say 1, to represent the *bigness* of a penguin. We may not need *all* the information (variation) captured by these variables, but could get away with fewer *new uncorrelated* variables that represent basically the same information (e.g., penguin *bigness*), thereby,  **reducing the dimensionality of the data**.
 
 
 ### Using `prcomp()` to carry out PCA
@@ -161,7 +161,7 @@ Looking at these outputs and given the information above we note that `PC1` expl
 
 ### Principal components from the original variables
 
-Recall that the principal components are a linear combination of the (statndardised) variables. So for PC1
+Recall that the principal components are a linear combination of the (statndardised) variables. So for `PC1`
 
 ```{r}
 loadings1 <- pca$rotation[,1]
@@ -253,7 +253,7 @@ The `kmeans()` function returns a list of components:
 
 #### Choosing the number of clusters
 
-We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember its a **subjective choice** and we'll be looking at a few pointers
+We have an idea there may be 3 clusters, perhaps, but how do we know this is the best fit? Remember it's a **subjective choice** and we'll be looking at a few pointers
 
 **Visual inspection** method
 
