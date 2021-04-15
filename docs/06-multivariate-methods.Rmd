@@ -11,16 +11,15 @@ knitr::opts_chunk$set(
 + Explain the aims and motivation behind Principal Component Analysis (PCA) and its relevance in biology
 + Explain the aims and motivation behind cluster analysis and its relevance in biology
 + Write `R` code to carry out PCA
-+ Interpret principal component scores and describe a subject with a high or low score
 + Write `R` code to carry out k-means cluster analysis
 + Interpret `R` output from PCA and k-means cluster analysis
 + Interpret and communicate, to both a statistical and non-statistical audience, multivariate data techniques, specifically,
-   + PCA
-   + k-means clustering
+    + PCA
+    + k-means clustering
 
 ## Dimension reduction
 
-Reduction of dimensions is needed when there are far too many features in a dataset, making it hard to distinguish between the important ones that are relevant to the output and the redundant or not-so important ones. Reducing the dimensions of data is called **dimensionality reduction.**
+Reduction of dimensions is needed when there are far too many features in a dataset. Too many features makes it hard to distinguish between the important ones that are relevant to the output and the redundant or not-so important ones. Reducing the dimensions of data is called **dimensionality reduction.**
 
 So the aim is to **find the best low-dimensional representation of the variation** in a multivariate (lots and lots of variables) data set, but how do we do this? 
 
@@ -37,7 +36,7 @@ Now rather than a baguette think of data; the baguette above represent the *shap
 
 Luckily we can do this all in `R`!
 
-### PCA  in `R`
+## PCA  in `R`
 
 **Using the `palmerpenguins` data**
 
@@ -57,24 +56,25 @@ When carrying out PCA we're only interested in numeric variables, so let's just 
 library(GGally)
 penguins_nafree %>%
   select(species, where(is.numeric)) %>% 
-  ggpairs(aes(color = species),
-        columns = c("flipper_length_mm", "body_mass_g", 
+  ggpairs(columns = c("flipper_length_mm", "body_mass_g", 
                      "bill_length_mm", "bill_depth_mm")) 
 
 ```
 
+We see that a lot of these variables (e.g., `flipper_length_mm`, `body_mass_g`, and `bill_length_mm`) are relatively strongly (positively) related to one another. Could they actually be telling us the same information? Combined we could think of these three variables all telling us a little about *bigness* of penguin. Is there a way we could reduce these three variables into, say 1, to represent the *bigness* of a penguin. We may not need *all* the information (variation) captured by these variables, but could get away with fewer *new uncorrelated* variables that represent basically the same information (e.g., penguin *bigness*), thereby,  **reducing the dimensionality of the data**.
 
-**Using `prcomp()`**
 
-There are three basic types of information we obtain from Principal Component Analysis:
+### Using `prcomp()` to carry out PCA
 
-  + **PC scores:**  the coordinates of our samples on the new PC axis: the new uncorrelated variables (stored in `pca$x`)
+As often the data variables are on very different scales (e.g., grams and millimeters) we should first make sure that each variable is on the same **scale**. We call this scaling and can easily do this in `R` using the function `scale()`. Typically, we scale a variable, $x$, by subtracting its mean, $\mu_x$, (i.e., centering it) and dividing by its standard deviation, $\sigma_x$ a measure of its spread: $\frac{x - \mu_x}{\sigma_x}$.This ensures that each variable is on the same scale (i.e., changes are relative).
 
-  + **Eigenvalues:** (see above) represent the variance explained by each PC; we can use these to calculate the proportion of variance in the original data that each axis explains
+Now, there are three basic types of information we obtain from Principal Component Analysis:
+
+  + **PC scores:**  the coordinates of our samples on the new PC axis: the **new uncorrelated variables** (stored in `pca$x`)
+
+  + **Eigenvalues:** represent the variance explained by each PC; we can use these to calculate the proportion of variance in the original data that each axis explains
 
   + **Variable loadings** (eigenvectors): these reflect the weight that each variable has on a particular PC and can be thought of as the correlation between the PC and the original variable
-  
-Before we carry out PCA we **should** scale out data. **WHY?**
   
 ```{r}
 pca <- penguins_nafree %>% 
@@ -103,9 +103,11 @@ The **loadings** (*relationship*) between the initial variables and the principa
 pca$rotation
 ```
 
-Here we can see that `bill_length_mm` has a strong positive relationship with `PC1`, whereas `bill_depth_mm` has a strong negative relationship. Both `fliper_length_mm` and `body_mass_g` also have a strong positive relationship with `PC1`. 
+Here we can see that `bill_length_mm` has a strong positive relationship with `PC1`, whereas `bill_depth_mm` has a strong negative relationship. Both `fliper_length_mm` and `body_mass_g` also have a strong positive relationship with `PC1`. Think back to the `ggpairs` plot above, `bill_length_mm`, `fliper_length_mm` and `body_mass_g` clearly had a strong positive relationship and we chose to refer to the combination as penguin *bigness*. We also saw that `bill_depth_mm` had a somewhat negative relationship with those three variables (somehow represents the opposite of penguin *bigness*).
 
-Plotting this we get
+There are two ways we can illustrate these **loadings** (*relationship*) between the initial variables and the principal components:
+
+By showing the absolute value
 
 ```{r, echo = FALSE}
 pca$rotation %>%
@@ -119,30 +121,43 @@ pca$rotation %>%
 
 ```
 
+or by plotting them alongside new variables (PCs) (stored in `pca$x`):
   
-The new variables (PCs) are stored in `pca$x`, lets plot some of them alongside the loadings using a *biplot*. For `PC1` vs `PC2`:
-
 ```{r}
 library(factoextra) ## install this package first
 fviz_pca_biplot(pca, geom = "point") +
       geom_point (alpha = 0.2)
 ```
 
-Now for `PC2` vs `PC3`
+The plot above is called a **biplot**. By default the first two **new uncorrelated** variables are plotted (`PC1` and `PC2`). `PC1` is on the x-axis and again we can see it accounts for 68.6% of the variation. Roughly speaking the length of the arrows labeled by the original variables represents the magnitude of the *loadings* on the new variables and where they point indicates the direction of that relationship (i.e., negative or positive). 
+
+Looking at the `PC1` axis we can see again that `bill_length_mm`, `fliper_length_mm` and `body_mass_g` all have a large positive relationship with `PC1`, so let's call `PC1` penguin *bigness*. As noted above, `bill_depth_mm` is negatively correlated with `PC1` (points in the negative direction) .
+
+Now let's look at the `PC2` (y) axis; `PC2` accounts for just 19.5% of the variation. We note that neither `fliper_length_mm` nor `body_mass_g` have much of a relationship with `PC2` both arrows are pretty much on the zero line (see the barplot above as well). However, both `bill_length_mm` and `bill_depth_mm` have a relatively strong negative relationship with `PC2`, so we could think of this new variable as representing penguin *billness* (bill shape).
+
+Now what about `PC2` vs `PC3`...
 
 ```{r}
 fviz_pca_biplot(pca, axes = c(2,3),geom = "point") +
       geom_point (alpha = 0.2)
 ```
 
+What do you think this is showing?
+
+### Choosing what to keep
+
 **But how many PCs (new variables) do we keep?** The whole point of this exercise is to **reduce** the number of variables we need to explain the variation in our data. So how many of these new variables (PCs) do we keep?
 
-To assess this we can use the information printed above alongside a *screeplot*:
+To assess this we can use the proportion of variance explained; recall that we want as much variance as possible explained whilst reducing the number of variables we keep. We can plot the proportion of variance explained, this is typically referred to as a **screeplot**.
 
 ```{r, message=FALSE}
+## print out a summary
+summary(pca)
+## plot this as a screeplot
 fviz_screeplot(pca)
-
 ```
+
+Looking at these outputs and given the information above we note that `PC1` explains almost 70% of the variation in the four variables; `PC`s 2, 3 and 4 then explain the other 30% combined. Now given that our aim is to **reduce** the number of variables whilst **retaining** as much of the information as possible I'd be happy with just `PC1` (i.e., penguin *bigness*) representing mu data. The rule of thumb is to look for the *elbow* in the screeplot; that is, the point (`PC`) beyond which you are only explaining incrementally more variation. In the plot above we can see that this *elbow* happens at `PC2` backing up my claim to simply retain just `PC1` (penguin *bigness*.
 
 ### Principal components from the original variables
 

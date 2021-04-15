@@ -201,16 +201,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="6" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html"><i class="fa fa-check"></i><b>6</b> Multivariate Data Methods</a><ul>
 <li class="chapter" data-level="6.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#learning-objectives-5"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#dimension-reduction"><i class="fa fa-check"></i><b>6.2</b> Dimension reduction</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#pca-in-r"><i class="fa fa-check"></i><b>6.2.1</b> PCA in <code>R</code></a></li>
-<li class="chapter" data-level="6.2.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#principal-components-from-the-original-variables"><i class="fa fa-check"></i><b>6.2.2</b> Principal components from the original variables</a></li>
+<li class="chapter" data-level="6.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#dimension-reduction"><i class="fa fa-check"></i><b>6.2</b> Dimension reduction</a></li>
+<li class="chapter" data-level="6.3" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#pca-in-r"><i class="fa fa-check"></i><b>6.3</b> PCA in <code>R</code></a><ul>
+<li class="chapter" data-level="6.3.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#using-prcomp-to-carry-out-pca"><i class="fa fa-check"></i><b>6.3.1</b> Using <code>prcomp()</code> to carry out PCA</a></li>
+<li class="chapter" data-level="6.3.2" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#choosing-what-to-keep"><i class="fa fa-check"></i><b>6.3.2</b> Choosing what to keep</a></li>
+<li class="chapter" data-level="6.3.3" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#principal-components-from-the-original-variables"><i class="fa fa-check"></i><b>6.3.3</b> Principal components from the original variables</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#clustering"><i class="fa fa-check"></i><b>6.3</b> Clustering</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#k-means-in-r-using-factoextra"><i class="fa fa-check"></i><b>6.3.1</b> K-means in <code>R</code> using <code>factoextra</code></a></li>
+<li class="chapter" data-level="6.4" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#clustering"><i class="fa fa-check"></i><b>6.4</b> Clustering</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#k-means-in-r-using-factoextra"><i class="fa fa-check"></i><b>6.4.1</b> K-means in <code>R</code> using <code>factoextra</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#tldr-k-means-clustering"><i class="fa fa-check"></i><b>6.4</b> TL;DR k-means clustering</a></li>
-<li class="chapter" data-level="6.5" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#other-resources-optional-but-recommended-5"><i class="fa fa-check"></i><b>6.5</b> Other resources: optional but recommended</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#multidimensional-scaling-in-r-not-examinable"><i class="fa fa-check"></i><b>6.5.1</b> Multidimensional Scaling in <code>R</code> (<em>not examinable</em>)</a></li>
+<li class="chapter" data-level="6.5" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#tldr-k-means-clustering"><i class="fa fa-check"></i><b>6.5</b> TL;DR k-means clustering</a></li>
+<li class="chapter" data-level="6.6" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#other-resources-optional-but-recommended-5"><i class="fa fa-check"></i><b>6.6</b> Other resources: optional but recommended</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="multivariate-data-methods.html"><a href="multivariate-data-methods.html#multidimensional-scaling-in-r-not-examinable"><i class="fa fa-check"></i><b>6.6.1</b> Multidimensional Scaling in <code>R</code> (<em>not examinable</em>)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -262,9 +264,9 @@ paua &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(paua)</code></pre></div>
 <pre><code>## Rows: 60
 ## Columns: 3
-## $ Species &lt;chr&gt; &quot;Haliotis iris&quot;, &quot;Haliotis australis&quot;, &quot;Haliotis australis&quot;, &quot;…
-## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6.…
-## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, 6…</code></pre>
+## $ Species &lt;chr&gt; &quot;Haliotis iris&quot;, &quot;Haliotis australis&quot;, &quot;Haliotis australis&quot;, …
+## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6…
+## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, …</code></pre>
 <div id="one-sample-t-test" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> One-Sample t-test</h3>
 <p>Using a violin plot we can look at the distribution of shell <code>Length</code>. We can calculate the average <code>Length</code> of all shells in our sample</p>
