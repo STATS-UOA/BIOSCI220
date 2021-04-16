@@ -1423,7 +1423,7 @@ int
 
 **[slido.com](slido.com) #biosci220** 
 
-```{r, echo = FALSE, fig.width=10}
+```{r, echo = FALSE, out.width="85%"}
 library(patchwork)
 null_model <- ggplot(penguins_nafree,aes(x = 1:length(bill_depth_mm), y = bill_depth_mm)) +
   geom_point() + xlab("Index") + ylab("Bill depth (mm)") + theme_classic() + geom_hline(yintercept = mean(penguins_nafree$bill_depth_mm))
@@ -1801,10 +1801,9 @@ class: inverse
 ---
 class: inverse
 
-###  Principal Component Analysis (PCA)
+### Principal Component Analysis (PCA)
 
-+ **AIM**: find the best low-dimensional representation of the variation in a multivariate data set
-
+**AIM**: find the best low-dimensional representation of the variation in a multivariate data set
 -- 
 
 + PCA
@@ -1824,7 +1823,7 @@ class: middle, center
 
 
 ---
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE,out.width="85%"}
 library(tidyverse)
 library(palmerpenguins)
 penguins_nafree <- penguins %>% drop_na()
@@ -1837,6 +1836,7 @@ penguins_nafree %>%
 ```
 
 ---
+### PCA in `R`
 
  + `flipper_length_mm`, `body_mass_g`, and `bill_length_mm` are relatively strongly (positively) related to one another
 
@@ -1895,11 +1895,11 @@ summary(pca)
 
 ---
 
-+ `PC1` explains $\sim$ 68\% of the total variance, which means that just over half of the information in the dataset 
++ `PC1` explains $\sim$ 68% of the total variance, which means that just over half of the information in the dataset 
  (5 variables) can be encapsulated by just that one Principal Component. 
- + `PC2` explains $\sim$ 19\% of the variance.
- + `PC3` explains $\sim$ 9\% of the variance.
- + `PC4` explains $\sim$ 2\% of the variance.
++ `PC2` explains $\sim$ 19% of the variance.
++ `PC3` explains $\sim$ 9% of the variance.
++ `PC4` explains $\sim$ 2% of the variance.
  
 ---
 ### PCA in `R` using `prcomp()`
@@ -1913,7 +1913,7 @@ pca$rotation
 
 ---
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width="85%"}
 pca$rotation %>%
   as.data.frame() %>%
   mutate(variables = rownames(.)) %>%
@@ -1927,7 +1927,7 @@ pca$rotation %>%
 
 ---
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message=FALSE,out.width="85%"}
 library(factoextra) ## install this package first
 fviz_pca_biplot(pca, geom = "point") +
       geom_point (alpha = 0.2)
@@ -1942,9 +1942,9 @@ fviz_pca_biplot(pca, geom = "point") +
 `r countdown::countdown(minutes = 2, seconds = 0, bottom = 0)`
 
 ---
-### PCA; how many `PC`s to keep?
+#### PCA; how many `PC`s to keep?
 
-```{r, message=FALSE}
+```{r, message=FALSE,echo = FALSE}
 fviz_screeplot(pca)
 ```
 
@@ -1963,9 +1963,9 @@ fviz_screeplot(pca)
 ---
 class: inverse
 
-## Clustering 
+### Clustering
 
-+  **AIM:** categorise data (find groups) in unlabeled data
+**AIM:** categorise data (find groups) in unlabeled data
 
 --
 
@@ -1976,7 +1976,9 @@ class: inverse
 +  It's all about variation, and the idea of minimizing it, again!
 ---
 
-+ The number of clusters ($k$) are specified
+**k-means**
+
++ The number of clusters ( $k$ ) are specified
 --
 
 + $k$ objects from the dataset are selected at random and *set* as the initial cluster centers 
@@ -1994,11 +1996,9 @@ class: inverse
 
 ---
 
-## ClusterDucks
+**ClusterDucks; in Sydney, the ducks have their own** [fashion show](https://mymodernmet.com/australian-pied-piper-duck-show/)
 
-### In Sydney, the ducks have their own [fashion show](https://mymodernmet.com/australian-pied-piper-duck-show/)
-
-<img src = "https://github.com/cmjt/statbiscuits/blob/master/swots/images/blue_flowers-2.jpg?raw=true">
+<img src = "https://github.com/cmjt/statbiscuits/blob/master/swots/images/blue_flowers-2.jpg?raw=true" height="50%">
 
 ---
 ### RGB ClusterDucks
@@ -2034,7 +2034,7 @@ r + g + b
 ---
 ### RGB ClusterDucks
 
-```{r, echo = FALSE, fig.cap = "3D scatterplot of the average RGB value per image."}
+```{r, echo = FALSE, fig.cap = "3D scatterplot of the average RGB value per image.",message = FALSE}
 cluster_ducks <- data.frame(attire  = stringr::str_match(names(duck_rgbs),"(.*?)-")[,2],
                             av_red = sapply(duck_rgbs, function(x) mean(c(x[,,1]))),
                             av_green = sapply(duck_rgbs, function(x) mean(c(x[,,2]))),
@@ -2047,9 +2047,8 @@ plot_ly(x = cluster_ducks$av_red, y = cluster_ducks$av_green,
 ```
 
 ---
-#### k-means clustering
-
 **Can we cluster the outfits (images) based on the average R, G, B values?**
+
 ```{r echo = FALSE, message = FALSE}
 ## library for k-means clustering
 library(factoextra)
@@ -2095,7 +2094,16 @@ k6 <- kmeans(df, centers = 6, nstart = 25)
 **But how many clusters are there?** using the **elbow** method
 
 
-```{r}
+```{r, eval = FALSE}
+barplot(c(k2$tot.withinss,k3$tot.withinss,k4$tot.withinss,
+          k5$tot.withinss,k6$tot.withinss),
+        names = paste(2:6," clusters"))
+```
+---
+**But how many clusters are there?** using the **elbow** method
+
+
+```{r, echo = FALSE}
 barplot(c(k2$tot.withinss,k3$tot.withinss,k4$tot.withinss,
           k5$tot.withinss,k6$tot.withinss),
         names = paste(2:6," clusters"))
@@ -2106,20 +2114,28 @@ barplot(c(k2$tot.withinss,k3$tot.withinss,k4$tot.withinss,
 
 **But how many clusters are there?** using the **elbow** method
 
-```{r}
+```{r,eval = FALSE}
+fviz_nbclust(df, kmeans, method = "wss") +
+  labs(subtitle = "Elbow method")
+```
+
+---
+
+**But how many clusters are there?** using the **elbow** method
+
+```{r, echo = FALSE}
 fviz_nbclust(df, kmeans, method = "wss") +
   labs(subtitle = "Elbow method")
 ```
 ---
 
-### 3 vs 4 vs 5
+**3 vs 5**
 
-```{r, echo = FALSE}
+```{r, echo = FALSE,fig.width=12}
 p3 <- fviz_cluster(k3, data = df)
-p4 <- fviz_cluster(k4, data = df)
 p5 <- fviz_cluster(k5, data = df)
 library(patchwork) 
-p3 | p4 | p5
+p3 | p5
 ```
 
 ---
@@ -2139,4 +2155,65 @@ class: inverse
 ## So that's a wrap (almost)
 
 ### Key points to remember from module 1
+
++ **Software** 
+
+   + `R` and `RStudio`
+   
+--
+
++ **Data** 
+   + where it comes from
+   + how it should be treated
+   + how to display it
+   
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
+
++ **Hypothesis testing**
+   + Formulate your question! Define your test statistic!
+   + We can formulate our own tests! (e.g., randomizaion test)
+   + You cannot interpret a p-value without first establishing the null hypothesis it is testing
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
+
++ **Linear modelling**
+   + Variation is the key: trying our best to explain it really...
+   
+<img src="https://pbs.twimg.com/media/EeMWb7QWsAIGftR?format=jpg&name=small", width="55%">
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember from module 1
+
++ **Too many variables**
+   + reduce the dimensionality
+   + get rid of the junk and keep the information we need
+  
+--
+
++ **if you want to put things in 'boxes'**
+    + k-means will probably do :-)
+
+
+---
+class: inverse
+
+## So that's a wrap
+
+<img src="img/watty.jpg" width="50%">
+
+
   
