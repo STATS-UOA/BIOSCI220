@@ -1896,7 +1896,7 @@ summary(pca)
 ---
 
 + `PC1` explains $\sim$ 68% of the total variance, which means that just over half of the information in the dataset 
- (5 variables) can be encapsulated by just that one Principal Component. 
+ (4 variables) can be encapsulated by just that one Principal Component. 
 + `PC2` explains $\sim$ 19% of the variance.
 + `PC3` explains $\sim$ 9% of the variance.
 + `PC4` explains $\sim$ 2% of the variance.
